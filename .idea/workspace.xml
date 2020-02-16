@@ -2,23 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bf59c58-dd6b-4293-aed3-8bbfbe963d9c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/_default/params.en.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/_default/params.zh-hans.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/content/en/post/_index.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/themes/Meteor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/archetypes/author/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/archetypes/author/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/archetypes/post/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/archetypes/post/index.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/pagination.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/pagination.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/_default/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config/_default/config.toml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/single.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/single.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/wave.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/wave.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/_default/baseof.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/_default/baseof.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/_default/terms.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/_default/terms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/partials/author.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/partials/author.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/partials/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/partials/head.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/partials/wave.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/partials/wave.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/i18n/en.toml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/i18n/en.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/i18n/zh-hans.toml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/i18n/zh-hans.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/_default/single.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/_default/single.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/partials/doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/partials/doc.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +59,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581825304518</updated>
-      <workItem from="1581825305937" duration="15919000" />
+      <workItem from="1581825305937" duration="16684000" />
     </task>
     <servers />
   </component>
@@ -85,21 +75,21 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="550" y="189" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1581825518919" />
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1581834389668">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1581847804697">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1581834389668" />
-    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1581834389668">
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1581847804697" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1581847804697">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1581834389668" />
-    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1581834389667">
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1581847804697" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1581847804697">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1581834389667" />
-    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1581834389668">
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1581847804697" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1581847804697">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1581834389668" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1581847804697" />
   </component>
 </project>
