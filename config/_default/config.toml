@@ -1,0 +1,36 @@
+baseURL = "https://www.yxl76.net/"
+theme = "Meteor"
+copyright = "&copy; 2014-{year} [www.yxl76.net](www.yxl76.net)"
+enableGitInfo = false
+enableEmoji = true
+
+defaultContentLanguage = "en"
+hasCJKLanguage = true
+defaultContentLanguageInSubdir = true
+
+googleAnalytics = ""
+disqusShortname = ""
+
+Paginate = "10"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+  author = "authors"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    style = "monokai"
+    tabWidth = 4
+
+[outputFormats.Algolia]
+  baseName = "algolia"
+  isPlainText = true
+  mediaType = "application/json"
+  notAlternative = true
+
+[outputs]
+  home = ["HTML", "RSS", "Algolia"]

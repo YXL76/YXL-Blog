@@ -1,0 +1,40 @@
+[[main]]
+  identifier = "Post"
+  name = "Post"
+  title = "Post"
+  url = "/post/"
+  weight = 10
+[[main]]
+  identifier = "Index"
+  name = "Index"
+  title = "Index"
+  weight = 20
+[[main]]
+  parent = "Index"
+  name = "Categories"
+  title = "Categories"
+  url = "/categories/"
+  weight = 21
+[[main]]
+  parent = "Index"
+  name = "Tags"
+  title = "Tags"
+  url = "/tags/"
+  weight = 22
+[[main]]
+  identifier = "About"
+  name = "About"
+  title = "About"
+  weight = 30
+[[main]]
+  parent = "About"
+  name = "Author"
+  title = "Author"
+  url = "/authors"
+  weight = 31
+[[main]]
+  parent = "About"
+  name = "GitHub"
+  title = "GitHub"
+  url = "https://github.com/YXL76"
+  weight = 32

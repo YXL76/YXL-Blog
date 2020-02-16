@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5bf59c58-dd6b-4293-aed3-8bbfbe963d9c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitmodules" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/_default/params.en.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/_default/params.zh-hans.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/en/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/content/en/post/_index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/themes/Meteor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/archetypes/author/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/archetypes/author/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/archetypes/post/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/archetypes/post/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/pagination.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/pagination.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/single.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/single.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/wave.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/wave.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/_default/baseof.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/_default/baseof.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/_default/terms.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/_default/terms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/partials/author.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/partials/author.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/partials/head.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/partials/head.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/partials/wave.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/partials/wave.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/themes/Meteor" />
+  </component>
+  <component name="ProjectId" id="1XsCEcxvlhUyek5isZRtJAC89yR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="hugo" type="BashConfigurationType" factoryName="Bash" nameIsGenerated="true">
+      <module name="YXL-Blog" />
+      <option name="INTERPRETER_OPTIONS" value="server" />
+      <option name="INTERPRETER_PATH" value="hugo" />
+      <option name="PROJECT_INTERPRETER" value="false" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\chenx\YXL-Blog" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SCRIPT_NAME" value="hugo" />
+      <option name="PARAMETERS" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5bf59c58-dd6b-4293-aed3-8bbfbe963d9c" name="Default Changelist" comment="" />
+      <created>1581825304518</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581825304518</updated>
+      <workItem from="1581825305937" duration="15919000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="225" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581825560249">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="225" y="89" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1581825560249" />
+    <state x="550" y="189" key="FileChooserDialogImpl" timestamp="1581825518919">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="550" y="189" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1581825518919" />
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom" timestamp="1581834389668">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="207" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1581834389668" />
+    <state width="1493" height="207" key="GridCell.Tab.0.center" timestamp="1581834389668">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="207" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1581834389668" />
+    <state width="1493" height="207" key="GridCell.Tab.0.left" timestamp="1581834389667">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="207" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1581834389667" />
+    <state width="1493" height="207" key="GridCell.Tab.0.right" timestamp="1581834389668">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state width="1493" height="207" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1581834389668" />
+  </component>
+</project>

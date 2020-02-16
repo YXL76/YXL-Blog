@@ -1,0 +1,10 @@
+# https://www.w3schools.com/tags/ref_country_codes.asp
+[en]
+  languageCode = "en"
+  contentDir = "content/en"
+  title = "YXL's Blog"
+
+[zh-hans]
+  languageCode = "zh-Hans"
+  contentDir = "content/zh-hans"
+  title = "YXL的小屋"
