@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5bf59c58-dd6b-4293-aed3-8bbfbe963d9c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/_default/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/config/_default/config.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/single.css" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/assets/css/theme/single.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/i18n/en.toml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/i18n/en.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/i18n/zh-hans.toml" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/i18n/zh-hans.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/_default/single.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/_default/single.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/themes/Meteor/layouts/partials/doc.html" beforeDir="false" afterPath="$PROJECT_DIR$/themes/Meteor/layouts/partials/doc.html" afterDir="false" />
-    </list>
+    <list default="true" id="5bf59c58-dd6b-4293-aed3-8bbfbe963d9c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,7 +51,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1581825304518</updated>
-      <workItem from="1581825305937" duration="16684000" />
+      <workItem from="1581825305937" duration="17293000" />
     </task>
     <servers />
   </component>
