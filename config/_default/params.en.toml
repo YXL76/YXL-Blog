@@ -6,16 +6,16 @@ postCopyright = "Original link：[{{ .Permalink }}]({{ .Permalink }})\n\nWhen re
   #   0: Nothing
   #   1: Algolia (https://www.algolia.com)
   #   2: Google (https://cse.google.com/)
-  engine = 2
+  engine = 1
 
   # Configuration of Algolia search engine.
   # Paste the values from your Algolia dashboard.
   [search.algolia]
     app_id = "OIIAO42ZPQ"
     api_key = "c5a73fdddfb9ce2f1c82e3b17c9e68cb"
-    index_name = "Blog"
+    index_name = "en"
     # page variables
-    vars = ["Title", "Summary", "Date", "Lastmod", "Permalink", "WordCount"]
+    vars = ["Title", "Summary", "Permalink"]
     # custom page variables
     params = ["categories", "tags"]
 
