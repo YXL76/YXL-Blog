@@ -1,4 +1,4 @@
-math = false
+math = true
 chart = false
 diagram = false
 waveform = false
