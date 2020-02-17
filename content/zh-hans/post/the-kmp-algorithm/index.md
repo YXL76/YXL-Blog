@@ -36,7 +36,7 @@ anchor:
 
 ---
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1008d0ba-6d9b-4a11-9b41-2326f3c096f2/deploy-status)](https://app.netlify.com/sites/yxl/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3c4add13-fb61-4e32-b1a2-75f9e1781542/deploy-status)](https://app.netlify.com/sites/yxl-blog/deploys)
 
 {{< APlayer id="1327337964" server="netease" type="song" >}}
 

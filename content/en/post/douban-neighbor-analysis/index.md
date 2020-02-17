@@ -35,7 +35,7 @@ anchor:
 
 ---
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1008d0ba-6d9b-4a11-9b41-2326f3c096f2/deploy-status)](https://app.netlify.com/sites/yxl/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3c4add13-fb61-4e32-b1a2-75f9e1781542/deploy-status)](https://app.netlify.com/sites/yxl-blog/deploys)
 
 {{< APlayer id = "18137221" server = "netease" type = "song" >}}
 
@@ -51,7 +51,7 @@ This is one of my python crawler practice projects. This project will crawl and 
 
 ### Simulated user login
 
-Take [https://www.douban.com/people/zeqingg/rev_contacts] (https://www.douban.com/people/zeqingg/rev_contacts) as an example. This page will show all the friends of the target users. The `zeqingg` is the `uid` of the target user.
+Take [https://www.douban.com/people/zeqingg/rev_contacts](https://www.douban.com/people/zeqingg/rev_contacts) as an example. This page will show all the friends of the target users. The `zeqingg` is the `uid` of the target user.
 
 However, it should be noted that the access to the page must be registered to the Douban account, otherwise it will jump to the login page, resulting in the failure of the page.
 
@@ -109,7 +109,7 @@ print(num)
 
 ```
 
-Once you have a number of friends, you can iterate through all the pages. For each page, each friend has a link to their own home page. The ` css selector` for the `url` of the home page is `#content > div > div.article > dl > dt > a`. Each url can be easily extracted from the form of [https://www.douban.com/people/zeqingg/] (https://www.douban.com/people/zeqingg/).
+Once you have a number of friends, you can iterate through all the pages. For each page, each friend has a link to their own home page. The ` css selector` for the `url` of the home page is `#content > div > div.article > dl > dt > a`. Each url can be easily extracted from the form of [https://www.douban.com/people/zeqingg/](https://www.douban.com/people/zeqingg/).
 
 ``` python {linenos=table}
 # Crawl all the neighbor list pages, get the uid of all the neighbors, save to local
@@ -137,7 +137,7 @@ Each user's home page has its corresponding data, but considering its complicate
 
 The Douban mobile version of the book video file page has more detailed information, which can support more in-depth data analysis.
 
-Take [https://m.douban.com/people/zeqingg/subject_profile] (https://m.douban.com/people/zeqingg/subject_profile) as an example. There is a lot of information available for analysis. However, after obtaining the webpage, I found that there was no data I saw.
+Take [https://m.douban.com/people/zeqingg/subject_profile](https://m.douban.com/people/zeqingg/subject_profile) as an example. There is a lot of information available for analysis. However, after obtaining the webpage, I found that there was no data I saw.
 
 After analysis, it is found that the webpage is a dynamic webpage, and all the data is requested after the webpage is opened. Using the `network` tool in `Developer tools` again, look at the items in the `XHR` category and get the request for the real `url` for [https://m.douban.com/rexxar/api/v2/user/ Zeqingg/archives_summary?for_mobile=1&ck=ykqX](https://m.douban.com/rexxar/api/v2/user/zeqingg/archives_summary?for_mobile=1&ck=ykqX) (as shown below). Requesting this link does not require a mock login. At the same time, the returned data is in the `json` format, parsed using the `loads()` function of the `json` module in `python`.
 
@@ -147,7 +147,7 @@ What is needed is the account information. The `json` data corresponds to the `u
 
 What can't be ignored is that some users do not fill in or are unwilling to disclose. There is no corresponding data in `json`. To prevent the `python` program from reporting errors, use the `try` statement, and if it doesn't exist, write an empty string.
 
-The acquisition of the viewing information is the same as the acquisition of the account information, using the mobile phone's web page [https://m.douban.com/people/zeqingg/movie_charts] (https://m.douban.com/people/zeqingg/movie_charts) For example. This page is also a dynamic page, using the same method as the previous step. After analyzing, the url of the real request is [https://m.douban.com/rexxar/api/v2/user/zeqingg/collection_stats?type= Movie&for_mobile=1&ck=ykqX](https://m.douban.com/rexxar/api/v2/user/zeqingg/collection_stats?type=movie&for_mobile=1&ck=ykqX) (as shown below).
+The acquisition of the viewing information is the same as the acquisition of the account information, using the mobile phone's web page [https://m.douban.com/people/zeqingg/movie_charts](https://m.douban.com/people/zeqingg/movie_charts) For example. This page is also a dynamic page, using the same method as the previous step. After analyzing, the url of the real request is [https://m.douban.com/rexxar/api/v2/user/zeqingg/collection_stats?type= Movie&for_mobile=1&ck=ykqX](https://m.douban.com/rexxar/api/v2/user/zeqingg/collection_stats?type=movie&for_mobile=1&ck=ykqX) (as shown below).
 
 ![Tutorial-4](Tutorial-4.webp)
 
