@@ -3,7 +3,7 @@ description = "~ There is nothing to be afraid of! ~"
 postCopyright = "Original link：[{{ .Permalink }}]({{ .Permalink }})\n\nWhen reprinting, the original source must be indicated in the form of a link."
 
 [search]
-  #   0: Nothing
+  #   0: Disabled
   #   1: Algolia (https://www.algolia.com)
   #   2: Google (https://cse.google.com/)
   engine = 1

@@ -3,7 +3,7 @@ description = "～已经没什么好害怕的了!～"
 postCopyright = "原文地址：[{{ .Permalink }}]({{ .Permalink }})\n\n转载时必须以链接形式注明原始出处。"
 
 [search]
-  #   0: Nothing
+  #   0: Disabled
   #   1: Algolia (https://www.algolia.com)
   #   2: Google (https://cse.google.com/)
   engine = 1

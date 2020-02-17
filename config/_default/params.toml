@@ -20,3 +20,17 @@ share = ["reddit", "twitter", "weibo", "linkedin", "email"]
     section = "background.webp"
     taxonomy = "background.webp"
     taxonomyTerm = "background.webp"
+
+[comment]
+  #   0: Disabled
+  #   1: Disqus (https://disqus.com)
+  #   2: Gitalk (https://gitalk.github.io/)
+  plugin = 2
+
+  [comment.gitalk]
+    clientID = "f4f9737a80e44286baed"
+    clientSecret = "69ab8a147ed4274cb1528543febd3f0dbdafa939"
+    repo = "YXL-Blog"
+    owner = "YXL76"
+    admin = ["YXL76"]
+    distractionFreeMode = false
