@@ -151,7 +151,7 @@ The acquisition of the viewing information is the same as the acquisition of the
 
 ![Tutorial-4](Tutorial-4.webp)
 
-Useful data in the returned `json` data such as the viewing number `total_collections`, the time to watch the movie 'total_spent`, the consumption in the cinema `total_cost`, the average weekly viewing time `weekly_avg`, most often watched The area `countries`, the most commonly watched type `genres` and so on. Again, write them to the `csv` file.
+Useful data in the returned `json` data such as the viewing number `total_collections`, the time to watch the movie `total_spent`, the consumption in the cinema `total_cost`, the average weekly viewing time `weekly_avg`, most often watched The area `countries`, the most commonly watched type `genres` and so on. Again, write them to the `csv` file.
 
 It should be noted that the watercress has an anti-reptile mechanism and has a limit on the number of visits per unit time. If you make a lot of visits in a short time, you will be blocked. So, use the `sleep`) function of the `time` module in `python` to add a delay of `2` seconds after each request, avoiding the possibility of being intercepted.
 
