@@ -14,7 +14,7 @@ avatar: false
 bio: true
 
 image:
-  name: "【初恋】「saberiii 」[pid=39758588].webp"
+  name: "【初恋】「saberiii 」[pid=39758588].png"
   caption: "Image credit: [**saberiii**](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=39758588)"
 
 toc:

@@ -14,7 +14,7 @@ avatar: false
 bio: true
 
 image:
-  name: "【オリジナル】「桜」「ももこ」[pid=73718366].webp"
+  name: "【オリジナル】「桜」「ももこ」[pid=73718366].jpg"
   caption: "Image credit: [**ももこ**](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=73718366)"
 
 toc:

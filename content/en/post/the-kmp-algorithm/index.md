@@ -14,7 +14,7 @@ avatar: false
 bio: true
 
 image:
-  name: "【東方】「はかなき夢ぞ命なりける」「KiTA」[pid=62341877].webp"
+  name: "【東方】「はかなき夢ぞ命なりける」「KiTA」[pid=62341877].jpg"
   caption: "Image credit: [**KiTA**](https://www.pixiv.net/member_illust.php?mode=medium&illust_id=62341877)"
 
 toc:
