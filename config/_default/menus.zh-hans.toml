@@ -38,3 +38,9 @@
   title = "GitHub"
   url = "https://github.com/YXL76"
   weight = 32
+[[main]]
+  parent = "About"
+  name = "Log"
+  title = "日志"
+  url = "/log"
+  weight = 33
