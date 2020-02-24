@@ -1,6 +1,6 @@
 baseURL = "https://www.yxl76.net/"
 theme = "Meteor"
-copyright = "&copy; 2014-{year} [www.yxl76.net](www.yxl76.net)"
+copyright = "&copy; 2014-{year} [yxl76.net](yxl76.net)"
 enableGitInfo = true
 enableEmoji = true
 
