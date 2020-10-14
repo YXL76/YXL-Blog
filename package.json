@@ -2,6 +2,7 @@
   "dependencies": {
     "@material-ui/core": "4.11.0",
     "@material-ui/icons": "^4.9.1",
+    "@material-ui/system": "^4.9.14",
     "@mdx-js/mdx": "^1.6.18",
     "@mdx-js/react": "^1.6.18",
     "gatsby": "2.24.76",

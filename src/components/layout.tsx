@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, Typography } from "@material-ui/core";
+import { AppBar, Box, Container, Typography } from "../components";
 import {
   ArchiveOutlined,
   FaceOutlined,
@@ -97,7 +97,7 @@ export const Layout: FC = ({ children }) => {
         </Container>
       </AppBar>
       <Container maxWidth="lg">
-        <Box>{children}</Box>
+        <>{children}</>
       </Container>
     </>
   );
