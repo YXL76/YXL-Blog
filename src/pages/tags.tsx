@@ -2,5 +2,5 @@ import { Layout } from "../components";
 import React from "react";
 
 export default function App() {
-  return <Layout>About</Layout>;
+  return <Layout>Tags</Layout>;
 }

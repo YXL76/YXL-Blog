@@ -1,11 +1,4 @@
-import {
-  AppBar,
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Typography,
-} from "@material-ui/core";
+import { AppBar, Box, Container, Typography } from "@material-ui/core";
 import {
   ArchiveOutlined,
   FaceOutlined,
@@ -16,13 +9,14 @@ import {
   RssFeedOutlined,
   SearchOutlined,
 } from "@material-ui/icons";
+import { Button, IconButton, Link } from "gatsby-theme-material-ui";
 import { graphql, useStaticQuery } from "gatsby";
 import type { FC } from "react";
 import React from "react";
 
 export const Layout: FC = ({ children }) => {
-  const data = useStaticQuery<GatsbyTypes.SiteMetadataQuery>(graphql`
-    query SiteMetadata {
+  const data = useStaticQuery<GatsbyTypes.LayoutQuery>(graphql`
+    query Layout {
       site {
         siteMetadata {
           title
@@ -49,16 +43,22 @@ export const Layout: FC = ({ children }) => {
                   lineHeight="normal"
                   mr={4}
                 >
-                  {data.site?.siteMetadata?.title}
+                  <Link to="/">{data.site?.siteMetadata?.title}</Link>
                 </Box>
               </Typography>
-              <Button variant="text" size="large" startIcon={<PagesOutlined />}>
+              <Button
+                variant="text"
+                size="large"
+                startIcon={<PagesOutlined />}
+                to="/blogs"
+              >
                 Blogs
               </Button>
               <Button
                 variant="text"
                 size="large"
                 startIcon={<LocalOfferOutlined />}
+                to="/tags"
               >
                 Tags
               </Button>
@@ -66,10 +66,16 @@ export const Layout: FC = ({ children }) => {
                 variant="text"
                 size="large"
                 startIcon={<ArchiveOutlined />}
+                to="/categories"
               >
                 Categories
               </Button>
-              <Button variant="text" size="large" startIcon={<FaceOutlined />}>
+              <Button
+                variant="text"
+                size="large"
+                startIcon={<FaceOutlined />}
+                to="/about"
+              >
                 About
               </Button>
             </Box>
