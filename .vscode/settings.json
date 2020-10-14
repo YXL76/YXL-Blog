@@ -1,0 +1,19 @@
+{
+  "search.exclude": {
+    "public": true,
+    ".yarn": true,
+    ".cache": true,
+    ".vscode": true,
+    "node_modules": true
+  },
+  "typescript.tsc.autoDetect": "off",
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/.hg/store/**": true,
+    "**/.yarn/**": true,
+    "**/.cache/**": true,
+    "**/.public/**": true
+  }
+}
