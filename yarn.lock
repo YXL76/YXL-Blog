@@ -7043,39 +7043,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"example-typescript@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "example-typescript@workspace:."
-  dependencies:
-    "@material-ui/core": 4.11.0
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/styles": ^4.10.0
-    "@types/node": ^12.12.67
-    "@types/react": ^16.9.52
-    "@types/react-dom": ^16.9.8
-    "@typescript-eslint/eslint-plugin": 4.4.1
-    "@typescript-eslint/parser": 4.4.1
-    babel-eslint: ^10.1.0
-    eslint: ^7.11.0
-    eslint-config-prettier: 6.12.0
-    eslint-config-react-app: 6.0.0-next.98
-    eslint-plugin-flowtype: ^5.2.0
-    eslint-plugin-import: ^2.22.1
-    eslint-plugin-jest: ^24.1.0
-    eslint-plugin-jsx-a11y: ^6.3.1
-    eslint-plugin-prettier: 3.1.4
-    eslint-plugin-react: ^7.21.4
-    eslint-plugin-react-hooks: ^4.1.2
-    gatsby: 2.24.76
-    gatsby-plugin-typescript: ^2.4.21
-    gatsby-theme-material-ui: ^1.0.13
-    prettier: 2.1.2
-    react: 16.13.1
-    react-dom: 16.13.1
-    typescript: ^4.0.3
-  languageName: unknown
-  linkType: soft
-
 "execa@npm:^0.7.0":
   version: 0.7.0
   resolution: "execa@npm:0.7.0"
@@ -17710,6 +17677,39 @@ typescript@^4.0.3:
   checksum: 700b6cad9746a93fdd12d2ce9e0580820f3f9e61d8b42adfe61962bb6121ff6cf006126e75dac70682889100252b38cc38b00f3850ed2649d1487735d6e0549a
   languageName: node
   linkType: hard
+
+"yxl-blog@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "yxl-blog@workspace:."
+  dependencies:
+    "@material-ui/core": 4.11.0
+    "@material-ui/icons": ^4.9.1
+    "@material-ui/styles": ^4.10.0
+    "@types/node": ^12.12.67
+    "@types/react": ^16.9.52
+    "@types/react-dom": ^16.9.8
+    "@typescript-eslint/eslint-plugin": 4.4.1
+    "@typescript-eslint/parser": 4.4.1
+    babel-eslint: ^10.1.0
+    eslint: ^7.11.0
+    eslint-config-prettier: 6.12.0
+    eslint-config-react-app: 6.0.0-next.98
+    eslint-plugin-flowtype: ^5.2.0
+    eslint-plugin-import: ^2.22.1
+    eslint-plugin-jest: ^24.1.0
+    eslint-plugin-jsx-a11y: ^6.3.1
+    eslint-plugin-prettier: 3.1.4
+    eslint-plugin-react: ^7.21.4
+    eslint-plugin-react-hooks: ^4.1.2
+    gatsby: 2.24.76
+    gatsby-plugin-typescript: ^2.4.21
+    gatsby-theme-material-ui: ^1.0.13
+    prettier: 2.1.2
+    react: 16.13.1
+    react-dom: 16.13.1
+    typescript: ^4.0.3
+  languageName: unknown
+  linkType: soft
 
 "zwitch@npm:^1.0.0":
   version: 1.0.5
