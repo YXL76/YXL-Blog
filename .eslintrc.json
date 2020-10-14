@@ -9,8 +9,16 @@
     "ecmaVersion": 2018,
     "project": "tsconfig.json"
   },
-  "plugins": ["prettier"],
+  "plugins": ["prettier", "graphql"],
   "rules": {
+    "graphql/template-strings": [
+      "error",
+      {
+        "env": "relay",
+        "tagName": "graphql",
+        "schemaJsonFilepath": "src/__generated__/gatsby-introspection.json"
+      }
+    ],
     "@typescript-eslint/consistent-type-imports": "warn",
     "@typescript-eslint/lines-between-class-members": "error",
     "@typescript-eslint/member-ordering": "warn",
