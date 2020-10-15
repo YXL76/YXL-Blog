@@ -15,8 +15,8 @@ import type { FC } from "react";
 import React from "react";
 
 export const Layout: FC = ({ children }) => {
-  const data = useStaticQuery<GatsbyTypes.LayoutQuery>(graphql`
-    query Layout {
+  const data = useStaticQuery<GatsbyTypes.LayoutComponentsQuery>(graphql`
+    query LayoutComponents {
       site {
         siteMetadata {
           title

@@ -3,13 +3,27 @@ import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
 export default function App() {
-  const data = useStaticQuery<GatsbyTypes.BlogsQuery>(graphql`
-    query Blogs {
-      allMdx(filter: {}) {
+  const {
+    allMdx: { nodes },
+  } = useStaticQuery<GatsbyTypes.BlogsPagesQuery>(graphql`
+    query BlogsPages {
+      allMdx(
+        filter: { fields: { contentType: { eq: "blogs" } } }
+        sort: { order: DESC, fields: frontmatter___date }
+      ) {
         nodes {
           frontmatter {
+            banner {
+              publicURL
+            }
+            category
+            date(fromNow: true)
+            description
+            subtitle
+            tags
             title
           }
+          slug
           wordCount {
             words
           }
@@ -23,19 +37,9 @@ export default function App() {
     <Layout>
       <Grid container>
         <Grid item xs={8}>
-          {data.allMdx.nodes.map(
-            (
-              { frontmatter: { title }, timeToRead, wordCount: { words } },
-              index
-            ) => (
-              <BlogCard
-                key={index}
-                title={title}
-                words={words}
-                timeToRead={timeToRead}
-              />
-            )
-          )}
+          {nodes.map((node, index) => (
+            <BlogCard key={index} {...node} />
+          ))}
         </Grid>
         <Grid item xs={4}></Grid>
       </Grid>
