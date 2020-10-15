@@ -1,5 +1,4 @@
-import { Box, Layout, Typography } from "../components";
-import { Link } from "gatsby-theme-material-ui";
+import { Box, Layout, Link, Typography } from "../components";
 import React from "react";
 
 export default function App() {

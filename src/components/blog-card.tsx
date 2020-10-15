@@ -80,7 +80,7 @@ export const BlogCard: FC<BlogCardProps> = ({
       p={4}
     >
       <Box position="relative" width={1}>
-        {banner ? (
+        {banner && (
           <ButtonBase
             focusRipple
             borderRadius={24}
@@ -92,8 +92,6 @@ export const BlogCard: FC<BlogCardProps> = ({
               <CardMedia width={1} pb="50%" image={banner?.publicURL} />
             </GatsbyLink>
           </ButtonBase>
-        ) : (
-          <></>
         )}
         <Button
           position="absolute"
@@ -117,7 +115,7 @@ export const BlogCard: FC<BlogCardProps> = ({
       >
         {title}
       </Link>
-      {subtitle ? (
+      {subtitle && (
         <Typography
           fontSize={24}
           fontWeight="fontWeightMedium"
@@ -126,8 +124,6 @@ export const BlogCard: FC<BlogCardProps> = ({
         >
           {subtitle}
         </Typography>
-      ) : (
-        <></>
       )}
       <Grid container alignItems="center" justify="center" mt={1} spacing={1}>
         <Grid item>
@@ -152,12 +148,10 @@ export const BlogCard: FC<BlogCardProps> = ({
           <MetadataChip icon={<AlarmOutlined />} label={`${timeToRead} min`} />
         </Grid>
       </Grid>
-      {description ? (
+      {description && (
         <Typography fontSize={18} mt={2} mx={10} textAlign="center">
           {description}
         </Typography>
-      ) : (
-        <></>
       )}
       <Box
         display="flex"
