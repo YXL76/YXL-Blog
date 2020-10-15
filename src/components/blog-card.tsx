@@ -39,7 +39,13 @@ const MetadataChip: FC<MetadataChipProps> = ({
   />
 );
 
-export const BlogCard: FC = () => {
+type BlogCardProps = {
+  title: string;
+  words: number;
+  timeToRead: number;
+};
+
+export const BlogCard: FC<BlogCardProps> = ({ title, words, timeToRead }) => {
   return (
     <Card
       borderRadius={24}
@@ -74,16 +80,9 @@ export const BlogCard: FC = () => {
         mt={4}
         textAlign="center"
       >
-        Hello World! Hello World! Hello World! Hello World!
+        {title}
       </Typography>
-      <Grid
-        container
-        xs
-        alignItems="center"
-        justify="center"
-        mt={2}
-        spacing={2}
-      >
+      <Grid container alignItems="center" justify="center" mt={2} spacing={2}>
         <Grid item>
           <MetadataChip
             clickable
@@ -100,10 +99,10 @@ export const BlogCard: FC = () => {
           <MetadataChip icon={<EventNoteOutlined />} label="2020-01-01" />
         </Grid>
         <Grid item>
-          <MetadataChip icon={<AvTimerOutlined />} label="2020" />
+          <MetadataChip icon={<AvTimerOutlined />} label={words} />
         </Grid>
         <Grid item>
-          <MetadataChip icon={<AlarmOutlined />} label="10 min" />
+          <MetadataChip icon={<AlarmOutlined />} label={`${timeToRead} min`} />
         </Grid>
       </Grid>
       <Typography fontSize={20} mt={2} mx={10} textAlign="center">
