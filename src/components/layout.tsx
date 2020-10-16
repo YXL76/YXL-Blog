@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, Typography } from "../components";
+import { AppBar, Box, Container, Typography } from ".";
 import {
   ArchiveOutlined,
   FaceOutlined,

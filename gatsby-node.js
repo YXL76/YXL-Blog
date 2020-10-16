@@ -34,6 +34,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         {
           allMdx(filter: { fields: { contentType: { eq: "blogs" } } }) {
             nodes {
+              id
               slug
             }
           }
@@ -45,11 +46,11 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       throw errors;
     }
 
-    nodes.forEach(({ slug }) => {
+    nodes.forEach(({ id, slug }) => {
       createPage({
         path: `/blogs/${slug}`,
         component: blogsPostTemplate,
-        context: {},
+        context: { id },
       });
     });
   } catch (err) {

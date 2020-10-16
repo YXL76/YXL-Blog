@@ -1,4 +1,4 @@
-import { BlogCard, Grid, Layout } from "../components";
+import { BlogCard, BlogsLayout } from "../components";
 import { graphql, useStaticQuery } from "gatsby";
 import React from "react";
 
@@ -34,15 +34,10 @@ export default function App() {
   `);
 
   return (
-    <Layout>
-      <Grid container>
-        <Grid item xs={8}>
-          {nodes.map((node, index) => (
-            <BlogCard key={index} {...node} />
-          ))}
-        </Grid>
-        <Grid item xs={4}></Grid>
-      </Grid>
-    </Layout>
+    <BlogsLayout>
+      {nodes.map((node, index) => (
+        <BlogCard key={index} {...node} />
+      ))}
+    </BlogsLayout>
   );
 }

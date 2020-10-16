@@ -17,7 +17,7 @@ import {
   Grid,
   Link,
   Typography,
-} from "../components";
+} from ".";
 import type { FC, ReactElement, ReactNode } from "react";
 import React from "react";
 

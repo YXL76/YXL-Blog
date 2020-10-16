@@ -7,6 +7,12 @@ import {
   Chip as MuiChip,
   Container as MuiContainer,
   Grid as MuiGrid,
+  Paper as MuiPaper,
+  Table as MuiTable,
+  TableBody as MuiTableBody,
+  TableCell as MuiTableCell,
+  TableHead as MuiTableHead,
+  TableRow as MuiTableRow,
   Typography as MuiTypography,
 } from "@material-ui/core";
 import {
@@ -32,7 +38,7 @@ import {
 } from "@material-ui/system";
 import { styled } from "@material-ui/core/styles";
 
-export { Box } from "@material-ui/core";
+export { Box, TableContainer } from "@material-ui/core";
 
 export const AppBar = styled(MuiAppBar)(compose());
 
@@ -72,10 +78,22 @@ export const GatsbyLink = styled(MuiGatsbyLink)(compose(sizing));
 
 export const Grid = styled(MuiGrid)(compose(spacing));
 
+export const Paper = styled(MuiPaper)(compose());
+
 export const IconButton = styled(MuiIconButton)(compose());
 
 export const Link = styled(MuiLink)(compose(sizing, spacing, typography));
 
+export const Table = styled(MuiTable)(compose());
+
+export const TableBody = styled(MuiTableBody)(compose());
+
+export const TableCell = styled(MuiTableCell)(compose());
+
+export const TableHead = styled(MuiTableHead)(compose());
+
+export const TableRow = styled(MuiTableRow)(compose());
+
 export const Typography = styled(MuiTypography)(
-  compose(display, sizing, spacing, typography)
+  compose(sizing, spacing, typography)
 );

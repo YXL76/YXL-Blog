@@ -9,10 +9,12 @@
     "gatsby-plugin-mdx": "^1.2.46",
     "gatsby-plugin-typegen": "^2.2.1",
     "gatsby-plugin-typescript": "^2.4.21",
+    "gatsby-remark-images": "^3.3.34",
     "gatsby-source-filesystem": "^2.3.34",
     "gatsby-theme-material-ui": "^1.0.13",
     "react": "16.14.0",
-    "react-dom": "16.14.0"
+    "react-dom": "16.14.0",
+    "remark-emoji": "^2.1.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.67",
