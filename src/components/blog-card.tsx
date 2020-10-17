@@ -13,7 +13,6 @@ import {
   Card,
   CardMedia,
   Chip,
-  GatsbyLink,
   Grid,
   Link,
   Typography,
@@ -88,9 +87,9 @@ export const BlogCard: FC<BlogCardProps> = ({
             overflow="hidden"
             width={1}
           >
-            <GatsbyLink width={1} to={destination}>
+            <Link width={1} to={destination}>
               <CardMedia width={1} pb="50%" image={banner?.publicURL} />
-            </GatsbyLink>
+            </Link>
           </ButtonBase>
         )}
         <Button

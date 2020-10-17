@@ -45,15 +45,10 @@ declare module "@mdx-js/react" {
     }[];
   };
 
-  export type PreProps = {
-    children: { props: { children: string; className: string } };
-  };
-
   export type Components =
     | { tr: React.ComponentType<TrProps> }
     | { td: React.ComponentType<TdProps> }
     | { table: React.ComponentType<TableProps> }
-    | { pre: React.ComponentType<PreCodeProps> }
     | {
         [key in ComponentType]?: React.ComponentType<Record<string, unknown>>;
       };

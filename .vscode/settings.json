@@ -14,6 +14,6 @@
     "**/.hg/store/**": true,
     "**/.yarn/**": true,
     "**/.cache/**": true,
-    "**/.public/**": true
+    "**/public/**": true
   }
 }

@@ -20,7 +20,6 @@ import {
   Button as MuiButton,
   CardActionArea as MuiCardActionArea,
   Fab as MuiFab,
-  GatsbyLink as MuiGatsbyLink,
   IconButton as MuiIconButton,
   Link as MuiLink,
 } from "gatsby-theme-material-ui";
@@ -73,8 +72,6 @@ export const Chip = styled(MuiChip)(
 export const Container = styled(MuiContainer)(compose());
 
 export const Fab = styled(MuiFab)(compose());
-
-export const GatsbyLink = styled(MuiGatsbyLink)(compose(sizing));
 
 export const Grid = styled(MuiGrid)(compose(spacing));
 

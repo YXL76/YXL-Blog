@@ -1,12 +1,15 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-const emoji = require("remark-emoji");
-
 module.exports = {
   siteMetadata: {
     title: "YXL Blog",
   },
   plugins: [
     "gatsby-theme-material-ui",
+    {
+      resolve: "gatsby-plugin-sass",
+      options: {
+        useResolveUrlLoader: true,
+      },
+    },
     {
       resolve: "gatsby-plugin-typegen",
       options: {
@@ -41,7 +44,8 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        remarkPlugins: [emoji],
+        remarkPlugins: [require("remark-emoji")],
+        rehypePlugins: [require("@mapbox/rehype-prism")],
         gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-images",
