@@ -1,4 +1,4 @@
-import { BlogsLayout, Mdx } from "../components";
+import { BlogsLayout, Box, Mdx } from "../components";
 import type { PageProps } from "gatsby";
 import React from "react";
 import { graphql } from "gatsby";
@@ -8,7 +8,9 @@ export default function App({
 }: PageProps<GatsbyTypes.BlogsTemplatesQuery>) {
   return (
     <BlogsLayout>
-      <Mdx>{mdx?.body ?? ""}</Mdx>
+      <Box bgcolor="#ffffff" px={4} py={2} borderRadius={24}>
+        <Mdx>{mdx?.body ?? ""}</Mdx>
+      </Box>
     </BlogsLayout>
   );
 }

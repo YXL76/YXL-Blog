@@ -1,5 +1,6 @@
-import type { Components, TableProps, TdProps, TrProps } from "@mdx-js/react";
 import {
+  Box,
+  Code,
   Link,
   Paper,
   Table,
@@ -10,7 +11,15 @@ import {
   TableRow,
   Typography,
 } from ".";
+import type {
+  Components,
+  PreProps,
+  TableProps,
+  TdProps,
+  TrProps,
+} from "@mdx-js/react";
 import type { FC } from "react";
+import type { Language } from "prism-react-renderer";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
@@ -47,18 +56,66 @@ const Ta: FC<TableProps> = ({ children }) => (
   </TableContainer>
 );
 
+const Pre: FC<PreProps> = ({
+  children: {
+    props: { children, className },
+  },
+}) => {
+  const language = /^language-(.+)$/.exec(className);
+  return (
+    <Code
+      code={(children as string).trim()}
+      language={(language ? language[1] : "text").toLowerCase() as Language}
+    ></Code>
+  );
+};
+
 const components: Components = {
-  p: (props) => <Typography variant="body1" {...props}></Typography>,
+  p: (props) => {
+    return <Typography variant="body1" {...props}></Typography>;
+  },
   h1: (props) => <Typography variant="h1" {...props}></Typography>,
   h2: (props) => <Typography variant="h2" {...props}></Typography>,
   h3: (props) => <Typography variant="h3" {...props}></Typography>,
   h4: (props) => <Typography variant="h4" {...props}></Typography>,
   h5: (props) => <Typography variant="h5" {...props}></Typography>,
   h6: (props) => <Typography variant="h6" {...props}></Typography>,
+  blockquote: (props) => (
+    <Box
+      component="blockquote"
+      bgcolor="#f0f0f0"
+      borderLeft="4px solid #000"
+      ml={0}
+      mr={2}
+      my={2}
+      p={2}
+      {...props}
+    ></Box>
+  ),
   table: Ta,
   tr: Tr,
   td: Td,
+  pre: Pre,
+  inlineCode: (props) => (
+    <Box
+      component="code"
+      bgcolor="#f0f0f0"
+      borderRadius={8}
+      px={0.8}
+      py={0.2}
+      {...props}
+    ></Box>
+  ),
   a: (props) => <Link {...props}></Link>,
+  img: (props) => (
+    <Box
+      component="img"
+      display="block"
+      maxWidth={1}
+      mx="auto"
+      {...props}
+    ></Box>
+  ),
 };
 
 type MdxProps = {

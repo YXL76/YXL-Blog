@@ -162,8 +162,9 @@ export const BlogCard: FC<BlogCardProps> = ({
         width={1}
       >
         <Box display="flex" flexWrap="wrap">
-          {tags.map((tag) => (
+          {tags.map((tag, idx) => (
             <Button
+              key={idx}
               borderRadius={16}
               color="primary"
               startIcon={<LocalOfferOutlined />}
