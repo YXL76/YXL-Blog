@@ -45,7 +45,11 @@ module.exports = {
       resolve: "gatsby-plugin-mdx",
       options: {
         remarkPlugins: [require("remark-emoji")],
-        rehypePlugins: [require("@mapbox/rehype-prism")],
+        rehypePlugins: [
+          require("rehype-slug"),
+          [require("rehype-autolink-headings"), { behavior: "wrap" }],
+          require("@mapbox/rehype-prism"),
+        ],
         gatsbyRemarkPlugins: [
           {
             resolve: "gatsby-remark-images",
@@ -55,6 +59,13 @@ module.exports = {
             },
           },
         ],
+      },
+    },
+    {
+      resolve: "gatsby-plugin-purgecss",
+      options: {
+        content: ["**/!(*.d).{ts,js,jsx,tsx,md,mdx}"],
+        printRejected: true,
       },
     },
   ],

@@ -10,12 +10,7 @@ import {
   TableRow,
   Typography,
 } from ".";
-import type {
-  Components,
-  TableProps,
-  TdProps,
-  TrProps,
-} from "@mdx-js/react";
+import type { Components, TableProps, TdProps, TrProps } from "@mdx-js/react";
 import type { FC } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
