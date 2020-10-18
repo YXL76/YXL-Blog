@@ -1,4 +1,5 @@
 module.exports = {
+  polyfill: false,
   siteMetadata: {
     title: "YXL Blog",
   },

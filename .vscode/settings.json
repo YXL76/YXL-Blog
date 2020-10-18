@@ -15,5 +15,6 @@
     "**/.yarn/**": true,
     "**/.cache/**": true,
     "**/public/**": true
-  }
+  },
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

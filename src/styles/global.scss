@@ -1,3 +1,49 @@
-html {
-  scroll-behavior: smooth;
+.flex {
+  display: flex;
+
+  &-align-items-center {
+    align-items: center;
+  }
+
+  &-align-items-end {
+    align-items: flex-end;
+  }
+
+  &-grow-1 {
+    flex-grow: 1;
+  }
+
+  &-justify-content-end {
+    justify-content: flex-end;
+  }
+
+  &-justify-content-space-between {
+    justify-content: space-between;
+  }
+
+  &-justify-content-start {
+    justify-content: flex-start;
+  }
+
+  &-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  &-wrap {
+    flex-wrap: wrap;
+  }
+}
+
+.app-bar {
+  &__container {
+    padding: 4px 0;
+  }
+
+  &__title {
+    font: {
+      size: 24px;
+      weight: bold;
+    }
+    margin-right: 16px;
+  }
 }

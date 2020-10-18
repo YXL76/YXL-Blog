@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, Typography } from ".";
+import { AppBar, Container, Typography } from ".";
 import {
   ArchiveOutlined,
   FaceOutlined,
@@ -29,22 +29,12 @@ export const Layout: FC = ({ children }) => {
     <>
       <AppBar position="static" color="transparent" elevation={0}>
         <Container maxWidth="lg">
-          <Box display="flex" py={1}>
-            <Box
-              display="flex"
-              flexGrow={1}
-              justifyContent="flex-start"
-              alignItems="center"
-            >
+          <div className="flex app-bar__container">
+            <div className="flex flex-grow-1 flex-justify-content-start flex-align-items-center">
               <Typography variant="overline">
-                <Box
-                  fontWeight="fontWeightBold"
-                  fontSize={24}
-                  lineHeight="normal"
-                  mr={4}
-                >
+                <div className="app-bar__title">
                   <Link to="/">{data.site?.siteMetadata?.title}</Link>
-                </Box>
+                </div>
               </Typography>
               <Button
                 variant="text"
@@ -78,8 +68,8 @@ export const Layout: FC = ({ children }) => {
               >
                 About
               </Button>
-            </Box>
-            <Box display="flex" justifyContent="flex-end" alignItems="center">
+            </div>
+            <div className="flex flex-justify-content-end flex-align-items-center">
               <IconButton color="inherit">
                 <SearchOutlined />
               </IconButton>
@@ -92,8 +82,8 @@ export const Layout: FC = ({ children }) => {
               <IconButton color="inherit">
                 <RssFeedOutlined />
               </IconButton>
-            </Box>
-          </Box>
+            </div>
+          </div>
         </Container>
       </AppBar>
       <Container maxWidth="lg">

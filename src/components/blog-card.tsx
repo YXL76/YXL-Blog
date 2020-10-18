@@ -7,7 +7,6 @@ import {
 } from "@material-ui/icons";
 import {
   Avatar,
-  Box,
   Button,
   ButtonBase,
   Card,
@@ -19,6 +18,7 @@ import {
 } from ".";
 import type { FC, ReactElement, ReactNode } from "react";
 import React from "react";
+import classes from "../styles/blog-card.module.scss";
 
 type MetadataChipProps = {
   avatar?: ReactElement;
@@ -32,17 +32,7 @@ const MetadataChip: FC<MetadataChipProps> = ({
   clickable,
   label,
   icon,
-}) => (
-  <Chip
-    bgcolor="transparent"
-    fontSize="1rem"
-    fontWeight="fontWeightMedium"
-    clickable={clickable}
-    avatar={avatar}
-    icon={icon}
-    label={label}
-  />
-);
+}) => <Chip clickable={clickable} avatar={avatar} icon={icon} label={label} />;
 
 type BlogCardProps = {
   frontmatter: {
@@ -69,70 +59,31 @@ export const BlogCard: FC<BlogCardProps> = ({
 }) => {
   const destination = `/blogs/${slug}`;
   return (
-    <Card
-      borderRadius={24}
-      boxShadow={8}
-      display="flex"
-      flexDirection="column"
-      alignItems="center"
-      my={8}
-      p={4}
-    >
-      <Box position="relative" width={1}>
+    <Card>
+      <div className={classes["category-container"]}>
         {banner && (
-          <ButtonBase
-            focusRipple
-            borderRadius={24}
-            boxShadow={8}
-            overflow="hidden"
-            width={1}
-          >
-            <Link width={1} to={destination}>
-              <CardMedia width={1} pb="50%" image={banner?.publicURL} />
+          <ButtonBase focusRipple>
+            <Link to={destination}>
+              <CardMedia image={banner?.publicURL} />
             </Link>
           </ButtonBase>
         )}
         <Button
-          position="absolute"
-          borderRadius={16}
-          left={28}
-          top={28}
           variant="contained"
           color="primary"
           to={`/categories/${category}`}
         >
           {category}
         </Button>
-      </Box>
-      <Link
-        fontSize={32}
-        fontWeight="fontWeightBold"
-        letterSpacing={4}
-        mt={3}
-        textAlign="center"
-        to={destination}
-      >
-        {title}
-      </Link>
-      {subtitle && (
-        <Typography
-          fontSize={24}
-          fontWeight="fontWeightMedium"
-          letterSpacing={1}
-          textAlign="center"
-        >
-          {subtitle}
-        </Typography>
-      )}
-      <Grid container alignItems="center" justify="center" mt={1} spacing={1}>
+      </div>
+      <Link to={destination}>{title}</Link>
+      {subtitle && <Typography>{subtitle}</Typography>}
+      <Grid container alignItems="center" justify="center" spacing={1}>
         <Grid item>
           <MetadataChip
             clickable
             avatar={
-              <Avatar
-                boxShadow={2}
-                src="https://estudiopatagon.com/themes/wordpress/breek/wp-content/uploads/2019/06/avatar-op2.jpg"
-              />
+              <Avatar src="https://estudiopatagon.com/themes/wordpress/breek/wp-content/uploads/2019/06/avatar-op2.jpg" />
             }
             label="Author"
           />
@@ -147,37 +98,24 @@ export const BlogCard: FC<BlogCardProps> = ({
           <MetadataChip icon={<AlarmOutlined />} label={`${timeToRead} min`} />
         </Grid>
       </Grid>
-      {description && (
-        <Typography fontSize={18} mt={2} mx={10} textAlign="center">
-          {description}
-        </Typography>
-      )}
-      <Box
-        display="flex"
-        alignItems="flex-end"
-        flexWrap="nowrap"
-        justifyContent="space-between"
-        mt={1}
-        width={1}
+      {description && <Typography>{description}</Typography>}
+      <div
+        className={`flex flex-align-items-end flex-nowrap flex-justify-content-space-between ${classes.footer}`}
       >
-        <Box display="flex" flexWrap="wrap">
+        <div className="flex flex-wrap">
           {tags.map((tag, idx) => (
             <Button
               key={idx}
-              borderRadius={16}
               color="primary"
               startIcon={<LocalOfferOutlined />}
               size="small"
               variant="outlined"
-              mr={2}
-              mt={2}
             >
               {tag}
             </Button>
           ))}
-        </Box>
+        </div>
         <Button
-          borderRadius={16}
           variant="contained"
           color="primary"
           endIcon={<ChevronRight />}
@@ -185,7 +123,7 @@ export const BlogCard: FC<BlogCardProps> = ({
         >
           Continue reading
         </Button>
-      </Box>
+      </div>
     </Card>
   );
 };
