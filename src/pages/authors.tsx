@@ -17,7 +17,8 @@ export default function App() {
               publicURL
             }
             name
-            signature
+            role
+            bio
           }
           slug
         }

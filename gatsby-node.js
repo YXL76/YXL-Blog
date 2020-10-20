@@ -22,8 +22,6 @@ exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
   try {
-    const blogsPostTemplate = resolve(`src/templates/blogs.tsx`);
-
     const {
       errors,
       data: {
@@ -41,7 +39,6 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         }
       `
     );
-
     if (errors) {
       throw errors;
     }
@@ -49,7 +46,40 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     nodes.forEach(({ id, slug }) => {
       createPage({
         path: `/blogs/${slug}`,
-        component: blogsPostTemplate,
+        component: resolve(`src/templates/blogs.tsx`),
+        context: { id },
+      });
+    });
+  } catch (err) {
+    throw err;
+  }
+
+  try {
+    const {
+      errors,
+      data: {
+        allMdx: { nodes },
+      },
+    } = await graphql(
+      `
+        {
+          allMdx(filter: { fields: { contentType: { eq: "authors" } } }) {
+            nodes {
+              id
+              slug
+            }
+          }
+        }
+      `
+    );
+    if (errors) {
+      throw errors;
+    }
+
+    nodes.forEach(({ id, slug }) => {
+      createPage({
+        path: `/authors/${slug}`,
+        component: resolve(`src/templates/authors.tsx`),
         context: { id },
       });
     });

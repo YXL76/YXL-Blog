@@ -6,7 +6,8 @@ type BlogCardProps = {
   frontmatter: {
     name: string;
     avatar: { publicURL: string };
-    signature: string;
+    role: string;
+    bio: string;
   };
   slug: string;
 };
@@ -15,7 +16,8 @@ export const AuthorCard: FC<BlogCardProps> = ({
   frontmatter: {
     name,
     avatar: { publicURL },
-    signature,
+    role,
+    bio,
   },
   slug,
 }) => {
@@ -26,13 +28,22 @@ export const AuthorCard: FC<BlogCardProps> = ({
         <Avatar
           className="z-10 h-20 w-20 shadow-md top-16px group-hover:shadow-lg"
           src={publicURL}
-        ></Avatar>
+        />
       </Link>
       <Card className="relative flex flex-col items-center p-6 w-full rounded-3xl shadow-md group-hover:shadow-lg">
-        <Typography variant="h2" className="font-medium text-3xl">
+        <Typography
+          variant="h2"
+          className="font-medium text-center text-3xl tracking-wide mb-2"
+        >
           <Link to={destination}>{name}</Link>
         </Typography>
-        <Typography className="text-xl">{signature}</Typography>
+        <Typography
+          variant="h3"
+          className="font-medium text-center text-xl mb-2"
+        >
+          {role}
+        </Typography>
+        <Typography className="text-center text-lg">{bio}</Typography>
       </Card>
     </div>
   );
