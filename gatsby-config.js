@@ -6,12 +6,6 @@ module.exports = {
   plugins: [
     "gatsby-theme-material-ui",
     {
-      resolve: "gatsby-plugin-sass",
-      options: {
-        useResolveUrlLoader: true,
-      },
-    },
-    {
       resolve: "gatsby-plugin-typegen",
       options: {
         emitSchema: {
@@ -62,12 +56,6 @@ module.exports = {
         ],
       },
     },
-    {
-      resolve: "gatsby-plugin-purgecss",
-      options: {
-        content: ["**/!(*.d).{ts,js,jsx,tsx,md,mdx}"],
-        printRejected: true,
-      },
-    },
+    "gatsby-plugin-postcss",
   ],
 };

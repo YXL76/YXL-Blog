@@ -29,10 +29,10 @@ export const Layout: FC = ({ children }) => {
     <>
       <AppBar position="static" color="transparent" elevation={0}>
         <Container maxWidth="lg">
-          <div className="flex app-bar__container">
-            <div className="flex flex-grow-1 flex-justify-content-start flex-align-items-center">
+          <div className="flex py-1">
+            <div className="flex flex-grow justify-start items-center">
               <Typography variant="overline">
-                <div className="app-bar__title">
+                <div className="mr-6 font-bold leading-none text-2xl">
                   <Link to="/">{data.site?.siteMetadata?.title}</Link>
                 </div>
               </Typography>
@@ -69,7 +69,7 @@ export const Layout: FC = ({ children }) => {
                 About
               </Button>
             </div>
-            <div className="flex flex-justify-content-end flex-align-items-center">
+            <div className="flex justify-end items-center">
               <IconButton color="inherit">
                 <SearchOutlined />
               </IconButton>

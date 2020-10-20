@@ -1,7 +1,6 @@
 import { BlogsLayout, Mdx } from "../components";
 import type { PageProps } from "gatsby";
 import React from "react";
-import classes from "../styles/blogs.module.scss";
 import { graphql } from "gatsby";
 
 export default function App({
@@ -9,7 +8,7 @@ export default function App({
 }: PageProps<GatsbyTypes.BlogsTemplatesQuery>) {
   return (
     <BlogsLayout>
-      <div className={classes.container}>
+      <div className="bg-white px-6 py-2 rounded-3xl">
         <Mdx>{mdx?.body ?? ""}</Mdx>
       </div>
     </BlogsLayout>
