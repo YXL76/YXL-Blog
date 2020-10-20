@@ -64,9 +64,9 @@ export const Layout: FC = ({ children }) => {
                 variant="text"
                 size="large"
                 startIcon={<FaceOutlined />}
-                to="/about"
+                to="/authors"
               >
-                About
+                Authors
               </Button>
             </div>
             <div className="flex justify-end items-center">
@@ -86,7 +86,7 @@ export const Layout: FC = ({ children }) => {
           </div>
         </Container>
       </AppBar>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className="flex flex-wrap">
         <>{children}</>
       </Container>
     </>

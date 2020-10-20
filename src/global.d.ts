@@ -59,8 +59,3 @@ declare module "@mdx-js/react" {
   }
   export class MDXProvider extends React.Component<MDXProviderProps> {}
 }
-
-declare module "*.module.scss" {
-  const classes: { [key: string]: string };
-  export default classes;
-}
