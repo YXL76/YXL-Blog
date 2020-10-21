@@ -1,8 +1,7 @@
 import { Avatar, IconButton, Layout, Mdx, Typography } from "../components";
 import { Douban, Github, Instagram, Reddit, Twitter } from "mdi-material-ui";
 import { EmailOutlined, Facebook } from "@material-ui/icons";
-import type { PageProps } from "gatsby";
-import { graphql } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 
 const icons: Record<string, JSX.Element> = {
   douban: <Douban />,
@@ -14,8 +13,8 @@ const icons: Record<string, JSX.Element> = {
   twitter: <Twitter />,
 };
 
-export default function App({
-  data: {
+export default function App() {
+  const {
     mdx: {
       frontmatter: {
         name,
@@ -26,8 +25,32 @@ export default function App({
       },
       body,
     },
-  },
-}: PageProps<GatsbyTypes.AuthorsTemplates>) {
+  } = useStaticQuery<GatsbyTypes.AuthorsPagesQuery>(graphql`
+    query AuthorsPages {
+      mdx(fields: { contentType: { eq: "authors" } }) {
+        frontmatter {
+          name
+          avatar {
+            publicURL
+          }
+          role
+          bio
+          interests
+          education {
+            course
+            date
+            institution
+          }
+          social {
+            link
+            type
+          }
+        }
+        body
+      }
+    }
+  `);
+
   return (
     <Layout>
       <div className="flex bg-white w-full rounded-3xl shadow-md flex-wrap overflow-hidden hover:shadow-lg">
@@ -64,29 +87,3 @@ export default function App({
     </Layout>
   );
 }
-
-export const query = graphql`
-  query AuthorsTemplates($id: String!) {
-    mdx(id: { eq: $id }) {
-      frontmatter {
-        name
-        avatar {
-          publicURL
-        }
-        role
-        bio
-        interests
-        education {
-          course
-          date
-          institution
-        }
-        social {
-          link
-          type
-        }
-      }
-      body
-    }
-  }
-`;

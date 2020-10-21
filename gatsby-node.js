@@ -53,37 +53,4 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   } catch (err) {
     throw err;
   }
-
-  try {
-    const {
-      errors,
-      data: {
-        allMdx: { nodes },
-      },
-    } = await graphql(
-      `
-        {
-          allMdx(filter: { fields: { contentType: { eq: "authors" } } }) {
-            nodes {
-              id
-              slug
-            }
-          }
-        }
-      `
-    );
-    if (errors) {
-      throw errors;
-    }
-
-    nodes.forEach(({ id, slug }) => {
-      createPage({
-        path: `/authors/${slug}`,
-        component: resolve(`src/templates/authors.tsx`),
-        context: { id },
-      });
-    });
-  } catch (err) {
-    throw err;
-  }
 };
