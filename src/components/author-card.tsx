@@ -1,6 +1,5 @@
 import { Avatar, Card, Link, Typography } from ".";
 import type { FC } from "react";
-import React from "react";
 
 type BlogCardProps = {
   frontmatter: {

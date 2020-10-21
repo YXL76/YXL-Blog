@@ -11,7 +11,6 @@ import {
 import type { FC } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import React from "react";
 
 const Td: FC<TdProps> = ({ align, children }) => (
   <TableCell align={align ?? "left"}>{children}</TableCell>

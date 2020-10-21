@@ -12,7 +12,6 @@ import {
 import { Button, IconButton, Link } from "gatsby-theme-material-ui";
 import { graphql, useStaticQuery } from "gatsby";
 import type { FC } from "react";
-import React from "react";
 
 export const Layout: FC = ({ children }) => {
   const data = useStaticQuery<GatsbyTypes.LayoutComponentsQuery>(graphql`

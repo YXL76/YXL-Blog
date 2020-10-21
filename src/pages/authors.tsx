@@ -1,6 +1,5 @@
 import { AuthorCard, Layout } from "../components";
 import { graphql, useStaticQuery } from "gatsby";
-import React from "react";
 
 export default function App() {
   const {

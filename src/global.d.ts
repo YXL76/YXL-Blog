@@ -1,5 +1,5 @@
 declare module "@mdx-js/react" {
-  import React from "react";
+  import * as React from "react";
 
   type ComponentType =
     | "a"

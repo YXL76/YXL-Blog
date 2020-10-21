@@ -17,7 +17,6 @@ import {
   Typography,
 } from ".";
 import type { FC, ReactElement, ReactNode } from "react";
-import React from "react";
 
 type MetadataChipProps = {
   avatar?: ReactElement;

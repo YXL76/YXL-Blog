@@ -1,6 +1,5 @@
 import type { FC, ReactNode } from "react";
 import { Grid, Layout } from ".";
-import React from "react";
 
 type BlogsLayoutProps = {
   right?: ReactNode;

@@ -11,6 +11,8 @@
   },
   "plugins": ["prettier", "graphql"],
   "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "graphql/template-strings": [
       "error",
       {

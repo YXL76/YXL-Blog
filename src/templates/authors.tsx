@@ -2,7 +2,6 @@ import { Avatar, IconButton, Layout, Mdx, Typography } from "../components";
 import { Douban, Github, Instagram, Reddit, Twitter } from "mdi-material-ui";
 import { EmailOutlined, Facebook } from "@material-ui/icons";
 import type { PageProps } from "gatsby";
-import React from "react";
 import { graphql } from "gatsby";
 
 const icons: Record<string, JSX.Element> = {
