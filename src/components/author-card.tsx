@@ -18,7 +18,9 @@ type BlogCardProps = {
   title: string;
   avatar: string;
   role: string;
-  social: { type: string; link: string }[];
+  social: ReadonlyArray<
+    GatsbyTypes.Maybe<Pick<GatsbyTypes.MdxFrontmatterSocial, "link" | "type">>
+  >;
   bio: string;
 };
 
@@ -40,24 +42,26 @@ export const AuthorCard: FC<BlogCardProps> = ({
       </Link>
       <Typography
         variant="h2"
-        className="font-medium text-center text-3xl tracking-wide mb-2"
+        className="font-medium text-center text-2xl tracking-wide mb-2"
       >
         <Link to="/about">{title}</Link>
       </Typography>
-      <Typography variant="h3" className="font-medium text-center text-xl">
+      <Typography variant="h3" className="font-medium text-center text-lg">
         {role}
       </Typography>
       <div className="flex flex-wrap justify-center">
         {social.map(
-          ({ type, link }, idx) =>
-            type in icons && (
-              <Link key={idx} href={link}>
-                <IconButton key={idx}>{icons[type]}</IconButton>
+          (i, idx) =>
+            i &&
+            i["type"] &&
+            icons[i["type"]] && (
+              <Link key={idx} href={i["link"] ?? ""}>
+                <IconButton key={idx}>{icons[i["type"]]}</IconButton>
               </Link>
             )
         )}
       </div>
-      <Typography className="text-center text-lg">{bio}</Typography>
+      <Typography className="text-center text-md">{bio}</Typography>
     </div>
   );
 };

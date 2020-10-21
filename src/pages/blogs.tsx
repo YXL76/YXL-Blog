@@ -9,7 +9,6 @@ import {
 } from "../components";
 import { graphql, useStaticQuery } from "gatsby";
 import type { ChangeEvent } from "react";
-import SwipeableViews from "react-swipeable-views";
 import { useState } from "react";
 
 export default function App() {
@@ -41,35 +40,29 @@ export default function App() {
   `);
 
   const [value, setValue] = useState(0);
-  const handleTabsChange = (_event: ChangeEvent<{}>, newValue: number) => {
-    setValue(newValue);
-  };
 
   return (
     <BlogsLayout
       right={
-        <Card className="group mt-10 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
-          <Tabs value={value} onChange={handleTabsChange} variant="fullWidth">
-            <Tab label="Author" />
-            <Tab label="TOC" />
-          </Tabs>
-          <SwipeableViews
-            index={value}
-            onChangeIndex={(index: number) => setValue(index)}
+        <Card className="group mt-10 sticky top-6 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
+          <Tabs
+            value={value}
+            onChange={(_event: ChangeEvent<{}>, newValue: number) => {
+              setValue(newValue);
+            }}
+            variant="fullWidth"
           >
-            <TabPanel value={value} index={0}>
-              <AuthorCard
-                title={name}
-                avatar={publicURL}
-                role={role}
-                bio={bio}
-                social={social}
-              ></AuthorCard>
-            </TabPanel>
-            <TabPanel value={value} index={1}>
-              Item Two
-            </TabPanel>
-          </SwipeableViews>
+            <Tab label="Author" />
+          </Tabs>
+          <TabPanel value={value} index={0}>
+            <AuthorCard
+              title={name}
+              avatar={publicURL}
+              role={role}
+              bio={bio}
+              social={social}
+            />
+          </TabPanel>
         </Card>
       }
     >

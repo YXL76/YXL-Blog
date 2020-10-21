@@ -32,7 +32,7 @@ export default function App() {
           role={role}
           bio={bio}
           social={social}
-        ></AuthorCard>
+        />
         <div className="p-6">
           <Mdx>{body ?? ""}</Mdx>
         </div>

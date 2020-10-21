@@ -18,6 +18,7 @@ export {
   Tabs,
   Tab,
   useMediaQuery,
+  Hidden,
 } from "@material-ui/core";
 export {
   BottomNavigationAction,
