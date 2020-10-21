@@ -1,49 +1,63 @@
-import { Avatar, Card, Link, Typography } from ".";
+import { Avatar, IconButton, Link, Typography } from ".";
+import { Douban, Github, Instagram, Reddit, Twitter } from "mdi-material-ui";
+import { EmailOutlined, Facebook } from "@material-ui/icons";
 import type { FC } from "react";
 
+const icons: Record<string, JSX.Element> = {
+  douban: <Douban />,
+  email: <EmailOutlined />,
+  facebook: <Facebook />,
+  github: <Github />,
+  instagram: <Instagram />,
+  reddit: <Reddit />,
+  twitter: <Twitter />,
+};
+
 type BlogCardProps = {
-  frontmatter: {
-    name: string;
-    avatar: { publicURL: string };
-    role: string;
-    bio: string;
-  };
-  slug: string;
+  className?: string;
+  title: string;
+  avatar: string;
+  role: string;
+  social: { type: string; link: string }[];
+  bio: string;
 };
 
 export const AuthorCard: FC<BlogCardProps> = ({
-  frontmatter: {
-    name,
-    avatar: { publicURL },
-    role,
-    bio,
-  },
-  slug,
+  className,
+  title,
+  avatar,
+  role,
+  social,
+  bio,
 }) => {
-  const destination = `/authors/${slug}`;
   return (
-    <div className="group flex flex-col items-center lg:w-1/3 md:w-1/2 w-full p-4">
-      <Link to={destination}>
+    <div className={`flex flex-col items-center px-4 py-6 ${className ?? ""}`}>
+      <Link to="/about">
         <Avatar
-          className="z-10 h-20 w-20 shadow-md top-16px group-hover:shadow-lg"
-          src={publicURL}
+          className="h-24 w-24 shadow-md mb-4 group-hover:shadow-lg transition-shadow duration-300 ease-in"
+          src={avatar}
         />
       </Link>
-      <Card className="relative flex flex-col items-center p-6 w-full rounded-3xl shadow-md group-hover:shadow-lg">
-        <Typography
-          variant="h2"
-          className="font-medium text-center text-3xl tracking-wide mb-2"
-        >
-          <Link to={destination}>{name}</Link>
-        </Typography>
-        <Typography
-          variant="h3"
-          className="font-medium text-center text-xl mb-2"
-        >
-          {role}
-        </Typography>
-        <Typography className="text-center text-lg">{bio}</Typography>
-      </Card>
+      <Typography
+        variant="h2"
+        className="font-medium text-center text-3xl tracking-wide mb-2"
+      >
+        <Link to="/about">{title}</Link>
+      </Typography>
+      <Typography variant="h3" className="font-medium text-center text-xl">
+        {role}
+      </Typography>
+      <div className="flex flex-wrap justify-center">
+        {social.map(
+          ({ type, link }, idx) =>
+            type in icons && (
+              <Link key={idx} href={link}>
+                <IconButton key={idx}>{icons[type]}</IconButton>
+              </Link>
+            )
+        )}
+      </div>
+      <Typography className="text-center text-lg">{bio}</Typography>
     </div>
   );
 };

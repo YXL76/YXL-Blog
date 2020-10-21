@@ -4,3 +4,4 @@ export * from "./blogs-layout";
 export * from "./layout";
 export * from "./material-ui";
 export * from "./mdx";
+export * from "./tab-panel";

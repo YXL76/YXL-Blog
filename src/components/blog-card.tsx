@@ -55,6 +55,8 @@ type BlogCardProps = {
   slug: string;
   timeToRead: number;
   wordCount: { words: number };
+  author: string;
+  avatar: string;
 };
 
 export const BlogCard: FC<BlogCardProps> = ({
@@ -62,10 +64,12 @@ export const BlogCard: FC<BlogCardProps> = ({
   slug,
   timeToRead,
   wordCount: { words },
+  author,
+  avatar,
 }) => {
   const destination = `/blogs/${slug}`;
   return (
-    <Card className="flex flex-col items-center my-10 p-6 rounded-3xl shadow-md hover:shadow-lg">
+    <Card className="flex flex-col items-center my-10 p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
       <div className="w-full relative">
         {banner && (
           <ButtonBase
@@ -107,13 +111,8 @@ export const BlogCard: FC<BlogCardProps> = ({
         <Grid item>
           <MetadataChip
             clickable
-            avatar={
-              <Avatar
-                className="shadow-lg"
-                src="https://estudiopatagon.com/themes/wordpress/breek/wp-content/uploads/2019/06/avatar-op2.jpg"
-              />
-            }
-            label="Author"
+            avatar={<Avatar className="shadow" src={avatar} />}
+            label={author}
           />
         </Grid>
         <Grid item>

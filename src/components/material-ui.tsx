@@ -15,6 +15,9 @@ export {
   TableRow,
   Typography,
   TableContainer,
+  Tabs,
+  Tab,
+  useMediaQuery,
 } from "@material-ui/core";
 export {
   BottomNavigationAction,

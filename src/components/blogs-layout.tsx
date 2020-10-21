@@ -1,18 +1,25 @@
 import type { FC, ReactNode } from "react";
-import { Grid, Layout } from ".";
+import { Grid, Layout, useMediaQuery } from ".";
+import theme from "../gatsby-theme-material-ui-top-layout/theme";
 
 type BlogsLayoutProps = {
-  right?: ReactNode;
+  right: ReactNode;
 };
 
-export const BlogsLayout: FC<BlogsLayoutProps> = ({ children }) => {
+export const BlogsLayout: FC<BlogsLayoutProps> = ({ children, right }) => {
+  const breakpoint = useMediaQuery(theme.breakpoints.up("md"));
+
   return (
     <Layout>
       <Grid container>
-        <Grid item xs={8}>
+        <Grid item xs={breakpoint ? 8 : 12} className="pr-4">
           {children}
         </Grid>
-        <Grid item xs={4}></Grid>
+        {breakpoint && (
+          <Grid item xs={4} className="pl-12">
+            {right}
+          </Grid>
+        )}
       </Grid>
     </Layout>
   );

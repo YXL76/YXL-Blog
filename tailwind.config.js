@@ -13,7 +13,6 @@ module.exports = {
     extend: {
       inset: {
         6: "1.5rem",
-        "16px": "16px",
       },
       spacing: {
         half: "50%",
