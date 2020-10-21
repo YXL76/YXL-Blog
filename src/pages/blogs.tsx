@@ -56,6 +56,7 @@ export default function App() {
           </Tabs>
           <TabPanel value={value} index={0}>
             <AuthorCard
+              className="max-h-screen-3/4 overflow-y-auto"
               title={name}
               avatar={publicURL}
               role={role}

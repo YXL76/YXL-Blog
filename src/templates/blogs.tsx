@@ -20,10 +20,17 @@ type TocItem = {
 };
 
 const TOC = (items: TocItem[]) => (
-  <ul>
+  <ul className="list-none">
     {items.map(({ url, title, items }, idx) => (
-      <li key={idx}>
-        <Link href={url}>{title}</Link>
+      <li key={idx} className="list-none">
+        <Link
+          href={url}
+          color="inherit"
+          underline="none"
+          className="block pl-2 border-0 border-l-4 border-solid border-transparent text-base leading-7 hover:text-blue-400 hover:border-blue-400 transition-colors duration-300 ease-out"
+        >
+          {title}
+        </Link>
         {items && TOC(items)}
       </li>
     ))}
@@ -52,10 +59,13 @@ export default function App({
             <Tab label="Author" />
           </Tabs>
           <TabPanel value={value} index={0}>
-            <nav>{TOC(tableOfContents?.items ?? [])}</nav>
+            <nav className="-ml-8 max-h-screen-3/4 overflow-y-auto">
+              {TOC(tableOfContents?.items ?? [])}
+            </nav>
           </TabPanel>
           <TabPanel value={value} index={1}>
             <AuthorCard
+              className="max-h-screen-3/4 overflow-y-auto"
               title={author?.frontmatter?.name ?? ""}
               avatar={author?.frontmatter?.avatar?.publicURL ?? ""}
               role={author?.frontmatter?.role ?? ""}

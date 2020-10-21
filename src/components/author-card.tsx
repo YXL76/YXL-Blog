@@ -61,7 +61,7 @@ export const AuthorCard: FC<BlogCardProps> = ({
             )
         )}
       </div>
-      <Typography className="text-center text-md">{bio}</Typography>
+      <Typography className="text-center">{bio}</Typography>
     </div>
   );
 };

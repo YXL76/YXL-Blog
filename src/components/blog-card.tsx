@@ -109,7 +109,7 @@ export const BlogCard: FC<BlogCardProps> = ({
         spacing={1}
       >
         <Grid item>
-          <Link to="/about" className="hover:no-underline">
+          <Link to="/about" underline="none">
             <MetadataChip
               clickable
               avatar={<Avatar className="shadow" src={avatar} />}

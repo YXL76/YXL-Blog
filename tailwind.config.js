@@ -17,6 +17,9 @@ module.exports = {
       spacing: {
         half: "50%",
       },
+      maxHeight: {
+        "screen-3/4": "75vh",
+      },
     },
   },
   variants: {
