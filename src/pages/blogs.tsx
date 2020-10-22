@@ -6,6 +6,7 @@ import {
   Tab,
   TabPanel,
   Tabs,
+  useScrollTrigger,
 } from "../components";
 import { graphql, useStaticQuery } from "gatsby";
 import type { ChangeEvent } from "react";
@@ -39,12 +40,18 @@ export default function App() {
     }
   `);
 
+  const trigger = useScrollTrigger();
   const [value, setValue] = useState(0);
 
   return (
     <BlogsLayout
+      trigger={trigger}
       right={
-        <Card className="group sticky top-20 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
+        <Card
+          className={`group sticky top-20 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-all duration-300 transform ease-out ${
+            trigger ? "ease-slide-exit -translate-y-14" : ""
+          }`}
+        >
           <Tabs
             value={value}
             onChange={(_event: ChangeEvent<{}>, newValue: number) => {

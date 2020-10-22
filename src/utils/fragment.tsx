@@ -28,6 +28,11 @@ export const BlogQuery = graphql`
     frontmatter {
       banner {
         publicURL
+        childImageSharp {
+          fluid(maxWidth: 2560) {
+            ...GatsbyImageSharpFluid
+          }
+        }
       }
       category
       date(fromNow: true)

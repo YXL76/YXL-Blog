@@ -34,6 +34,7 @@ module.exports = {
         path: "content/blogs/",
       },
     },
+    "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-remark-images",
     {

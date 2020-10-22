@@ -10,8 +10,13 @@ const theme = createMuiTheme({
           scrollBehavior: "smooth",
         },
         body: {
-          backgroundColor: "#f5f5f5",
+          backgroundColor: "#fafafa",
         },
+      },
+    },
+    MuiAppBar: {
+      colorDefault: {
+        backgroundColor: "#ff",
       },
     },
   },

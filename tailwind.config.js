@@ -24,8 +24,14 @@ module.exports = {
       maxHeight: {
         "screen-3/4": "75vh",
       },
-      spacing: {
-        half: "50%",
+      height: {
+        14: "3.5rem",
+      },
+      transitionTimingFunction: {
+        "slide-exit": "cubic-bezier(0.4, 0, 0.6, 1)",
+      },
+      translate: {
+        14: "3.5rem",
       },
       width: {
         "screen-3/5": "60vw",

@@ -3,10 +3,15 @@ import { Grid, Hidden, Layout } from ".";
 
 type BlogsLayoutProps = {
   right: ReactNode;
+  trigger: boolean;
 };
 
-export const BlogsLayout: FC<BlogsLayoutProps> = ({ children, right }) => (
-  <Layout>
+export const BlogsLayout: FC<BlogsLayoutProps> = ({
+  children,
+  right,
+  trigger,
+}) => (
+  <Layout trigger={trigger}>
     <Grid container>
       <Grid item xs zeroMinWidth>
         {children}

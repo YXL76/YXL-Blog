@@ -8,7 +8,6 @@ import {
   ListItemIcon,
   ListItemText,
   Slide,
-  useScrollTrigger,
 } from ".";
 import {
   ArchiveOutlined,
@@ -48,7 +47,11 @@ const ListItemLink = ({ to, text, icon }: ListItemLinkProps) => (
   </Link>
 );
 
-export const Layout: FC = ({ children }) => {
+type LayoutProps = {
+  trigger: boolean;
+};
+
+export const Layout: FC<LayoutProps> = ({ children, trigger }) => {
   const data = useStaticQuery<GatsbyTypes.LayoutComponentsQuery>(graphql`
     query LayoutComponents {
       site {
@@ -59,13 +62,12 @@ export const Layout: FC = ({ children }) => {
     }
   `);
 
-  const trigger = useScrollTrigger();
   const [open, setOpen] = useState(false);
 
   return (
     <>
       <Slide appear={false} direction="down" timeout={300} in={!trigger}>
-        <AppBar color="default" elevation={1}>
+        <AppBar className="h-14" color="default" elevation={1}>
           <Container maxWidth="lg">
             <div className="flex py-1">
               <div className="flex flex-grow justify-start items-center">

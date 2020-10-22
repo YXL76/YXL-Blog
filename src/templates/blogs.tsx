@@ -7,6 +7,7 @@ import {
   Tab,
   TabPanel,
   Tabs,
+  useScrollTrigger,
 } from "../components";
 import type { ChangeEvent } from "react";
 import type { PageProps } from "gatsby";
@@ -40,14 +41,20 @@ const TOC = (items: TocItem[]) => (
 export default function App({
   data: { mdx, author },
 }: PageProps<GatsbyTypes.BlogsTemplatesQuery>) {
+  const trigger = useScrollTrigger();
   const [value, setValue] = useState(0);
 
   const tableOfContents: TocItem = mdx?.tableOfContents ?? ({} as TocItem);
 
   return (
     <BlogsLayout
+      trigger={trigger}
       right={
-        <Card className="group sticky top-20 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
+        <Card
+          className={`group sticky top-20 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-all duration-300 transform ease-out ${
+            trigger ? "ease-slide-exit -translate-y-14" : ""
+          }`}
+        >
           <Tabs
             value={value}
             onChange={(_event: ChangeEvent<{}>, newValue: number) => {
@@ -59,7 +66,7 @@ export default function App({
             <Tab label="Author" />
           </Tabs>
           <TabPanel value={value} index={0}>
-            <nav className="-ml-8 mr-4 max-h-screen-3/4 overflow-y-auto">
+            <nav className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto">
               {TOC(tableOfContents?.items ?? [])}
             </nav>
           </TabPanel>
@@ -76,7 +83,7 @@ export default function App({
         </Card>
       }
     >
-      <Mdx className="bg-white mb-10 px-6 py-2 rounded-3xl">
+      <Mdx className="bg-white mb-10 px-6 py-2 rounded-3xl shadow-md hover:shadow-lg transition-all duration-300">
         {mdx?.body ?? ""}
       </Mdx>
     </BlogsLayout>

@@ -9920,6 +9920,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gatsby-image@npm:^2.4.21":
+  version: 2.4.21
+  resolution: "gatsby-image@npm:2.4.21"
+  dependencies:
+    "@babel/runtime": ^7.11.2
+    object-fit-images: ^3.2.4
+    prop-types: ^15.7.2
+  checksum: 21307e93e40545980e630bc9d4ac79ee3b5655a30e0c229c4fc696a7380a6cc87dce86b7127a48b8667abf60bf5fd26fec7bb8d5bedc1d45a23e37c874b5224a
+  languageName: node
+  linkType: hard
+
 "gatsby-interface@npm:^0.0.193":
   version: 0.0.193
   resolution: "gatsby-interface@npm:0.0.193"
@@ -10414,6 +10425,24 @@ fsevents@~2.1.2:
     "@material-ui/core": ">=4.0.0"
     gatsby: ">=2.0.75"
   checksum: 0946cf9c57d82ece2d9aac1dfa40b922d500cdd059d143560839627cc0767661b3d2240a918e8eb72ee77d5209cfb0f3c08ebe66ac8a3a557671265838f21654
+  languageName: node
+  linkType: hard
+
+"gatsby-transformer-sharp@npm:^2.5.19":
+  version: 2.5.19
+  resolution: "gatsby-transformer-sharp@npm:2.5.19"
+  dependencies:
+    "@babel/runtime": ^7.11.2
+    bluebird: ^3.7.2
+    fs-extra: ^9.0.1
+    potrace: ^2.1.8
+    probe-image-size: ^5.0.0
+    semver: ^7.3.2
+    sharp: ^0.25.4
+  peerDependencies:
+    gatsby: ^2.12.1
+    gatsby-plugin-sharp: ^2.0.0-beta.3
+  checksum: c874d658db584aad5901ea11f618e8bacbc03a91995a0ef5cda2ef1dab2243a1a4f44a72e601a90807be5a179686f38a1b5af96e5849907eae819209a8c37aea
   languageName: node
   linkType: hard
 
@@ -15395,6 +15424,13 @@ fsevents@~2.1.2:
     define-property: ^0.2.5
     kind-of: ^3.0.3
   checksum: d91d46e54297cad0544f04e4dff4694f92aca9661f59ad7e803a1ba94a2bb24b38ca4fd59ea827d24c9bdc6f7148d5c838287ee4b2b9c5df9b445b1c0d7a066c
+  languageName: node
+  linkType: hard
+
+"object-fit-images@npm:^3.2.4":
+  version: 3.2.4
+  resolution: "object-fit-images@npm:3.2.4"
+  checksum: 0647ea1746d99098e4c0b1fc7ce5188a777f7968786f324079cf27fed96cb4789b8c9c7ddbaf7db55e123c42c30da648f71cd9071f969260215bfd93cbca8492
   languageName: node
   linkType: hard
 
@@ -22925,6 +22961,7 @@ typescript@4.1.0-beta:
     fontsource-noto-sans-sc: ^3.0.3
     fontsource-source-code-pro: ^3.0.10
     gatsby: ^2.24.84
+    gatsby-image: ^2.4.21
     gatsby-plugin-mdx: ^1.2.50
     gatsby-plugin-postcss: ^3.0.3
     gatsby-plugin-sharp: ^2.6.43
@@ -22932,6 +22969,7 @@ typescript@4.1.0-beta:
     gatsby-remark-images: ^3.3.38
     gatsby-source-filesystem: ^2.3.35
     gatsby-theme-material-ui: ^1.0.13
+    gatsby-transformer-sharp: ^2.5.19
     mdi-material-ui: ^6.20.0
     postcss: ^8.1.2
     prettier: ^2.1.2

@@ -5,18 +5,10 @@ import {
   EventNoteOutlined,
   LocalOfferOutlined,
 } from "@material-ui/icons";
-import {
-  Avatar,
-  Button,
-  ButtonBase,
-  Card,
-  CardMedia,
-  Chip,
-  Grid,
-  Link,
-  Typography,
-} from ".";
+import { Avatar, Button, ButtonBase, Card, Chip, Grid, Link } from ".";
 import type { FC, ReactElement, ReactNode } from "react";
+import type { FluidObject } from "gatsby-image";
+import Img from "gatsby-image";
 
 type MetadataChipProps = {
   avatar?: ReactElement;
@@ -43,7 +35,9 @@ const MetadataChip: FC<MetadataChipProps> = ({
 type BlogCardProps = {
   frontmatter: {
     banner?: {
-      publicURL: string;
+      childImageSharp: {
+        fluid: FluidObject | FluidObject[];
+      };
     };
     category: string;
     date: string;
@@ -77,7 +71,7 @@ export const BlogCard: FC<BlogCardProps> = ({
             focusRipple
           >
             <Link className="w-full" to={destination}>
-              <CardMedia className="w-full pb-half" image={banner?.publicURL} />
+              <Img fluid={banner.childImageSharp.fluid} />
             </Link>
           </ButtonBase>
         )}

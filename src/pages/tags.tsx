@@ -1,5 +1,6 @@
-import { Layout } from "../components";
+import { Layout, useScrollTrigger } from "../components";
 
 export default function App() {
-  return <Layout>Tags</Layout>;
+  const trigger = useScrollTrigger();
+  return <Layout trigger={trigger}>Tags</Layout>;
 }
