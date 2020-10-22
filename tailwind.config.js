@@ -1,29 +1,44 @@
 module.exports = {
+  corePlugins: {
+    preflight: false,
+  },
   future: {
     purgeLayersByDefault: true,
   },
-  purge: ["./src/**/*.js", "./src/**/*.jsx", "./src/**/*.ts", "./src/**/*.tsx"],
+  plugins: [],
+  purge: {
+    content: [
+      "./src/**/*.js",
+      "./src/**/*.jsx",
+      "./src/**/*.ts",
+      "./src/**/*.tsx",
+    ],
+    preserveHtmlElements: false,
+  },
   theme: {
-    screens: {
-      sm: "600px",
-      md: "960px",
-      lg: "1280px",
-      xl: "1920px",
-    },
     extend: {
       inset: {
         6: "1.5rem",
-      },
-      spacing: {
-        half: "50%",
+        20: "5rem",
       },
       maxHeight: {
         "screen-3/4": "75vh",
       },
+      spacing: {
+        half: "50%",
+      },
+      width: {
+        "screen-3/5": "60vw",
+      },
+    },
+    screens: {
+      lg: "1280px",
+      md: "960px",
+      sm: "600px",
+      xl: "1920px",
     },
   },
   variants: {
     boxShadow: ["responsive", "hover", "focus", "group-hover"],
   },
-  plugins: [],
 };

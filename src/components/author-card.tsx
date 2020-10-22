@@ -40,15 +40,10 @@ export const AuthorCard: FC<BlogCardProps> = ({
           src={avatar}
         />
       </Link>
-      <Typography
-        variant="h2"
-        className="font-medium text-center text-2xl mb-2"
-      >
+      <h2 className="font-medium text-center text-2xl mb-2">
         <Link to="/about">{title}</Link>
-      </Typography>
-      <Typography variant="h3" className="font-medium text-center text-lg">
-        {role}
-      </Typography>
+      </h2>
+      <h3 className="font-medium text-center text-lg">{role}</h3>
       <div className="flex flex-wrap justify-center">
         {social.map(
           (i, idx) =>
@@ -61,7 +56,7 @@ export const AuthorCard: FC<BlogCardProps> = ({
             )
         )}
       </div>
-      <Typography className="text-center">{bio}</Typography>
+      <div className="text-center">{bio}</div>
     </div>
   );
 };

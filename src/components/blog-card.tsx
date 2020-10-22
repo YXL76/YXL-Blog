@@ -90,16 +90,11 @@ export const BlogCard: FC<BlogCardProps> = ({
           {category}
         </Button>
       </div>
-      <Link
-        className="font-bold mt-3 text-4xl text-center tracking-wider"
-        to={destination}
-      >
-        {title}
-      </Link>
+      <h2 className="font-bold mt-3 text-4xl text-center tracking-wider">
+        <Link to={destination}>{title}</Link>
+      </h2>
       {subtitle && (
-        <Typography className="font-medium text-2xl text-center ">
-          {subtitle}
-        </Typography>
+        <h3 className="font-medium mt-2 text-2xl text-center ">{subtitle}</h3>
       )}
       <Grid
         container
@@ -128,9 +123,7 @@ export const BlogCard: FC<BlogCardProps> = ({
         </Grid>
       </Grid>
       {description && (
-        <Typography className="text-lg mt-2 mx-10 text-center">
-          {description}
-        </Typography>
+        <p className="text-lg mt-2 mx-10 text-center">{description}</p>
       )}
       <div className="flex items-end flex-no-wrap justify-between w-full mt-1">
         <div className="flex flex-wrap">

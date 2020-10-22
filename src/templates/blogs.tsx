@@ -47,7 +47,7 @@ export default function App({
   return (
     <BlogsLayout
       right={
-        <Card className="group sticky top-6 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
+        <Card className="group sticky top-20 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
           <Tabs
             value={value}
             onChange={(_event: ChangeEvent<{}>, newValue: number) => {
@@ -59,7 +59,7 @@ export default function App({
             <Tab label="Author" />
           </Tabs>
           <TabPanel value={value} index={0}>
-            <nav className="-ml-8 max-h-screen-3/4 overflow-y-auto">
+            <nav className="-ml-8 mr-4 max-h-screen-3/4 overflow-y-auto">
               {TOC(tableOfContents?.items ?? [])}
             </nav>
           </TabPanel>

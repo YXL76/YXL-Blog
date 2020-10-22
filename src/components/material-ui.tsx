@@ -6,8 +6,14 @@ export {
   CardMedia,
   Chip,
   Container,
+  Drawer,
   Grid,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
   Paper,
+  Slide,
   Table,
   TableBody,
   TableCell,
@@ -18,6 +24,7 @@ export {
   Tabs,
   Tab,
   useMediaQuery,
+  useScrollTrigger,
   Hidden,
 } from "@material-ui/core";
 export {

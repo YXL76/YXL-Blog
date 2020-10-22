@@ -11,7 +11,7 @@ export const BlogsLayout: FC<BlogsLayoutProps> = ({ children, right }) => (
       <Grid item xs zeroMinWidth>
         {children}
       </Grid>
-      <Hidden only="sm">
+      <Hidden smDown>
         <Grid item xs={4} className="pl-12">
           {right}
         </Grid>
