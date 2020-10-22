@@ -69,7 +69,7 @@ export const BlogCard: FC<BlogCardProps> = ({
 }) => {
   const destination = `/blogs/${slug}`;
   return (
-    <Card className="flex flex-col items-center my-10 p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
+    <Card className="flex flex-col items-center mb-10 p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
       <div className="w-full relative">
         {banner && (
           <ButtonBase
@@ -91,13 +91,13 @@ export const BlogCard: FC<BlogCardProps> = ({
         </Button>
       </div>
       <Link
-        className="font-bold mt-3 text-4xl text-center tracking-widest"
+        className="font-bold mt-3 text-4xl text-center tracking-wider"
         to={destination}
       >
         {title}
       </Link>
       {subtitle && (
-        <Typography className="font-medium text-2xl text-center tracking-wide">
+        <Typography className="font-medium text-2xl text-center ">
           {subtitle}
         </Typography>
       )}

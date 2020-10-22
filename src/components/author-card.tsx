@@ -42,7 +42,7 @@ export const AuthorCard: FC<BlogCardProps> = ({
       </Link>
       <Typography
         variant="h2"
-        className="font-medium text-center text-2xl tracking-wide mb-2"
+        className="font-medium text-center text-2xl mb-2"
       >
         <Link to="/about">{title}</Link>
       </Typography>

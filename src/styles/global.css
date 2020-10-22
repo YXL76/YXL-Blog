@@ -1,1 +1,80 @@
 @import "tailwindcss/utilities";
+
+.mdx-content {
+  font-size: 1.125rem;
+}
+
+.mdx-content a {
+  color: #556cd6;
+  text-decoration: none;
+}
+
+.mdx-content > h1 > a,
+.mdx-content > h2 > a,
+.mdx-content > h3 > a,
+.mdx-content > h4 > a,
+.mdx-content > h5 > a,
+.mdx-content > h6 > a {
+  color: inherit;
+}
+
+.mdx-content > *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6) a:hover {
+  text-decoration: underline;
+}
+
+.mdx-content > h1 {
+  font-size: 2.625rem;
+}
+
+.mdx-content > h2 {
+  font-size: 2.125rem;
+}
+
+.mdx-content > h3 {
+  font-size: 1.625rem;
+}
+
+.mdx-content > h4 {
+  font-size: 1.5rem;
+}
+
+.mdx-content > h5 {
+  font-size: 1.375rem;
+}
+
+.mdx-content > h6 {
+  font-size: 1.25rem;
+}
+
+.mdx-content > p {
+  letter-spacing: 0.01rem;
+  line-height: 1.75rem;
+}
+
+.mdx-content > p > img {
+  display: block;
+  margin: 0 auto;
+}
+
+.mdx-content > blockquote {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-left: #556cd6 solid 6px;
+  margin-left: 4px;
+  padding-left: 16px;
+}
+
+.mdx-content code {
+  font-family: "Source Code Pro", "Roboto Mono", monospace;
+}
+
+.mdx-content > p > code {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 0.4rem;
+  color: #556cd6;
+  font-size: 1.04rem;
+  padding: 0 0.4rem;
+}
+
+.mdx-content > pre > code {
+  font-size: 1rem;
+}

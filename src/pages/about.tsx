@@ -33,9 +33,7 @@ export default function App() {
           bio={bio}
           social={social}
         />
-        <div className="p-6">
-          <Mdx>{body ?? ""}</Mdx>
-        </div>
+        <Mdx className="p-6">{body ?? ""}</Mdx>
       </div>
     </Layout>
   );

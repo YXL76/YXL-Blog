@@ -52,10 +52,13 @@ const components: Components = {
 
 type MdxProps = {
   children: string;
+  className?: string;
 };
 
 export const Mdx: FC<MdxProps> = (props) => (
-  <MDXProvider components={components}>
-    <MDXRenderer {...props}></MDXRenderer>
-  </MDXProvider>
+  <div className={`mdx-content ${props?.className ?? ""}`}>
+    <MDXProvider components={components}>
+      <MDXRenderer {...props}></MDXRenderer>
+    </MDXProvider>
+  </div>
 );

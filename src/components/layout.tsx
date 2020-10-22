@@ -85,7 +85,7 @@ export const Layout: FC = ({ children }) => {
           </div>
         </Container>
       </AppBar>
-      <Container maxWidth="lg" className="flex flex-wrap">
+      <Container maxWidth="lg" className="flex flex-wrap py-10">
         <>{children}</>
       </Container>
     </>

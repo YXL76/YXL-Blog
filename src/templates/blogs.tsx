@@ -47,7 +47,7 @@ export default function App({
   return (
     <BlogsLayout
       right={
-        <Card className="group mt-10 sticky top-6 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
+        <Card className="group sticky top-6 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
           <Tabs
             value={value}
             onChange={(_event: ChangeEvent<{}>, newValue: number) => {
@@ -76,9 +76,9 @@ export default function App({
         </Card>
       }
     >
-      <div className="bg-white my-10 px-6 py-2 rounded-3xl">
-        <Mdx>{mdx?.body ?? ""}</Mdx>
-      </div>
+      <Mdx className="bg-white mb-10 px-6 py-2 rounded-3xl">
+        {mdx?.body ?? ""}
+      </Mdx>
     </BlogsLayout>
   );
 }
