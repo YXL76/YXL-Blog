@@ -18,8 +18,11 @@ module.exports = {
   theme: {
     extend: {
       inset: {
+        3: "0.5rem",
         6: "1.5rem",
+        12: "3rem",
         20: "5rem",
+        "1/5": "20%",
       },
       maxHeight: {
         "screen-3/4": "75vh",
@@ -35,12 +38,13 @@ module.exports = {
       },
       width: {
         "screen-3/5": "60vw",
+        "15/32": "46.875%",
       },
     },
     screens: {
-      lg: "1280px",
-      md: "960px",
       sm: "600px",
+      md: "960px",
+      lg: "1280px",
       xl: "1920px",
     },
   },

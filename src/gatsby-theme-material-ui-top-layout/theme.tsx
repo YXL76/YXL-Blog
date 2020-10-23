@@ -11,6 +11,7 @@ const theme = createMuiTheme({
         },
         body: {
           backgroundColor: "#fafafa",
+          overflowX: "hidden",
         },
       },
     },

@@ -25,15 +25,23 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const {
       errors,
       data: {
-        allMdx: { nodes },
+        allMdx: { edges },
       },
     } = await graphql(
       `
         {
           allMdx(filter: { fields: { contentType: { eq: "blogs" } } }) {
-            nodes {
-              id
-              slug
+            edges {
+              next {
+                id
+              }
+              node {
+                slug
+                id
+              }
+              previous {
+                id
+              }
             }
           }
         }
@@ -43,11 +51,15 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       throw errors;
     }
 
-    nodes.forEach(({ id, slug }) => {
+    edges.forEach(({ next, node: { id, slug }, previous }) => {
       createPage({
         path: `/blogs/${slug}`,
         component: resolve(`src/templates/blogs.tsx`),
-        context: { id },
+        context: {
+          id,
+          next: next ? next.id : "",
+          previous: previous ? previous.id : "",
+        },
       });
     });
   } catch (err) {

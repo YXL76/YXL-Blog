@@ -166,7 +166,10 @@ export const Layout: FC<LayoutProps> = ({ children, trigger }) => {
           <ListItemLink to="/about" text="About" icon={<FaceOutlined />} />
         </List>
       </Drawer>
-      <Container maxWidth="lg" className="flex flex-wrap pb-10 pt-20">
+      <Container
+        maxWidth="lg"
+        className="flex flex-wrap pb-10 pt-20 px-0 sm:px-4"
+      >
         <>{children}</>
       </Container>
     </>

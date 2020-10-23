@@ -27,12 +27,15 @@ export const BlogQuery = graphql`
   fragment BlogFrontmatter on Mdx {
     frontmatter {
       banner {
-        publicURL
         childImageSharp {
           fluid(maxWidth: 2560) {
             ...GatsbyImageSharpFluid
           }
         }
+      }
+      caption {
+        children
+        href
       }
       category
       date(fromNow: true)

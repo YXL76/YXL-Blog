@@ -5,32 +5,10 @@ import {
   EventNoteOutlined,
   LocalOfferOutlined,
 } from "@material-ui/icons";
-import { Avatar, Button, ButtonBase, Card, Chip, Grid, Link } from ".";
-import type { FC, ReactElement, ReactNode } from "react";
+import { Avatar, Button, ButtonBase, Card, Link, MetadataChip } from ".";
+import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
-
-type MetadataChipProps = {
-  avatar?: ReactElement;
-  clickable?: boolean;
-  label?: ReactNode;
-  icon?: ReactElement;
-};
-
-const MetadataChip: FC<MetadataChipProps> = ({
-  avatar,
-  clickable,
-  label,
-  icon,
-}) => (
-  <Chip
-    className="bg-transparent font-medium text-base"
-    clickable={clickable}
-    avatar={avatar}
-    icon={icon}
-    label={label}
-  />
-);
 
 type BlogCardProps = {
   frontmatter: {
@@ -90,32 +68,18 @@ export const BlogCard: FC<BlogCardProps> = ({
       {subtitle && (
         <h3 className="font-medium mt-2 text-2xl text-center ">{subtitle}</h3>
       )}
-      <Grid
-        container
-        className="mt-1"
-        alignItems="center"
-        justify="center"
-        spacing={1}
-      >
-        <Grid item>
-          <Link to="/about" underline="none">
-            <MetadataChip
-              clickable
-              avatar={<Avatar className="shadow" src={avatar} />}
-              label={author}
-            />
-          </Link>
-        </Grid>
-        <Grid item>
-          <MetadataChip icon={<EventNoteOutlined />} label={date} />
-        </Grid>
-        <Grid item>
-          <MetadataChip icon={<AvTimerOutlined />} label={words} />
-        </Grid>
-        <Grid item>
-          <MetadataChip icon={<AlarmOutlined />} label={`${timeToRead} min`} />
-        </Grid>
-      </Grid>
+      <div className="flex items-center justify-center flex-wrap mt-1">
+        <Link to="/about" underline="none">
+          <MetadataChip
+            clickable
+            avatar={<Avatar className="shadow" src={avatar} />}
+            label={author}
+          />
+        </Link>
+        <MetadataChip icon={<EventNoteOutlined />} label={date} />
+        <MetadataChip icon={<AvTimerOutlined />} label={words} />
+        <MetadataChip icon={<AlarmOutlined />} label={`${timeToRead} min`} />
+      </div>
       {description && (
         <p className="text-lg mt-2 mx-10 text-center">{description}</p>
       )}
