@@ -30,6 +30,9 @@ module.exports = {
       height: {
         14: "3.5rem",
       },
+      transitionProperty: {
+        toc: "top, box-shadow",
+      },
       transitionTimingFunction: {
         "slide-exit": "cubic-bezier(0.4, 0, 0.6, 1)",
       },

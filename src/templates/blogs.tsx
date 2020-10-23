@@ -166,7 +166,11 @@ export default function App({
         </Grid>
         <Hidden smDown>
           <Grid item xs={4} className="pl-12">
-            <Card className="group sticky top-20 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
+            <Card
+              className={`group sticky overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-toc duration-300 ease-out ${
+                trigger ? "top-6 ease-slide-exit" : "top-20"
+              }`}
+            >
               <Tabs
                 value={value}
                 onChange={(_event: ChangeEvent<{}>, newValue: number) => {

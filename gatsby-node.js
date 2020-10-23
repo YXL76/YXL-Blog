@@ -30,7 +30,10 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     } = await graphql(
       `
         {
-          allMdx(filter: { fields: { contentType: { eq: "blogs" } } }) {
+          allMdx(
+            filter: { fields: { contentType: { eq: "blogs" } } }
+            sort: { order: ASC, fields: frontmatter___date }
+          ) {
             edges {
               next {
                 id
