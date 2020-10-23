@@ -29,7 +29,6 @@
     "prism-themes": "^1.4.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "rehype-autolink-headings": "^4.0.0",
     "rehype-slug": "^3.0.0",
     "remark-emoji": "^2.1.0",
     "tailwindcss": "2.0.0-alpha.1"

@@ -16,6 +16,7 @@ import {
   Link,
   Mdx,
   MetadataChip,
+  TOC,
   Tab,
   TabPanel,
   Tabs,
@@ -25,32 +26,9 @@ import type { ChangeEvent } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
 import type { PageProps } from "gatsby";
+import type { TocItem } from "../components";
 import { graphql } from "gatsby";
 import { useState } from "react";
-
-type TocItem = {
-  url: string;
-  title: string;
-  items?: TocItem[];
-};
-
-const TOC = (items: TocItem[]) => (
-  <ul className="list-none">
-    {items.map(({ url, title, items }, idx) => (
-      <li key={idx} className="list-none">
-        <Link
-          href={url}
-          color="inherit"
-          underline="none"
-          className="block pl-2 border-0 border-l-4 border-solid border-transparent text-base leading-7 hover:text-blue-400 hover:border-blue-400 transition-colors duration-300 ease-out"
-        >
-          {title}
-        </Link>
-        {items && TOC(items)}
-      </li>
-    ))}
-  </ul>
-);
 
 export default function App({
   data: { mdx, next, prev, author },
@@ -58,8 +36,6 @@ export default function App({
   const { words } = mdx?.wordCount ?? {};
   const { title, subtitle, category, date, banner, caption } =
     mdx?.frontmatter ?? {};
-  const trigger = useScrollTrigger();
-  const [value, setValue] = useState(0);
   const near = [prev, next] as (null | {
     frontmatter: {
       title: string;
@@ -67,8 +43,10 @@ export default function App({
     };
     slug: string;
   })[];
-
   const tableOfContents: TocItem = mdx?.tableOfContents ?? ({} as TocItem);
+
+  const trigger = useScrollTrigger();
+  const [value, setValue] = useState(0);
 
   return (
     <Layout trigger={trigger}>
@@ -125,12 +103,7 @@ export default function App({
           )}
         </div>
       )}
-      <Grid
-        container
-        className={`mt-6 md:mt-20 transform transition-transform duration-300 ease-out ${
-          trigger ? "ease-slide-exit md:-translate-y-14" : ""
-        }`}
-      >
+      <Grid container className="mt-6">
         <Grid item xs zeroMinWidth>
           <Mdx className="bg-white mb-4 px-6 py-2 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
             {mdx?.body ?? ""}

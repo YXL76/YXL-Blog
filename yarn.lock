@@ -9118,7 +9118,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"extend@npm:^3.0.0, extend@npm:^3.0.1, extend@npm:~3.0.2":
+"extend@npm:^3.0.0, extend@npm:~3.0.2":
   version: 3.0.2
   resolution: "extend@npm:3.0.2"
   checksum: 1406da1f0c4b00b839497e4cdd0ec4303ce2ae349144b7c28064a5073c93ce8c08da4e8fb1bc5cb459ffcdff30a35fc0fe54344eb88320e70100c1baea6f195c
@@ -18379,18 +18379,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"rehype-autolink-headings@npm:^4.0.0":
-  version: 4.0.0
-  resolution: "rehype-autolink-headings@npm:4.0.0"
-  dependencies:
-    extend: ^3.0.1
-    hast-util-has-property: ^1.0.0
-    hast-util-is-element: ^1.0.0
-    unist-util-visit: ^2.0.0
-  checksum: 3ca3777ed7da636318a7e96d50dfe17db96983fea8a88bb7cee5a228d5c43b528990fdcf37f4eef9c9b6fc4d2a3c19f54bb5e1884a0e25f42de5ee0fb8d5ccda
-  languageName: node
-  linkType: hard
-
 "rehype-slug@npm:^3.0.0":
   version: 3.0.0
   resolution: "rehype-slug@npm:3.0.0"
@@ -22982,7 +22970,6 @@ typescript@4.1.0-beta:
     prism-themes: ^1.4.1
     react: ^17.0.1
     react-dom: ^17.0.1
-    rehype-autolink-headings: ^4.0.0
     rehype-slug: ^3.0.0
     remark-emoji: ^2.1.0
     stylelint: ^13.7.2

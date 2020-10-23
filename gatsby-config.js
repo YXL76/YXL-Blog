@@ -43,7 +43,6 @@ module.exports = {
         remarkPlugins: [require("remark-emoji")],
         rehypePlugins: [
           require("rehype-slug"),
-          [require("rehype-autolink-headings"), { behavior: "wrap" }],
           require("@mapbox/rehype-prism"),
         ],
         gatsbyRemarkPlugins: [

@@ -6,9 +6,6 @@ const theme = createMuiTheme({
   overrides: {
     MuiCssBaseline: {
       "@global": {
-        html: {
-          scrollBehavior: "smooth",
-        },
         body: {
           backgroundColor: "#fafafa",
           overflowX: "hidden",

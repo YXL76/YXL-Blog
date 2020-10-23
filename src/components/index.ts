@@ -5,3 +5,4 @@ export * from "./material-ui";
 export * from "./metadata-chip";
 export * from "./mdx";
 export * from "./tab-panel";
+export * from "./toc";
