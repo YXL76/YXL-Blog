@@ -8,7 +8,7 @@ import {
   TableHead,
   TableRow,
 } from ".";
-import type { FC } from "react";
+import type { FC, MouseEventHandler } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
@@ -44,7 +44,25 @@ const Ta: FC<TableProps> = ({ children }) => (
   </TableContainer>
 );
 
+const scrollTo: MouseEventHandler = (event) =>
+  (event.target as Element).scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
+
 const components: Components = {
+  // eslint-disable-next-line jsx-a11y/heading-has-content
+  h1: (props) => <h1 {...props} onClick={scrollTo} />,
+  // eslint-disable-next-line jsx-a11y/heading-has-content
+  h2: (props) => <h2 {...props} onClick={scrollTo} />,
+  // eslint-disable-next-line jsx-a11y/heading-has-content
+  h3: (props) => <h3 {...props} onClick={scrollTo} />,
+  // eslint-disable-next-line jsx-a11y/heading-has-content
+  h4: (props) => <h4 {...props} onClick={scrollTo} />,
+  // eslint-disable-next-line jsx-a11y/heading-has-content
+  h5: (props) => <h5 {...props} onClick={scrollTo} />,
+  // eslint-disable-next-line jsx-a11y/heading-has-content
+  h6: (props) => <h6 {...props} onClick={scrollTo} />,
   table: Ta,
   tr: Tr,
   td: Td,

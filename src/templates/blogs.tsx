@@ -22,13 +22,13 @@ import {
   Tabs,
   useScrollTrigger,
 } from "../components";
+import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
 import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
 import { graphql } from "gatsby";
-import { useState } from "react";
 
 export default function App({
   data: { mdx, next, prev, author },
@@ -47,6 +47,31 @@ export default function App({
 
   const trigger = useScrollTrigger();
   const [value, setValue] = useState(0);
+  const [active, setActive] = useState("");
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.length === 1 && entries[0].isIntersecting) {
+          setActive(entries[0].target.id);
+        }
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0,
+      }
+    );
+    document
+      .querySelectorAll(".mdx-content > h2, .mdx-content > h3")
+      .forEach((node) => {
+        observer.observe(node);
+      });
+
+    return () => {
+      observer.disconnect();
+    };
+  });
 
   return (
     <Layout trigger={trigger}>
@@ -154,7 +179,7 @@ export default function App({
               </Tabs>
               <TabPanel value={value} index={0}>
                 <nav className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto">
-                  {TOC(tableOfContents?.items ?? [])}
+                  {TOC(tableOfContents?.items ?? [], `#${active}`)}
                 </nav>
               </TabPanel>
               <TabPanel value={value} index={1}>

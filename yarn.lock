@@ -6503,10 +6503,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"confusing-browser-globals@npm:2.0.0-next.300+2b1161b3":
-  version: 2.0.0-next.300
-  resolution: "confusing-browser-globals@npm:2.0.0-next.300"
-  checksum: b4968e95adfedf5f7b838cb2400726c1e64ea05febd948e57595d6b02f2b4fccddbe037500b6302b56e7a05fe6843bb694f0da4218288a22029410a9eb7a6050
+"confusing-browser-globals@npm:^1.0.10":
+  version: 1.0.10
+  resolution: "confusing-browser-globals@npm:1.0.10"
+  checksum: 47e9365de6afe12e11b8dfbd12ce38d20bf8f4fd4614c838f88be5deb7c84dd20a5f00e432a6dd7e85d9e2be4601553cc6f28cc54d4cb07a3b04508aae0b4bd0
   languageName: node
   linkType: hard
 
@@ -8393,11 +8393,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-react-app@npm:^6.0.0-next.117":
-  version: 6.0.0-next.117
-  resolution: "eslint-config-react-app@npm:6.0.0-next.117"
+"eslint-config-react-app@npm:^6.0.0":
+  version: 6.0.0
+  resolution: "eslint-config-react-app@npm:6.0.0"
   dependencies:
-    confusing-browser-globals: 2.0.0-next.300+2b1161b3
+    confusing-browser-globals: ^1.0.10
   peerDependencies:
     "@typescript-eslint/eslint-plugin": ^4.0.0
     "@typescript-eslint/parser": ^4.0.0
@@ -8415,7 +8415,7 @@ __metadata:
       optional: true
     eslint-plugin-testing-library:
       optional: true
-  checksum: eff9fb4aa7a6d8b56462b362e7eae83ff339ee16f21a78c226c80f9744eae78803059c7f6eb69f905b5cc89bc457f34d4745742c2d2b0b9672166d5be17e933f
+  checksum: ab983e9a3101ee266f3b6b7118e76f7200ff0bab1a44ff84a03f300a90857b039c8a5b632d467f09540c13919565ac969ddef3dc13f903e5960fe46070a9da51
   languageName: node
   linkType: hard
 
@@ -22944,7 +22944,7 @@ typescript@4.1.0-beta:
     babel-eslint: 11.0.0-beta.2
     eslint: ^7.11.0
     eslint-config-prettier: ^6.14.0
-    eslint-config-react-app: ^6.0.0-next.117
+    eslint-config-react-app: ^6.0.0
     eslint-plugin-flowtype: ^5.2.0
     eslint-plugin-import: ^2.22.1
     eslint-plugin-jest: ^24.1.0
