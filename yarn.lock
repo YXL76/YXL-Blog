@@ -5916,7 +5916,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^2.0.0, chalk@npm:^2.1.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
+"chalk@npm:^2.0, chalk@npm:^2.0.0, chalk@npm:^2.1.0, chalk@npm:^2.4.1, chalk@npm:^2.4.2":
   version: 2.4.2
   resolution: "chalk@npm:2.4.2"
   dependencies:
@@ -10183,6 +10183,21 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-netlify@npm:^2.3.24":
+  version: 2.3.24
+  resolution: "gatsby-plugin-netlify@npm:2.3.24"
+  dependencies:
+    "@babel/runtime": ^7.11.2
+    fs-extra: ^8.1.0
+    kebab-hash: ^0.1.2
+    lodash: ^4.17.20
+    webpack-assets-manifest: ^3.1.1
+  peerDependencies:
+    gatsby: ^2.0.0
+  checksum: 8c822e7ed53bac7dd87cf6a954a1f5bdf4b1dcee083b2bbf405a5aa5abe6bc95a1892c7c03916317f52a9ba6029d7eb84d8fce7acb628f361d43f99f9678ebea
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-offline@npm:^3.2.37":
   version: 3.2.37
   resolution: "gatsby-plugin-offline@npm:3.2.37"
@@ -13585,6 +13600,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"kebab-hash@npm:^0.1.2":
+  version: 0.1.2
+  resolution: "kebab-hash@npm:0.1.2"
+  dependencies:
+    lodash.kebabcase: ^4.1.1
+  checksum: 645e336f9d4443da15152d03fc4b339273a127984633e49d91b5885923cbcc4d4fa8b11180f579499fdf2181f71ff2e74f56ff9770cd7919a5968245c6e9ac0a
+  languageName: node
+  linkType: hard
+
 "keyv@npm:3.0.0":
   version: 3.0.0
   resolution: "keyv@npm:3.0.0"
@@ -14012,10 +14036,31 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"lodash.get@npm:^4.0":
+  version: 4.4.2
+  resolution: "lodash.get@npm:4.4.2"
+  checksum: 447e575e3caa5131ef44e5a0c135b1614f3c937d86b3be0568f9da7b0fd015010af3b6b4e41edf6e2698c9ce2dcc061ca71b31f274f799c991dceb018be16e4f
+  languageName: node
+  linkType: hard
+
+"lodash.has@npm:^4.0":
+  version: 4.5.2
+  resolution: "lodash.has@npm:4.5.2"
+  checksum: ed2cbed6f3f06fe2ae0a604464208a758197624810e58c4928de3ab9a00d2ac736ade10f49b6ea77f96c702f9d104189a57a7af0bfa1725e8554524aa9466f41
+  languageName: node
+  linkType: hard
+
 "lodash.isempty@npm:^4.4.0":
   version: 4.4.0
   resolution: "lodash.isempty@npm:4.4.0"
   checksum: f5cf56151caafd6c121a4957c44395c16b0df86fe9631c2f9bc814add0497ae4c2512c507166621f0ba1f572348e0b482716ec353756a9a4d54d9d05b554bb42
+  languageName: node
+  linkType: hard
+
+"lodash.kebabcase@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "lodash.kebabcase@npm:4.1.1"
+  checksum: cee7b365bf62c9ae357d8c5cbd1dc767ce626fecea31b8ff7919cb15adaf2c36652fb07688bf8d55e71c456ac8e5dc7c85bf12f88716114bde232645714d538f
   languageName: node
   linkType: hard
 
@@ -14975,7 +15020,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mkdirp@npm:^0.5.1, mkdirp@npm:^0.5.3, mkdirp@npm:^0.5.5, mkdirp@npm:~0.5.1":
+"mkdirp@npm:^0.5, mkdirp@npm:^0.5.1, mkdirp@npm:^0.5.3, mkdirp@npm:^0.5.5, mkdirp@npm:~0.5.1":
   version: 0.5.5
   resolution: "mkdirp@npm:0.5.5"
   dependencies:
@@ -22455,6 +22500,23 @@ typescript@4.1.0-beta:
   languageName: node
   linkType: hard
 
+"webpack-assets-manifest@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "webpack-assets-manifest@npm:3.1.1"
+  dependencies:
+    chalk: ^2.0
+    lodash.get: ^4.0
+    lodash.has: ^4.0
+    mkdirp: ^0.5
+    schema-utils: ^1.0.0
+    tapable: ^1.0.0
+    webpack-sources: ^1.0.0
+  peerDependencies:
+    webpack: ">=4.4.0"
+  checksum: a1821cf827dd2c9234e4abbe59522102af1e09d1ad21935ed1446c2576c830304549b05928f781cff63e64dd535513a9ff9e5b81e7ccf59a49e02b4e3da5b04d
+  languageName: node
+  linkType: hard
+
 "webpack-dev-middleware@npm:^3.7.2":
   version: 3.7.2
   resolution: "webpack-dev-middleware@npm:3.7.2"
@@ -22559,7 +22621,7 @@ typescript@4.1.0-beta:
   languageName: node
   linkType: hard
 
-"webpack-sources@npm:^1.1.0, webpack-sources@npm:^1.4.0, webpack-sources@npm:^1.4.1, webpack-sources@npm:^1.4.3":
+"webpack-sources@npm:^1.0.0, webpack-sources@npm:^1.1.0, webpack-sources@npm:^1.4.0, webpack-sources@npm:^1.4.1, webpack-sources@npm:^1.4.3":
   version: 1.4.3
   resolution: "webpack-sources@npm:1.4.3"
   dependencies:
@@ -23298,6 +23360,7 @@ typescript@4.1.0-beta:
     gatsby-image: ^2.4.21
     gatsby-plugin-manifest: ^2.4.35
     gatsby-plugin-mdx: ^1.2.51
+    gatsby-plugin-netlify: ^2.3.24
     gatsby-plugin-offline: ^3.2.37
     gatsby-plugin-postcss: ^3.0.3
     gatsby-plugin-react-helmet: ^3.3.14
