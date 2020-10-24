@@ -1,11 +1,13 @@
 import {
-  AlarmOutlined,
-  AvTimerOutlined,
-  ChevronRight,
-  EventNoteOutlined,
-  LocalOfferOutlined,
-} from "@material-ui/icons";
-import { Avatar, Button, ButtonBase, Card, Link, MetadataChip } from ".";
+  Avatar,
+  BlogMetadataChip,
+  Button,
+  ButtonBase,
+  Card,
+  Link,
+  MetadataChip,
+} from ".";
+import { ChevronRight, LocalOfferOutlined } from "@material-ui/icons";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
@@ -76,9 +78,7 @@ export const BlogCard: FC<BlogCardProps> = ({
             label={author}
           />
         </Link>
-        <MetadataChip icon={<EventNoteOutlined />} label={date} />
-        <MetadataChip icon={<AvTimerOutlined />} label={words} />
-        <MetadataChip icon={<AlarmOutlined />} label={`${timeToRead} min`} />
+        <BlogMetadataChip date={date} words={words} timeToRead={timeToRead} />
       </div>
       {description && (
         <p className="text-lg mt-2 mx-10 text-center">{description}</p>

@@ -33,6 +33,15 @@ export default function App() {
         sort: { order: DESC, fields: frontmatter___date }
       ) {
         nodes {
+          frontmatter {
+            banner {
+              childImageSharp {
+                fluid(maxWidth: 2560) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
           ...BlogFrontmatter
         }
       }

@@ -1,9 +1,4 @@
-import {
-  AlarmOutlined,
-  AvTimerOutlined,
-  EventNoteOutlined,
-} from "@material-ui/icons";
-import { Button, Link, MetadataChip } from ".";
+import { BlogMetadataChip, Button, Link } from ".";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
@@ -48,20 +43,12 @@ export const BlogBanner: FC<BlogBannerProps> = ({
       </h2>
     </div>
     <div className="absolute left-3 top-3 sm:left-6 sm:top-6 md:left-12 md:top-12 flex items-center justify-center flex-wrap mt-1">
-      <MetadataChip
+      <BlogMetadataChip
         className="text-white sm:text-lg md:text-xl"
-        icon={<EventNoteOutlined className="text-white text-xl md:text-2xl" />}
-        label={date}
-      />
-      <MetadataChip
-        className="text-white sm:text-lg md:text-xl"
-        icon={<AvTimerOutlined className="text-white text-xl md:text-2xl" />}
-        label={words}
-      />
-      <MetadataChip
-        className="text-white sm:text-lg md:text-xl"
-        icon={<AlarmOutlined className="text-white text-xl md:text-2xl" />}
-        label={`${timeToRead ?? ""} min`}
+        iconClassName="text-white text-xl md:text-2xl"
+        date={date}
+        words={words}
+        timeToRead={timeToRead}
       />
     </div>
     {caption && (

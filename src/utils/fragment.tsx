@@ -26,13 +26,6 @@ export const AuthorQuery = graphql`
 export const BlogQuery = graphql`
   fragment BlogFrontmatter on Mdx {
     frontmatter {
-      banner {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
       caption {
         children
         href

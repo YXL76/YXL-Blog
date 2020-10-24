@@ -1,6 +1,7 @@
 export * from "./author-card";
 export * from "./blog-banner";
 export * from "./blog-card";
+export * from "./blog-card-small";
 export * from "./category-banner";
 export * from "./category-card";
 export * from "./layout";

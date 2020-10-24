@@ -164,6 +164,15 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       body
       tableOfContents(maxDepth: 3)
+      frontmatter {
+        banner {
+          childImageSharp {
+            fluid(maxWidth: 2560) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
       ...BlogFrontmatter
     }
     next: mdx(id: { eq: $next }) {

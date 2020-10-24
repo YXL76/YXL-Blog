@@ -1,4 +1,5 @@
 import {
+  BlogCardSmall,
   CategoryBanner,
   Layout,
   Link,
@@ -33,25 +34,32 @@ export default function App({
         />
       )}
       {allMdx?.nodes && (
-        <Paper className="w-full mt-4 overflow-hidden sm:rounded-3xl">
-          <List>
-            {allMdx.nodes.map(
-              ({ frontmatter: { date, title, subtitle }, slug }, idx) => (
-                <Link
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8">
+          {allMdx.nodes.map(
+            (
+              {
+                frontmatter: { banner, title, subtitle, description, date },
+                slug,
+                wordCount: { words },
+                timeToRead,
+              },
+              idx
+            ) =>
+              banner?.childImageSharp?.fluid && (
+                <BlogCardSmall
                   key={idx}
-                  to={`/blogs/${slug ?? ""}`}
-                  underline="none"
-                  color="inherit"
-                >
-                  <ListItem button>
-                    <ListItemText primary={title} secondary={subtitle} />
-                    <ListItemSecondaryAction>{date}</ListItemSecondaryAction>
-                  </ListItem>
-                </Link>
+                  img={banner.childImageSharp.fluid}
+                  title={title}
+                  subtitle={subtitle}
+                  description={description}
+                  date={date}
+                  words={words}
+                  timeToRead={timeToRead}
+                  slug={slug}
+                />
               )
-            )}
-          </List>
-        </Paper>
+          )}
+        </div>
       )}
     </Layout>
   );
@@ -68,12 +76,15 @@ export const query = graphql`
     ) {
       nodes {
         frontmatter {
-          date(fromNow: true)
-          title
-          subtitle
-          category
+          banner {
+            childImageSharp {
+              fluid(maxWidth: 1280, maxHeight: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
-        slug
+        ...BlogFrontmatter
       }
     }
     mdx(fields: { contentType: { eq: "categories" } }) {

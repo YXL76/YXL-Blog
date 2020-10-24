@@ -1,37 +1,40 @@
-import { AssignmentIndOutlined } from "@material-ui/icons";
-import { Button } from ".";
+import { BlogMetadataChip, Link } from ".";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
-import slugify from "slugify";
 
-type CategoryCardProps = {
+type BlogCardSmallProps = {
   img: FluidObject | FluidObject[];
   title: string;
+  subtitle: string;
   description: string;
-  totalCount: number;
+  date: string;
+  words: number;
+  timeToRead: number;
+  slug?: string;
 };
 
-export const CategoryCard: FC<CategoryCardProps> = ({
+export const BlogCardSmall: FC<BlogCardSmallProps> = ({
   img,
   title,
+  subtitle,
   description,
-  totalCount,
+  date,
+  words,
+  timeToRead,
+  slug,
 }) => (
   <div className="px-4 sm:px-0">
     <div className="overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
       <Img fluid={img} />
       <div className="flex flex-col items-center px-4 pt-4 pb-2 text-center">
-        <h2 className="tracking-wider text-3xl">{title}</h2>
+        <h2 className="tracking-wider text-3xl">
+          <Link to={`/blogs/${slug}`}>{title}</Link>
+        </h2>
+        <h3 className="tracking-wider text-3xl">{subtitle}</h3>
         <p className="leading-snug tracking-wider text-base">{description}</p>
         <div className="w-full border-gray-400 pt-2 border-solid border-0 border-t">
-          <Button
-            startIcon={<AssignmentIndOutlined />}
-            color="primary"
-            to={`/categories/${slugify(title)}`}
-          >
-            {totalCount} Blogs
-          </Button>
+          <BlogMetadataChip date={date} words={words} timeToRead={timeToRead} />
         </div>
       </div>
     </div>
