@@ -11,6 +11,7 @@ export {
   List,
   ListItem,
   ListItemIcon,
+  ListItemSecondaryAction,
   ListItemText,
   Paper,
   Slide,
@@ -35,3 +36,12 @@ export {
   IconButton,
   Link,
 } from "gatsby-theme-material-ui";
+export {
+  Timeline,
+  TimelineConnector,
+  TimelineContent,
+  TimelineDot,
+  TimelineItem,
+  TimelineOppositeContent,
+  TimelineSeparator,
+} from "@material-ui/lab";

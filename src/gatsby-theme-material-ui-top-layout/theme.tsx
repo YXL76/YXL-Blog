@@ -17,6 +17,11 @@ const theme = createMuiTheme({
         backgroundColor: "#ff",
       },
     },
+    MuiTimelineOppositeContent: {
+      root: {
+        flex: "unset",
+      },
+    },
   },
   palette: {
     primary: {
