@@ -3462,6 +3462,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-helmet@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "@types/react-helmet@npm:6.1.0"
+  dependencies:
+    "@types/react": "*"
+  checksum: b7aaa3aa2d81cd3b14a0e77a858de86934a3400f4ec35945117edb3979b8a41130e70b8a27241de295195e365962a9b5bc149a2a029d23795fd0f6c740d1de77
+  languageName: node
+  linkType: hard
+
 "@types/react-transition-group@npm:^4.2.0":
   version: 4.4.0
   resolution: "@types/react-transition-group@npm:4.4.0"
@@ -10222,7 +10231,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-react-helmet@npm:^3.1.2":
+"gatsby-plugin-react-helmet@npm:^3.1.2, gatsby-plugin-react-helmet@npm:^3.3.14":
   version: 3.3.14
   resolution: "gatsby-plugin-react-helmet@npm:3.3.14"
   dependencies:
@@ -23268,6 +23277,7 @@ typescript@4.1.0-beta:
     "@types/node": ^12.19.1
     "@types/react": ^16.9.53
     "@types/react-dom": ^16.9.8
+    "@types/react-helmet": ^6.1.0
     "@typescript-eslint/eslint-plugin": ^4.5.0
     "@typescript-eslint/parser": ^4.5.0
     autoprefixer: ^10.0.1
@@ -23290,6 +23300,7 @@ typescript@4.1.0-beta:
     gatsby-plugin-mdx: ^1.2.51
     gatsby-plugin-offline: ^3.2.37
     gatsby-plugin-postcss: ^3.0.3
+    gatsby-plugin-react-helmet: ^3.3.14
     gatsby-plugin-sharp: ^2.6.43
     gatsby-plugin-typegen: ^2.2.1
     gatsby-remark-images: ^3.3.39
@@ -23302,6 +23313,7 @@ typescript@4.1.0-beta:
     prism-themes: ^1.4.1
     react: ^17.0.1
     react-dom: ^17.0.1
+    react-helmet: ^6.1.0
     rehype-slug: ^3.0.0
     remark-emoji: ^2.1.0
     slugify: ^1.4.5

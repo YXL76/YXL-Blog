@@ -50,6 +50,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-postcss",
+    "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-manifest",
       options: {

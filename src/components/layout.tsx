@@ -24,6 +24,7 @@ import {
 import { Button, IconButton, Link } from "gatsby-theme-material-ui";
 import type { FC, ReactNode } from "react";
 import { graphql, useStaticQuery } from "gatsby";
+import { Helmet } from "react-helmet";
 import { useState } from "react";
 
 type ListItemLinkProps = {
@@ -70,6 +71,9 @@ export const Layout: FC<LayoutProps> = ({ children, trigger }) => {
 
   return (
     <>
+      <Helmet titleTemplate="%s | YXL Blog" defaultTitle={title} defer={false}>
+        <meta charSet="utf-8" />
+      </Helmet>
       <Slide appear={false} direction="down" timeout={300} in={!trigger}>
         <AppBar className="h-14" color="default" elevation={1}>
           <Container maxWidth="lg">
