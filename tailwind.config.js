@@ -26,6 +26,7 @@ module.exports = {
       },
       maxHeight: {
         "screen-3/4": "75vh",
+        80: "20rem",
       },
       height: {
         14: "3.5rem",

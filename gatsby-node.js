@@ -4,6 +4,7 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
 const { basename, dirname, parse, resolve } = require("path");
+const slugify = require("slugify");
 
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
   try {
@@ -63,6 +64,43 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           id,
           next: next ? next.id : "",
           previous: previous ? previous.id : "",
+        },
+      });
+    });
+  } catch (err) {
+    throw err;
+  }
+
+  try {
+    const {
+      errors,
+      data: {
+        allMdx: { group },
+      },
+    } = await graphql(
+      `
+        {
+          allMdx(
+            filter: { fields: { contentType: { eq: "blogs" } } }
+            sort: { fields: frontmatter___date, order: DESC }
+          ) {
+            group(field: frontmatter___category) {
+              fieldValue
+            }
+          }
+        }
+      `
+    );
+    if (errors) {
+      throw errors;
+    }
+
+    group.forEach(({ fieldValue }) => {
+      createPage({
+        path: `/categories/${slugify(fieldValue)}`,
+        component: resolve(`src/templates/categories.tsx`),
+        context: {
+          category: fieldValue,
         },
       });
     });

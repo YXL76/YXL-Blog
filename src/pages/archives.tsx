@@ -5,6 +5,7 @@ import {
   ListItem,
   ListItemSecondaryAction,
   ListItemText,
+  Paper,
   Timeline,
   TimelineConnector,
   TimelineContent,
@@ -44,39 +45,41 @@ export default function App() {
 
   return (
     <Layout trigger={trigger}>
-      <Timeline align="left">
-        {group.map(({ fieldValue, nodes }) => (
-          <TimelineItem>
-            <TimelineOppositeContent className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
-              {fieldValue}
-            </TimelineOppositeContent>
-            <TimelineSeparator>
-              <TimelineDot />
-              <TimelineConnector />
-            </TimelineSeparator>
-            <TimelineContent>
-              <List>
-                {nodes.map(
-                  ({ frontmatter: { date, title, subtitle }, slug }) => (
-                    <Link
-                      to={`/blogs/${slug}`}
-                      underline="none"
-                      color="inherit"
-                    >
-                      <ListItem button>
-                        <ListItemText primary={title} secondary={subtitle} />
-                        <ListItemSecondaryAction>
-                          {date}
-                        </ListItemSecondaryAction>
-                      </ListItem>
-                    </Link>
-                  )
-                )}
-              </List>
-            </TimelineContent>
-          </TimelineItem>
-        ))}
-      </Timeline>
+      <Paper className="w-full overflow-hidden sm:rounded-3xl">
+        <Timeline align="left">
+          {group.map(({ fieldValue, nodes }) => (
+            <TimelineItem>
+              <TimelineOppositeContent className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
+                {fieldValue}
+              </TimelineOppositeContent>
+              <TimelineSeparator>
+                <TimelineDot />
+                <TimelineConnector />
+              </TimelineSeparator>
+              <TimelineContent>
+                <List>
+                  {nodes.map(
+                    ({ frontmatter: { date, title, subtitle }, slug }) => (
+                      <Link
+                        to={`/blogs/${slug}`}
+                        underline="none"
+                        color="inherit"
+                      >
+                        <ListItem button>
+                          <ListItemText primary={title} secondary={subtitle} />
+                          <ListItemSecondaryAction>
+                            {date}
+                          </ListItemSecondaryAction>
+                        </ListItem>
+                      </Link>
+                    )
+                  )}
+                </List>
+              </TimelineContent>
+            </TimelineItem>
+          ))}
+        </Timeline>
+      </Paper>
     </Layout>
   );
 }
