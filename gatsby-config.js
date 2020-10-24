@@ -2,6 +2,7 @@ module.exports = {
   polyfill: false,
   siteMetadata: {
     title: "YXL Blog",
+    siteUrl: "https://agitated-brown-2ed627.netlify.app/",
   },
   plugins: [
     "gatsby-theme-material-ui",
@@ -51,6 +52,7 @@ module.exports = {
     },
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
