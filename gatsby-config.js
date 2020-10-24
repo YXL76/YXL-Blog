@@ -50,5 +50,27 @@ module.exports = {
       },
     },
     "gatsby-plugin-postcss",
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        icon: "assets/images/icon.svg",
+        cache_busting_mode: "none",
+        name: "YXL Blog",
+        short_name: "YXL Blog",
+        description: "",
+        start_url: "/",
+        background_color: "#fafafa",
+        theme_color: "#556cd6",
+        display: "standalone",
+      },
+    },
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        workboxConfig: {
+          globPatterns: ["**/icon*"],
+        },
+      },
+    },
   ],
 };
