@@ -2,7 +2,6 @@ module.exports = {
   polyfill: false,
   siteMetadata: {
     title: "YXL Blog",
-    tags: ["tag 1", "tag 2", "tag 3"],
   },
   plugins: [
     "gatsby-theme-material-ui",

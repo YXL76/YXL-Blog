@@ -7,8 +7,8 @@ export default function App() {
     mdx: {
       frontmatter: { categories },
     },
-  } = useStaticQuery<GatsbyTypes.categoriesPagesQuery>(graphql`
-    query categoriesPages {
+  } = useStaticQuery<GatsbyTypes.CategoriesPagesQuery>(graphql`
+    query CategoriesPages {
       allMdx(
         filter: { fields: { contentType: { eq: "blogs" } } }
         sort: { fields: frontmatter___date, order: DESC }
