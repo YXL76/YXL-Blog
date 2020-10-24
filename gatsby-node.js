@@ -107,4 +107,55 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   } catch (err) {
     throw err;
   }
+
+  try {
+    const {
+      errors,
+      data: {
+        allMdx: { nodes },
+      },
+    } = await graphql(
+      `
+        {
+          allMdx(
+            filter: { fields: { contentType: { eq: "blogs" } } }
+            sort: { fields: frontmatter___date, order: DESC }
+          ) {
+            nodes {
+              frontmatter {
+                tags
+              }
+            }
+          }
+        }
+      `
+    );
+    if (errors) {
+      throw errors;
+    }
+
+    const data = [];
+
+    nodes.forEach(({ frontmatter: { tags } }) => {
+      if (tags) {
+        for (const tag of tags) {
+          if (!data.includes(tag)) {
+            data.push(tag);
+          }
+        }
+      }
+    });
+
+    data.forEach((tag) => {
+      createPage({
+        path: `/tags/${slugify(tag)}`,
+        component: resolve(`src/templates/tags.tsx`),
+        context: {
+          tag: tag,
+        },
+      });
+    });
+  } catch (err) {
+    throw err;
+  }
 };

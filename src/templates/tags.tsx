@@ -2,6 +2,12 @@ import {
   BlogCardSmall,
   CategoryBanner,
   Layout,
+  Link,
+  List,
+  ListItem,
+  ListItemSecondaryAction,
+  ListItemText,
+  Paper,
   useScrollTrigger,
 } from "../components";
 import type { PageProps } from "gatsby";
@@ -60,11 +66,11 @@ export default function App({
 }
 
 export const query = graphql`
-  query CategoriesTemplates($category: String!) {
+  query TagsTemplates($tag: [String]!) {
     allMdx(
       filter: {
         fields: { contentType: { eq: "blogs" } }
-        frontmatter: { category: { eq: $category } }
+        frontmatter: { tags: { in: $tag } }
       }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
@@ -79,25 +85,6 @@ export const query = graphql`
           }
         }
         ...BlogFrontmatter
-      }
-    }
-    mdx(fields: { contentType: { eq: "categories" } }) {
-      frontmatter {
-        categories {
-          banner {
-            childImageSharp {
-              fluid(maxWidth: 2560) {
-                ...GatsbyImageSharpFluid
-              }
-            }
-          }
-          caption {
-            children
-            href
-          }
-          description
-          name
-        }
       }
     }
   }

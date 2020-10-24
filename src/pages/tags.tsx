@@ -27,7 +27,7 @@ export default function App() {
         if (tag in data) {
           ++data[tag];
         } else {
-          data[tag] = 0;
+          data[tag] = 1;
         }
       }
     }
