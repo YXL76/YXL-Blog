@@ -2,6 +2,7 @@ module.exports = {
   polyfill: false,
   siteMetadata: {
     title: "YXL Blog",
+    tags: ["tag 1", "tag 2", "tag 3"],
   },
   plugins: [
     "gatsby-theme-material-ui",
@@ -16,22 +17,15 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "images",
-        path: "assets/images/",
+        name: "assets",
+        path: "assets/",
       },
     },
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "authors",
-        path: "content/authors/",
-      },
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "blogs",
-        path: "content/blogs/",
+        name: "content",
+        path: "content/",
       },
     },
     "gatsby-transformer-sharp",

@@ -36,7 +36,7 @@ export default function App() {
           ...BlogFrontmatter
         }
       }
-      mdx(fields: { contentType: { eq: "authors" } }) {
+      mdx(fields: { contentType: { eq: "author" } }) {
         ...AuthorFrontmatter
       }
     }

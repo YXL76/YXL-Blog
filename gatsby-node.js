@@ -3,16 +3,17 @@
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 
-const { basename, dirname, resolve } = require("path");
+const { basename, dirname, parse, resolve } = require("path");
 
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
   try {
     if (node.internal.type === "Mdx") {
       const { fileAbsolutePath } = node;
+      const base = basename(dirname(fileAbsolutePath));
       createNodeField({
         node,
         name: "contentType",
-        value: basename(dirname(fileAbsolutePath)),
+        value: base !== "content" ? base : parse(fileAbsolutePath).name,
       });
     }
   } catch (err) {

@@ -237,7 +237,7 @@ export const query = graphql`
       }
       slug
     }
-    author: mdx(fields: { contentType: { eq: "authors" } }) {
+    author: mdx(fields: { contentType: { eq: "author" } }) {
       ...AuthorFrontmatter
     }
   }
