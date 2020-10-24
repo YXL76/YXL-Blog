@@ -1,13 +1,6 @@
 import {
-  AlarmOutlined,
-  AvTimerOutlined,
-  EventNoteOutlined,
-  NavigateBeforeOutlined,
-  NavigateNextOutlined,
-} from "@material-ui/icons";
-import {
   AuthorCard,
-  Button,
+  BlogBanner,
   ButtonBase,
   Card,
   Grid,
@@ -15,13 +8,16 @@ import {
   Layout,
   Link,
   Mdx,
-  MetadataChip,
   TOC,
   Tab,
   TabPanel,
   Tabs,
   useScrollTrigger,
 } from "../components";
+import {
+  NavigateBeforeOutlined,
+  NavigateNextOutlined,
+} from "@material-ui/icons";
 import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import type { FluidObject } from "gatsby-image";
@@ -75,58 +71,17 @@ export default function App({
 
   return (
     <Layout trigger={trigger}>
-      {banner?.childImageSharp?.fluid && (
-        <div className="relative overflow-hidden w-full sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
-          <Img fluid={banner.childImageSharp.fluid} />
-          <div className="absolute left-3 bottom-3 sm:left-6 sm:bottom-6 md:left-12 md:bottom-12">
-            <Button
-              className="rounded-xl sm:mb-2 md:mb-4"
-              variant="contained"
-              color="primary"
-              to={`/categories/${category ?? ""}`}
-            >
-              {category}
-            </Button>
-            <h1 className="leading-tight text-white tracking-wider text-3xl sm:text-4xl md:text-5xl sm:mb-2 md:mb-4">
-              {title}
-            </h1>
-            <h2 className="leading-tight text-white tracking-wide text-xl sm:text-2xl md:text-3xl">
-              {subtitle}
-            </h2>
-          </div>
-          <div className="absolute left-3 top-3 sm:left-6 sm:top-6 md:left-12 md:top-12 flex items-center justify-center flex-wrap mt-1">
-            <MetadataChip
-              className="text-white sm:text-lg md:text-xl"
-              icon={
-                <EventNoteOutlined className="text-white text-xl md:text-2xl" />
-              }
-              label={date}
-            />
-            <MetadataChip
-              className="text-white sm:text-lg md:text-xl"
-              icon={
-                <AvTimerOutlined className="text-white text-xl md:text-2xl" />
-              }
-              label={words}
-            />
-            <MetadataChip
-              className="text-white sm:text-lg md:text-xl"
-              icon={
-                <AlarmOutlined className="text-white text-xl md:text-2xl" />
-              }
-              label={`${mdx?.timeToRead ?? ""} min`}
-            />
-          </div>
-          {caption && (
-            <div className="absolute right-0 bottom-0 px-2">
-              <Link
-                className="bg-black bg-opacity-50 rounded text-white tracking-wide text-xs sm:text-sm md:text-base"
-                underline="none"
-                {...caption}
-              />
-            </div>
-          )}
-        </div>
+      {banner?.childImageSharp?.fluid && category && (
+        <BlogBanner
+          img={banner.childImageSharp.fluid}
+          category={category}
+          title={title}
+          subtitle={subtitle}
+          date={date}
+          words={words}
+          timeToRead={mdx?.timeToRead}
+          caption={caption}
+        />
       )}
       <Grid container className="mt-6">
         <Grid item xs zeroMinWidth>

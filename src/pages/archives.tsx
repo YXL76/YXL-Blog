@@ -47,8 +47,8 @@ export default function App() {
     <Layout trigger={trigger}>
       <Paper className="w-full overflow-hidden sm:rounded-3xl">
         <Timeline align="left">
-          {group.map(({ fieldValue, nodes }) => (
-            <TimelineItem>
+          {group.map(({ fieldValue, nodes }, idx) => (
+            <TimelineItem key={idx}>
               <TimelineOppositeContent className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold">
                 {fieldValue}
               </TimelineOppositeContent>
@@ -59,8 +59,9 @@ export default function App() {
               <TimelineContent>
                 <List>
                   {nodes.map(
-                    ({ frontmatter: { date, title, subtitle }, slug }) => (
+                    ({ frontmatter: { date, title, subtitle }, slug }, idx) => (
                       <Link
+                        key={idx}
                         to={`/blogs/${slug}`}
                         underline="none"
                         color="inherit"

@@ -1,4 +1,4 @@
-import { Avatar, IconButton, Link, Typography } from ".";
+import { Avatar, IconButton, Link } from ".";
 import { Douban, Github, Instagram, Reddit, Twitter } from "mdi-material-ui";
 import { EmailOutlined, Facebook } from "@material-ui/icons";
 import type { FC } from "react";

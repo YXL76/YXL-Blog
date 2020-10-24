@@ -49,8 +49,8 @@ export default function App() {
     <Layout trigger={trigger}>
       <Grid container>
         <Grid item xs zeroMinWidth>
-          {nodes.map((node, index) => (
-            <BlogCard key={index} author={name} avatar={publicURL} {...node} />
+          {nodes.map((node, idx) => (
+            <BlogCard key={idx} author={name} avatar={publicURL} {...node} />
           ))}
         </Grid>
         <Hidden smDown>

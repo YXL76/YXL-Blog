@@ -52,7 +52,11 @@ type LayoutProps = {
 };
 
 export const Layout: FC<LayoutProps> = ({ children, trigger }) => {
-  const data = useStaticQuery<GatsbyTypes.LayoutComponentsQuery>(graphql`
+  const {
+    site: {
+      siteMetadata: { title },
+    },
+  } = useStaticQuery<GatsbyTypes.LayoutComponentsQuery>(graphql`
     query LayoutComponents {
       site {
         siteMetadata {
@@ -74,7 +78,7 @@ export const Layout: FC<LayoutProps> = ({ children, trigger }) => {
                 <Hidden xsDown>
                   <div className="mr-6 font-bold leading-none text-2xl uppercase">
                     <Link to="/" underline="none">
-                      {data.site?.siteMetadata?.title}
+                      {title}
                     </Link>
                   </div>
                 </Hidden>
@@ -147,7 +151,7 @@ export const Layout: FC<LayoutProps> = ({ children, trigger }) => {
       <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
         <div className="pl-8 py-4 font-bold leading-none text-2xl uppercase">
           <Link to="/" underline="none">
-            {data.site?.siteMetadata?.title}
+            {title}
           </Link>
         </div>
         <List component="nav" className="w-screen-3/5">

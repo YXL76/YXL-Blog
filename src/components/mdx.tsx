@@ -1,4 +1,5 @@
 import type { Components, TableProps, TdProps, TrProps } from "@mdx-js/react";
+import type { FC, MouseEventHandler } from "react";
 import {
   Paper,
   Table,
@@ -8,7 +9,6 @@ import {
   TableHead,
   TableRow,
 } from ".";
-import type { FC, MouseEventHandler } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
