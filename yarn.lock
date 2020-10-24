@@ -2498,7 +2498,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mapbox/rehype-prism@npm:^0.5.0":
+"@mapbox/rehype-prism@npm:0.5.0":
   version: 0.5.0
   resolution: "@mapbox/rehype-prism@npm:0.5.0"
   dependencies:
@@ -2509,7 +2509,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/core@npm:^4.11.0":
+"@material-ui/core@npm:4.11.0":
   version: 4.11.0
   resolution: "@material-ui/core@npm:4.11.0"
   dependencies:
@@ -2536,7 +2536,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/icons@npm:^4.9.1":
+"@material-ui/icons@npm:4.9.1":
   version: 4.9.1
   resolution: "@material-ui/icons@npm:4.9.1"
   dependencies:
@@ -2553,7 +2553,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@material-ui/lab@npm:^4.0.0-alpha.56":
+"@material-ui/lab@npm:4.0.0-alpha.56":
   version: 4.0.0-alpha.56
   resolution: "@material-ui/lab@npm:4.0.0-alpha.56"
   dependencies:
@@ -3394,7 +3394,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^12.19.1":
+"@types/node@npm:12.19.1":
   version: 12.19.1
   resolution: "@types/node@npm:12.19.1"
   checksum: 97073fc8607ade40544759fccf19b9b7497db75d2d3477774f42d55719ac5f7665366f23c930dfb51e191cb6327c29cfdf46d546f5dd1f634023832be987e3cd
@@ -3453,7 +3453,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:^16.9.8":
+"@types/react-dom@npm:16.9.8":
   version: 16.9.8
   resolution: "@types/react-dom@npm:16.9.8"
   dependencies:
@@ -3462,7 +3462,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-helmet@npm:^6.1.0":
+"@types/react-helmet@npm:6.1.0":
   version: 6.1.0
   resolution: "@types/react-helmet@npm:6.1.0"
   dependencies:
@@ -3480,7 +3480,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:^16.9.53":
+"@types/react@npm:*, @types/react@npm:16.9.53":
   version: 16.9.53
   resolution: "@types/react@npm:16.9.53"
   dependencies:
@@ -3583,25 +3583,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/eslint-plugin@npm:^2.24.0":
-  version: 2.34.0
-  resolution: "@typescript-eslint/eslint-plugin@npm:2.34.0"
-  dependencies:
-    "@typescript-eslint/experimental-utils": 2.34.0
-    functional-red-black-tree: ^1.0.1
-    regexpp: ^3.0.0
-    tsutils: ^3.17.1
-  peerDependencies:
-    "@typescript-eslint/parser": ^2.0.0
-    eslint: ^5.0.0 || ^6.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 8d800f4726487df5ce4d573e62effa250f168658759e32a976eae355cc3130d82e3a918542df273fec428b608d9d50e65ad02d596ba0c24de7fbb4ddb7897dee
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/eslint-plugin@npm:^4.5.0":
+"@typescript-eslint/eslint-plugin@npm:4.5.0":
   version: 4.5.0
   resolution: "@typescript-eslint/eslint-plugin@npm:4.5.0"
   dependencies:
@@ -3619,6 +3601,24 @@ __metadata:
     typescript:
       optional: true
   checksum: 81d881700755181be27a6613441ee00a5a7a001efae60ea37d8d26b29ad79e8f9a7811fcc7ceebca979b220e179a8827adc2c07a0e465d358ec9199f76e207bb
+  languageName: node
+  linkType: hard
+
+"@typescript-eslint/eslint-plugin@npm:^2.24.0":
+  version: 2.34.0
+  resolution: "@typescript-eslint/eslint-plugin@npm:2.34.0"
+  dependencies:
+    "@typescript-eslint/experimental-utils": 2.34.0
+    functional-red-black-tree: ^1.0.1
+    regexpp: ^3.0.0
+    tsutils: ^3.17.1
+  peerDependencies:
+    "@typescript-eslint/parser": ^2.0.0
+    eslint: ^5.0.0 || ^6.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 8d800f4726487df5ce4d573e62effa250f168658759e32a976eae355cc3130d82e3a918542df273fec428b608d9d50e65ad02d596ba0c24de7fbb4ddb7897dee
   languageName: node
   linkType: hard
 
@@ -3652,6 +3652,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@typescript-eslint/parser@npm:4.5.0":
+  version: 4.5.0
+  resolution: "@typescript-eslint/parser@npm:4.5.0"
+  dependencies:
+    "@typescript-eslint/scope-manager": 4.5.0
+    "@typescript-eslint/types": 4.5.0
+    "@typescript-eslint/typescript-estree": 4.5.0
+    debug: ^4.1.1
+  peerDependencies:
+    eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: f2bb84f34d1d83fb1f14271dcbc9163704d44dfc357c12fd6fd3306b3c1ac6b4012573eaee770ee929fcea4593b7a5cc32912e3818a457be827dcee354556667
+  languageName: node
+  linkType: hard
+
 "@typescript-eslint/parser@npm:^2.24.0":
   version: 2.34.0
   resolution: "@typescript-eslint/parser@npm:2.34.0"
@@ -3666,23 +3683,6 @@ __metadata:
     typescript:
       optional: true
   checksum: a3fe33d422d5cfe97e36c983253d33d2f5907657f9bb61a129c58656441acf9e90ec525a5273239cc876bc43e031056b2796924f3e64e8ca1295674fb30a2eec
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/parser@npm:^4.5.0":
-  version: 4.5.0
-  resolution: "@typescript-eslint/parser@npm:4.5.0"
-  dependencies:
-    "@typescript-eslint/scope-manager": 4.5.0
-    "@typescript-eslint/types": 4.5.0
-    "@typescript-eslint/typescript-estree": 4.5.0
-    debug: ^4.1.1
-  peerDependencies:
-    eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: f2bb84f34d1d83fb1f14271dcbc9163704d44dfc357c12fd6fd3306b3c1ac6b4012573eaee770ee929fcea4593b7a5cc32912e3818a457be827dcee354556667
   languageName: node
   linkType: hard
 
@@ -4591,7 +4591,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.0.1":
+"autoprefixer@npm:10.0.1":
   version: 10.0.1
   resolution: "autoprefixer@npm:10.0.1"
   dependencies:
@@ -8426,7 +8426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-prettier@npm:^6.14.0":
+"eslint-config-prettier@npm:6.14.0":
   version: 6.14.0
   resolution: "eslint-config-prettier@npm:6.14.0"
   dependencies:
@@ -8439,26 +8439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-config-react-app@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "eslint-config-react-app@npm:5.2.1"
-  dependencies:
-    confusing-browser-globals: ^1.0.9
-  peerDependencies:
-    "@typescript-eslint/eslint-plugin": 2.x
-    "@typescript-eslint/parser": 2.x
-    babel-eslint: 10.x
-    eslint: 6.x
-    eslint-plugin-flowtype: 3.x || 4.x
-    eslint-plugin-import: 2.x
-    eslint-plugin-jsx-a11y: 6.x
-    eslint-plugin-react: 7.x
-    eslint-plugin-react-hooks: 1.x || 2.x
-  checksum: bb6028338a4c233568c2f9249fce0e464edbe68079bee63fedbd9c9398d534bf6e6c19d312021916198ec75e9bdce1ddb1e5a11f191ea9887a610b782b8741b9
-  languageName: node
-  linkType: hard
-
-"eslint-config-react-app@npm:^6.0.0":
+"eslint-config-react-app@npm:6.0.0":
   version: 6.0.0
   resolution: "eslint-config-react-app@npm:6.0.0"
   dependencies:
@@ -8481,6 +8462,25 @@ __metadata:
     eslint-plugin-testing-library:
       optional: true
   checksum: ab983e9a3101ee266f3b6b7118e76f7200ff0bab1a44ff84a03f300a90857b039c8a5b632d467f09540c13919565ac969ddef3dc13f903e5960fe46070a9da51
+  languageName: node
+  linkType: hard
+
+"eslint-config-react-app@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "eslint-config-react-app@npm:5.2.1"
+  dependencies:
+    confusing-browser-globals: ^1.0.9
+  peerDependencies:
+    "@typescript-eslint/eslint-plugin": 2.x
+    "@typescript-eslint/parser": 2.x
+    babel-eslint: 10.x
+    eslint: 6.x
+    eslint-plugin-flowtype: 3.x || 4.x
+    eslint-plugin-import: 2.x
+    eslint-plugin-jsx-a11y: 6.x
+    eslint-plugin-react: 7.x
+    eslint-plugin-react-hooks: 1.x || 2.x
+  checksum: bb6028338a4c233568c2f9249fce0e464edbe68079bee63fedbd9c9398d534bf6e6c19d312021916198ec75e9bdce1ddb1e5a11f191ea9887a610b782b8741b9
   languageName: node
   linkType: hard
 
@@ -8520,18 +8520,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-flowtype@npm:^3.13.0":
-  version: 3.13.0
-  resolution: "eslint-plugin-flowtype@npm:3.13.0"
-  dependencies:
-    lodash: ^4.17.15
-  peerDependencies:
-    eslint: ">=5.0.0"
-  checksum: e75d4d852129ba301e23cbcac4b5cf1b51478c888bdef769a366730f7f00560229008a5e69c7e603003ece9e3647aebf575150657d5315eb02b34558e05ffd4a
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-flowtype@npm:^5.2.0":
+"eslint-plugin-flowtype@npm:5.2.0":
   version: 5.2.0
   resolution: "eslint-plugin-flowtype@npm:5.2.0"
   dependencies:
@@ -8540,6 +8529,17 @@ __metadata:
   peerDependencies:
     eslint: ^7.1.0
   checksum: bf70a9bb38b60deb93b1ab14e2516709de912ea02d05ea531e8e1b3e5d56fa58ba893720081e36bffe498055de49868e7052a09468759592ed35ba253e0e40da
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-flowtype@npm:^3.13.0":
+  version: 3.13.0
+  resolution: "eslint-plugin-flowtype@npm:3.13.0"
+  dependencies:
+    lodash: ^4.17.15
+  peerDependencies:
+    eslint: ">=5.0.0"
+  checksum: e75d4d852129ba301e23cbcac4b5cf1b51478c888bdef769a366730f7f00560229008a5e69c7e603003ece9e3647aebf575150657d5315eb02b34558e05ffd4a
   languageName: node
   linkType: hard
 
@@ -8557,7 +8557,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-import@npm:^2.22.0, eslint-plugin-import@npm:^2.22.1":
+"eslint-plugin-import@npm:2.22.1, eslint-plugin-import@npm:^2.22.0":
   version: 2.22.1
   resolution: "eslint-plugin-import@npm:2.22.1"
   dependencies:
@@ -8580,7 +8580,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^24.1.0":
+"eslint-plugin-jest@npm:24.1.0":
   version: 24.1.0
   resolution: "eslint-plugin-jest@npm:24.1.0"
   dependencies:
@@ -8591,7 +8591,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jsx-a11y@npm:^6.3.1":
+"eslint-plugin-jsx-a11y@npm:6.3.1, eslint-plugin-jsx-a11y@npm:^6.3.1":
   version: 6.3.1
   resolution: "eslint-plugin-jsx-a11y@npm:6.3.1"
   dependencies:
@@ -8624,6 +8624,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-plugin-react-hooks@npm:4.2.0":
+  version: 4.2.0
+  resolution: "eslint-plugin-react-hooks@npm:4.2.0"
+  peerDependencies:
+    eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
+  checksum: 5378d16b5a56431a7a77b56d61464dbbfa343e8607da87b851a6caee44b96e08847147321f5f38de30d20668418691d859f69d9c5262dfb5308856382252096c
+  languageName: node
+  linkType: hard
+
 "eslint-plugin-react-hooks@npm:^1.7.0":
   version: 1.7.0
   resolution: "eslint-plugin-react-hooks@npm:1.7.0"
@@ -8633,16 +8642,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-react-hooks@npm:^4.2.0":
-  version: 4.2.0
-  resolution: "eslint-plugin-react-hooks@npm:4.2.0"
-  peerDependencies:
-    eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
-  checksum: 5378d16b5a56431a7a77b56d61464dbbfa343e8607da87b851a6caee44b96e08847147321f5f38de30d20668418691d859f69d9c5262dfb5308856382252096c
-  languageName: node
-  linkType: hard
-
-"eslint-plugin-react@npm:^7.20.6, eslint-plugin-react@npm:^7.21.5":
+"eslint-plugin-react@npm:7.21.5, eslint-plugin-react@npm:^7.20.6":
   version: 7.21.5
   resolution: "eslint-plugin-react@npm:7.21.5"
   dependencies:
@@ -8725,6 +8725,53 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint@npm:7.12.0":
+  version: 7.12.0
+  resolution: "eslint@npm:7.12.0"
+  dependencies:
+    "@babel/code-frame": ^7.0.0
+    "@eslint/eslintrc": ^0.2.0
+    ajv: ^6.10.0
+    chalk: ^4.0.0
+    cross-spawn: ^7.0.2
+    debug: ^4.0.1
+    doctrine: ^3.0.0
+    enquirer: ^2.3.5
+    eslint-scope: ^5.1.1
+    eslint-utils: ^2.1.0
+    eslint-visitor-keys: ^2.0.0
+    espree: ^7.3.0
+    esquery: ^1.2.0
+    esutils: ^2.0.2
+    file-entry-cache: ^5.0.1
+    functional-red-black-tree: ^1.0.1
+    glob-parent: ^5.0.0
+    globals: ^12.1.0
+    ignore: ^4.0.6
+    import-fresh: ^3.0.0
+    imurmurhash: ^0.1.4
+    is-glob: ^4.0.0
+    js-yaml: ^3.13.1
+    json-stable-stringify-without-jsonify: ^1.0.1
+    levn: ^0.4.1
+    lodash: ^4.17.19
+    minimatch: ^3.0.4
+    natural-compare: ^1.4.0
+    optionator: ^0.9.1
+    progress: ^2.0.0
+    regexpp: ^3.1.0
+    semver: ^7.2.1
+    strip-ansi: ^6.0.0
+    strip-json-comments: ^3.1.0
+    table: ^5.2.3
+    text-table: ^0.2.0
+    v8-compile-cache: ^2.0.3
+  bin:
+    eslint: bin/eslint.js
+  checksum: 22f86c0ebaf75993d197d230a8c35f11ba4ffc7cd0b280aeecb28a04c26446b9e6906eedee264a445311a3b9b31f9bca787ee58546acc087cb2c1056ca89f624
+  languageName: node
+  linkType: hard
+
 "eslint@npm:^6.8.0":
   version: 6.8.0
   resolution: "eslint@npm:6.8.0"
@@ -8769,53 +8816,6 @@ __metadata:
   bin:
     eslint: ./bin/eslint.js
   checksum: 796be0e038188d4cd8062541394d29f35606a7cee00cead5f6c8e3f9db932f0d19ee946df16fd593e0bcd614f896a416afa916bf82d9420576537ac349f2a06d
-  languageName: node
-  linkType: hard
-
-"eslint@npm:^7.12.0":
-  version: 7.12.0
-  resolution: "eslint@npm:7.12.0"
-  dependencies:
-    "@babel/code-frame": ^7.0.0
-    "@eslint/eslintrc": ^0.2.0
-    ajv: ^6.10.0
-    chalk: ^4.0.0
-    cross-spawn: ^7.0.2
-    debug: ^4.0.1
-    doctrine: ^3.0.0
-    enquirer: ^2.3.5
-    eslint-scope: ^5.1.1
-    eslint-utils: ^2.1.0
-    eslint-visitor-keys: ^2.0.0
-    espree: ^7.3.0
-    esquery: ^1.2.0
-    esutils: ^2.0.2
-    file-entry-cache: ^5.0.1
-    functional-red-black-tree: ^1.0.1
-    glob-parent: ^5.0.0
-    globals: ^12.1.0
-    ignore: ^4.0.6
-    import-fresh: ^3.0.0
-    imurmurhash: ^0.1.4
-    is-glob: ^4.0.0
-    js-yaml: ^3.13.1
-    json-stable-stringify-without-jsonify: ^1.0.1
-    levn: ^0.4.1
-    lodash: ^4.17.19
-    minimatch: ^3.0.4
-    natural-compare: ^1.4.0
-    optionator: ^0.9.1
-    progress: ^2.0.0
-    regexpp: ^3.1.0
-    semver: ^7.2.1
-    strip-ansi: ^6.0.0
-    strip-json-comments: ^3.1.0
-    table: ^5.2.3
-    text-table: ^0.2.0
-    v8-compile-cache: ^2.0.3
-  bin:
-    eslint: bin/eslint.js
-  checksum: 22f86c0ebaf75993d197d230a8c35f11ba4ffc7cd0b280aeecb28a04c26446b9e6906eedee264a445311a3b9b31f9bca787ee58546acc087cb2c1056ca89f624
   languageName: node
   linkType: hard
 
@@ -9691,14 +9691,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fontsource-noto-sans-sc@npm:^3.0.3":
+"fontsource-noto-sans-sc@npm:3.0.3":
   version: 3.0.3
   resolution: "fontsource-noto-sans-sc@npm:3.0.3"
   checksum: c9055aa87571dad9585ee19d5da756485d3ce2c40c89bcdbd98e829dbf886739b4e4aa99bed6f49784eb936bb4a23d586145f40cf92800ba22efb55e62f0e101
   languageName: node
   linkType: hard
 
-"fontsource-source-code-pro@npm:^3.0.10":
+"fontsource-source-code-pro@npm:3.0.10":
   version: 3.0.10
   resolution: "fontsource-source-code-pro@npm:3.0.10"
   checksum: 724c58c5e8f4ca182378aff7c27af0508b96989ff60f414ef9a26c0816a3b9c618a9c16026c8d7e2a80ce2ac67846551a75fe73691de3a040c76fab5c9ffdbe3
@@ -10002,7 +10002,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-image@npm:^2.4.21":
+"gatsby-image@npm:2.4.21":
   version: 2.4.21
   resolution: "gatsby-image@npm:2.4.21"
   dependencies:
@@ -10108,7 +10108,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-manifest@npm:^2.4.35":
+"gatsby-plugin-manifest@npm:2.4.35":
   version: 2.4.35
   resolution: "gatsby-plugin-manifest@npm:2.4.35"
   dependencies:
@@ -10136,7 +10136,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-mdx@npm:^1.2.51":
+"gatsby-plugin-mdx@npm:1.2.51":
   version: 1.2.51
   resolution: "gatsby-plugin-mdx@npm:1.2.51"
   dependencies:
@@ -10183,7 +10183,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-netlify@npm:^2.3.24":
+"gatsby-plugin-netlify@npm:2.3.24":
   version: 2.3.24
   resolution: "gatsby-plugin-netlify@npm:2.3.24"
   dependencies:
@@ -10198,7 +10198,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-offline@npm:^3.2.37":
+"gatsby-plugin-offline@npm:3.2.37":
   version: 3.2.37
   resolution: "gatsby-plugin-offline@npm:3.2.37"
   dependencies:
@@ -10233,7 +10233,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-postcss@npm:^3.0.3":
+"gatsby-plugin-postcss@npm:3.0.3":
   version: 3.0.3
   resolution: "gatsby-plugin-postcss@npm:3.0.3"
   dependencies:
@@ -10246,7 +10246,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-react-helmet@npm:^3.1.2, gatsby-plugin-react-helmet@npm:^3.3.14":
+"gatsby-plugin-react-helmet@npm:3.3.14, gatsby-plugin-react-helmet@npm:^3.1.2":
   version: 3.3.14
   resolution: "gatsby-plugin-react-helmet@npm:3.3.14"
   dependencies:
@@ -10258,7 +10258,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sharp@npm:^2.6.43":
+"gatsby-plugin-sharp@npm:2.6.43":
   version: 2.6.43
   resolution: "gatsby-plugin-sharp@npm:2.6.43"
   dependencies:
@@ -10286,7 +10286,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sitemap@npm:^2.4.17":
+"gatsby-plugin-sitemap@npm:2.4.17":
   version: 2.4.17
   resolution: "gatsby-plugin-sitemap@npm:2.4.17"
   dependencies:
@@ -10301,7 +10301,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-typegen@npm:^2.2.1":
+"gatsby-plugin-typegen@npm:2.2.1":
   version: 2.2.1
   resolution: "gatsby-plugin-typegen@npm:2.2.1"
   dependencies:
@@ -10472,7 +10472,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-remark-images@npm:^3.3.39":
+"gatsby-remark-images@npm:3.3.39":
   version: 3.3.39
   resolution: "gatsby-remark-images@npm:3.3.39"
   dependencies:
@@ -10494,7 +10494,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-source-filesystem@npm:^2.3.35":
+"gatsby-source-filesystem@npm:2.3.35":
   version: 2.3.35
   resolution: "gatsby-source-filesystem@npm:2.3.35"
   dependencies:
@@ -10554,7 +10554,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-theme-material-ui@npm:^1.0.13":
+"gatsby-theme-material-ui@npm:1.0.13":
   version: 1.0.13
   resolution: "gatsby-theme-material-ui@npm:1.0.13"
   dependencies:
@@ -10571,7 +10571,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-transformer-sharp@npm:^2.5.19":
+"gatsby-transformer-sharp@npm:2.5.19":
   version: 2.5.19
   resolution: "gatsby-transformer-sharp@npm:2.5.19"
   dependencies:
@@ -10589,7 +10589,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby@npm:^2.24.85":
+"gatsby@npm:2.24.85":
   version: 2.24.85
   resolution: "gatsby@npm:2.24.85"
   dependencies:
@@ -14604,7 +14604,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mdi-material-ui@npm:^6.20.0":
+"mdi-material-ui@npm:6.20.0":
   version: 6.20.0
   resolution: "mdi-material-ui@npm:6.20.0"
   peerDependencies:
@@ -17384,6 +17384,18 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"postcss@npm:8.1.4":
+  version: 8.1.4
+  resolution: "postcss@npm:8.1.4"
+  dependencies:
+    colorette: ^1.2.1
+    line-column: ^1.0.2
+    nanoid: ^3.1.15
+    source-map: ^0.6.1
+  checksum: b2bfa799c058d1c19b0f433667bc933b85f3d5b78fa46c4f6239322b1cc2d9b2652cba009ac3632bfec4b955818d406f21d95f3b3a4592ec32a14a3dc5dafe27
+  languageName: node
+  linkType: hard
+
 "postcss@npm:^6.0.1, postcss@npm:^6.0.14, postcss@npm:^6.0.2, postcss@npm:^6.0.23, postcss@npm:^6.0.9":
   version: 6.0.23
   resolution: "postcss@npm:6.0.23"
@@ -17403,18 +17415,6 @@ fsevents@~2.1.2:
     source-map: ^0.6.1
     supports-color: ^6.1.0
   checksum: 8a979ea9799dd48399337708a395ddb8cf0e328515201ed35c99f5ba5eaa7688eae65764c570bf49b5be0b106226e2f222abc210de068b3d3da9a9a3bbb70567
-  languageName: node
-  linkType: hard
-
-"postcss@npm:^8.1.4":
-  version: 8.1.4
-  resolution: "postcss@npm:8.1.4"
-  dependencies:
-    colorette: ^1.2.1
-    line-column: ^1.0.2
-    nanoid: ^3.1.15
-    source-map: ^0.6.1
-  checksum: b2bfa799c058d1c19b0f433667bc933b85f3d5b78fa46c4f6239322b1cc2d9b2652cba009ac3632bfec4b955818d406f21d95f3b3a4592ec32a14a3dc5dafe27
   languageName: node
   linkType: hard
 
@@ -17489,7 +17489,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"prettier@npm:^2.0.5, prettier@npm:^2.1.2":
+"prettier@npm:2.1.2, prettier@npm:^2.0.5":
   version: 2.1.2
   resolution: "prettier@npm:2.1.2"
   bin:
@@ -17534,7 +17534,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"prism-themes@npm:^1.4.1":
+"prism-themes@npm:1.4.1":
   version: 1.4.1
   resolution: "prism-themes@npm:1.4.1"
   checksum: d58efb6b3e8482c52424365a8d25d0deb9593e31ba1424e6948182a6b8a624612a181c00d2f0609cf0a16aff0394cfbd97493dca4ca36c6fffd857e2a1fb405f
@@ -17999,7 +17999,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^17.0.1":
+"react-dom@npm:17.0.1":
   version: 17.0.1
   resolution: "react-dom@npm:17.0.1"
   dependencies:
@@ -18056,7 +18056,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"react-helmet@npm:^6.1.0":
+"react-helmet@npm:6.1.0, react-helmet@npm:^6.1.0":
   version: 6.1.0
   resolution: "react-helmet@npm:6.1.0"
   dependencies:
@@ -18229,6 +18229,16 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"react@npm:17.0.1":
+  version: 17.0.1
+  resolution: "react@npm:17.0.1"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+  checksum: a76d86ec973eb4b25a46071ac7f974adfd66ed89ad1db63043be1d976ec25417520a210e6d724b0ad937422b706afcf9962cedda9e92125992a8c0e8a95f2051
+  languageName: node
+  linkType: hard
+
 "react@npm:^16.8.0":
   version: 16.14.0
   resolution: "react@npm:16.14.0"
@@ -18237,16 +18247,6 @@ fsevents@~2.1.2:
     object-assign: ^4.1.1
     prop-types: ^15.6.2
   checksum: 2769580b22952a52de3b5b2ea0f09cb904030b762d759739f49ab4da0b1f550e5c087ce3728c4be90f423d09481e0c075483c0c30b1ea9c549445c8b12020fd3
-  languageName: node
-  linkType: hard
-
-"react@npm:^17.0.1":
-  version: 17.0.1
-  resolution: "react@npm:17.0.1"
-  dependencies:
-    loose-envify: ^1.1.0
-    object-assign: ^4.1.1
-  checksum: a76d86ec973eb4b25a46071ac7f974adfd66ed89ad1db63043be1d976ec25417520a210e6d724b0ad937422b706afcf9962cedda9e92125992a8c0e8a95f2051
   languageName: node
   linkType: hard
 
@@ -18600,7 +18600,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"rehype-slug@npm:^3.0.0":
+"rehype-slug@npm:3.0.0":
   version: 3.0.0
   resolution: "rehype-slug@npm:3.0.0"
   dependencies:
@@ -18651,7 +18651,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"remark-emoji@npm:^2.1.0":
+"remark-emoji@npm:2.1.0":
   version: 2.1.0
   resolution: "remark-emoji@npm:2.1.0"
   dependencies:
@@ -19807,7 +19807,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"slugify@npm:^1.4.4, slugify@npm:^1.4.5":
+"slugify@npm:1.4.5, slugify@npm:^1.4.4":
   version: 1.4.5
   resolution: "slugify@npm:1.4.5"
   checksum: d402a9163144e6e5c904a3409383e0c780422fea93d32c023622cc8eaeab34e2ed0e28c69402704038ef771f6f4bb636619b142db6913165fa9f5328229773da
@@ -20728,7 +20728,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"stylelint-config-standard@npm:^20.0.0":
+"stylelint-config-standard@npm:20.0.0":
   version: 20.0.0
   resolution: "stylelint-config-standard@npm:20.0.0"
   dependencies:
@@ -20739,7 +20739,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^13.7.2":
+"stylelint@npm:13.7.2":
   version: 13.7.2
   resolution: "stylelint@npm:13.7.2"
   dependencies:
@@ -21632,7 +21632,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"typescript-plugin-css-modules@npm:^2.7.0":
+"typescript-plugin-css-modules@npm:2.7.0":
   version: 2.7.0
   resolution: "typescript-plugin-css-modules@npm:2.7.0"
   dependencies:
@@ -23369,62 +23369,62 @@ typescript@4.1.0-dev.20201024:
   version: 0.0.0-use.local
   resolution: "yxl-blog@workspace:."
   dependencies:
-    "@mapbox/rehype-prism": ^0.5.0
-    "@material-ui/core": ^4.11.0
-    "@material-ui/icons": ^4.9.1
-    "@material-ui/lab": ^4.0.0-alpha.56
+    "@mapbox/rehype-prism": 0.5.0
+    "@material-ui/core": 4.11.0
+    "@material-ui/icons": 4.9.1
+    "@material-ui/lab": 4.0.0-alpha.56
     "@mdx-js/mdx": 1.6.19
     "@mdx-js/react": 1.6.19
-    "@types/node": ^12.19.1
-    "@types/react": ^16.9.53
-    "@types/react-dom": ^16.9.8
-    "@types/react-helmet": ^6.1.0
-    "@typescript-eslint/eslint-plugin": ^4.5.0
-    "@typescript-eslint/parser": ^4.5.0
-    autoprefixer: ^10.0.1
+    "@types/node": 12.19.1
+    "@types/react": 16.9.53
+    "@types/react-dom": 16.9.8
+    "@types/react-helmet": 6.1.0
+    "@typescript-eslint/eslint-plugin": 4.5.0
+    "@typescript-eslint/parser": 4.5.0
+    autoprefixer: 10.0.1
     babel-eslint: 11.0.0-beta.2
-    eslint: ^7.12.0
-    eslint-config-prettier: ^6.14.0
-    eslint-config-react-app: ^6.0.0
-    eslint-plugin-flowtype: ^5.2.0
-    eslint-plugin-import: ^2.22.1
-    eslint-plugin-jest: ^24.1.0
-    eslint-plugin-jsx-a11y: ^6.3.1
+    eslint: 7.12.0
+    eslint-config-prettier: 6.14.0
+    eslint-config-react-app: 6.0.0
+    eslint-plugin-flowtype: 5.2.0
+    eslint-plugin-import: 2.22.1
+    eslint-plugin-jest: 24.1.0
+    eslint-plugin-jsx-a11y: 6.3.1
     eslint-plugin-prettier: 3.1.4
-    eslint-plugin-react: ^7.21.5
-    eslint-plugin-react-hooks: ^4.2.0
-    fontsource-noto-sans-sc: ^3.0.3
-    fontsource-source-code-pro: ^3.0.10
-    gatsby: ^2.24.85
-    gatsby-image: ^2.4.21
-    gatsby-plugin-manifest: ^2.4.35
-    gatsby-plugin-mdx: ^1.2.51
-    gatsby-plugin-netlify: ^2.3.24
-    gatsby-plugin-offline: ^3.2.37
-    gatsby-plugin-postcss: ^3.0.3
-    gatsby-plugin-react-helmet: ^3.3.14
-    gatsby-plugin-sharp: ^2.6.43
-    gatsby-plugin-sitemap: ^2.4.17
-    gatsby-plugin-typegen: ^2.2.1
-    gatsby-remark-images: ^3.3.39
-    gatsby-source-filesystem: ^2.3.35
-    gatsby-theme-material-ui: ^1.0.13
-    gatsby-transformer-sharp: ^2.5.19
-    mdi-material-ui: ^6.20.0
-    postcss: ^8.1.4
-    prettier: ^2.1.2
-    prism-themes: ^1.4.1
-    react: ^17.0.1
-    react-dom: ^17.0.1
-    react-helmet: ^6.1.0
-    rehype-slug: ^3.0.0
-    remark-emoji: ^2.1.0
-    slugify: ^1.4.5
-    stylelint: ^13.7.2
-    stylelint-config-standard: ^20.0.0
+    eslint-plugin-react: 7.21.5
+    eslint-plugin-react-hooks: 4.2.0
+    fontsource-noto-sans-sc: 3.0.3
+    fontsource-source-code-pro: 3.0.10
+    gatsby: 2.24.85
+    gatsby-image: 2.4.21
+    gatsby-plugin-manifest: 2.4.35
+    gatsby-plugin-mdx: 1.2.51
+    gatsby-plugin-netlify: 2.3.24
+    gatsby-plugin-offline: 3.2.37
+    gatsby-plugin-postcss: 3.0.3
+    gatsby-plugin-react-helmet: 3.3.14
+    gatsby-plugin-sharp: 2.6.43
+    gatsby-plugin-sitemap: 2.4.17
+    gatsby-plugin-typegen: 2.2.1
+    gatsby-remark-images: 3.3.39
+    gatsby-source-filesystem: 2.3.35
+    gatsby-theme-material-ui: 1.0.13
+    gatsby-transformer-sharp: 2.5.19
+    mdi-material-ui: 6.20.0
+    postcss: 8.1.4
+    prettier: 2.1.2
+    prism-themes: 1.4.1
+    react: 17.0.1
+    react-dom: 17.0.1
+    react-helmet: 6.1.0
+    rehype-slug: 3.0.0
+    remark-emoji: 2.1.0
+    slugify: 1.4.5
+    stylelint: 13.7.2
+    stylelint-config-standard: 20.0.0
     tailwindcss: 2.0.0-alpha.1
     typescript: 4.1.0-dev.20201024
-    typescript-plugin-css-modules: ^2.7.0
+    typescript-plugin-css-modules: 2.7.0
   languageName: unknown
   linkType: soft
 
