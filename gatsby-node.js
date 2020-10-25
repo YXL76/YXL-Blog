@@ -66,7 +66,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
     edges.forEach(({ next, node: { id, slug }, previous }) => {
       createPage({
-        path: `/blogs/${slug}`,
+        path: `/${slug}`,
         component: resolve(`src/templates/blogs.tsx`),
         context: {
           id,

@@ -62,7 +62,7 @@ export default function App() {
                       <ListItem
                         key={idx}
                         button
-                        onClick={() => navigate(`/blogs/${slug ?? ""}`)}
+                        onClick={() => navigate(`/${slug ?? ""}`)}
                       >
                         <ListItemText primary={title} secondary={subtitle} />
                         <ListItemSecondaryAction>

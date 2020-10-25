@@ -104,7 +104,7 @@ export default function App({
                       idx === 0 ? "left-6" : "right-6"
                     } bottom-6 bg-blue-400 h-12 w-12 rounded-3xl`}
                   >
-                    <Link to={`/blogs/${item.slug}`}>
+                    <Link to={`/${item.slug}`}>
                       {idx === 0 ? (
                         <NavigateBeforeOutlined className="text-white text-5xl" />
                       ) : (

@@ -4,8 +4,8 @@ import {
   Button,
   ButtonBase,
   Card,
-  Link,
   Chip,
+  Link,
 } from ".";
 import { ChevronRight, LocalOfferOutlined } from "@material-ui/icons";
 import type { FC } from "react";
@@ -42,7 +42,7 @@ export const BlogCard: FC<BlogCardProps> = ({
   author,
   avatar,
 }) => {
-  const destination = `/blogs/${slug}`;
+  const destination = `/${slug}`;
   return (
     <Card className="flex flex-col items-center mb-10 p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
       <div className="w-full relative">
