@@ -14,7 +14,7 @@ const theme = createMuiTheme({
     },
     MuiAppBar: {
       colorDefault: {
-        backgroundColor: "#ff",
+        backgroundColor: "#fff",
       },
     },
     MuiTimelineOppositeContent: {

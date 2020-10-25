@@ -5,7 +5,14 @@ module.exports = {
     siteUrl: "https://agitated-brown-2ed627.netlify.app/",
   },
   plugins: [
-    "gatsby-theme-material-ui",
+    {
+      resolve: "gatsby-theme-material-ui",
+      options: {
+        webFontsConfig: {
+          fonts: {},
+        },
+      },
+    },
     {
       resolve: "gatsby-plugin-typegen",
       options: {
