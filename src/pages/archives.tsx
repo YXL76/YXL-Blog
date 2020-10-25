@@ -1,6 +1,5 @@
 import {
   Layout,
-  Link,
   List,
   ListItem,
   ListItemSecondaryAction,
@@ -15,7 +14,7 @@ import {
   TimelineSeparator,
   useScrollTrigger,
 } from "../components";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, navigate, useStaticQuery } from "gatsby";
 
 export default function App() {
   const {
@@ -60,19 +59,16 @@ export default function App() {
                 <List>
                   {nodes.map(
                     ({ frontmatter: { date, title, subtitle }, slug }, idx) => (
-                      <Link
+                      <ListItem
                         key={idx}
-                        to={`/blogs/${slug}`}
-                        underline="none"
-                        color="inherit"
+                        button
+                        onClick={() => navigate(`/blogs/${slug ?? ""}`)}
                       >
-                        <ListItem button>
-                          <ListItemText primary={title} secondary={subtitle} />
-                          <ListItemSecondaryAction>
-                            {date}
-                          </ListItemSecondaryAction>
-                        </ListItem>
-                      </Link>
+                        <ListItemText primary={title} secondary={subtitle} />
+                        <ListItemSecondaryAction>
+                          {date}
+                        </ListItemSecondaryAction>
+                      </ListItem>
                     )
                   )}
                 </List>

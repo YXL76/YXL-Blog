@@ -5,12 +5,13 @@ import {
   ButtonBase,
   Card,
   Link,
-  MetadataChip,
+  Chip,
 } from ".";
 import { ChevronRight, LocalOfferOutlined } from "@material-ui/icons";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
+import { navigate } from "gatsby";
 
 type BlogCardProps = {
   frontmatter: {
@@ -47,12 +48,11 @@ export const BlogCard: FC<BlogCardProps> = ({
       <div className="w-full relative">
         {banner && (
           <ButtonBase
-            className="w-full overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in"
             focusRipple
+            className="w-full overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in"
+            onClick={() => navigate(destination)}
           >
-            <Link className="w-full" to={destination}>
-              <Img fluid={banner.childImageSharp.fluid} />
-            </Link>
+            <Img className="w-full" fluid={banner.childImageSharp.fluid} />
           </ButtonBase>
         )}
         <Button
@@ -71,13 +71,13 @@ export const BlogCard: FC<BlogCardProps> = ({
         <h3 className="font-medium mt-2 text-2xl text-center ">{subtitle}</h3>
       )}
       <div className="flex items-center justify-center flex-wrap mt-1">
-        <Link to="/about" underline="none">
-          <MetadataChip
-            clickable
-            avatar={<Avatar className="shadow" src={avatar} />}
-            label={author}
-          />
-        </Link>
+        <Chip
+          className="bg-transparent font-medium text-base"
+          clickable
+          avatar={<Avatar className="shadow" src={avatar} />}
+          label={author}
+          onClick={() => navigate("/about")}
+        />
         <BlogMetadataChip date={date} words={words} timeToRead={timeToRead} />
       </div>
       {description && (

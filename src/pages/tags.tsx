@@ -1,5 +1,5 @@
-import { Avatar, Chip, Layout, Link, useScrollTrigger } from "../components";
-import { graphql, useStaticQuery } from "gatsby";
+import { Avatar, Chip, Layout, useScrollTrigger } from "../components";
+import { graphql, navigate, useStaticQuery } from "gatsby";
 import slugify from "slugify";
 
 export default function App() {
@@ -38,21 +38,16 @@ export default function App() {
   return (
     <Layout title="Tags" trigger={trigger}>
       {Object.entries(data).map(([tag, num], idx) => (
-        <Link
+        <Chip
+          clickable
           key={idx}
-          to={`/tags/${slugify(tag)}`}
-          underline="none"
-          color="inherit"
-        >
-          <Chip
-            clickable
-            className="m-2"
-            color="primary"
-            variant="outlined"
-            avatar={<Avatar>{num}</Avatar>}
-            label={tag}
-          />
-        </Link>
+          className="m-2"
+          color="primary"
+          variant="outlined"
+          avatar={<Avatar>{num}</Avatar>}
+          label={tag}
+          onClick={() => navigate(`/tags/${slugify(tag)}`)}
+        />
       ))}
     </Layout>
   );

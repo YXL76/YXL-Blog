@@ -24,7 +24,7 @@ import {
 } from "@material-ui/icons";
 import { Button, IconButton, Link } from "gatsby-theme-material-ui";
 import type { FC, ReactNode } from "react";
-import { graphql, useStaticQuery } from "gatsby";
+import { graphql, navigate, useStaticQuery } from "gatsby";
 import { useState } from "react";
 
 type ListItemLinkProps = {
@@ -34,18 +34,16 @@ type ListItemLinkProps = {
 };
 
 const ListItemLink = ({ to, text, icon }: ListItemLinkProps) => (
-  <Link to={to} underline="none" color="inherit">
-    <ListItem button>
-      <ListItemIcon className="ml-4" style={{ color: "inherit" }}>
-        {icon}
-      </ListItemIcon>
-      <ListItemText
-        disableTypography
-        className="font-medium text-base"
-        primary={text}
-      />
-    </ListItem>
-  </Link>
+  <ListItem button onClick={() => navigate(to)}>
+    <ListItemIcon className="ml-4" style={{ color: "inherit" }}>
+      {icon}
+    </ListItemIcon>
+    <ListItemText
+      disableTypography
+      className="font-medium text-base"
+      primary={text}
+    />
+  </ListItem>
 );
 
 type LayoutProps = {

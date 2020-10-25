@@ -16,7 +16,6 @@ type MetadataChipProps = {
 
 export const MetadataChip: FC<MetadataChipProps> = ({
   className,
-  avatar,
   clickable,
   label,
   icon,
@@ -24,7 +23,6 @@ export const MetadataChip: FC<MetadataChipProps> = ({
   <Chip
     className={`bg-transparent font-medium text-base ${className ?? ""}`}
     clickable={clickable}
-    avatar={avatar}
     icon={icon}
     label={label}
   />
