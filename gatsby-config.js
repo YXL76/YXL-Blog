@@ -2,6 +2,7 @@ module.exports = {
   polyfill: false,
   siteMetadata: {
     title: "YXL Blog",
+    description: "",
     siteUrl: "https://agitated-brown-2ed627.netlify.app/",
   },
   plugins: [

@@ -1,38 +1,15 @@
-import {
-  BlogCardSmall,
-  CategoryBanner,
-  Layout,
-  Link,
-  List,
-  ListItem,
-  ListItemSecondaryAction,
-  ListItemText,
-  Paper,
-  useScrollTrigger,
-} from "../components";
+import { BlogCardSmall, Layout, useScrollTrigger } from "../components";
 import type { PageProps } from "gatsby";
 import { graphql } from "gatsby";
 
 export default function App({
-  data: { allMdx, mdx },
+  pageContext: { tag },
+  data: { allMdx },
 }: PageProps<GatsbyTypes.CategoriesTemplatesQuery>) {
-  const { category } = allMdx?.nodes[0]?.frontmatter ?? {};
-  const { banner, description, caption } =
-    mdx?.frontmatter?.categories?.find(({ name }) => name === category) ?? {};
-  const { fluid } = banner?.childImageSharp ?? {};
-
   const trigger = useScrollTrigger();
 
   return (
-    <Layout trigger={trigger}>
-      {fluid && (
-        <CategoryBanner
-          img={fluid}
-          category={category}
-          description={description}
-          caption={caption}
-        />
-      )}
+    <Layout title={tag} trigger={trigger}>
       {allMdx?.nodes && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8">
           {allMdx.nodes.map(

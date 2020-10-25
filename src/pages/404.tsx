@@ -2,5 +2,5 @@ import { Layout, useScrollTrigger } from "../components";
 
 export default function App() {
   const trigger = useScrollTrigger();
-  return <Layout trigger={trigger}>404</Layout>;
+  return <Layout title="404" trigger={trigger}></Layout>;
 }

@@ -8,5 +8,6 @@ export * from "./layout";
 export * from "./material-ui";
 export * from "./metadata-chip";
 export * from "./mdx";
+export * from "./seo";
 export * from "./tab-panel";
 export * from "./toc";

@@ -36,7 +36,7 @@ export default function App() {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout trigger={trigger}>
+    <Layout title="Tags" trigger={trigger}>
       {Object.entries(data).map(([tag, num], idx) => (
         <Link
           key={idx}

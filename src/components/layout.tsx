@@ -7,6 +7,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  SEO,
   Slide,
 } from ".";
 import {
@@ -24,7 +25,6 @@ import {
 import { Button, IconButton, Link } from "gatsby-theme-material-ui";
 import type { FC, ReactNode } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import { Helmet } from "react-helmet";
 import { useState } from "react";
 
 type ListItemLinkProps = {
@@ -50,30 +50,38 @@ const ListItemLink = ({ to, text, icon }: ListItemLinkProps) => (
 
 type LayoutProps = {
   trigger: boolean;
+  title: string;
+  description?: string;
 };
 
-export const Layout: FC<LayoutProps> = ({ children, trigger }) => {
-  const {
-    site: {
-      siteMetadata: { title },
-    },
-  } = useStaticQuery<GatsbyTypes.LayoutComponentsQuery>(graphql`
+export const Layout: FC<LayoutProps> = ({
+  children,
+  trigger,
+  title,
+  description,
+}) => {
+  const { site } = useStaticQuery<GatsbyTypes.LayoutComponentsQuery>(graphql`
     query LayoutComponents {
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
   `);
+  const siteTitle = site?.siteMetadata?.title ?? "";
+  const siteDescription = site?.siteMetadata?.description ?? "";
 
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Helmet titleTemplate="%s | YXL Blog" defaultTitle={title} defer={false}>
-        <meta charSet="utf-8" />
-      </Helmet>
+      <SEO
+        title={title}
+        siteTitle={siteTitle}
+        description={description ?? siteDescription}
+      />
       <Slide appear={false} direction="down" timeout={300} in={!trigger}>
         <AppBar className="h-14" color="default" elevation={1}>
           <Container maxWidth="lg">
@@ -82,7 +90,7 @@ export const Layout: FC<LayoutProps> = ({ children, trigger }) => {
                 <Hidden xsDown>
                   <div className="mr-6 font-bold leading-none text-2xl uppercase">
                     <Link to="/" underline="none">
-                      {title}
+                      {siteTitle}
                     </Link>
                   </div>
                 </Hidden>
@@ -155,7 +163,7 @@ export const Layout: FC<LayoutProps> = ({ children, trigger }) => {
       <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
         <div className="pl-8 py-4 font-bold leading-none text-2xl uppercase">
           <Link to="/" underline="none">
-            {title}
+            {siteTitle}
           </Link>
         </div>
         <List component="nav" className="w-screen-3/5">

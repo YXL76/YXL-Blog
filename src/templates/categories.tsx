@@ -8,9 +8,9 @@ import type { PageProps } from "gatsby";
 import { graphql } from "gatsby";
 
 export default function App({
+  pageContext: { category },
   data: { allMdx, mdx },
 }: PageProps<GatsbyTypes.CategoriesTemplatesQuery>) {
-  const { category } = allMdx?.nodes[0]?.frontmatter ?? {};
   const { banner, description, caption } =
     mdx?.frontmatter?.categories?.find(({ name }) => name === category) ?? {};
   const { fluid } = banner?.childImageSharp ?? {};
@@ -18,7 +18,7 @@ export default function App({
   const trigger = useScrollTrigger();
 
   return (
-    <Layout trigger={trigger}>
+    <Layout title={category} trigger={trigger}>
       {fluid && (
         <CategoryBanner
           img={fluid}

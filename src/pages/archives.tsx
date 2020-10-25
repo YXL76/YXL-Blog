@@ -44,7 +44,7 @@ export default function App() {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout trigger={trigger}>
+    <Layout title="Archives" trigger={trigger}>
       <Paper className="w-full overflow-hidden sm:rounded-3xl">
         <Timeline align="left">
           {group.map(({ fieldValue, nodes }, idx) => (

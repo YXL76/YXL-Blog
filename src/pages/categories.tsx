@@ -39,7 +39,7 @@ export default function App() {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout trigger={trigger}>
+    <Layout title="Categories" trigger={trigger}>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
         {group.map(({ fieldValue, totalCount }, idx) => {
           const {

@@ -55,7 +55,7 @@ export default function App() {
   const [value, setValue] = useState(0);
 
   return (
-    <Layout trigger={trigger}>
+    <Layout title="Blogs" trigger={trigger}>
       <Grid container>
         <Grid item xs zeroMinWidth>
           {nodes.map((node, idx) => (

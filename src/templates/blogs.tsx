@@ -30,7 +30,7 @@ export default function App({
   data: { mdx, next, prev, author },
 }: PageProps<GatsbyTypes.BlogsTemplatesQuery>) {
   const { words } = mdx?.wordCount ?? {};
-  const { title, subtitle, category, date, banner, caption } =
+  const { title, subtitle, description, category, date, banner, caption } =
     mdx?.frontmatter ?? {};
   const near = [prev, next] as (null | {
     frontmatter: {
@@ -70,7 +70,7 @@ export default function App({
   });
 
   return (
-    <Layout trigger={trigger}>
+    <Layout title={title ?? ""} description={description} trigger={trigger}>
       {banner?.childImageSharp?.fluid && category && (
         <BlogBanner
           img={banner.childImageSharp.fluid}
