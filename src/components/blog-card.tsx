@@ -39,16 +39,6 @@ export const BlogCard: FC<BlogCardProps> = ({
   timeToRead,
   wordCount: { words },
 }) => {
-  const { site } = useStaticQuery<GatsbyTypes.BlogCardComponentQuery>(graphql`
-    query BlogCardComponent {
-      site {
-        ...AuthorFrontmatter
-      }
-    }
-  `);
-
-  const { name, avatar } = site?.siteMetadata?.author ?? {};
-
   const destination = `/${slug}`;
 
   return (
@@ -79,13 +69,6 @@ export const BlogCard: FC<BlogCardProps> = ({
         <h3 className="font-medium mt-2 text-2xl text-center ">{subtitle}</h3>
       )}
       <div className="flex items-center justify-center flex-wrap mt-1">
-        <Chip
-          className="bg-transparent font-medium text-base"
-          clickable
-          avatar={<Avatar className="shadow" src={avatar} />}
-          label={name}
-          onClick={() => navigate("/about")}
-        />
         <BlogMetadataChip date={date} words={words} timeToRead={timeToRead} />
       </div>
       <p className="text-lg mt-2 mx-10 text-center">{excerpt}</p>

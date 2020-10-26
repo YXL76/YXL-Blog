@@ -8,13 +8,20 @@ import type { PageProps } from "gatsby";
 import { graphql } from "gatsby";
 
 export default function App({
-  pageContext: { name, description, banner, caption },
+  location: { href, origin },
+  pageContext: { name, description, banner, caption, src },
   data: { allMdx },
 }: PageProps<GatsbyTypes.CategoriesTemplatesQuery>) {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout title={name} trigger={trigger}>
+    <Layout
+      href={href}
+      origin={origin}
+      title={name}
+      trigger={trigger}
+      image={src}
+    >
       {banner && (
         <CategoryBanner
           img={banner}
@@ -69,6 +76,9 @@ export const query = graphql`
         frontmatter {
           banner {
             childImageSharp {
+              original {
+                src
+              }
               fluid(maxWidth: 1280, maxHeight: 800) {
                 ...GatsbyImageSharpFluid
               }

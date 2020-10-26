@@ -1,11 +1,15 @@
 import { CategoryCard, Layout, useScrollTrigger } from "../components";
 import { graphql } from "gatsby";
 
-export default function App({ pageContext: { categories }, data: { allMdx } }) {
+export default function App({
+  location: { href, origin },
+  pageContext: { categories },
+  data: { allMdx },
+}) {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout title="Categories" trigger={trigger}>
+    <Layout href={href} origin={origin} title="Categories" trigger={trigger}>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
         {allMdx?.group?.map(({ fieldValue, totalCount }, idx) => {
           const { description, fluid } = categories.find(

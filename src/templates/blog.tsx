@@ -27,6 +27,7 @@ import type { TocItem } from "../components";
 import { graphql } from "gatsby";
 
 export default function App({
+  location: { href, origin },
   data: { mdx, next, prev },
 }: PageProps<GatsbyTypes.BlogsTemplatesQuery>) {
   const { words } = mdx?.wordCount ?? {};
@@ -70,7 +71,14 @@ export default function App({
   });
 
   return (
-    <Layout title={title ?? ""} description={mdx.excerpt} trigger={trigger}>
+    <Layout
+      href={href}
+      origin={origin}
+      title={title ?? ""}
+      description={mdx.excerpt}
+      trigger={trigger}
+      image={banner.childImageSharp.original.src}
+    >
       {banner?.childImageSharp?.fluid && category && (
         <BlogBanner
           img={banner.childImageSharp.fluid}
@@ -160,6 +168,9 @@ export const query = graphql`
       frontmatter {
         banner {
           childImageSharp {
+            original {
+              src
+            }
             fluid(maxWidth: 2560) {
               ...GatsbyImageSharpFluid
             }

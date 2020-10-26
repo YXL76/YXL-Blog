@@ -3,7 +3,8 @@ module.exports = {
   siteMetadata: {
     title: "YXL Blog",
     description: "YXL Blog",
-    siteUrl: "https://yxl76.net",
+    defaultImage: "/images/avatar.png",
+    keywords: ["blog", "computer science"],
     author: {
       name: "YXL",
       avatar: "/images/avatar.png",
@@ -47,6 +48,7 @@ module.exports = {
       ],
       email: "chenxin.lan.76@gmail.com",
       github: "https://github.com/YXL76",
+      twitter: "600BpO7CenFdYYg",
     },
     categories: [
       {

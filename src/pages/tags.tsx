@@ -2,7 +2,7 @@ import { Avatar, Chip, Layout, useScrollTrigger } from "../components";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 import slugify from "slugify";
 
-export default function App() {
+export default function App({ location: { href, origin } }) {
   const {
     allMdx: { nodes },
   } = useStaticQuery<GatsbyTypes.TagsPageQuery>(graphql`
@@ -36,7 +36,7 @@ export default function App() {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout title="Tags" trigger={trigger}>
+    <Layout href={href} origin={origin} title="Tags" trigger={trigger}>
       {Object.entries(data).map(([tag, num], idx) => (
         <Chip
           clickable

@@ -14,7 +14,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import type { ChangeEvent } from "react";
 import { useState } from "react";
 
-export default function App() {
+export default function App({ location: { href, origin } }) {
   const {
     allMdx: { nodes },
   } = useStaticQuery<GatsbyTypes.BlogsPageQuery>(graphql`
@@ -44,7 +44,7 @@ export default function App() {
   const [value, setValue] = useState(0);
 
   return (
-    <Layout title="Blogs" trigger={trigger}>
+    <Layout href={href} origin={origin} title="Blogs" trigger={trigger}>
       <Grid container>
         <Grid item xs zeroMinWidth>
           {nodes.map((node, idx) => (

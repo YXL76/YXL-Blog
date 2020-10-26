@@ -16,7 +16,7 @@ import {
 } from "../components";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 
-export default function App() {
+export default function App({ location: { href, origin } }) {
   const {
     allMdx: { group },
   } = useStaticQuery<GatsbyTypes.ArchivesPageQuery>(graphql`
@@ -43,7 +43,7 @@ export default function App() {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout title="Archives" trigger={trigger}>
+    <Layout href={href} origin={origin} title="Archives" trigger={trigger}>
       <Paper className="w-full overflow-hidden sm:rounded-3xl">
         <Timeline align="left">
           {group.map(({ fieldValue, nodes }, idx) => (

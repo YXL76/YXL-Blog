@@ -123,7 +123,10 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         errors,
         data: {
           file: {
-            childImageSharp: { fluid },
+            childImageSharp: {
+              original: { src },
+              fluid,
+            },
           },
         },
       } = await graphql(
@@ -131,6 +134,9 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
           {
             file(relativePath: { eq: "${banner}" }) {
               childImageSharp {
+                original {
+              src
+            }
                 fluid(maxWidth: 2560, maxHeight: 1600) {
                   base64
                   aspectRatio
@@ -146,7 +152,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       if (errors) {
         throw errors;
       }
-      const cat = { name, description, caption, fluid };
+      const cat = { name, description, caption, fluid, src };
       cats.push(cat);
       createPage({
         path: `/categories/${slugify(name)}`,

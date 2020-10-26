@@ -3,13 +3,14 @@ import type { PageProps } from "gatsby";
 import { graphql } from "gatsby";
 
 export default function App({
+  location: { href, origin },
   pageContext: { tag },
   data: { allMdx },
 }: PageProps<GatsbyTypes.CategoriesTemplatesQuery>) {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout title={tag} trigger={trigger}>
+    <Layout href={href} origin={origin} title={tag} trigger={trigger}>
       {allMdx?.nodes && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8">
           {allMdx.nodes.map(

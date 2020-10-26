@@ -50,6 +50,9 @@ type LayoutProps = {
   trigger: boolean;
   title: string;
   description?: string;
+  href: string;
+  origin: string;
+  image?: string;
 };
 
 export const Layout: FC<LayoutProps> = ({
@@ -57,19 +60,27 @@ export const Layout: FC<LayoutProps> = ({
   trigger,
   title,
   description,
+  href,
+  origin,
+  image,
 }) => {
   const { site } = useStaticQuery<GatsbyTypes.LayoutComponentQuery>(graphql`
     query LayoutComponent {
       site {
+        ...AuthorFrontmatter
         siteMetadata {
           title
+          defaultImage
           description
+          keywords
         }
       }
     }
   `);
   const siteTitle = site?.siteMetadata?.title ?? "";
   const siteDescription = site?.siteMetadata?.description ?? "";
+  const { keywords, defaultImage, author } = site?.siteMetadata ?? {};
+  const { name, twitter } = author ?? {};
 
   const [open, setOpen] = useState(false);
 
@@ -79,6 +90,11 @@ export const Layout: FC<LayoutProps> = ({
         title={title}
         siteTitle={siteTitle}
         description={description ?? siteDescription}
+        author={name}
+        href={href}
+        keywords={keywords}
+        image={`${origin}${image ?? defaultImage}`}
+        twitter={twitter}
       />
       <Slide appear={false} direction="down" timeout={300} in={!trigger}>
         <AppBar className="h-14" color="default" elevation={1}>
