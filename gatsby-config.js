@@ -80,7 +80,7 @@ module.exports = {
         cache_busting_mode: "none",
         name: "YXL Blog",
         short_name: "YXL Blog",
-        description: "",
+        description: "YXL Blog",
         start_url: "/",
         background_color: "#fafafa",
         theme_color: "#556cd6",

@@ -22,11 +22,11 @@ type BlogCardProps = {
     };
     category: string;
     date: string;
-    description: string;
     subtitle: string;
     tags: string[];
     title: string;
   };
+  excerpt: string;
   slug: string;
   timeToRead: number;
   wordCount: { words: number };
@@ -35,7 +35,8 @@ type BlogCardProps = {
 };
 
 export const BlogCard: FC<BlogCardProps> = ({
-  frontmatter: { banner, category, date, description, subtitle, tags, title },
+  frontmatter: { banner, category, date, subtitle, tags, title },
+  excerpt,
   slug,
   timeToRead,
   wordCount: { words },
@@ -80,9 +81,7 @@ export const BlogCard: FC<BlogCardProps> = ({
         />
         <BlogMetadataChip date={date} words={words} timeToRead={timeToRead} />
       </div>
-      {description && (
-        <p className="text-lg mt-2 mx-10 text-center">{description}</p>
-      )}
+      <p className="text-lg mt-2 mx-10 text-center">{excerpt}</p>
       <div className="flex items-end flex-no-wrap justify-between w-full mt-1">
         <div className="flex flex-wrap">
           {tags.map((tag, idx) => (

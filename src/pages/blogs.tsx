@@ -43,6 +43,7 @@ export default function App() {
             }
           }
           ...BlogFrontmatter
+          excerpt
         }
       }
       mdx(fields: { contentType: { eq: "author" } }) {

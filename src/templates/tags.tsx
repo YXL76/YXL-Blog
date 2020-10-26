@@ -15,7 +15,8 @@ export default function App({
           {allMdx.nodes.map(
             (
               {
-                frontmatter: { banner, title, subtitle, description, date },
+                frontmatter: { banner, title, subtitle, date },
+                excerpt,
                 slug,
                 wordCount: { words },
                 timeToRead,
@@ -28,7 +29,7 @@ export default function App({
                   img={banner.childImageSharp.fluid}
                   title={title}
                   subtitle={subtitle}
-                  description={description}
+                  description={excerpt}
                   date={date}
                   words={words}
                   timeToRead={timeToRead}
@@ -62,6 +63,7 @@ export const query = graphql`
           }
         }
         ...BlogFrontmatter
+        excerpt
       }
     }
   }

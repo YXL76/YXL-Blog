@@ -32,7 +32,6 @@ export const BlogQuery = graphql`
       }
       category
       date(fromNow: true)
-      description
       subtitle
       tags
       title
