@@ -23,16 +23,7 @@ export const AuthorCard: FC<BlogCardProps> = ({ className }) => {
   const { site } = useStaticQuery<GatsbyTypes.AuthorCardComponentQuery>(graphql`
     query AuthorCardComponent {
       site {
-        siteMetadata {
-          author {
-            name
-            avatar
-            role
-            bio
-            email
-            github
-          }
-        }
+        ...AuthorFrontmatter
       }
     }
   `);

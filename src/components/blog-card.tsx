@@ -39,24 +39,15 @@ export const BlogCard: FC<BlogCardProps> = ({
   timeToRead,
   wordCount: { words },
 }) => {
-  const {
-    site: {
-      siteMetadata: {
-        author: { name, avatar },
-      },
-    },
-  } = useStaticQuery<GatsbyTypes.BlogCardComponentQuery>(graphql`
+  const { site } = useStaticQuery<GatsbyTypes.BlogCardComponentQuery>(graphql`
     query BlogCardComponent {
       site {
-        siteMetadata {
-          author {
-            name
-            avatar
-          }
-        }
+        ...AuthorFrontmatter
       }
     }
   `);
+
+  const { name, avatar } = site?.siteMetadata?.author ?? {};
 
   const destination = `/${slug}`;
 
