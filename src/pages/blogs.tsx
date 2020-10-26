@@ -17,15 +17,6 @@ import { useState } from "react";
 export default function App() {
   const {
     allMdx: { nodes },
-    mdx: {
-      frontmatter: {
-        name,
-        avatar: { publicURL },
-        role,
-        bio,
-        social,
-      },
-    },
   } = useStaticQuery<GatsbyTypes.BlogsPageQuery>(graphql`
     query BlogsPage {
       allMdx(
@@ -46,9 +37,6 @@ export default function App() {
           excerpt
         }
       }
-      mdx(fields: { contentType: { eq: "author" } }) {
-        ...AuthorFrontmatter
-      }
     }
   `);
 
@@ -60,7 +48,7 @@ export default function App() {
       <Grid container>
         <Grid item xs zeroMinWidth>
           {nodes.map((node, idx) => (
-            <BlogCard key={idx} author={name} avatar={publicURL} {...node} />
+            <BlogCard key={idx} {...node} />
           ))}
         </Grid>
         <Hidden smDown>
@@ -80,14 +68,7 @@ export default function App() {
                 <Tab label="Author" />
               </Tabs>
               <TabPanel value={value} index={0}>
-                <AuthorCard
-                  className="max-h-screen-3/4 overflow-y-auto"
-                  title={name}
-                  avatar={publicURL}
-                  role={role}
-                  bio={bio}
-                  social={social}
-                />
+                <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
               </TabPanel>
             </Card>
           </Grid>

@@ -3,20 +3,10 @@ import { graphql, useStaticQuery } from "gatsby";
 
 export default function App() {
   const {
-    mdx: {
-      frontmatter: {
-        name,
-        avatar: { publicURL },
-        role,
-        bio,
-        social,
-      },
-      body,
-    },
+    mdx: { body },
   } = useStaticQuery<GatsbyTypes.AuthorsPageQuery>(graphql`
     query AuthorsPage {
       mdx(fields: { contentType: { eq: "author" } }) {
-        ...AuthorFrontmatter
         body
       }
     }
@@ -27,14 +17,7 @@ export default function App() {
   return (
     <Layout title="About" trigger={trigger}>
       <div className="group flex bg-white w-full rounded-3xl shadow-md flex-wrap overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in">
-        <AuthorCard
-          className="max-w-sm bg-gray-200"
-          title={name}
-          avatar={publicURL}
-          role={role}
-          bio={bio}
-          social={social}
-        />
+        <AuthorCard className="max-w-sm bg-gray-200" />
         <Mdx className="p-6">{body ?? ""}</Mdx>
       </div>
     </Layout>

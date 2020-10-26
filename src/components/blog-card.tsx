@@ -8,10 +8,10 @@ import {
   Link,
 } from ".";
 import { ChevronRight, LocalOfferOutlined } from "@material-ui/icons";
+import { graphql, navigate, useStaticQuery } from "gatsby";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
-import { navigate } from "gatsby";
 
 type BlogCardProps = {
   frontmatter: {
@@ -30,8 +30,6 @@ type BlogCardProps = {
   slug: string;
   timeToRead: number;
   wordCount: { words: number };
-  author: string;
-  avatar: string;
 };
 
 export const BlogCard: FC<BlogCardProps> = ({
@@ -40,10 +38,28 @@ export const BlogCard: FC<BlogCardProps> = ({
   slug,
   timeToRead,
   wordCount: { words },
-  author,
-  avatar,
 }) => {
+  const {
+    site: {
+      siteMetadata: {
+        author: { name, avatar },
+      },
+    },
+  } = useStaticQuery<GatsbyTypes.BlogCardComponentQuery>(graphql`
+    query BlogCardComponent {
+      site {
+        siteMetadata {
+          author {
+            name
+            avatar
+          }
+        }
+      }
+    }
+  `);
+
   const destination = `/${slug}`;
+
   return (
     <Card className="flex flex-col items-center mb-10 p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
       <div className="w-full relative">
@@ -76,7 +92,7 @@ export const BlogCard: FC<BlogCardProps> = ({
           className="bg-transparent font-medium text-base"
           clickable
           avatar={<Avatar className="shadow" src={avatar} />}
-          label={author}
+          label={name}
           onClick={() => navigate("/about")}
         />
         <BlogMetadataChip date={date} words={words} timeToRead={timeToRead} />

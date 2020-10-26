@@ -4,6 +4,50 @@ module.exports = {
     title: "YXL Blog",
     description: "YXL Blog",
     siteUrl: "https://yxl76.net",
+    author: {
+      name: "YXL",
+      avatar: "/images/avatar.png",
+      role: "Professor of Artificial Intelligence",
+      bio:
+        "My research interests include distributed robotics, mobile computing and programmable matter.",
+      organizations: [
+        {
+          name: "Stanford University",
+          url: "",
+        },
+      ],
+      interests: [
+        "Artificial Intelligence",
+        "Computational Linguistics",
+        "Information Retrieval",
+      ],
+      career: [
+        {
+          position: "planner",
+          company: "Baidu",
+          date: 2012,
+        },
+      ],
+      education: [
+        {
+          course: "PhD in Artificial Intelligence",
+          institution: "Stanford University",
+          date: 2012,
+        },
+        {
+          course: "MEng in Artificial Intelligence",
+          institution: "Massachusetts Institute of Technology",
+          date: 2009,
+        },
+        {
+          course: "BSc in Artificial Intelligence",
+          institution: "Massachusetts Institute of Technology",
+          date: 2008,
+        },
+      ],
+      email: "chenxin.lan.76@gmail.com",
+      github: "https://github.com/YXL76",
+    },
     categories: [
       {
         name: "Tech",

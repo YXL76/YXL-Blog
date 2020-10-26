@@ -1,37 +1,45 @@
 import { Avatar, IconButton, Link } from ".";
-import { Douban, Github, Instagram, Reddit, Twitter } from "mdi-material-ui";
-import { EmailOutlined, Facebook } from "@material-ui/icons";
+import { graphql, useStaticQuery } from "gatsby";
+import { EmailOutlined } from "@material-ui/icons";
 import type { FC } from "react";
+import { Github } from "mdi-material-ui";
 
-const icons: Record<string, JSX.Element> = {
-  douban: <Douban />,
-  email: <EmailOutlined />,
-  facebook: <Facebook />,
-  github: <Github />,
-  instagram: <Instagram />,
-  reddit: <Reddit />,
-  twitter: <Twitter />,
+type SocialButtonProps = {
+  href: string;
+  icon: JSX.Element;
 };
+
+const SocialButton: FC<SocialButtonProps> = ({ href, icon }) => (
+  <Link href={href}>
+    <IconButton>{icon}</IconButton>
+  </Link>
+);
 
 type BlogCardProps = {
   className?: string;
-  title: string;
-  avatar: string;
-  role: string;
-  social: ReadonlyArray<
-    GatsbyTypes.Maybe<Pick<GatsbyTypes.MdxFrontmatterSocial, "link" | "type">>
-  >;
-  bio: string;
 };
 
-export const AuthorCard: FC<BlogCardProps> = ({
-  className,
-  title,
-  avatar,
-  role,
-  social,
-  bio,
-}) => {
+export const AuthorCard: FC<BlogCardProps> = ({ className }) => {
+  const { site } = useStaticQuery<GatsbyTypes.AuthorCardComponentQuery>(graphql`
+    query AuthorCardComponent {
+      site {
+        siteMetadata {
+          author {
+            name
+            avatar
+            role
+            bio
+            email
+            github
+          }
+        }
+      }
+    }
+  `);
+
+  const { name, avatar, role, bio, email, github } =
+    site?.siteMetadata?.author ?? {};
+
   return (
     <div className={`flex flex-col items-center px-4 py-6 ${className ?? ""}`}>
       <Link to="/about">
@@ -41,20 +49,12 @@ export const AuthorCard: FC<BlogCardProps> = ({
         />
       </Link>
       <h2 className="font-medium text-center text-2xl mb-2">
-        <Link to="/about">{title}</Link>
+        <Link to="/about">{name}</Link>
       </h2>
       <h3 className="font-medium text-center text-lg">{role}</h3>
       <div className="flex flex-wrap justify-center">
-        {social.map(
-          (i, idx) =>
-            i &&
-            i["type"] &&
-            icons[i["type"]] && (
-              <Link key={idx} href={i["link"] ?? ""}>
-                <IconButton key={idx}>{icons[i["type"]]}</IconButton>
-              </Link>
-            )
-        )}
+        {email && <SocialButton href="" icon={<EmailOutlined />} />}
+        {github && <SocialButton href={github} icon={<Github />} />}
       </div>
       <div className="text-center">{bio}</div>
     </div>

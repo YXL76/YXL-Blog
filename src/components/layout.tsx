@@ -58,8 +58,8 @@ export const Layout: FC<LayoutProps> = ({
   title,
   description,
 }) => {
-  const { site } = useStaticQuery<GatsbyTypes.LayoutComponentsQuery>(graphql`
-    query LayoutComponents {
+  const { site } = useStaticQuery<GatsbyTypes.LayoutComponentQuery>(graphql`
+    query LayoutComponent {
       site {
         siteMetadata {
           title

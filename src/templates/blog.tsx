@@ -27,7 +27,7 @@ import type { TocItem } from "../components";
 import { graphql } from "gatsby";
 
 export default function App({
-  data: { mdx, next, prev, author },
+  data: { mdx, next, prev },
 }: PageProps<GatsbyTypes.BlogsTemplatesQuery>) {
   const { words } = mdx?.wordCount ?? {};
   const { title, subtitle, category, date, banner, caption } =
@@ -142,14 +142,7 @@ export default function App({
                 </nav>
               </TabPanel>
               <TabPanel value={value} index={1}>
-                <AuthorCard
-                  className="max-h-screen-3/4 overflow-y-auto"
-                  title={author?.frontmatter?.name ?? ""}
-                  avatar={author?.frontmatter?.avatar?.publicURL ?? ""}
-                  role={author?.frontmatter?.role ?? ""}
-                  bio={author?.frontmatter?.bio ?? ""}
-                  social={author?.frontmatter?.social ?? []}
-                />
+                <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
               </TabPanel>
             </Card>
           </Grid>
@@ -201,9 +194,6 @@ export const query = graphql`
         title
       }
       slug
-    }
-    author: mdx(fields: { contentType: { eq: "author" } }) {
-      ...AuthorFrontmatter
     }
   }
 `;
