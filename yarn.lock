@@ -10330,7 +10330,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-robots-txt@npm:^1.5.3":
+"gatsby-plugin-robots-txt@npm:1.5.3":
   version: 1.5.3
   resolution: "gatsby-plugin-robots-txt@npm:1.5.3"
   dependencies:
@@ -23521,7 +23521,7 @@ typescript@4.1.0-dev.20201025:
     gatsby-plugin-postcss: 3.0.3
     gatsby-plugin-react-helmet: 3.3.14
     gatsby-plugin-remove-trailing-slashes: 2.3.13
-    gatsby-plugin-robots-txt: ^1.5.3
+    gatsby-plugin-robots-txt: 1.5.3
     gatsby-plugin-sharp: 2.6.43
     gatsby-plugin-sitemap: 2.4.17
     gatsby-plugin-typegen: 2.2.1

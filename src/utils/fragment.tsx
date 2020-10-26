@@ -10,6 +10,7 @@ export const AuthorQuery = graphql`
         bio
         email
         github
+        twitter
       }
     }
   }
