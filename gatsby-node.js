@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-call */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
@@ -27,11 +28,27 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const {
       errors,
       data: {
+        site: {
+          siteMetadata: { categories },
+        },
         allMdx: { edges },
       },
     } = await graphql(
       `
         {
+          site {
+            siteMetadata {
+              categories {
+                caption {
+                  children
+                  href
+                }
+                name
+                description
+                banner
+              }
+            }
+          }
           allMdx(
             filter: { fields: { contentType: { eq: "blogs" } } }
             sort: { order: ASC, fields: frontmatter___date }
@@ -41,6 +58,9 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 id
               }
               node {
+                frontmatter {
+                  tags
+                }
                 slug
                 id
               }
@@ -56,104 +76,90 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       throw errors;
     }
 
-    edges.forEach(({ next, node: { id, slug }, previous }) => {
-      createPage({
-        path: `/${slug}`,
-        component: resolve(`src/templates/blogs.tsx`),
-        context: {
-          id,
-          next: next ? next.id : "",
-          previous: previous ? previous.id : "",
-        },
-      });
-    });
-  } catch (err) {
-    throw err;
-  }
-
-  try {
-    const {
-      errors,
-      data: {
-        allMdx: { group },
-      },
-    } = await graphql(
-      `
-        {
-          allMdx(
-            filter: { fields: { contentType: { eq: "blogs" } } }
-            sort: { fields: frontmatter___date, order: DESC }
-          ) {
-            group(field: frontmatter___category) {
-              fieldValue
-            }
-          }
-        }
-      `
-    );
-    if (errors) {
-      throw errors;
-    }
-
-    group.forEach(({ fieldValue }) => {
-      createPage({
-        path: `/categories/${slugify(fieldValue)}`,
-        component: resolve(`src/templates/categories.tsx`),
-        context: {
-          category: fieldValue,
-        },
-      });
-    });
-  } catch (err) {
-    throw err;
-  }
-
-  try {
-    const {
-      errors,
-      data: {
-        allMdx: { nodes },
-      },
-    } = await graphql(
-      `
-        {
-          allMdx(
-            filter: { fields: { contentType: { eq: "blogs" } } }
-            sort: { fields: frontmatter___date, order: DESC }
-          ) {
-            nodes {
-              frontmatter {
-                tags
-              }
-            }
-          }
-        }
-      `
-    );
-    if (errors) {
-      throw errors;
-    }
-
     const data = [];
 
-    nodes.forEach(({ frontmatter: { tags } }) => {
-      if (tags) {
-        for (const tag of tags) {
-          if (!data.includes(tag)) {
-            data.push(tag);
+    edges.forEach(
+      ({
+        next,
+        node: {
+          frontmatter: { tags },
+          id,
+          slug,
+        },
+        previous,
+      }) => {
+        if (tags) {
+          for (const tag of tags) {
+            if (!data.includes(tag)) {
+              data.push(tag);
+            }
           }
         }
+        createPage({
+          path: `/${slug}`,
+          component: resolve(`src/templates/blog.tsx`),
+          context: {
+            id,
+            next: next ? next.id : "",
+            previous: previous ? previous.id : "",
+          },
+        });
       }
-    });
+    );
 
     data.forEach((tag) => {
       createPage({
         path: `/tags/${slugify(tag)}`,
-        component: resolve(`src/templates/tags.tsx`),
+        component: resolve(`src/templates/tag.tsx`),
         context: {
           tag: tag,
         },
       });
+    });
+
+    const cats = [];
+
+    for (const { name, description, banner, caption } of categories) {
+      const {
+        errors,
+        data: {
+          file: {
+            childImageSharp: { fluid },
+          },
+        },
+      } = await graphql(
+        `
+          {
+            file(relativePath: { eq: "${banner}" }) {
+              childImageSharp {
+                fluid(maxWidth: 2560, maxHeight: 1600) {
+                  base64
+                  aspectRatio
+                  src
+                  srcSet
+                  sizes
+                }
+              }
+            }
+          }
+        `
+      );
+      if (errors) {
+        throw errors;
+      }
+      const cat = { name, description, caption, fluid };
+      cats.push(cat);
+      createPage({
+        path: `/categories/${slugify(name)}`,
+        component: resolve(`src/templates/category.tsx`),
+        context: cat,
+      });
+    }
+
+    createPage({
+      path: `/categories`,
+      component: resolve(`src/templates/categories.tsx`),
+      context: { categories: cats },
     });
   } catch (err) {
     throw err;

@@ -10,7 +10,7 @@ type BlogCardSmallProps = {
   description: string;
   date: string;
   words: number;
-  timeToRead: number;
+  timeToRead?: number;
   slug?: string;
 };
 
@@ -29,7 +29,7 @@ export const BlogCardSmall: FC<BlogCardSmallProps> = ({
       <Img fluid={img} />
       <div className="flex flex-col items-center px-4 pt-4 pb-2 text-center">
         <h2 className="tracking-wider text-3xl">
-          <Link to={`/${slug}`}>{title}</Link>
+          <Link to={`/${slug ?? ""}`}>{title}</Link>
         </h2>
         <h3 className="tracking-wider text-3xl">{subtitle}</h3>
         <p className="leading-snug tracking-wider text-base">{description}</p>

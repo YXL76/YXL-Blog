@@ -26,8 +26,8 @@ export default function App() {
         social,
       },
     },
-  } = useStaticQuery<GatsbyTypes.BlogsPagesQuery>(graphql`
-    query BlogsPages {
+  } = useStaticQuery<GatsbyTypes.BlogsPageQuery>(graphql`
+    query BlogsPage {
       allMdx(
         filter: { fields: { contentType: { eq: "blogs" } } }
         sort: { order: DESC, fields: frontmatter___date }

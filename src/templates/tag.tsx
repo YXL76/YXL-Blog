@@ -44,7 +44,7 @@ export default function App({
 }
 
 export const query = graphql`
-  query TagsTemplates($tag: [String]!) {
+  query TagTemplate($tag: [String]!) {
     allMdx(
       filter: {
         fields: { contentType: { eq: "blogs" } }

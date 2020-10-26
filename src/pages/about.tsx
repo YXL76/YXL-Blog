@@ -13,8 +13,8 @@ export default function App() {
       },
       body,
     },
-  } = useStaticQuery<GatsbyTypes.AuthorsPagesQuery>(graphql`
-    query AuthorsPages {
+  } = useStaticQuery<GatsbyTypes.AuthorsPageQuery>(graphql`
+    query AuthorsPage {
       mdx(fields: { contentType: { eq: "author" } }) {
         ...AuthorFrontmatter
         body

@@ -5,8 +5,8 @@ import slugify from "slugify";
 export default function App() {
   const {
     allMdx: { nodes },
-  } = useStaticQuery<GatsbyTypes.TagsPagesQuery>(graphql`
-    query TagsPages {
+  } = useStaticQuery<GatsbyTypes.TagsPageQuery>(graphql`
+    query TagsPage {
       allMdx {
         nodes {
           frontmatter {

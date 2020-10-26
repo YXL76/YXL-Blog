@@ -160,7 +160,7 @@ export default function App({
 }
 
 export const query = graphql`
-  query BlogsTemplates($id: String!, $next: String!, $previous: String!) {
+  query BlogTemplate($id: String!, $next: String!, $previous: String!) {
     mdx(id: { eq: $id }) {
       body
       tableOfContents(maxDepth: 3)

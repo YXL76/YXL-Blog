@@ -19,8 +19,8 @@ import { graphql, navigate, useStaticQuery } from "gatsby";
 export default function App() {
   const {
     allMdx: { group },
-  } = useStaticQuery<GatsbyTypes.ArchivesPagesQuery>(graphql`
-    query ArchivesPages {
+  } = useStaticQuery<GatsbyTypes.ArchivesPageQuery>(graphql`
+    query ArchivesPage {
       allMdx(
         filter: { fields: { contentType: { eq: "blogs" } } }
         sort: { fields: frontmatter___date, order: DESC }

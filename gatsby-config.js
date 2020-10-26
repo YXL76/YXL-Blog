@@ -3,7 +3,19 @@ module.exports = {
   siteMetadata: {
     title: "YXL Blog",
     description: "YXL Blog",
-    siteUrl: "https://agitated-brown-2ed627.netlify.app/",
+    siteUrl: "https://yxl76.net",
+    categories: [
+      {
+        name: "Tech",
+        description: "description",
+        banner: "images/DgeNbpa.jpg",
+        caption: {
+          children: "KiTA",
+          href:
+            "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=62341877",
+        },
+      },
+    ],
   },
   plugins: [
     "gatsby-plugin-no-sourcemaps",
