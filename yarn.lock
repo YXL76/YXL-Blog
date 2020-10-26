@@ -10291,6 +10291,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"gatsby-plugin-remove-trailing-slashes@npm:^2.3.13":
+  version: 2.3.13
+  resolution: "gatsby-plugin-remove-trailing-slashes@npm:2.3.13"
+  dependencies:
+    "@babel/runtime": ^7.11.2
+  peerDependencies:
+    gatsby: ^2.0.0
+  checksum: e34af9f8122fdc91a37f0e421bd295b98a47ac2ad78adba1519ab58013882e3fd53f39300e33738ed151ee9f7caeb535e0b4da2f9d1ab8b5ac04b49ab47cf31d
+  languageName: node
+  linkType: hard
+
 "gatsby-plugin-sharp@npm:2.6.43":
   version: 2.6.43
   resolution: "gatsby-plugin-sharp@npm:2.6.43"
@@ -23446,6 +23457,7 @@ typescript@4.1.0-dev.20201025:
     gatsby-plugin-offline: 3.2.37
     gatsby-plugin-postcss: 3.0.3
     gatsby-plugin-react-helmet: 3.3.14
+    gatsby-plugin-remove-trailing-slashes: ^2.3.13
     gatsby-plugin-sharp: 2.6.43
     gatsby-plugin-sitemap: 2.4.17
     gatsby-plugin-typegen: 2.2.1
