@@ -73,6 +73,7 @@ export const Layout: FC<LayoutProps> = ({
           defaultImage
           description
           keywords
+          twitter
         }
       }
     }

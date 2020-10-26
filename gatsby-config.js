@@ -132,6 +132,8 @@ module.exports = {
         },
       },
     },
+    "gatsby-plugin-robots-txt",
+    "gatsby-plugin-remove-trailing-slashes",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -154,7 +156,6 @@ module.exports = {
         },
       },
     },
-    "gatsby-plugin-remove-trailing-slashes",
     "gatsby-plugin-netlify",
   ],
 };

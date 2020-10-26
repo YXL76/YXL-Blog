@@ -9834,7 +9834,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:9.0.1, fs-extra@npm:^9.0.1":
+"fs-extra@npm:9.0.1, fs-extra@npm:^9.0.0, fs-extra@npm:^9.0.1":
   version: 9.0.1
   resolution: "fs-extra@npm:9.0.1"
   dependencies:
@@ -10327,6 +10327,18 @@ fsevents@~2.1.2:
   peerDependencies:
     gatsby: ^2.0.0
   checksum: e34af9f8122fdc91a37f0e421bd295b98a47ac2ad78adba1519ab58013882e3fd53f39300e33738ed151ee9f7caeb535e0b4da2f9d1ab8b5ac04b49ab47cf31d
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-robots-txt@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "gatsby-plugin-robots-txt@npm:1.5.3"
+  dependencies:
+    "@babel/runtime": ^7.11.2
+    generate-robotstxt: ^8.0.3
+  peerDependencies:
+    gatsby: ">2.0.0"
+  checksum: fe687665169fd6e2494751c313dd630b9a260d9f2700fbc38cdbad4387b39397a866fe14281e85117e8da90e58ac88a2e67e638ba1449f5e3096b07dcb4cbdc2
   languageName: node
   linkType: hard
 
@@ -10835,6 +10847,22 @@ fsevents@~2.1.2:
     strip-ansi: ^3.0.1
     wide-align: ^1.1.0
   checksum: b136dbeb8e40acaaddab6c71c9f34d3c9aa104efc538c8c0ddcd74b25efb8daeb8dca24a9b30626b477d66beccd3dee8dd31e25eb4c7c97ec58a3f1a82914be1
+  languageName: node
+  linkType: hard
+
+"generate-robotstxt@npm:^8.0.3":
+  version: 8.0.3
+  resolution: "generate-robotstxt@npm:8.0.3"
+  dependencies:
+    cosmiconfig: ^6.0.0
+    fs-extra: ^9.0.0
+    ip-regex: ^4.1.0
+    is-absolute-url: ^3.0.3
+    meow: ^7.0.1
+    resolve-from: ^5.0.0
+  bin:
+    generate-robotstxt: dist/cli.js
+  checksum: 6f9e6c9c7c865d4bd750e26cfc122877d1bd0dd3a28f9b05782a44431d90aeff949665054e488c9c13c78cfbaf3a083000a87fe87c85c859cd2c6d2eeed43048
   languageName: node
   linkType: hard
 
@@ -12500,6 +12528,13 @@ fsevents@~2.1.2:
   version: 2.1.0
   resolution: "ip-regex@npm:2.1.0"
   checksum: 2fd2190ada81b55a8a6f913bcb5a6fd6ff9da127905b4c01521f09a1d391e86d415dfe8c131ed2989d536949bb2f9654a71b9fa6f7ae2ac3ae6111b2026cc902
+  languageName: node
+  linkType: hard
+
+"ip-regex@npm:^4.1.0":
+  version: 4.2.0
+  resolution: "ip-regex@npm:4.2.0"
+  checksum: 9e376018e64da89756e27d3f1b3313abc85291b5d1b5b9878f26b3934ecb04fa512116bf66b6dcd9553ba0b88af4feaaedbccd86f0ba6c05e464642ccb8504c5
   languageName: node
   linkType: hard
 
@@ -14759,7 +14794,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"meow@npm:^7.1.1":
+"meow@npm:^7.0.1, meow@npm:^7.1.1":
   version: 7.1.1
   resolution: "meow@npm:7.1.1"
   dependencies:
@@ -23486,6 +23521,7 @@ typescript@4.1.0-dev.20201025:
     gatsby-plugin-postcss: 3.0.3
     gatsby-plugin-react-helmet: 3.3.14
     gatsby-plugin-remove-trailing-slashes: 2.3.13
+    gatsby-plugin-robots-txt: ^1.5.3
     gatsby-plugin-sharp: 2.6.43
     gatsby-plugin-sitemap: 2.4.17
     gatsby-plugin-typegen: 2.2.1
