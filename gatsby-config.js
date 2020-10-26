@@ -6,19 +6,12 @@ module.exports = {
     siteUrl: "https://agitated-brown-2ed627.netlify.app/",
   },
   plugins: [
+    "gatsby-plugin-no-sourcemaps",
     {
       resolve: "gatsby-theme-material-ui",
       options: {
         webFontsConfig: {
           fonts: {},
-        },
-      },
-    },
-    {
-      resolve: "gatsby-plugin-typegen",
-      options: {
-        emitSchema: {
-          "src/__generated__/gatsby-introspection.json": true,
         },
       },
     },
@@ -60,16 +53,23 @@ module.exports = {
     },
     "gatsby-plugin-postcss",
     "gatsby-plugin-react-helmet",
+    {
+      resolve: "gatsby-plugin-typegen",
+      options: {
+        emitSchema: {
+          "src/__generated__/gatsby-introspection.json": true,
+        },
+      },
+    },
     "gatsby-plugin-sitemap",
     {
-      resolve: "gatsby-plugin-google-analytics",
+      resolve: "gatsby-plugin-google-gtag",
       options: {
-        trackingId: "G-V354BL9JYX",
-        head: false,
-        anonymize: true,
-        respectDNT: true,
-        pageTransitionDelay: 0,
-        defer: false,
+        trackingIds: ["G-V354BL9JYX"],
+        pluginConfig: {
+          head: false,
+          respectDNT: true,
+        },
       },
     },
     {

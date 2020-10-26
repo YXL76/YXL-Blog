@@ -10108,17 +10108,15 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-google-analytics@npm:2.3.19":
-  version: 2.3.19
-  resolution: "gatsby-plugin-google-analytics@npm:2.3.19"
+"gatsby-plugin-google-gtag@npm:^2.1.13":
+  version: 2.1.13
+  resolution: "gatsby-plugin-google-gtag@npm:2.1.13"
   dependencies:
     "@babel/runtime": ^7.11.2
-    minimatch: 3.0.4
+    minimatch: ^3.0.4
   peerDependencies:
     gatsby: ^2.0.0
-    react: ^16.4.2
-    react-dom: ^16.4.2
-  checksum: 295cf8e4ab2a61a135728b93945dfec4da3bc84b8c6f348f22cdef88f1a108baf70fa8a1a56f732a3d8f214d153af905a24d4ba306c77948c5fd9f5029d82977
+  checksum: e482e4d3618936cace45cf1d231e0669f60e173b4b093e60694c1770cf8914e43640c7292f8203f17f22b34c275a42963b49a67452c73ab1036e50e2eccc30fa
   languageName: node
   linkType: hard
 
@@ -10209,6 +10207,15 @@ fsevents@~2.1.2:
   peerDependencies:
     gatsby: ^2.0.0
   checksum: 8c822e7ed53bac7dd87cf6a954a1f5bdf4b1dcee083b2bbf405a5aa5abe6bc95a1892c7c03916317f52a9ba6029d7eb84d8fce7acb628f361d43f99f9678ebea
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-no-sourcemaps@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "gatsby-plugin-no-sourcemaps@npm:2.2.1"
+  peerDependencies:
+    gatsby: ^2.0.0
+  checksum: 41eb6280fee6d625c35b9d7522d3180871059772297b485045b38126c6b4c9f46aef055922ca2362d4b94d4c91ef9ebde5243fe707ea9f17337f07692adefe36
   languageName: node
   linkType: hard
 
@@ -23411,10 +23418,11 @@ typescript@4.1.0-dev.20201025:
     fontsource-source-code-pro: 3.0.10
     gatsby: 2.24.85
     gatsby-image: 2.4.21
-    gatsby-plugin-google-analytics: 2.3.19
+    gatsby-plugin-google-gtag: ^2.1.13
     gatsby-plugin-manifest: 2.4.35
     gatsby-plugin-mdx: 1.2.51
     gatsby-plugin-netlify: 2.3.24
+    gatsby-plugin-no-sourcemaps: ^2.2.1
     gatsby-plugin-offline: 3.2.37
     gatsby-plugin-postcss: 3.0.3
     gatsby-plugin-react-helmet: 3.3.14

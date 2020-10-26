@@ -6,14 +6,6 @@
 const { basename, dirname, parse, resolve } = require("path");
 const slugify = require("slugify");
 
-exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
-  if (getConfig().mode === "production") {
-    actions.setWebpackConfig({
-      devtool: false,
-    });
-  }
-};
-
 exports.onCreateNode = ({ node, actions: { createNodeField } }) => {
   try {
     if (node.internal.type === "Mdx") {
