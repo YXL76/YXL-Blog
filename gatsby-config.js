@@ -62,6 +62,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-sitemap",
+    "gatsby-plugin-nprogress",
     {
       resolve: "gatsby-plugin-google-gtag",
       options: {

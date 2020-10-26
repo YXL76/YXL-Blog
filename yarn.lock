@@ -10108,7 +10108,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-google-gtag@npm:^2.1.13":
+"gatsby-plugin-google-gtag@npm:2.1.13":
   version: 2.1.13
   resolution: "gatsby-plugin-google-gtag@npm:2.1.13"
   dependencies:
@@ -10210,12 +10210,24 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-no-sourcemaps@npm:^2.2.1":
+"gatsby-plugin-no-sourcemaps@npm:2.2.1":
   version: 2.2.1
   resolution: "gatsby-plugin-no-sourcemaps@npm:2.2.1"
   peerDependencies:
     gatsby: ^2.0.0
   checksum: 41eb6280fee6d625c35b9d7522d3180871059772297b485045b38126c6b4c9f46aef055922ca2362d4b94d4c91ef9ebde5243fe707ea9f17337f07692adefe36
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-nprogress@npm:2.3.13":
+  version: 2.3.13
+  resolution: "gatsby-plugin-nprogress@npm:2.3.13"
+  dependencies:
+    "@babel/runtime": ^7.11.2
+    nprogress: ^0.2.0
+  peerDependencies:
+    gatsby: ^2.0.0
+  checksum: 8609b9fc07e8aa193d8e03c86971e3436512d228095e3d93448b1dc72f3e079b9fff0f4db83a16b22b1fe1d0b46424f6cdd6d60408088991987ecbe3658fa9ed
   languageName: node
   linkType: hard
 
@@ -15598,6 +15610,13 @@ fsevents@~2.1.2:
     gauge: ~2.7.3
     set-blocking: ~2.0.0
   checksum: 0cd63f127c1bbda403a112e83b11804aaee2b58b0bc581c3bde9b82e4d957c7ed0ad3bee499af706cdd3599bb93669d7cbbf29fb500407d35fe75687ac96e2c0
+  languageName: node
+  linkType: hard
+
+"nprogress@npm:^0.2.0":
+  version: 0.2.0
+  resolution: "nprogress@npm:0.2.0"
+  checksum: 652dfcfea776f9d9a2c3ad1f79b4cbd3056a03e7c6884966eab70fb184e8e70bfca9e0343ba89d11aa1ed95370d648fb638fab91b5dc027bdad54c8d37c96478
   languageName: node
   linkType: hard
 
@@ -23418,11 +23437,12 @@ typescript@4.1.0-dev.20201025:
     fontsource-source-code-pro: 3.0.10
     gatsby: 2.24.85
     gatsby-image: 2.4.21
-    gatsby-plugin-google-gtag: ^2.1.13
+    gatsby-plugin-google-gtag: 2.1.13
     gatsby-plugin-manifest: 2.4.35
     gatsby-plugin-mdx: 1.2.51
     gatsby-plugin-netlify: 2.3.24
-    gatsby-plugin-no-sourcemaps: ^2.2.1
+    gatsby-plugin-no-sourcemaps: 2.2.1
+    gatsby-plugin-nprogress: 2.3.13
     gatsby-plugin-offline: 3.2.37
     gatsby-plugin-postcss: 3.0.3
     gatsby-plugin-react-helmet: 3.3.14
