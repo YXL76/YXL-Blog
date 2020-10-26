@@ -79,8 +79,8 @@ export const Layout: FC<LayoutProps> = ({
   `);
   const siteTitle = site?.siteMetadata?.title ?? "";
   const siteDescription = site?.siteMetadata?.description ?? "";
-  const { keywords, defaultImage, author } = site?.siteMetadata ?? {};
-  const { name, twitter } = author ?? {};
+  const { keywords, defaultImage, author, twitter } = site?.siteMetadata ?? {};
+  const { name } = author ?? {};
 
   const [open, setOpen] = useState(false);
 
