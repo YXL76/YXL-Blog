@@ -21767,23 +21767,23 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-typescript@4.1.0-dev.20201025:
-  version: 4.1.0-dev.20201025
-  resolution: "typescript@npm:4.1.0-dev.20201025"
+typescript@4.1.0-dev.20201026:
+  version: 4.1.0-dev.20201026
+  resolution: "typescript@npm:4.1.0-dev.20201026"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 900eb27d433f928353d61a56619385ae9dc9cd995d891d14ef9b44517dc8c1acee0cefe918ab4b01cea3833bb41fbf364f801e2e13c50167874c3fc724842a8d
+  checksum: 7d0b842b63e452b97cfeaf72d5a01981275d56c32f469caff384d6213c4f567e2750d45adc32994308e074a0cea91f87bb00d57ff839d0b4aaa2487eb6acc5c8
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.1.0-dev.20201025#builtin<compat/typescript>":
-  version: 4.1.0-dev.20201025
-  resolution: "typescript@patch:typescript@npm%3A4.1.0-dev.20201025#builtin<compat/typescript>::version=4.1.0-dev.20201025&hash=5bf698"
+"typescript@patch:typescript@4.1.0-dev.20201026#builtin<compat/typescript>":
+  version: 4.1.0-dev.20201026
+  resolution: "typescript@patch:typescript@npm%3A4.1.0-dev.20201026#builtin<compat/typescript>::version=4.1.0-dev.20201026&hash=5bf698"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 3e21e50b8ff025b9219b5690155a0f22e93f5cf4065cf79922ee619cfa3b60a1887789e5924bee129065b7f824070a23a38d40b47edeef5e83acef9c62ebe1e1
+  checksum: 66dec967a5047af978ce840be06d0b75f10e44de1e9e57fc983da3a736aa6efed395ec8d86b97724e2ec4a89313010a5c81dddaf5a8a4e23b315ad14a1146a58
   languageName: node
   linkType: hard
 
@@ -23542,7 +23542,7 @@ typescript@4.1.0-dev.20201025:
     stylelint: 13.7.2
     stylelint-config-standard: 20.0.0
     tailwindcss: 2.0.0-alpha.2
-    typescript: 4.1.0-dev.20201025
+    typescript: 4.1.0-dev.20201026
     typescript-plugin-css-modules: 2.7.0
   languageName: unknown
   linkType: soft
