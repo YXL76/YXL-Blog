@@ -1,6 +1,7 @@
 export {
   AppBar,
   Avatar,
+  Badge,
   ButtonBase,
   Card,
   CardMedia,

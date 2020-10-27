@@ -1,4 +1,4 @@
-import { Avatar, Chip, Layout, useScrollTrigger } from "../components";
+import { Badge, Layout, useScrollTrigger } from "../components";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 import slugify from "slugify";
 
@@ -38,16 +38,14 @@ export default function App({ location: { href, origin } }) {
   return (
     <Layout href={href} origin={origin} title="Tags" trigger={trigger}>
       {Object.entries(data).map(([tag, num], idx) => (
-        <Chip
-          clickable
-          key={idx}
-          className="m-2"
-          color="primary"
-          variant="outlined"
-          avatar={<Avatar>{num}</Avatar>}
-          label={tag}
-          onClick={() => navigate(`/tags/${slugify(tag)}`)}
-        />
+        <Badge badgeContent={num} color="primary" key={idx}>
+          <div
+            className="m-2"
+            onClick={() => navigate(`/tags/${slugify(tag)}`)}
+          >
+            {tag}
+          </div>
+        </Badge>
       ))}
     </Layout>
   );

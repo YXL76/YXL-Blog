@@ -1,17 +1,9 @@
-import {
-  Avatar,
-  BlogMetadataChip,
-  Button,
-  ButtonBase,
-  Card,
-  Chip,
-  Link,
-} from ".";
+import { BlogMetadataChip, Button, ButtonBase, Card, Link } from ".";
 import { ChevronRight, LocalOfferOutlined } from "@material-ui/icons";
-import { graphql, navigate, useStaticQuery } from "gatsby";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
+import { navigate } from "gatsby";
 
 type BlogCardProps = {
   frontmatter: {
@@ -49,6 +41,7 @@ export const BlogCard: FC<BlogCardProps> = ({
             focusRipple
             className="w-full overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in"
             onClick={() => navigate(destination)}
+            aria-label={`${title}-banner`}
           >
             <Img className="w-full" fluid={banner.childImageSharp.fluid} />
           </ButtonBase>

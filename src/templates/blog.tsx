@@ -18,13 +18,13 @@ import {
   NavigateBeforeOutlined,
   NavigateNextOutlined,
 } from "@material-ui/icons";
+import { graphql, navigate } from "gatsby";
 import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
 import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
-import { graphql } from "gatsby";
 
 export default function App({
   location: { href, origin },
@@ -107,19 +107,27 @@ export default function App({
                   <div className="absolute left-0 right-0 top-1/5 font-bold text-white text-center text-3xl sm:text-2xl lg:text-3xl tracking-wide">
                     {item.frontmatter.title}
                   </div>
-                  <ButtonBase
-                    className={`absolute ${
-                      idx === 0 ? "left-6" : "right-6"
-                    } bottom-6 bg-blue-400 h-12 w-12 rounded-3xl`}
-                  >
-                    <Link to={`/${item.slug}`}>
-                      {idx === 0 ? (
-                        <NavigateBeforeOutlined className="text-white text-5xl" />
-                      ) : (
-                        <NavigateNextOutlined className="text-white text-5xl" />
-                      )}
-                    </Link>
-                  </ButtonBase>
+                  {idx === 0 ? (
+                    <ButtonBase
+                      className="absolute left-6 bottom-6 bg-blue-400 h-12 w-12 rounded-3xl"
+                      aria-label="previous"
+                    >
+                      <NavigateBeforeOutlined
+                        className="text-white text-5xl"
+                        onClick={() => navigate(`/${item.slug}`)}
+                      />
+                    </ButtonBase>
+                  ) : (
+                    <ButtonBase
+                      className="absolute right-6 bottom-6 bg-blue-400 h-12 w-12 rounded-3xl"
+                      aria-label="next"
+                    >
+                      <NavigateNextOutlined
+                        className="text-white text-5xl"
+                        onClick={() => navigate(`/${item.slug}`)}
+                      />
+                    </ButtonBase>
+                  )}
                 </div>
               ) : (
                 <div key={idx} className="w-full sm:w-15/32" />

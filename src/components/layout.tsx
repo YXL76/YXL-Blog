@@ -90,17 +90,23 @@ export const Layout: FC<LayoutProps> = ({
         title={title}
         siteTitle={siteTitle}
         description={description ?? siteDescription}
-        author={name}
+        author={name ?? ""}
         href={href}
-        keywords={keywords}
-        image={`${origin}${image ?? defaultImage}`}
-        twitter={twitter}
+        keywords={keywords ?? []}
+        image={`${origin}${image ?? defaultImage ?? ""}`}
+        twitter={twitter ?? ""}
       />
       <Slide appear={false} direction="down" timeout={300} in={!trigger}>
         <AppBar className="h-14" color="default" elevation={1}>
-          <Container maxWidth="lg">
-            <div className="flex py-1">
-              <div className="flex flex-grow justify-start items-center">
+          <Container className="h-full" maxWidth="lg" component="nav">
+            <div className="h-full flex py-1">
+              <div className="h-full flex flex-grow justify-start items-center">
+                <img
+                  className="h-full p-2"
+                  alt="icon"
+                  src="/icons/icon-512x512.png"
+                  onClick={() => navigate("/")}
+                />
                 <Hidden xsDown>
                   <div className="mr-6 font-bold leading-none text-2xl uppercase">
                     <Link to="/" underline="none">
@@ -152,20 +158,24 @@ export const Layout: FC<LayoutProps> = ({
                 </Hidden>
               </div>
               <div className="flex justify-end items-center">
-                <IconButton color="inherit">
+                <IconButton color="inherit" aria-label="search">
                   <SearchOutlined />
                 </IconButton>
-                <IconButton color="inherit">
+                <IconButton color="inherit" aria-label="theme">
                   <NightsStayOutlined />
                 </IconButton>
-                <IconButton color="inherit">
+                <IconButton color="inherit" aria-label="language">
                   <LanguageSharp />
                 </IconButton>
-                <IconButton color="inherit">
+                <IconButton color="inherit" aria-label="rss">
                   <RssFeedOutlined />
                 </IconButton>
                 <Hidden mdUp>
-                  <IconButton color="inherit" onClick={() => setOpen(true)}>
+                  <IconButton
+                    color="inherit"
+                    onClick={() => setOpen(true)}
+                    aria-label="menu"
+                  >
                     <Menu />
                   </IconButton>
                 </Hidden>
@@ -198,6 +208,7 @@ export const Layout: FC<LayoutProps> = ({
       </Drawer>
       <Container
         maxWidth="lg"
+        component="main"
         className="flex flex-wrap pb-10 pt-20 px-0 sm:px-4"
       >
         <>{children}</>

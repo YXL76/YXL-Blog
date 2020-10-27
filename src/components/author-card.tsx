@@ -19,7 +19,7 @@ type SocialProps = {
 
 const Social: FC<SocialProps> = ({ href, icon }) => (
   <Link href={href}>
-    <IconButton>{icon}</IconButton>
+    <IconButton aria-label={`social-${href}`}>{icon}</IconButton>
   </Link>
 );
 
@@ -58,6 +58,7 @@ export const AuthorCard: FC<BlogCardProps> = ({ className }) => {
         <Avatar
           className="h-24 w-24 shadow-md mb-4 group-hover:shadow-lg transition-shadow duration-300 ease-in"
           src={avatar}
+          alt="avatar"
         />
       </Link>
       <h2 className="font-medium text-center text-2xl mb-2">

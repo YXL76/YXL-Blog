@@ -8,7 +8,7 @@ type SEOProps = {
   description: string;
   author: string;
   href: string;
-  keywords: string[];
+  keywords: readonly (string | undefined)[];
   image: string;
   twitter: string;
 };
