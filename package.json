@@ -44,7 +44,7 @@
     "rehype-slug": "3.0.0",
     "remark-emoji": "2.1.0",
     "slugify": "1.4.5",
-    "tailwindcss": "2.0.0-alpha.2"
+    "tailwindcss": "2.0.0-alpha.3"
   },
   "devDependencies": {
     "@types/node": "12.19.1",
