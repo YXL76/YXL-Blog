@@ -1,12 +1,19 @@
-name: Deploy
+name: Build
 
 on:
   push:
+    paths-ignore:
+      - "src/**"
+      - "static/**"
+      - "assets/**"
+      - "content/**"
+      - "gatsby-**.ts"
+      - "gatsby-config.js"
     branches:
       - main
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

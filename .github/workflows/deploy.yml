@@ -3,14 +3,12 @@ name: Deploy
 on:
   push:
     paths:
-      - "src/*"
-      - "static/*"
-      - "assets/*"
-      - "content/*"
-      - "gatsby-browser.ts"
+      - "src/**"
+      - "static/**"
+      - "assets/**"
+      - "content/**"
+      - "gatsby-**.ts"
       - "gatsby-config.js"
-      - "gatsby-config.ts"
-      - "gatsby-node.ts"
     branches:
       - main
 
