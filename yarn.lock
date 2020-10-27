@@ -10031,9 +10031,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-source-filesystem@npm:2.3.36":
-  version: 2.3.36
-  resolution: "gatsby-source-filesystem@npm:2.3.36"
+"gatsby-source-filesystem@npm:2.3.37":
+  version: 2.3.37
+  resolution: "gatsby-source-filesystem@npm:2.3.37"
   dependencies:
     "@babel/runtime": ^7.11.2
     better-queue: ^3.8.10
@@ -10051,7 +10051,7 @@ fsevents@~2.1.2:
     xstate: ^4.13.0
   peerDependencies:
     gatsby: ^2.2.0
-  checksum: 324922bc6ba5798a94e1b360f80b27ac3c5c6481ed9a9e10e5b5494217121ed7ddc9f6d050426e3898b69641bf19ca18b3e7a8106c3c3256706ee3a90cf2e19e
+  checksum: 08cf6996758b540968121820e0dafac39d14cefdc10007a973656f1db8340fee709cea2e9db16a51fbd5c76ffbc7168c1733dba3886c49d11edff09b9598e428
   languageName: node
   linkType: hard
 
@@ -22462,7 +22462,7 @@ typescript@4.1.0-dev.20201027:
     gatsby-plugin-ts-config: 1.1.0
     gatsby-plugin-typegen: 2.2.1
     gatsby-remark-images: 3.3.39
-    gatsby-source-filesystem: 2.3.36
+    gatsby-source-filesystem: 2.3.37
     gatsby-theme-material-ui: 1.0.13
     gatsby-transformer-sharp: 2.5.20
     mdi-material-ui: 6.20.0

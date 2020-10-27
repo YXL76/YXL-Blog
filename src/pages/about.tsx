@@ -19,7 +19,7 @@ export default function App({ location: { href, origin } }: PageProps) {
     <Layout href={href} origin={origin} title="About" trigger={trigger}>
       <div className="group flex bg-white w-full rounded-3xl shadow-md flex-wrap overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in">
         <AuthorCard className="max-w-sm bg-gray-200" />
-        <Mdx className="p-6">{body ?? ""}</Mdx>
+        <Mdx className="p-6">{body}</Mdx>
       </div>
     </Layout>
   );

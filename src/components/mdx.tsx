@@ -69,15 +69,15 @@ const components: Components = {
 };
 
 type MdxProps = {
-  children: string;
+  children?: string;
   className?: string;
   foot?: ReactNode;
 };
 
 export const Mdx: FC<MdxProps> = ({ className, children, foot }) => (
-  <div className={`mdx-content ${className ?? ""}`}>
+  <div id="mdx-content" className={className}>
     <MDXProvider components={components}>
-      <MDXRenderer>{children}</MDXRenderer>
+      <MDXRenderer>{children ?? ""}</MDXRenderer>
     </MDXProvider>
     {foot}
   </div>

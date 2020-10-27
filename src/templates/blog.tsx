@@ -69,7 +69,7 @@ export default function App({
       }
     );
     document
-      .querySelectorAll(".mdx-content > h2, .mdx-content > h3")
+      .querySelectorAll("#mdx-content > h2, #mdx-content > h3")
       .forEach((node) => {
         observer.observe(node);
       });
@@ -88,6 +88,7 @@ export default function App({
       trigger={trigger}
       image={banner?.childImageSharp?.original?.src}
     >
+      <style>{`#mdx-toc #toc-${active} {color: #63b3ed; border-color: #63b3ed;}`}</style>
       {banner?.childImageSharp?.fluid && category && (
         <BlogBanner
           img={banner.childImageSharp.fluid}
@@ -106,7 +107,7 @@ export default function App({
             className="bg-white mb-4 px-6 py-2 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
             foot={<div>{lastModified}</div>}
           >
-            {body ?? ""}
+            {body}
           </Mdx>
           <div className="flex justify-between flex-col sm:flex-row">
             {near.map((item, idx) =>
@@ -165,12 +166,12 @@ export default function App({
                 <Tab label="Author" />
               </Tabs>
               <TabPanel value={value} index={0}>
-                <nav className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto">
-                  {TOC(
-                    ((tableOfContents as unknown) as TocItem)?.items ?? [],
-                    `#${active}`
-                  )}
-                </nav>
+                <aside
+                  id="mdx-toc"
+                  className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto"
+                >
+                  {TOC(((tableOfContents as unknown) as TocItem)?.items ?? [])}
+                </aside>
               </TabPanel>
               <TabPanel value={value} index={1}>
                 <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />

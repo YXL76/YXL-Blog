@@ -32,7 +32,7 @@
     "gatsby-plugin-sitemap": "2.4.17",
     "gatsby-plugin-typegen": "2.2.1",
     "gatsby-remark-images": "3.3.39",
-    "gatsby-source-filesystem": "2.3.36",
+    "gatsby-source-filesystem": "2.3.37",
     "gatsby-theme-material-ui": "1.0.13",
     "gatsby-transformer-sharp": "2.5.20",
     "mdi-material-ui": "6.20.0",
