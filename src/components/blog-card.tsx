@@ -6,44 +6,43 @@ import Img from "gatsby-image";
 import { navigate } from "gatsby";
 
 type BlogCardProps = {
-  frontmatter: {
-    banner?: {
-      childImageSharp: {
-        fluid: FluidObject | FluidObject[];
-      };
-    };
-    category: string;
-    date: string;
-    subtitle: string;
-    tags: string[];
-    title: string;
-  };
-  excerpt: string;
+  fluid?: FluidObject | FluidObject[];
+  category: string;
+  date?: string;
+  subtitle?: string;
+  tags: readonly (string | undefined)[];
+  title?: string;
+  excerpt?: string;
   slug: string;
-  timeToRead: number;
-  wordCount: { words: number };
+  timeToRead?: number;
+  words?: number;
 };
 
 export const BlogCard: FC<BlogCardProps> = ({
-  frontmatter: { banner, category, date, subtitle, tags, title },
+  fluid,
+  category,
+  date,
+  subtitle,
+  tags,
+  title,
   excerpt,
   slug,
   timeToRead,
-  wordCount: { words },
+  words,
 }) => {
   const destination = `/${slug}`;
 
   return (
     <Card className="flex flex-col items-center mb-10 p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
       <div className="w-full relative">
-        {banner && (
+        {fluid && (
           <ButtonBase
             focusRipple
             className="w-full overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in"
             onClick={() => navigate(destination)}
-            aria-label={`${title}-banner`}
+            aria-label="banner"
           >
-            <Img className="w-full" fluid={banner.childImageSharp.fluid} />
+            <Img className="w-full" fluid={fluid} />
           </ButtonBase>
         )}
         <Button

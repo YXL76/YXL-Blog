@@ -15,8 +15,9 @@ import {
   useScrollTrigger,
 } from "../components";
 import { graphql, navigate, useStaticQuery } from "gatsby";
+import type { PageProps } from "gatsby";
 
-export default function App({ location: { href, origin } }) {
+export default function App({ location: { href, origin } }: PageProps) {
   const {
     allMdx: { group },
   } = useStaticQuery<GatsbyTypes.ArchivesPageQuery>(graphql`
@@ -57,20 +58,23 @@ export default function App({ location: { href, origin } }) {
               </TimelineSeparator>
               <TimelineContent>
                 <List>
-                  {nodes.map(
-                    ({ frontmatter: { date, title, subtitle }, slug }, idx) => (
+                  {nodes.map(({ frontmatter, slug }, idx) => {
+                    return (
                       <ListItem
                         key={idx}
                         button
                         onClick={() => navigate(`/${slug ?? ""}`)}
                       >
-                        <ListItemText primary={title} secondary={subtitle} />
+                        <ListItemText
+                          primary={frontmatter?.title}
+                          secondary={frontmatter?.subtitle}
+                        />
                         <ListItemSecondaryAction>
-                          {date}
+                          {frontmatter?.date}
                         </ListItemSecondaryAction>
                       </ListItem>
-                    )
-                  )}
+                    );
+                  })}
                 </List>
               </TimelineContent>
             </TimelineItem>

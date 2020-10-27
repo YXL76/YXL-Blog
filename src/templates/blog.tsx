@@ -6,7 +6,6 @@ import {
   Grid,
   Hidden,
   Layout,
-  Link,
   Mdx,
   TOC,
   Tab,
@@ -29,10 +28,21 @@ import type { TocItem } from "../components";
 export default function App({
   location: { href, origin },
   data: { mdx, next, prev },
-}: PageProps<GatsbyTypes.BlogsTemplatesQuery>) {
-  const { words } = mdx?.wordCount ?? {};
+}: PageProps<GatsbyTypes.BlogTemplateQuery>) {
+  const {
+    body,
+    frontmatter,
+    fields,
+    excerpt,
+    timeToRead,
+    wordCount,
+    tableOfContents,
+  } = mdx ?? {};
   const { title, subtitle, category, date, banner, caption } =
-    mdx?.frontmatter ?? {};
+    frontmatter ?? {};
+  const { words } = wordCount ?? {};
+  const { lastModified } = fields ?? {};
+
   const near = [prev, next] as (null | {
     frontmatter: {
       title: string;
@@ -40,7 +50,6 @@ export default function App({
     };
     slug: string;
   })[];
-  const tableOfContents: TocItem = mdx?.tableOfContents ?? ({} as TocItem);
 
   const trigger = useScrollTrigger();
   const [value, setValue] = useState(0);
@@ -75,9 +84,9 @@ export default function App({
       href={href}
       origin={origin}
       title={title ?? ""}
-      description={mdx.excerpt}
+      description={excerpt}
       trigger={trigger}
-      image={banner.childImageSharp.original.src}
+      image={banner?.childImageSharp?.original?.src}
     >
       {banner?.childImageSharp?.fluid && category && (
         <BlogBanner
@@ -87,14 +96,17 @@ export default function App({
           subtitle={subtitle}
           date={date}
           words={words}
-          timeToRead={mdx?.timeToRead}
+          timeToRead={timeToRead}
           caption={caption}
         />
       )}
       <Grid container className="mt-6">
         <Grid item xs zeroMinWidth>
-          <Mdx className="bg-white mb-4 px-6 py-2 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
-            {mdx?.body ?? ""}
+          <Mdx
+            className="bg-white mb-4 px-6 py-2 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+            foot={<div>{lastModified}</div>}
+          >
+            {body ?? ""}
           </Mdx>
           <div className="flex justify-between flex-col sm:flex-row">
             {near.map((item, idx) =>
@@ -154,7 +166,10 @@ export default function App({
               </Tabs>
               <TabPanel value={value} index={0}>
                 <nav className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto">
-                  {TOC(tableOfContents?.items ?? [], `#${active}`)}
+                  {TOC(
+                    ((tableOfContents as unknown) as TocItem)?.items ?? [],
+                    `#${active}`
+                  )}
                 </nav>
               </TabPanel>
               <TabPanel value={value} index={1}>
@@ -173,6 +188,9 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       body
       tableOfContents(maxDepth: 3)
+      fields {
+        lastModified(formatString: "MMMM Do YYYY, h:mm:ss a")
+      }
       frontmatter {
         banner {
           childImageSharp {

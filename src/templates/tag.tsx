@@ -6,7 +6,7 @@ export default function App({
   location: { href, origin },
   pageContext: { tag },
   data: { allMdx },
-}: PageProps<GatsbyTypes.CategoriesTemplatesQuery>) {
+}: PageProps<GatsbyTypes.TagTemplateQuery, { tag: string }>) {
   const trigger = useScrollTrigger();
 
   return (
@@ -14,25 +14,16 @@ export default function App({
       {allMdx?.nodes && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8">
           {allMdx.nodes.map(
-            (
-              {
-                frontmatter: { banner, title, subtitle, date },
-                excerpt,
-                slug,
-                wordCount: { words },
-                timeToRead,
-              },
-              idx
-            ) =>
-              banner?.childImageSharp?.fluid && (
+            ({ frontmatter, excerpt, slug, wordCount, timeToRead }, idx) =>
+              frontmatter?.banner?.childImageSharp?.fluid && (
                 <BlogCardSmall
                   key={idx}
-                  img={banner.childImageSharp.fluid}
-                  title={title}
-                  subtitle={subtitle}
+                  img={frontmatter.banner.childImageSharp.fluid}
+                  title={frontmatter?.title}
+                  subtitle={frontmatter?.subtitle}
                   description={excerpt}
-                  date={date}
-                  words={words}
+                  date={frontmatter?.date}
+                  words={wordCount?.words}
                   timeToRead={timeToRead}
                   slug={slug}
                 />

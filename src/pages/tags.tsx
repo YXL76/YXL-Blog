@@ -1,8 +1,9 @@
 import { Badge, Layout, useScrollTrigger } from "../components";
 import { graphql, navigate, useStaticQuery } from "gatsby";
+import type { PageProps } from "gatsby";
 import slugify from "slugify";
 
-export default function App({ location: { href, origin } }) {
+export default function App({ location: { href, origin } }: PageProps) {
   const {
     allMdx: { nodes },
   } = useStaticQuery<GatsbyTypes.TagsPageQuery>(graphql`
@@ -19,17 +20,10 @@ export default function App({ location: { href, origin } }) {
 
   const data: Record<string, number> = {};
 
-  for (const {
-    frontmatter: { tags },
-  } of nodes) {
-    if (tags) {
-      for (const tag of tags) {
-        if (tag in data) {
-          ++data[tag];
-        } else {
-          data[tag] = 1;
-        }
-      }
+  for (const node of nodes) {
+    const tags = node?.frontmatter?.tags ?? [];
+    for (const tag of tags) {
+      tag && (tag in data ? ++data[tag] : (data[tag] = 1));
     }
   }
 

@@ -5,11 +5,11 @@ import Img from "gatsby-image";
 
 type BlogCardSmallProps = {
   img: FluidObject | FluidObject[];
-  title: string;
-  subtitle: string;
+  title?: string;
+  subtitle?: string;
   description: string;
-  date: string;
-  words: number;
+  date?: string;
+  words?: number;
   timeToRead?: number;
   slug?: string;
 };

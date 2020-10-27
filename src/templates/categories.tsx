@@ -1,27 +1,30 @@
 import { CategoryCard, Layout, useScrollTrigger } from "../components";
+import type { FluidObject } from "gatsby-image";
+import type { PageProps } from "gatsby";
 import { graphql } from "gatsby";
 
 export default function App({
   location: { href, origin },
   pageContext: { categories },
   data: { allMdx },
-}) {
+}: PageProps<
+  GatsbyTypes.CategoriesTemplateQuery,
+  { categories: { name: string; description: string; fluid: FluidObject }[] }
+>) {
   const trigger = useScrollTrigger();
 
   return (
     <Layout href={href} origin={origin} title="Categories" trigger={trigger}>
       <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
         {allMdx?.group?.map(({ fieldValue, totalCount }, idx) => {
-          const { description, fluid } = categories.find(
-            (item) => item?.name === fieldValue
-          );
+          const item = categories.find(({ name }) => name === fieldValue);
           return (
-            fluid && (
+            item && (
               <CategoryCard
                 key={idx}
-                img={fluid}
-                title={fieldValue}
-                description={description}
+                img={item.fluid}
+                title={fieldValue ?? ""}
+                description={item.description}
                 totalCount={totalCount}
               />
             )

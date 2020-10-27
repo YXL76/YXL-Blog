@@ -12,9 +12,10 @@ import {
 } from "../components";
 import { graphql, useStaticQuery } from "gatsby";
 import type { ChangeEvent } from "react";
+import type { PageProps } from "gatsby";
 import { useState } from "react";
 
-export default function App({ location: { href, origin } }) {
+export default function App({ location: { href, origin } }: PageProps) {
   const {
     allMdx: { nodes },
   } = useStaticQuery<GatsbyTypes.BlogsPageQuery>(graphql`
@@ -47,9 +48,23 @@ export default function App({ location: { href, origin } }) {
     <Layout href={href} origin={origin} title="Blogs" trigger={trigger}>
       <Grid container>
         <Grid item xs zeroMinWidth>
-          {nodes.map((node, idx) => (
-            <BlogCard key={idx} {...node} />
-          ))}
+          {nodes.map(
+            ({ frontmatter, excerpt, timeToRead, wordCount, slug }, idx) => (
+              <BlogCard
+                key={idx}
+                fluid={frontmatter?.banner?.childImageSharp?.fluid}
+                category={frontmatter?.category ?? ""}
+                date={frontmatter?.date}
+                subtitle={frontmatter?.subtitle}
+                tags={frontmatter?.tags ?? []}
+                title={frontmatter?.title}
+                excerpt={excerpt}
+                slug={slug ?? ""}
+                timeToRead={timeToRead}
+                words={wordCount?.words}
+              />
+            )
+          )}
         </Grid>
         <Hidden smDown>
           <Grid item xs={4} className="pl-12">

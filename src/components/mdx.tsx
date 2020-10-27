@@ -1,5 +1,5 @@
 import type { Components, TableProps, TdProps, TrProps } from "@mdx-js/react";
-import type { FC, MouseEventHandler } from "react";
+import type { FC, MouseEventHandler, ReactNode } from "react";
 import {
   Paper,
   Table,
@@ -71,12 +71,14 @@ const components: Components = {
 type MdxProps = {
   children: string;
   className?: string;
+  foot?: ReactNode;
 };
 
-export const Mdx: FC<MdxProps> = (props) => (
-  <div className={`mdx-content ${props?.className ?? ""}`}>
+export const Mdx: FC<MdxProps> = ({ className, children, foot }) => (
+  <div className={`mdx-content ${className ?? ""}`}>
     <MDXProvider components={components}>
-      <MDXRenderer {...props}></MDXRenderer>
+      <MDXRenderer>{children}</MDXRenderer>
     </MDXProvider>
+    {foot}
   </div>
 );

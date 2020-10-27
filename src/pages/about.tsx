@@ -1,16 +1,17 @@
 import { AuthorCard, Layout, Mdx, useScrollTrigger } from "../components";
 import { graphql, useStaticQuery } from "gatsby";
+import type { PageProps } from "gatsby";
 
-export default function App({ location: { href, origin } }) {
-  const {
-    mdx: { body },
-  } = useStaticQuery<GatsbyTypes.AuthorsPageQuery>(graphql`
+export default function App({ location: { href, origin } }: PageProps) {
+  const { mdx } = useStaticQuery<GatsbyTypes.AuthorsPageQuery>(graphql`
     query AuthorsPage {
       mdx(fields: { contentType: { eq: "author" } }) {
         body
       }
     }
   `);
+
+  const body = mdx?.body ?? "";
 
   const trigger = useScrollTrigger();
 
