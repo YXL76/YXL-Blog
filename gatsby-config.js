@@ -48,8 +48,14 @@ module.exports = {
         },
       ],
       email: "chenxin.lan.76@gmail.com",
-      github: "https://github.com/YXL76",
+      github: "YXL76",
       twitter: "600BpO7CenFdYYg",
+      facebook: "chenxin.lan.76",
+      instagram: "yxl_76",
+      reddit: "YXL_",
+      douban: "151739065",
+      telegram: "yxl76",
+      weibo: "6599959424",
     },
     categories: [
       {

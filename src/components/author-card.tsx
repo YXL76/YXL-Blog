@@ -1,15 +1,23 @@
 import { Avatar, IconButton, Link } from ".";
+import {
+  Douban,
+  Github,
+  Instagram,
+  Reddit,
+  SinaWeibo,
+  Telegram,
+  Twitter,
+} from "mdi-material-ui";
+import { EmailOutlined, Facebook } from "@material-ui/icons";
 import { graphql, useStaticQuery } from "gatsby";
-import { EmailOutlined } from "@material-ui/icons";
 import type { FC } from "react";
-import { Github } from "mdi-material-ui";
 
-type SocialButtonProps = {
+type SocialProps = {
   href: string;
   icon: JSX.Element;
 };
 
-const SocialButton: FC<SocialButtonProps> = ({ href, icon }) => (
+const Social: FC<SocialProps> = ({ href, icon }) => (
   <Link href={href}>
     <IconButton>{icon}</IconButton>
   </Link>
@@ -28,8 +36,21 @@ export const AuthorCard: FC<BlogCardProps> = ({ className }) => {
     }
   `);
 
-  const { name, avatar, role, bio, email, github } =
-    site?.siteMetadata?.author ?? {};
+  const {
+    name,
+    avatar,
+    role,
+    bio,
+    email,
+    github,
+    twitter,
+    facebook,
+    instagram,
+    reddit,
+    douban,
+    telegram,
+    weibo,
+  } = site?.siteMetadata?.author ?? {};
 
   return (
     <div className={`flex flex-col items-center px-4 py-6 ${className ?? ""}`}>
@@ -44,8 +65,43 @@ export const AuthorCard: FC<BlogCardProps> = ({ className }) => {
       </h2>
       <h3 className="font-medium text-center text-lg">{role}</h3>
       <div className="flex flex-wrap justify-center">
-        {email && <SocialButton href="" icon={<EmailOutlined />} />}
-        {github && <SocialButton href={github} icon={<Github />} />}
+        {email && <Social href={`mailto:${email}`} icon={<EmailOutlined />} />}
+        {github && (
+          <Social href={`https://github.com/${github}`} icon={<Github />} />
+        )}
+        {twitter && (
+          <Social href={`https://twitter.com/${twitter}`} icon={<Twitter />} />
+        )}
+        {facebook && (
+          <Social
+            href={`https://www.facebook.com/${facebook}`}
+            icon={<Facebook />}
+          />
+        )}
+        {instagram && (
+          <Social
+            href={`https://www.instagram.com/${instagram}`}
+            icon={<Instagram />}
+          />
+        )}
+        {reddit && (
+          <Social
+            href={`https://www.reddit.com/user/${reddit}`}
+            icon={<Reddit />}
+          />
+        )}
+        {douban && (
+          <Social
+            href={`https://www.douban.com/people/${douban}`}
+            icon={<Douban />}
+          />
+        )}
+        {telegram && (
+          <Social href={`https://t.me/${telegram}`} icon={<Telegram />} />
+        )}
+        {weibo && (
+          <Social href={`https://weibo.com/u/${weibo}`} icon={<SinaWeibo />} />
+        )}
       </div>
       <div className="text-center">{bio}</div>
     </div>

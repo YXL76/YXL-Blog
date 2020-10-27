@@ -11,6 +11,12 @@ export const AuthorQuery = graphql`
         email
         github
         twitter
+        facebook
+        instagram
+        reddit
+        douban
+        telegram
+        weibo
       }
     }
   }
