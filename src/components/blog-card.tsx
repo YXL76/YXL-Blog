@@ -64,7 +64,7 @@ export const BlogCard: FC<BlogCardProps> = ({
         <BlogMetadataChip date={date} words={words} timeToRead={timeToRead} />
       </div>
       <p className="text-lg mt-2 mx-10 text-center">{excerpt}</p>
-      <div className="flex items-end flex-no-wrap justify-between w-full mt-1">
+      <div className="flex items-end flex-nowrap justify-between w-full mt-1">
         <div className="flex flex-wrap">
           {tags.map((tag, idx) => (
             <Button

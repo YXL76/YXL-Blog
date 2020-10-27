@@ -105,7 +105,11 @@ export default function App({
         <Grid item xs zeroMinWidth>
           <Mdx
             className="bg-white mb-4 px-6 py-2 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
-            foot={<div>{lastModified}</div>}
+            foot={
+              <div className="my-4 text-base italic underline">
+                Last modified on {lastModified}
+              </div>
+            }
           >
             {body}
           </Mdx>
@@ -190,7 +194,7 @@ export const query = graphql`
       body
       tableOfContents(maxDepth: 3)
       fields {
-        lastModified(formatString: "MMMM Do YYYY, h:mm:ss a")
+        lastModified(formatString: "MMMM Do YYYY h:mm:ss a")
       }
       frontmatter {
         banner {
