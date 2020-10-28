@@ -209,7 +209,7 @@ export const Layout: FC<LayoutProps> = ({
       <Container
         maxWidth="lg"
         component="main"
-        className="flex flex-wrap pb-10 pt-20 px-4"
+        className="flex flex-wrap pb-10 pt-20 px-4 min-h-screen"
       >
         <>{children}</>
       </Container>
