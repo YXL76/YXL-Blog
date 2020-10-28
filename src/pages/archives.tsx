@@ -45,7 +45,7 @@ export default function App({ location: { href, origin } }: PageProps) {
 
   return (
     <Layout href={href} origin={origin} title="Archives" trigger={trigger}>
-      <Paper className="w-full overflow-hidden sm:rounded-3xl">
+      <Paper className="overflow-hidden sm:rounded-3xl">
         <Timeline align="left">
           {group.map(({ fieldValue, nodes }, idx) => (
             <TimelineItem key={idx}>

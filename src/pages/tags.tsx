@@ -1,5 +1,5 @@
-import { Badge, Layout, useScrollTrigger } from "../components";
-import { graphql, navigate, useStaticQuery } from "gatsby";
+import { Badge, Layout, Link, Paper, useScrollTrigger } from "../components";
+import { graphql, useStaticQuery } from "gatsby";
 import type { PageProps } from "gatsby";
 import slugify from "slugify";
 
@@ -31,16 +31,19 @@ export default function App({ location: { href, origin } }: PageProps) {
 
   return (
     <Layout href={href} origin={origin} title="Tags" trigger={trigger}>
-      {Object.entries(data).map(([tag, num], idx) => (
-        <Badge badgeContent={num} color="primary" key={idx}>
-          <div
-            className="m-2"
-            onClick={() => navigate(`/tags/${slugify(tag)}`)}
-          >
-            {tag}
-          </div>
-        </Badge>
-      ))}
+      <Paper className="pt-6 pb-4 px-4 sm:rounded-3xl">
+        {Object.entries(data).map(([tag, num], idx) => (
+          <Badge badgeContent={num} color="primary" key={idx}>
+            <Link
+              className="m-4"
+              to={`/tags/${slugify(tag)}`}
+              style={{ fontSize: 16 + num * 2 }}
+            >
+              {tag}
+            </Link>
+          </Badge>
+        ))}
+      </Paper>
     </Layout>
   );
 }
