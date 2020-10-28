@@ -9338,7 +9338,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-cli@npm:^2.12.111":
+"gatsby-cli@npm:^2.12.113":
   version: 2.12.113
   resolution: "gatsby-cli@npm:2.12.113"
   dependencies:
@@ -9641,7 +9641,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-page-creator@npm:^2.3.33":
+"gatsby-plugin-page-creator@npm:^2.3.34":
   version: 2.3.34
   resolution: "gatsby-plugin-page-creator@npm:2.3.34"
   dependencies:
@@ -10049,9 +10049,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby@npm:2.24.85":
-  version: 2.24.85
-  resolution: "gatsby@npm:2.24.85"
+"gatsby@npm:2.24.90":
+  version: 2.24.90
+  resolution: "gatsby@npm:2.24.90"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/core": ^7.11.6
@@ -10119,12 +10119,12 @@ fsevents@~2.1.2:
     find-cache-dir: ^3.3.1
     fs-exists-cached: 1.0.0
     fs-extra: ^8.1.0
-    gatsby-cli: ^2.12.111
+    gatsby-cli: ^2.12.113
     gatsby-core-utils: ^1.3.23
     gatsby-graphiql-explorer: ^0.4.15
     gatsby-legacy-polyfills: ^0.0.5
     gatsby-link: ^2.4.16
-    gatsby-plugin-page-creator: ^2.3.33
+    gatsby-plugin-page-creator: ^2.3.34
     gatsby-plugin-typescript: ^2.4.24
     gatsby-plugin-utils: ^0.2.39
     gatsby-react-router-scroll: ^3.0.15
@@ -10206,7 +10206,7 @@ fsevents@~2.1.2:
     react-dom: ^16.4.2
   bin:
     gatsby: ./cli.js
-  checksum: 4be372a5a22ed955f2aac6862d9765c97e388aba4882c60b22f7e81bf8bc2721e1dd1e425883083df085af6f49bc7fd5568e8932833d9c5b6d293538a9cad7a6
+  checksum: 7f4f149fc6158a2c57eff7353fb87276a1fd9842919328809f710b41f2059644dc58718da54b8d4069bc45ba754522518924dcf29e87b169fa842463fb1b0d02
   languageName: node
   linkType: hard
 
@@ -22452,7 +22452,7 @@ typescript@4.1.0-dev.20201027:
     eslint-plugin-react-hooks: 4.2.0
     fontsource-noto-sans-sc: 3.0.3
     fontsource-source-code-pro: 3.0.10
-    gatsby: 2.24.85
+    gatsby: 2.24.90
     gatsby-image: 2.4.21
     gatsby-plugin-feed: 2.5.19
     gatsby-plugin-google-gtag: 2.1.13
