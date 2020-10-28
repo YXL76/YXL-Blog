@@ -25,7 +25,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
       {
         node,
         name: "contentType",
-        value: basename(dirname(slug)),
+        value: basename(dirname(slug)) || basename(slug),
       },
       { name: "gatsby-plugin-mdx" }
     );
