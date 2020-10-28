@@ -24,7 +24,7 @@ export default function App({ location: { href, origin } }: PageProps) {
     query ArchivesPage {
       allMdx(
         filter: { fields: { contentType: { eq: "blogs" } } }
-        sort: { fields: frontmatter___date, order: DESC }
+        sort: { order: DESC, fields: frontmatter___date }
       ) {
         group(field: frontmatter___archive) {
           fieldValue

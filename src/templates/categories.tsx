@@ -39,7 +39,7 @@ export const query = graphql`
   query CategoriesTemplate {
     allMdx(
       filter: { fields: { contentType: { eq: "blogs" } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
       group(field: frontmatter___category) {
         fieldValue

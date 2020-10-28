@@ -126,7 +126,6 @@ const config = {
         },
       },
     },
-    "gatsby-plugin-sitemap",
     "gatsby-plugin-nprogress",
     {
       resolve: "gatsby-plugin-google-gtag",
@@ -141,8 +140,112 @@ const config = {
         },
       },
     },
-    "gatsby-plugin-robots-txt",
     "gatsby-plugin-remove-trailing-slashes",
+    {
+      resolve: "gatsby-plugin-feed",
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                author {
+                  name
+                }
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({
+              query: {
+                site: { siteMetadata },
+                allMdx: { nodes },
+              },
+            }: {
+              query: {
+                site: {
+                  siteMetadata: {
+                    author: {
+                      name: string;
+                    };
+                    title: string;
+                    siteUrl: string;
+                  };
+                };
+                allMdx: {
+                  nodes: {
+                    fields: {
+                      lastModified: string;
+                    };
+                    frontmatter: {
+                      title: string;
+                      date: string;
+                      category: string;
+                      tags: string[];
+                    };
+                    excerpt: string;
+                    html: string;
+                    slug: string;
+                  }[];
+                };
+              };
+            }): ItemOptions[] => {
+              return nodes.map(
+                ({
+                  fields: { lastModified },
+                  frontmatter: { title, date, category, tags },
+                  excerpt,
+                  html,
+                  slug,
+                }) => ({
+                  title,
+                  description: excerpt,
+                  url: `${siteMetadata.siteUrl}/${slug}`,
+                  guid: `${siteMetadata.siteUrl}/${slug}-${lastModified}`,
+                  date,
+                  author: siteMetadata.author.name,
+                  categories: [category].concat(tags),
+                  custom_elements: [{ "content:encoded": html }],
+                })
+              );
+            },
+            query: `
+              {
+                allMdx(
+                  filter: { fields: { contentType: { eq: "blogs" } } }
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  nodes {
+                    fields {
+                      lastModified
+                    }
+                    frontmatter {
+                      title
+                      date
+                      category
+                      tags
+                    }
+                    excerpt
+                    html
+                    slug
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "YXL的小屋 RSS Feed",
+            match: "^/blogs/",
+          },
+        ],
+      },
+    },
+    "gatsby-plugin-robots-txt",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-manifest",
       options: {
@@ -170,3 +273,84 @@ const config = {
 };
 
 export default config;
+
+interface ItemOptions {
+  /**
+   * Title of this particular item.
+   */
+  title: string;
+  /**
+   * Content for the item. Can contain HTML but link and image
+   * URLs must be absolute path including hostname.
+   */
+  description: string;
+  /**
+   * URL to the item. This could be a blog entry.
+   */
+  url: string;
+  /**
+   * A unique string feed readers use to know if an item is
+   * new or has already been seen. If you use a guid never
+   * change it. If you don't provide a guid then your item
+   * urls must be unique.
+   * Defaults to url.
+   */
+  guid?: string;
+  /**
+   * If provided, each array item will be added as a category
+   * element.
+   */
+  categories?: string[];
+  /**
+   * If included it is the name of the item's creator. If not
+   * provided the item author will be the same as the feed author.
+   * This is typical except on multi-author blogs.
+   */
+  author?: string;
+  /**
+   * The date and time of when the item was created. Feed
+   * readers use this to determine the sort order. Some readers
+   * will also use it to determine if the content should be
+   * presented as unread.
+   * Accepts Date object or string with any format
+   * JS Date can parse.
+   */
+  date: Date | string;
+  /**
+   * The latitude coordinate of the item for GeoRSS.
+   */
+  lat?: number;
+  /**
+   * The longitude coordinate of the item for GeoRSS.
+   */
+  long?: number;
+  /**
+   * Put additional elements in the item (node-xml syntax).
+   */
+  custom_elements?: any[];
+  /**
+   * An enclosure object.
+   */
+  enclosure?: EnclosureObject;
+}
+
+interface EnclosureObject {
+  /**
+   * URL to file object (or file).
+   */
+  url: string;
+  /**
+   * Path to binary file (or URL).
+   */
+  file?: string;
+  /**
+   * Size of the file.
+   */
+  size?: number;
+  /**
+   * If not provided, the MIME Type will be guessed based
+   * on the extension of the file or URL, passing type to
+   * the enclosure will override the guessed type.
+   */
+  type?: string;
+}

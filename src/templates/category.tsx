@@ -69,7 +69,7 @@ export const query = graphql`
         fields: { contentType: { eq: "blogs" } }
         frontmatter: { category: { eq: $name } }
       }
-      sort: { fields: frontmatter___date, order: DESC }
+      sort: { order: DESC, fields: frontmatter___date }
     ) {
       nodes {
         frontmatter {

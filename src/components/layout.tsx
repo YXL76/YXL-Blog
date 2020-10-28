@@ -167,7 +167,11 @@ export const Layout: FC<LayoutProps> = ({
                 <IconButton color="inherit" aria-label="language">
                   <LanguageSharp />
                 </IconButton>
-                <IconButton color="inherit" aria-label="rss">
+                <IconButton
+                  color="inherit"
+                  aria-label="rss"
+                  onClick={() => navigate("/rss.xml")}
+                >
                   <RssFeedOutlined />
                 </IconButton>
                 <Hidden mdUp>

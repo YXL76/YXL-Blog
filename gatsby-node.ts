@@ -71,7 +71,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
         allMdx(
           filter: { fields: { contentType: { eq: "blogs" } } }
-          sort: { order: ASC, fields: frontmatter___date }
+          sort: { order: DESC, fields: frontmatter___date }
         ) {
           edges {
             next {
