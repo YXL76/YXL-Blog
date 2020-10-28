@@ -72,7 +72,7 @@
     "simple-git": "2.21.0",
     "stylelint": "13.7.2",
     "stylelint-config-standard": "20.0.0",
-    "typescript": "4.1.0-dev.20201027",
+    "typescript": "4.1.0-dev.20201028",
     "typescript-plugin-css-modules": "2.7.0"
   },
   "name": "yxl-blog",
