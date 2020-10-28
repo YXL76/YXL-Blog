@@ -82,10 +82,10 @@ export const Layout: FC<LayoutProps> = ({
       }
     }
   `);
-  const siteTitle = site?.siteMetadata?.title ?? "";
-  const siteDescription = site?.siteMetadata?.description ?? "";
-  const { keywords, defaultImage, author } = site?.siteMetadata ?? {};
-  const { name, twitter } = author ?? {};
+  const siteTitle = site?.siteMetadata?.title || "";
+  const siteDescription = site?.siteMetadata?.description || "";
+  const { keywords, defaultImage, author } = site?.siteMetadata || {};
+  const { name, twitter } = author || {};
 
   const [open, setOpen] = useState(false);
 
@@ -94,12 +94,12 @@ export const Layout: FC<LayoutProps> = ({
       <SEO
         title={title}
         siteTitle={siteTitle}
-        description={description ?? siteDescription}
-        author={name ?? ""}
+        description={description || siteDescription}
+        author={name || ""}
         href={href}
-        keywords={keywords ?? []}
-        image={`${origin}${image ?? defaultImage ?? ""}`}
-        twitter={twitter ?? ""}
+        keywords={keywords || []}
+        image={`${origin}${image || defaultImage || ""}`}
+        twitter={twitter || ""}
       />
       <Slide appear={false} direction="down" timeout={300} in={!trigger}>
         <AppBar className="h-14" color="default" elevation={1}>

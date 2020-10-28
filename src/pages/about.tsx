@@ -12,7 +12,7 @@ export default function App({ location: { href, origin } }: PageProps) {
     }
   `);
 
-  const body = mdx?.body ?? "";
+  const body = mdx?.body || "";
 
   const trigger = useScrollTrigger();
 

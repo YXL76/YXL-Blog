@@ -28,7 +28,7 @@ export const SEO: FC<SEOProps> = ({
   <Helmet
     defer={false}
     htmlAttributes={{
-      lang: lang ?? "en",
+      lang: lang || "en",
     }}
     title={title}
     defaultTitle={title}

@@ -14,7 +14,7 @@ export default function App({ location: { href, origin } }: PageProps) {
       }
     }
   `);
-  const { title, description } = site?.siteMetadata ?? {};
+  const { title, description } = site?.siteMetadata || {};
 
   const trigger = useScrollTrigger();
 

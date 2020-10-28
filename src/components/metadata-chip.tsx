@@ -22,7 +22,7 @@ export const MetadataChip: FC<MetadataChipProps> = ({
   icon,
 }) => (
   <Chip
-    className={`bg-transparent font-medium text-base ${className ?? ""}`}
+    className={`bg-transparent font-medium text-base ${className || ""}`}
     clickable={clickable}
     icon={icon}
     label={label}
@@ -58,7 +58,7 @@ export const BlogMetadataChip: FC<BlogMetadataChipProps> = ({
     <MetadataChip
       className={className}
       icon={<AlarmOutlined className={iconClassName} />}
-      label={`${timeToRead ?? ""} min`}
+      label={`${timeToRead || ""} min`}
     />
   </>
 );

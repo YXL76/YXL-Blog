@@ -14,7 +14,7 @@ import { MDXRenderer } from "gatsby-plugin-mdx";
 import React from "react";
 
 const Td: FC<TdProps> = ({ align, children }) => (
-  <TableCell align={align ?? "left"}>{children}</TableCell>
+  <TableCell align={align || "left"}>{children}</TableCell>
 );
 
 const Tr: FC<TrProps> = ({ children }) => (
@@ -78,7 +78,7 @@ type MdxProps = {
 export const Mdx: FC<MdxProps> = ({ className, children, foot }) => (
   <div id="mdx-content" className={className}>
     <MDXProvider components={components}>
-      <MDXRenderer>{children ?? ""}</MDXRenderer>
+      <MDXRenderer>{children || ""}</MDXRenderer>
     </MDXProvider>
     {foot}
   </div>

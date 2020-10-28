@@ -37,11 +37,11 @@ export default function App({
     timeToRead,
     wordCount,
     tableOfContents,
-  } = mdx ?? {};
+  } = mdx || {};
   const { title, subtitle, category, date, banner, caption } =
-    frontmatter ?? {};
-  const { words } = wordCount ?? {};
-  const { lastModified } = fields ?? {};
+    frontmatter || {};
+  const { words } = wordCount || {};
+  const { lastModified } = fields || {};
 
   const near = [prev, next] as (null | {
     fields: {
@@ -85,7 +85,7 @@ export default function App({
     <Layout
       href={href}
       origin={origin}
-      title={title ?? ""}
+      title={title || ""}
       description={excerpt}
       trigger={trigger}
       image={banner?.childImageSharp?.original?.src}
@@ -176,7 +176,7 @@ export default function App({
                   id="mdx-toc"
                   className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto"
                 >
-                  {TOC(((tableOfContents as unknown) as TocItem)?.items ?? [])}
+                  {TOC(((tableOfContents as unknown) as TocItem)?.items || [])}
                 </aside>
               </TabPanel>
               <TabPanel value={value} index={1}>

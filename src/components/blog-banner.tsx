@@ -32,7 +32,7 @@ export const BlogBanner: FC<BlogBannerProps> = ({
         className="rounded-xl sm:mb-2 md:mb-4"
         variant="contained"
         color="primary"
-        to={`/categories/${category ?? ""}`}
+        to={`/categories/${category || ""}`}
       >
         {category}
       </Button>

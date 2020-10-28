@@ -29,7 +29,7 @@ export default function App({
             <div key={idx}>
               <CategoryCard
                 img={item.fluid}
-                title={fieldValue ?? ""}
+                title={fieldValue || ""}
                 description={item.description}
                 totalCount={totalCount}
               />

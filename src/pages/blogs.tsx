@@ -53,10 +53,10 @@ export default function App({ location: { href, origin } }: PageProps) {
               <BlogCard
                 key={idx}
                 fluid={frontmatter?.banner?.childImageSharp?.fluid}
-                category={frontmatter?.category ?? ""}
+                category={frontmatter?.category || ""}
                 date={frontmatter?.date}
                 subtitle={frontmatter?.subtitle}
-                tags={frontmatter?.tags ?? []}
+                tags={frontmatter?.tags || []}
                 title={frontmatter?.title}
                 excerpt={excerpt}
                 slug={fields?.slug}

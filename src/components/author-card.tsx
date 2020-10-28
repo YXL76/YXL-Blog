@@ -51,10 +51,10 @@ export const AuthorCard: FC<BlogCardProps> = ({ className }) => {
     douban,
     telegram,
     weibo,
-  } = site?.siteMetadata?.author ?? {};
+  } = site?.siteMetadata?.author || {};
 
   return (
-    <div className={`flex flex-col items-center px-4 py-6 ${className ?? ""}`}>
+    <div className={`flex flex-col items-center px-4 py-6 ${className || ""}`}>
       <Link to="/about">
         <Avatar
           className="h-24 w-24 shadow-md mb-4 group-hover:shadow-lg transition-shadow duration-300 ease-in"

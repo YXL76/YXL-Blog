@@ -37,7 +37,7 @@ export const BlogCard: FC<BlogCardProps> = ({
         <ButtonBase
           focusRipple
           className="w-full overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in"
-          onClick={() => navigate(slug)}
+          onClick={() => navigate(slug || "")}
           aria-label="banner"
         >
           <Img className="w-full" fluid={fluid} />

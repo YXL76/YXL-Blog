@@ -150,7 +150,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   const cats = [];
 
   for (const { name, description, banner, caption } of data?.site.siteMetadata
-    .categories ?? []) {
+    .categories || []) {
     const { data } = await graphql<{
       file: {
         childImageSharp: { original: { src: string }; fluid: FluidObject };
