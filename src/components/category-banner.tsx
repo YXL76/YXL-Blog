@@ -3,6 +3,7 @@ import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
 import { Link } from ".";
+import React from "react";
 
 type CategoryBannerProps = {
   img: FluidObject | FluidObject[];

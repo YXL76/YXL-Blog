@@ -2,6 +2,7 @@ import { BlogMetadataChip, Card, Link } from ".";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
+import React from "react";
 
 type BlogCardSmallProps = {
   img: FluidObject | FluidObject[];

@@ -10,10 +10,10 @@ import {
   Tabs,
   useScrollTrigger,
 } from "../components";
+import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
 import type { ChangeEvent } from "react";
 import type { PageProps } from "gatsby";
-import { useState } from "react";
 
 export default function App({ location: { href, origin } }: PageProps) {
   const {

@@ -2,6 +2,7 @@ import { BlogMetadataChip, Button, Link } from ".";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
+import React from "react";
 
 type BlogBannerProps = {
   img: FluidObject | FluidObject[];

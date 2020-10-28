@@ -5,6 +5,7 @@ import {
 } from "@material-ui/icons";
 import type { FC, ReactElement, ReactNode } from "react";
 import { Chip } from ".";
+import React from "react";
 
 type MetadataChipProps = {
   className?: string;

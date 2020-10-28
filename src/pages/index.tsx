@@ -1,6 +1,7 @@
 import { Layout, useScrollTrigger } from "../components";
 import { graphql, useStaticQuery } from "gatsby";
 import type { PageProps } from "gatsby";
+import React from "react";
 
 export default function App({ location: { href, origin } }: PageProps) {
   const { site } = useStaticQuery<GatsbyTypes.IndexPageQuery>(graphql`

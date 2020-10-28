@@ -1,6 +1,7 @@
 import { CategoryCard, Layout, useScrollTrigger } from "../components";
 import type { FluidObject } from "gatsby-image";
 import type { PageProps } from "gatsby";
+import React from "react";
 import { graphql } from "gatsby";
 
 export default function App({

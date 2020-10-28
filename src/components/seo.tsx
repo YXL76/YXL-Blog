@@ -1,5 +1,6 @@
 import type { FC } from "react";
 import { Helmet } from "react-helmet";
+import React from "react";
 
 type SEOProps = {
   lang?: string;

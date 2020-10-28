@@ -3,6 +3,7 @@ import { ChevronRight, LocalOfferOutlined } from "@material-ui/icons";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
+import React from "react";
 import { navigate } from "gatsby";
 
 type BlogCardProps = {

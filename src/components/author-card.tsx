@@ -11,6 +11,7 @@ import {
 import { EmailOutlined, Facebook } from "@material-ui/icons";
 import { graphql, useStaticQuery } from "gatsby";
 import type { FC } from "react";
+import React from "react";
 
 type SocialProps = {
   href: string;

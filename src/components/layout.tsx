@@ -27,8 +27,8 @@ import {
   SearchOutlined,
 } from "@material-ui/icons";
 import type { FC, ReactNode } from "react";
+import React, { useState } from "react";
 import { graphql, navigate, useStaticQuery } from "gatsby";
-import { useState } from "react";
 
 type ListItemLinkProps = {
   to: string;

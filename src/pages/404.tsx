@@ -1,5 +1,6 @@
 import { Layout, useScrollTrigger } from "../components";
 import type { PageProps } from "gatsby";
+import React from "react";
 
 export default function App({ location: { href, origin } }: PageProps) {
   const trigger = useScrollTrigger();

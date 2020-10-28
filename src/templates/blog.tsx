@@ -17,8 +17,8 @@ import {
   NavigateBeforeOutlined,
   NavigateNextOutlined,
 } from "@material-ui/icons";
+import React, { useEffect, useState } from "react";
 import { graphql, navigate } from "gatsby";
-import { useEffect, useState } from "react";
 import type { ChangeEvent } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
