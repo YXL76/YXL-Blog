@@ -1,21 +1,31 @@
 import { basename, dirname, resolve } from "path";
 import type { FluidObject } from "gatsby-image";
 import type { GatsbyNode } from "gatsby";
+import { createFilePath } from "gatsby-source-filesystem";
 import simpleGit from "simple-git";
-import slugify from "slugify";
 const git = simpleGit({ baseDir: __dirname });
 
 export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   node,
+  getNode,
   actions: { createNodeField },
 }) => {
   if (node.internal.type === "Mdx") {
     const { fileAbsolutePath } = node;
+    const slug = createFilePath({ node, getNode }).slice(0, -1);
+    createNodeField(
+      {
+        name: "slug",
+        node,
+        value: slug,
+      },
+      { name: "gatsby-plugin-mdx" }
+    );
     createNodeField(
       {
         node,
         name: "contentType",
-        value: basename(dirname(fileAbsolutePath as string)),
+        value: basename(dirname(slug)),
       },
       { name: "gatsby-plugin-mdx" }
     );
@@ -23,8 +33,9 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
       {
         node,
         name: "lastModified",
-        value: (await git.log({ file: fileAbsolutePath as string, n: 1 }))
-          .latest.date,
+        value:
+          (await git.log({ file: fileAbsolutePath as string, n: 1 }))?.latest
+            ?.date || new Date(),
       },
       { name: "gatsby-plugin-mdx" }
     );
@@ -49,7 +60,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
     allMdx: {
       edges: {
         next: { id: string };
-        node: { frontmatter: { tags?: string[] }; slug: string; id: string };
+        node: {
+          fields: { slug: string };
+          frontmatter: { tags?: string[] };
+          id: string;
+        };
         previous: { id: string };
       }[];
     };
@@ -78,10 +93,12 @@ export const createPages: GatsbyNode["createPages"] = async ({
               id
             }
             node {
+              fields {
+                slug
+              }
               frontmatter {
                 tags
               }
-              slug
               id
             }
             previous {
@@ -98,9 +115,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
     ({
       next,
       node: {
+        fields: { slug },
         frontmatter: { tags },
         id,
-        slug,
       },
       previous,
     }) => {
@@ -112,7 +129,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
         }
       }
       createPage({
-        path: `/${slug}`,
+        path: slug,
         component: resolve(`src/templates/blog.tsx`),
         context: {
           id,
@@ -124,7 +141,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   );
   myTags.forEach((tag) => {
     createPage({
-      path: `/tags/${slugify(tag)}`,
+      path: `/tags/${tag}`,
       component: resolve(`src/templates/tag.tsx`),
       context: { tag },
     });
@@ -166,7 +183,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
     cats.push(cat);
 
     createPage({
-      path: `/categories/${slugify(name)}`,
+      path: `/categories/${name}`,
       component: resolve(`src/templates/category.tsx`),
       context: cat,
     });

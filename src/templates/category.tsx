@@ -10,14 +10,14 @@ import { graphql } from "gatsby";
 
 export default function App({
   location: { href, origin },
-  pageContext: { name, description, banner, caption, src },
+  pageContext: { name, description, fluid, caption, src },
   data: { allMdx },
 }: PageProps<
   GatsbyTypes.CategoryTemplateQuery,
   {
     name: string;
     description: string;
-    banner: FluidObject;
+    fluid: FluidObject;
     caption?: Record<string, unknown>;
     src: string;
   }
@@ -33,7 +33,7 @@ export default function App({
       image={src}
     >
       <CategoryBanner
-        img={banner}
+        img={fluid}
         category={name}
         description={description}
         caption={caption}
@@ -41,11 +41,10 @@ export default function App({
       {allMdx?.nodes && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8">
           {allMdx.nodes.map(
-            ({ frontmatter, excerpt, slug, wordCount, timeToRead }, idx) =>
+            ({ fields, frontmatter, excerpt, wordCount, timeToRead }, idx) =>
               frontmatter?.banner?.childImageSharp?.fluid && (
-                <div>
+                <div key={idx}>
                   <BlogCardSmall
-                    key={idx}
                     img={frontmatter.banner.childImageSharp.fluid}
                     title={frontmatter?.title}
                     subtitle={frontmatter?.subtitle}
@@ -53,7 +52,7 @@ export default function App({
                     date={frontmatter?.date}
                     words={wordCount?.words}
                     timeToRead={timeToRead}
-                    slug={slug}
+                    slug={fields?.slug}
                   />
                 </div>
               )

@@ -2972,6 +2972,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/katex@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "@types/katex@npm:0.11.0"
+  checksum: e6b034cc055d68a7931201d9c91bac936a8f6e98fc39dff813602f3f23416ca8a6c7df1bff596748a7164096e66e308d115447869d78aa88aa5bf13867adc931
+  languageName: node
+  linkType: hard
+
 "@types/keyv@npm:*, @types/keyv@npm:^3.1.1":
   version: 3.1.1
   resolution: "@types/keyv@npm:3.1.1"
@@ -5916,7 +5923,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"commander@npm:^2.20.0, commander@npm:^2.20.3, commander@npm:^2.8.1":
+"commander@npm:^2.19.0, commander@npm:^2.20.0, commander@npm:^2.20.3, commander@npm:^2.8.1":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
   checksum: b73428e97de7624323f81ba13f8ed9271de487017432d18b4da3f07cfc528ad754bbd199004bd5d14e0ccd67d1fdfe0ec8dbbd4c438b401df3c4cc387bfd1daa
@@ -9476,7 +9483,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-feed@npm:^2.5.19":
+"gatsby-plugin-feed@npm:2.5.19":
   version: 2.5.19
   resolution: "gatsby-plugin-feed@npm:2.5.19"
   dependencies:
@@ -11075,6 +11082,17 @@ fsevents@~2.1.2:
   version: 1.0.4
   resolution: "hast-util-to-string@npm:1.0.4"
   checksum: a18dddd5e1bddb162893b12c4163d16ff27c0cbe31564aab0f8e443997d810cc85d5110e10c34911a3d5dbb011a2193dbdfb5eb4ed0ce5ea0f14e7f3e226ca06
+  languageName: node
+  linkType: hard
+
+"hast-util-to-text@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "hast-util-to-text@npm:2.0.0"
+  dependencies:
+    hast-util-is-element: ^1.0.0
+    repeat-string: ^1.0.0
+    unist-util-find-after: ^3.0.0
+  checksum: 4d6433044b4d9c10e44cd4d524e99bf9e80ff493ce6ca47ab11def44fb3f5cecb1ddcc8fd33fac5170bd31db656f035cf4c14462fc713f578cce8a33d0978eac
   languageName: node
   linkType: hard
 
@@ -12974,6 +12992,17 @@ fsevents@~2.1.2:
   version: 3.1.0
   resolution: "junk@npm:3.1.0"
   checksum: fedb1a2eab7f90e3c833211fecf1e1659cf995594981fb657b4215bae86883e7ec39074215a3a92cb0657fa46b0da87db121c6f12b125cc19c7911119db9c452
+  languageName: node
+  linkType: hard
+
+"katex@npm:0.12.0, katex@npm:^0.12.0":
+  version: 0.12.0
+  resolution: "katex@npm:0.12.0"
+  dependencies:
+    commander: ^2.19.0
+  bin:
+    katex: cli.js
+  checksum: c22db0f8ddafcad4c129cda9e15390714ba7a804e1171aaf43b88ce30ef6f7abb44c3990dd4df2a529d47af6d4d7b1a7fe313fe19b0fe49fc482a518bb3d07a2
   languageName: node
   linkType: hard
 
@@ -17776,6 +17805,30 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"rehype-katex@npm:4.0.0":
+  version: 4.0.0
+  resolution: "rehype-katex@npm:4.0.0"
+  dependencies:
+    "@types/katex": ^0.11.0
+    hast-util-to-text: ^2.0.0
+    katex: ^0.12.0
+    rehype-parse: ^7.0.0
+    unified: ^9.0.0
+    unist-util-visit: ^2.0.0
+  checksum: d49aa44b7b1d2d6c9698764a05214e24b5f2d1d78ede041249568a01404a248d92a777ddb2cf1204d866056d66ca9004d287b435b23398e65e8cf26d96f492ee
+  languageName: node
+  linkType: hard
+
+"rehype-parse@npm:^7.0.0":
+  version: 7.0.1
+  resolution: "rehype-parse@npm:7.0.1"
+  dependencies:
+    hast-util-from-parse5: ^6.0.0
+    parse5: ^6.0.0
+  checksum: a78b6eb59ca4bfa10fadd6bb9984d500116ca4d3731214a6b919f04ff5082135d7436bde6135f98f636cd4cf50ae5e89b39cf45e81d8061596f7ac8508d2fcaf
+  languageName: node
+  linkType: hard
+
 "rehype-slug@npm:3.0.0":
   version: 3.0.0
   resolution: "rehype-slug@npm:3.0.0"
@@ -17842,6 +17895,13 @@ fsevents@~2.1.2:
   version: 2.0.0
   resolution: "remark-footnotes@npm:2.0.0"
   checksum: fbf8224b7f84be15098847ff9dc31ba8886be16a83c42f69ea7aa81070cdfa121f7b694ff24adc54aea65beab4825e148e6ff8a145fee446befa0471ff0a780f
+  languageName: node
+  linkType: hard
+
+"remark-math@npm:3.0.1":
+  version: 3.0.1
+  resolution: "remark-math@npm:3.0.1"
+  checksum: b6825590f08257ebf9201044808be823521d493e1fb63345b0ef0d6b4e2d1645316bdfbda4220d3a87234693f4aa417eb09a4b03870984b3ee62f28c6cea099a
   languageName: node
   linkType: hard
 
@@ -18942,7 +19002,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"slugify@npm:1.4.5, slugify@npm:^1.4.4":
+"slugify@npm:^1.4.4":
   version: 1.4.5
   resolution: "slugify@npm:1.4.5"
   checksum: d402a9163144e6e5c904a3409383e0c780422fea93d32c023622cc8eaeab34e2ed0e28c69402704038ef771f6f4bb636619b142db6913165fa9f5328229773da
@@ -20914,6 +20974,15 @@ typescript@4.1.0-dev.20201027:
   languageName: node
   linkType: hard
 
+"unist-util-find-after@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "unist-util-find-after@npm:3.0.0"
+  dependencies:
+    unist-util-is: ^4.0.0
+  checksum: afad28f7bc9f7e51eaba215eb9d00d3e04f75b26be0b9f5851c42c5275850d497f6d7181340d98d419a04f48806c01dd90a3bee47630ae65183dfb1c65d2dd2d
+  languageName: node
+  linkType: hard
+
 "unist-util-find-all-after@npm:^3.0.1":
   version: 3.0.1
   resolution: "unist-util-find-all-after@npm:3.0.1"
@@ -22385,7 +22454,7 @@ typescript@4.1.0-dev.20201027:
     fontsource-source-code-pro: 3.0.10
     gatsby: 2.24.85
     gatsby-image: 2.4.21
-    gatsby-plugin-feed: ^2.5.19
+    gatsby-plugin-feed: 2.5.19
     gatsby-plugin-google-gtag: 2.1.13
     gatsby-plugin-manifest: 2.4.36
     gatsby-plugin-mdx: 1.2.51
@@ -22405,6 +22474,7 @@ typescript@4.1.0-dev.20201027:
     gatsby-source-filesystem: 2.3.37
     gatsby-theme-material-ui: 1.0.13
     gatsby-transformer-sharp: 2.5.20
+    katex: 0.12.0
     mdi-material-ui: 6.20.0
     postcss: 8.1.4
     prettier: 2.1.2
@@ -22412,10 +22482,11 @@ typescript@4.1.0-dev.20201027:
     react: 17.0.1
     react-dom: 17.0.1
     react-helmet: 6.1.0
+    rehype-katex: 4.0.0
     rehype-slug: 3.0.0
     remark-emoji: 2.1.0
+    remark-math: 3.0.1
     simple-git: 2.21.0
-    slugify: 1.4.5
     stylelint: 13.7.2
     stylelint-config-standard: 20.0.0
     tailwindcss: 2.0.0-alpha.3

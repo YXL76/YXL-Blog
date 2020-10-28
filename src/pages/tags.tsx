@@ -1,7 +1,6 @@
 import { Badge, Layout, Link, Paper, useScrollTrigger } from "../components";
 import { graphql, useStaticQuery } from "gatsby";
 import type { PageProps } from "gatsby";
-import slugify from "slugify";
 
 export default function App({ location: { href, origin } }: PageProps) {
   const {
@@ -36,7 +35,7 @@ export default function App({ location: { href, origin } }: PageProps) {
           <Badge badgeContent={num} color="primary" key={idx}>
             <Link
               className="m-4"
-              to={`/tags/${slugify(tag)}`}
+              to={`/tags/${tag}`}
               style={{ fontSize: 16 + num * 2 }}
             >
               {tag}

@@ -25,9 +25,8 @@ export default function App({
         const item = categories.find(({ name }) => name === fieldValue);
         return (
           item && (
-            <div>
+            <div key={idx}>
               <CategoryCard
-                key={idx}
                 img={item.fluid}
                 title={fieldValue ?? ""}
                 description={item.description}

@@ -3,7 +3,6 @@ import { AssignmentIndOutlined } from "@material-ui/icons";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
-import slugify from "slugify";
 
 type CategoryCardProps = {
   img: FluidObject | FluidObject[];
@@ -27,7 +26,7 @@ export const CategoryCard: FC<CategoryCardProps> = ({
         <Button
           startIcon={<AssignmentIndOutlined />}
           color="primary"
-          to={`/categories/${slugify(title)}`}
+          to={`/categories/${title}`}
         >
           {totalCount} Blogs
         </Button>

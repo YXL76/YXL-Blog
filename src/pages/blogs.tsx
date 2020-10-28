@@ -49,7 +49,7 @@ export default function App({ location: { href, origin } }: PageProps) {
       <Grid container>
         <Grid item xs zeroMinWidth>
           {nodes.map(
-            ({ frontmatter, excerpt, timeToRead, wordCount, slug }, idx) => (
+            ({ fields, frontmatter, excerpt, timeToRead, wordCount }, idx) => (
               <BlogCard
                 key={idx}
                 fluid={frontmatter?.banner?.childImageSharp?.fluid}
@@ -59,7 +59,7 @@ export default function App({ location: { href, origin } }: PageProps) {
                 tags={frontmatter?.tags ?? []}
                 title={frontmatter?.title}
                 excerpt={excerpt}
-                slug={slug ?? ""}
+                slug={fields?.slug}
                 timeToRead={timeToRead}
                 words={wordCount?.words}
               />

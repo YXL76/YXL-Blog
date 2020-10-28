@@ -29,12 +29,14 @@ export default function App({ location: { href, origin } }: PageProps) {
         group(field: frontmatter___archive) {
           fieldValue
           nodes {
+            fields {
+              slug
+            }
             frontmatter {
               date(formatString: "MM/DD")
               title
               subtitle
             }
-            slug
           }
         }
       }
@@ -58,12 +60,12 @@ export default function App({ location: { href, origin } }: PageProps) {
               </TimelineSeparator>
               <TimelineContent>
                 <List>
-                  {nodes.map(({ frontmatter, slug }, idx) => {
+                  {nodes.map(({ fields, frontmatter }, idx) => {
                     return (
                       <ListItem
                         key={idx}
                         button
-                        onClick={() => navigate(`/${slug ?? ""}`)}
+                        onClick={() => navigate(fields?.slug || "")}
                       >
                         <ListItemText
                           primary={frontmatter?.title}

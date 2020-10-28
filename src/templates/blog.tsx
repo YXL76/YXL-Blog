@@ -44,11 +44,13 @@ export default function App({
   const { lastModified } = fields ?? {};
 
   const near = [prev, next] as (null | {
+    fields: {
+      slug: string;
+    };
     frontmatter: {
       title: string;
       banner: { childImageSharp: { fluid: FluidObject | FluidObject[] } };
     };
-    slug: string;
   })[];
 
   const trigger = useScrollTrigger();
@@ -131,7 +133,7 @@ export default function App({
                     >
                       <NavigateBeforeOutlined
                         className="text-white text-5xl"
-                        onClick={() => navigate(`/${item.slug}`)}
+                        onClick={() => navigate(item.fields?.slug || "")}
                       />
                     </ButtonBase>
                   ) : (
@@ -141,7 +143,7 @@ export default function App({
                     >
                       <NavigateNextOutlined
                         className="text-white text-5xl"
-                        onClick={() => navigate(`/${item.slug}`)}
+                        onClick={() => navigate(item.fields?.slug || "")}
                       />
                     </ButtonBase>
                   )}
@@ -212,6 +214,9 @@ export const query = graphql`
       excerpt
     }
     next: mdx(id: { eq: $next }) {
+      fields {
+        slug
+      }
       frontmatter {
         banner {
           childImageSharp {
@@ -222,9 +227,11 @@ export const query = graphql`
         }
         title
       }
-      slug
     }
     prev: mdx(id: { eq: $previous }) {
+      fields {
+        slug
+      }
       frontmatter {
         banner {
           childImageSharp {
@@ -235,7 +242,6 @@ export const query = graphql`
         }
         title
       }
-      slug
     }
   }
 `;

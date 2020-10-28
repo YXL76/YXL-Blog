@@ -17,11 +17,11 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({
   description,
   caption,
 }) => (
-  <div className="relative overflow-hidden w-full sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 max-h-80">
+  <div className="relative overflow-hidden w-full rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
     <Img fluid={img} />
     <div className="absolute inset-0 flex flex-col items-center">
       <div className="flex flex-col items-center pt-2 md:pt-4 w-full sm:w-4/5 md:w-3/5 text-center text-white">
-        <CategoryOutlined className="bg-blue-400 p-2 sm:p-3 rounded-full text-5xl sm:text-6xl" />
+        <CategoryOutlined className="bg-blue-400 p-2 sm:p-3 mb-2 rounded-full text-5xl sm:text-6xl" />
         <h2 className="tracking-wider text-3xl sm:text-4xl md:text-5xl">
           {category}
         </h2>

@@ -18,11 +18,10 @@ export default function App({
       className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8"
     >
       {allMdx?.nodes.map(
-        ({ frontmatter, excerpt, slug, wordCount, timeToRead }, idx) =>
+        ({ fields, frontmatter, excerpt, wordCount, timeToRead }, idx) =>
           frontmatter?.banner?.childImageSharp?.fluid && (
-            <div>
+            <div key={idx}>
               <BlogCardSmall
-                key={idx}
                 img={frontmatter.banner.childImageSharp.fluid}
                 title={frontmatter?.title}
                 subtitle={frontmatter?.subtitle}
@@ -30,7 +29,7 @@ export default function App({
                 date={frontmatter?.date}
                 words={wordCount?.words}
                 timeToRead={timeToRead}
-                slug={slug}
+                slug={fields?.slug}
               />
             </div>
           )

@@ -24,6 +24,9 @@ export const AuthorQuery = graphql`
 
 export const BlogQuery = graphql`
   fragment BlogFrontmatter on Mdx {
+    fields {
+      slug
+    }
     frontmatter {
       caption {
         children
@@ -35,7 +38,6 @@ export const BlogQuery = graphql`
       tags
       title
     }
-    slug
     wordCount {
       words
     }

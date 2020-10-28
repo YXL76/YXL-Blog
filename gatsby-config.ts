@@ -59,13 +59,12 @@ const config = {
     },
     categories: [
       {
-        name: "Tech",
+        name: "算法",
         description: "description",
-        banner: "images/DgeNbpa.jpg",
+        banner: "images/Categories/算法.jpg",
         caption: {
-          children: "KiTA",
-          href:
-            "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=62341877",
+          children: "keikun_002",
+          href: "https://www.pixiv.net/artworks/36661714",
         },
       },
     ],
@@ -94,14 +93,20 @@ const config = {
         path: "content/",
       },
     },
-    "gatsby-transformer-sharp",
+    {
+      resolve: "gatsby-transformer-sharp",
+      options: {
+        useMozJpeg: true,
+      },
+    },
     "gatsby-plugin-sharp",
     "gatsby-remark-images",
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        remarkPlugins: [require("remark-emoji")],
+        remarkPlugins: [require("remark-math"), require("remark-emoji")],
         rehypePlugins: [
+          require("rehype-katex"),
           require("rehype-slug"),
           require("@mapbox/rehype-prism"),
         ],
@@ -110,7 +115,6 @@ const config = {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 2560,
-              sizeByPixelDensity: true,
             },
           },
         ],
@@ -180,6 +184,7 @@ const config = {
                 allMdx: {
                   nodes: {
                     fields: {
+                      slug: string;
                       lastModified: string;
                     };
                     frontmatter: {
@@ -190,23 +195,21 @@ const config = {
                     };
                     excerpt: string;
                     html: string;
-                    slug: string;
                   }[];
                 };
               };
             }): ItemOptions[] => {
               return nodes.map(
                 ({
-                  fields: { lastModified },
+                  fields: { slug, lastModified },
                   frontmatter: { title, date, category, tags },
                   excerpt,
                   html,
-                  slug,
                 }) => ({
                   title,
                   description: excerpt,
-                  url: `${siteMetadata.siteUrl}/${slug}`,
-                  guid: `${siteMetadata.siteUrl}/${slug}-${lastModified}`,
+                  url: `${siteMetadata.siteUrl}${slug}`,
+                  guid: `${siteMetadata.siteUrl}${slug}-${lastModified}`,
                   date,
                   author: siteMetadata.author.name,
                   categories: [category].concat(tags),
@@ -222,6 +225,7 @@ const config = {
                 ) {
                   nodes {
                     fields {
+                      slug
                       lastModified
                     }
                     frontmatter {
@@ -232,7 +236,6 @@ const config = {
                     }
                     excerpt
                     html
-                    slug
                   }
                 }
               }
