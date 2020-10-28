@@ -1,14 +1,14 @@
 const config = {
   polyfill: false,
   siteMetadata: {
-    title: "YXL Blog",
-    description: "YXL Blog",
+    title: "YXL的小屋",
+    description: "请不要忘记，我在这里",
     siteUrl: "https://yxl76.net",
-    defaultImage: "/images/avatar.png",
+    defaultImage: "/images/background.jpg",
     keywords: ["blog", "computer science"],
     author: {
       name: "YXL",
-      avatar: "/images/avatar.png",
+      avatar: "/images/avatar.jpg",
       role: "Professor of Artificial Intelligence",
       bio:
         "My research interests include distributed robotics, mobile computing and programmable matter.",

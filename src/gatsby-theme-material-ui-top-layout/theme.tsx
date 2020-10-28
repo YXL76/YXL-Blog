@@ -7,7 +7,11 @@ const theme = createMuiTheme({
     MuiCssBaseline: {
       "@global": {
         body: {
-          backgroundColor: "#fafafa",
+          backgroundAttachment: "fixed",
+          backgroundImage: "url(/images/background.jpg)",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
           overflowX: "hidden",
         },
       },

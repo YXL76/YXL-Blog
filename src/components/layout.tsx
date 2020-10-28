@@ -109,7 +109,7 @@ export const Layout: FC<LayoutProps> = ({
                 />
                 <Hidden xsDown>
                   <div className="mr-6 font-bold leading-none text-2xl uppercase">
-                    <Link to="/" underline="none">
+                    <Link to="/" underline="none" color="inherit">
                       {siteTitle}
                     </Link>
                   </div>
@@ -209,7 +209,7 @@ export const Layout: FC<LayoutProps> = ({
       <Container
         maxWidth="lg"
         component="main"
-        className="flex flex-wrap pb-10 pt-20 px-0 sm:px-4"
+        className="flex flex-wrap pb-10 pt-20 px-4"
       >
         <>{children}</>
       </Container>

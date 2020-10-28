@@ -1,4 +1,4 @@
-import { BlogMetadataChip, Link } from ".";
+import { BlogMetadataChip, Card, Link } from ".";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
@@ -24,19 +24,17 @@ export const BlogCardSmall: FC<BlogCardSmallProps> = ({
   timeToRead,
   slug,
 }) => (
-  <div className="px-4 sm:px-0">
-    <div className="overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
-      <Img fluid={img} />
-      <div className="flex flex-col items-center px-4 pt-4 pb-2 text-center">
-        <h2 className="tracking-wider text-3xl">
-          <Link to={`/${slug ?? ""}`}>{title}</Link>
-        </h2>
-        <h3 className="tracking-wider text-3xl">{subtitle}</h3>
-        <p className="leading-snug tracking-wider text-base">{description}</p>
-        <div className="w-full border-gray-400 pt-2 border-solid border-0 border-t">
-          <BlogMetadataChip date={date} words={words} timeToRead={timeToRead} />
-        </div>
+  <Card className="overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
+    <Img fluid={img} />
+    <div className="flex flex-col items-center px-4 pt-4 pb-2 text-center">
+      <h2 className="tracking-wider text-3xl">
+        <Link to={`/${slug ?? ""}`}>{title}</Link>
+      </h2>
+      <h3 className="tracking-wider text-3xl">{subtitle}</h3>
+      <p className="leading-snug tracking-wider text-base">{description}</p>
+      <div className="w-full border-gray-400 pt-2 border-solid border-0 border-t">
+        <BlogMetadataChip date={date} words={words} timeToRead={timeToRead} />
       </div>
     </div>
-  </div>
+  </Card>
 );
