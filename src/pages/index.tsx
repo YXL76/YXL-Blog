@@ -18,11 +18,15 @@ export default function App({ location: { href, origin } }: PageProps) {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout href={href} origin={origin} title="Home" trigger={trigger}>
-      <div className="w-full flex flex-col items-end pr-4 sm:pr-0">
-        <h1 className="text-white text-6xl mt-32">{title}</h1>
-        <h2 className="text-white text-2xl mt-8">{description}</h2>
-      </div>
+    <Layout
+      href={href}
+      origin={origin}
+      title="Home"
+      trigger={trigger}
+      className="flex flex-col items-end pr-4 sm:pr-0"
+    >
+      <h1 className="text-white text-6xl mt-32">{title}</h1>
+      <h2 className="text-white text-2xl mt-8">{description}</h2>
     </Layout>
   );
 }

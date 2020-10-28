@@ -10,26 +10,30 @@ export default function App({
   const trigger = useScrollTrigger();
 
   return (
-    <Layout href={href} origin={origin} title={tag} trigger={trigger}>
-      {allMdx?.nodes && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8">
-          {allMdx.nodes.map(
-            ({ frontmatter, excerpt, slug, wordCount, timeToRead }, idx) =>
-              frontmatter?.banner?.childImageSharp?.fluid && (
-                <BlogCardSmall
-                  key={idx}
-                  img={frontmatter.banner.childImageSharp.fluid}
-                  title={frontmatter?.title}
-                  subtitle={frontmatter?.subtitle}
-                  description={excerpt}
-                  date={frontmatter?.date}
-                  words={wordCount?.words}
-                  timeToRead={timeToRead}
-                  slug={slug}
-                />
-              )
-          )}
-        </div>
+    <Layout
+      href={href}
+      origin={origin}
+      title={tag}
+      trigger={trigger}
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8"
+    >
+      {allMdx?.nodes.map(
+        ({ frontmatter, excerpt, slug, wordCount, timeToRead }, idx) =>
+          frontmatter?.banner?.childImageSharp?.fluid && (
+            <div>
+              <BlogCardSmall
+                key={idx}
+                img={frontmatter.banner.childImageSharp.fluid}
+                title={frontmatter?.title}
+                subtitle={frontmatter?.subtitle}
+                description={excerpt}
+                date={frontmatter?.date}
+                words={wordCount?.words}
+                timeToRead={timeToRead}
+                slug={slug}
+              />
+            </div>
+          )
       )}
     </Layout>
   );

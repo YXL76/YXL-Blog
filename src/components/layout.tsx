@@ -1,12 +1,16 @@
 import {
   AppBar,
+  Button,
   Container,
   Drawer,
   Hidden,
+  IconButton,
+  Link,
   List,
   ListItem,
   ListItemIcon,
   ListItemText,
+  Paper,
   SEO,
   Slide,
 } from ".";
@@ -22,7 +26,6 @@ import {
   RssFeedOutlined,
   SearchOutlined,
 } from "@material-ui/icons";
-import { Button, IconButton, Link } from "gatsby-theme-material-ui";
 import type { FC, ReactNode } from "react";
 import { graphql, navigate, useStaticQuery } from "gatsby";
 import { useState } from "react";
@@ -53,6 +56,7 @@ type LayoutProps = {
   href: string;
   origin: string;
   image?: string;
+  className?: string;
 };
 
 export const Layout: FC<LayoutProps> = ({
@@ -63,6 +67,7 @@ export const Layout: FC<LayoutProps> = ({
   href,
   origin,
   image,
+  className,
 }) => {
   const { site } = useStaticQuery<GatsbyTypes.LayoutComponentQuery>(graphql`
     query LayoutComponent {
@@ -213,10 +218,20 @@ export const Layout: FC<LayoutProps> = ({
       <Container
         maxWidth="lg"
         component="main"
-        className="flex flex-wrap pb-10 pt-20 px-4 min-h-screen"
+        className="pb-10 pt-20 px-4 min-h-screen"
       >
-        <>{children}</>
+        <div className={`w-full ${className || ""}`}>{children}</div>
       </Container>
+      <Paper
+        square
+        elevation={1}
+        className="w-full h-14 flex flex-col items-center justify-around text-base"
+      >
+        <div>© 2020 · {name}</div>
+        <div>
+          Build with <Link href="https://www.gatsbyjs.com/">Gatsby</Link>
+        </div>
+      </Paper>
     </>
   );
 };

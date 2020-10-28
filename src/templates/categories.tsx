@@ -14,12 +14,18 @@ export default function App({
   const trigger = useScrollTrigger();
 
   return (
-    <Layout href={href} origin={origin} title="Categories" trigger={trigger}>
-      <div className="w-full grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12">
-        {allMdx?.group?.map(({ fieldValue, totalCount }, idx) => {
-          const item = categories.find(({ name }) => name === fieldValue);
-          return (
-            item && (
+    <Layout
+      href={href}
+      origin={origin}
+      title="Categories"
+      trigger={trigger}
+      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12"
+    >
+      {allMdx?.group?.map(({ fieldValue, totalCount }, idx) => {
+        const item = categories.find(({ name }) => name === fieldValue);
+        return (
+          item && (
+            <div>
               <CategoryCard
                 key={idx}
                 img={item.fluid}
@@ -27,10 +33,10 @@ export default function App({
                 description={item.description}
                 totalCount={totalCount}
               />
-            )
-          );
-        })}
-      </div>
+            </div>
+          )
+        );
+      })}
     </Layout>
   );
 }

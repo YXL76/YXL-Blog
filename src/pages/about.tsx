@@ -16,11 +16,15 @@ export default function App({ location: { href, origin } }: PageProps) {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout href={href} origin={origin} title="About" trigger={trigger}>
-      <div className="group flex flex-col md:flex-row bg-white w-full rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in">
-        <AuthorCard className="max-w-full md:max-w-sm bg-gray-200" />
-        <Mdx className="p-6">{body}</Mdx>
-      </div>
+    <Layout
+      href={href}
+      origin={origin}
+      title="About"
+      trigger={trigger}
+      className="group flex flex-col md:flex-row bg-white rounded-3xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in"
+    >
+      <AuthorCard className="max-w-full md:max-w-sm bg-gray-200" />
+      <Mdx className="p-6">{body}</Mdx>
     </Layout>
   );
 }

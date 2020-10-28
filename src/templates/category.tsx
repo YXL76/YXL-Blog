@@ -43,17 +43,19 @@ export default function App({
           {allMdx.nodes.map(
             ({ frontmatter, excerpt, slug, wordCount, timeToRead }, idx) =>
               frontmatter?.banner?.childImageSharp?.fluid && (
-                <BlogCardSmall
-                  key={idx}
-                  img={frontmatter.banner.childImageSharp.fluid}
-                  title={frontmatter?.title}
-                  subtitle={frontmatter?.subtitle}
-                  description={excerpt}
-                  date={frontmatter?.date}
-                  words={wordCount?.words}
-                  timeToRead={timeToRead}
-                  slug={slug}
-                />
+                <div>
+                  <BlogCardSmall
+                    key={idx}
+                    img={frontmatter.banner.childImageSharp.fluid}
+                    title={frontmatter?.title}
+                    subtitle={frontmatter?.subtitle}
+                    description={excerpt}
+                    date={frontmatter?.date}
+                    words={wordCount?.words}
+                    timeToRead={timeToRead}
+                    slug={slug}
+                  />
+                </div>
               )
           )}
         </div>
