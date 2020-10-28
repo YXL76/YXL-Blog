@@ -194,7 +194,6 @@ const config = {
                       tags: string[];
                     };
                     excerpt: string;
-                    html: string;
                   }[];
                 };
               };
@@ -204,7 +203,6 @@ const config = {
                   fields: { slug, lastModified },
                   frontmatter: { title, date, category, tags },
                   excerpt,
-                  html,
                 }) => ({
                   title,
                   description: excerpt,
@@ -213,7 +211,6 @@ const config = {
                   date,
                   author: siteMetadata.author.name,
                   categories: [category].concat(tags),
-                  custom_elements: [{ "content:encoded": html }],
                 })
               );
             },
@@ -235,7 +232,6 @@ const config = {
                       tags
                     }
                     excerpt
-                    html
                   }
                 }
               }
