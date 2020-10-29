@@ -3059,10 +3059,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:12.19.2":
+"@types/node@npm:*":
   version: 12.19.2
   resolution: "@types/node@npm:12.19.2"
   checksum: 6371da7492d0a695003d7e97c6ad5f2afff9d49175408a46e4d7314912154513561fc3a324c2e2cac824bc17fef7d9c0801caefc96624f56033c2912a3d49d89
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:12.19.3":
+  version: 12.19.3
+  resolution: "@types/node@npm:12.19.3"
+  checksum: ef8ae4d86896d6cdcd4bda92fb43da62f6397e7a4041d492309771a51e85ec5918dbee6495d8b591fd87d7265468c87f4b5e986bc4f0362e1184b610c6b8abac
   languageName: node
   linkType: hard
 
@@ -22513,7 +22520,7 @@ typescript@4.0.5:
     "@material-ui/lab": 4.0.0-alpha.56
     "@mdx-js/mdx": 1.6.19
     "@mdx-js/react": 1.6.19
-    "@types/node": 12.19.2
+    "@types/node": 12.19.3
     "@types/react": 16.9.54
     "@types/react-dom": 16.9.9
     "@types/react-helmet": 6.1.0
