@@ -76,10 +76,10 @@ type MdxProps = {
 };
 
 export const Mdx: FC<MdxProps> = ({ className, children, foot }) => (
-  <div id="mdx-content" className={className}>
+  <Paper square elevation={0} id="mdx-content" className={className}>
     <MDXProvider components={components}>
       <MDXRenderer>{children || ""}</MDXRenderer>
     </MDXProvider>
     {foot}
-  </div>
+  </Paper>
 );

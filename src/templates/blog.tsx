@@ -106,7 +106,7 @@ export default function App({
       <Grid container className="mt-6">
         <Grid item xs zeroMinWidth>
           <Mdx
-            className="bg-white mb-4 px-6 py-2 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="mb-4 px-6 py-2 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
             foot={
               <div className="my-4 text-base italic underline">
                 Last modified on {lastModified}
@@ -162,6 +162,7 @@ export default function App({
               }`}
             >
               <Tabs
+                indicatorColor="primary"
                 value={value}
                 onChange={(_event: ChangeEvent<{}>, newValue: number) => {
                   setValue(newValue);

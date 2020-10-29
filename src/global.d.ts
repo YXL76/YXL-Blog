@@ -59,3 +59,15 @@ declare module "@mdx-js/react" {
   }
   export class MDXProvider extends React.Component<MDXProviderProps> {}
 }
+
+declare module "gatsby-theme-material-ui-top-layout/src/components/top-layout" {
+  import type { Theme } from "@material-ui/core";
+  interface ThemeTopLayoutProps {
+    children: React.ReactNode;
+    theme: Theme;
+  }
+
+  export default function ThemeTopLayout(
+    props: ThemeTopLayoutProps
+  ): JSX.Element;
+}

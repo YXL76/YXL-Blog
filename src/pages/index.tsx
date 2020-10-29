@@ -24,10 +24,10 @@ export default function App({ location: { href, origin } }: PageProps) {
       origin={origin}
       title="Home"
       trigger={trigger}
-      className="flex flex-col items-end pr-4 sm:pr-0"
+      className="flex flex-col items-end pr-4 sm:pr-0 text-bg"
     >
-      <h1 className="text-white text-6xl mt-32">{title}</h1>
-      <h2 className="text-white text-2xl mt-8">{description}</h2>
+      <h1 className="text-6xl mt-32">{title}</h1>
+      <h2 className="text-2xl mt-8">{description}</h2>
     </Layout>
   );
 }

@@ -27,7 +27,7 @@ export const BlogBanner: FC<BlogBannerProps> = ({
 }) => (
   <div className="relative overflow-hidden w-full sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
     <Img fluid={img} />
-    <div className="absolute left-3 bottom-3 sm:left-6 sm:bottom-6 md:left-12 md:bottom-12">
+    <div className="absolute leading-tight text-bg text-shadow left-3 bottom-3 sm:left-6 sm:bottom-6 md:left-12 md:bottom-12">
       <Button
         className="rounded-xl sm:mb-2 md:mb-4"
         variant="contained"
@@ -36,17 +36,17 @@ export const BlogBanner: FC<BlogBannerProps> = ({
       >
         {category}
       </Button>
-      <h1 className="leading-tight text-white tracking-wider text-stroke-black text-stroke-2rem text-3xl sm:text-4xl md:text-5xl sm:mb-2 md:mb-4">
+      <h1 className="tracking-wider text-3xl sm:text-4xl md:text-5xl sm:mb-2 md:mb-4">
         {title}
       </h1>
-      <h2 className="leading-tight text-white tracking-wide text-stroke-black text-stroke-2rem text-xl sm:text-2xl md:text-3xl">
+      <h2 className="tracking-wide text-xl sm:text-2xl md:text-3xl">
         {subtitle}
       </h2>
     </div>
     <div className="absolute left-3 top-3 sm:left-6 sm:top-6 md:left-12 md:top-12 flex items-center justify-center flex-wrap mt-1">
       <BlogMetadataChip
-        className="font-bold text-white text-stroke-black text-stroke-2rem sm:text-lg md:text-xl"
-        iconClassName="text-white text-xl md:text-2xl"
+        className="font-bold text-bg text-shadow sm:text-lg md:text-xl"
+        iconClassName="text-bg text-shadow text-xl md:text-2xl"
         date={date}
         words={words}
         timeToRead={timeToRead}

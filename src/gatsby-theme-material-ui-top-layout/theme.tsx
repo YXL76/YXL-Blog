@@ -1,8 +1,9 @@
+import type { ThemeOptions } from "@material-ui/core";
+import { blue } from "@material-ui/core/colors";
 import { createMuiTheme } from "@material-ui/core";
-import red from "@material-ui/core/colors/red";
+import merge from "lodash.merge";
 
-// A custom theme for this app
-const theme = createMuiTheme({
+const baseOptions: ThemeOptions = {
   overrides: {
     MuiCssBaseline: {
       "@global": {
@@ -16,34 +17,41 @@ const theme = createMuiTheme({
         },
       },
     },
-    MuiAppBar: {
-      colorDefault: {
-        backgroundColor: "#fff",
-      },
-    },
-    MuiTimelineOppositeContent: {
-      root: {
-        flex: "unset",
-      },
-    },
+    MuiTimelineOppositeContent: { root: { flex: "unset" } },
   },
   palette: {
     primary: {
-      main: `#556cd6`,
-    },
-    secondary: {
-      main: `#19857b`,
-    },
-    error: {
-      main: red.A400,
-    },
-    background: {
-      default: `#fff`,
+      light: blue[500],
+      main: blue[600],
+      dark: blue[700],
     },
   },
   typography: {
     fontFamily: `"Noto Sans SC", "Roboto", "Helvetica", "Arial", sans-serif`,
   },
-});
+};
+
+const theme = createMuiTheme(
+  merge({}, baseOptions, {
+    overrides: {
+      MuiAppBar: { colorDefault: { backgroundColor: "#fff" } },
+    },
+    palette: {
+      type: "light",
+    },
+  })
+);
 
 export default theme;
+
+export const darkTheme = createMuiTheme(
+  merge({}, baseOptions, {
+    overrides: {
+      MuiAppBar: { colorDefault: { backgroundColor: "#212121" } },
+    },
+    palette: {
+      type: "dark",
+      background: { paper: "#212121", default: "#212121" },
+    },
+  })
+);

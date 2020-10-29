@@ -5,14 +5,10 @@ import {
   Grid,
   Hidden,
   Layout,
-  Tab,
-  TabPanel,
-  Tabs,
   useScrollTrigger,
 } from "../components";
 import React, { useState } from "react";
 import { graphql, useStaticQuery } from "gatsby";
-import type { ChangeEvent } from "react";
 import type { PageProps } from "gatsby";
 
 export default function App({ location: { href, origin } }: PageProps) {
@@ -73,18 +69,7 @@ export default function App({ location: { href, origin } }: PageProps) {
                 trigger ? "ease-slide-exit -translate-y-14" : ""
               }`}
             >
-              <Tabs
-                value={value}
-                onChange={(_event: ChangeEvent<{}>, newValue: number) => {
-                  setValue(newValue);
-                }}
-                variant="fullWidth"
-              >
-                <Tab label="Author" />
-              </Tabs>
-              <TabPanel value={value} index={0}>
-                <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
-              </TabPanel>
+              <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
             </Card>
           </Grid>
         </Hidden>

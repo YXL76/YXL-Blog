@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+
+const plugin = require("tailwindcss/plugin");
 
 module.exports = {
   corePlugins: {
@@ -8,7 +10,18 @@ module.exports = {
   future: {
     purgeLayersByDefault: true,
   },
-  plugins: [require("tailwindcss-text-fill-stroke")()],
+  plugins: [
+    plugin(({ addUtilities }) => {
+      addUtilities(
+        {
+          ".text-shadow": {
+            "text-shadow": "4px 1px 4px var(--divider)",
+          },
+        },
+        []
+      );
+    }),
+  ],
   purge: {
     content: [
       "./src/**/*.js",
@@ -37,11 +50,9 @@ module.exports = {
       height: {
         14: "3.5rem",
       },
-      textStrokeWidth: {
-        "1rem": "0.01rem",
-        "2rem": "0.02rem",
-        "3rem": "0.03rem",
-        "4rem": "0.04rem",
+      textColor: {
+        bg: "var(--bg)",
+        text: "var(--text)",
       },
       transitionProperty: {
         toc: "top, box-shadow",

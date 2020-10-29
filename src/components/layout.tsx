@@ -25,10 +25,12 @@ import {
   PagesOutlined,
   RssFeedOutlined,
   SearchOutlined,
+  WbSunnyOutlined,
 } from "@material-ui/icons";
 import type { FC, ReactNode } from "react";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { graphql, navigate, useStaticQuery } from "gatsby";
+import { DarkModeContext } from "../utils";
 
 type ListItemLinkProps = {
   to: string;
@@ -69,6 +71,8 @@ export const Layout: FC<LayoutProps> = ({
   image,
   className,
 }) => {
+  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+
   const { site } = useStaticQuery<GatsbyTypes.LayoutComponentQuery>(graphql`
     query LayoutComponent {
       site {
@@ -166,8 +170,12 @@ export const Layout: FC<LayoutProps> = ({
                 <IconButton color="inherit" aria-label="search">
                   <SearchOutlined />
                 </IconButton>
-                <IconButton color="inherit" aria-label="theme">
-                  <NightsStayOutlined />
+                <IconButton
+                  color="inherit"
+                  aria-label="theme"
+                  onClick={toggleDarkMode}
+                >
+                  {darkMode ? <NightsStayOutlined /> : <WbSunnyOutlined />}
                 </IconButton>
                 <IconButton color="inherit" aria-label="language">
                   <LanguageSharp />
