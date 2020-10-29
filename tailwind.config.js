@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unsafe-call */
+/* eslint-disable @typescript-eslint/no-unsafe-return */
+
 module.exports = {
   corePlugins: {
     preflight: false,
@@ -5,7 +8,7 @@ module.exports = {
   future: {
     purgeLayersByDefault: true,
   },
-  plugins: [],
+  plugins: [require("tailwindcss-text-fill-stroke")()],
   purge: {
     content: [
       "./src/**/*.js",
@@ -17,6 +20,9 @@ module.exports = {
   },
   theme: {
     extend: {
+      backgroundOpacity: {
+        10: "0.1",
+      },
       inset: {
         3: "0.5rem",
         6: "1.5rem",
@@ -30,6 +36,12 @@ module.exports = {
       },
       height: {
         14: "3.5rem",
+      },
+      textStrokeWidth: {
+        "1rem": "0.01rem",
+        "2rem": "0.02rem",
+        "3rem": "0.03rem",
+        "4rem": "0.04rem",
       },
       transitionProperty: {
         toc: "top, box-shadow",

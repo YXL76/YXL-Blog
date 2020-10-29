@@ -36,16 +36,16 @@ export const BlogBanner: FC<BlogBannerProps> = ({
       >
         {category}
       </Button>
-      <h1 className="leading-tight text-white tracking-wider text-3xl sm:text-4xl md:text-5xl sm:mb-2 md:mb-4">
+      <h1 className="leading-tight text-white tracking-wider text-stroke-black text-stroke-2rem text-3xl sm:text-4xl md:text-5xl sm:mb-2 md:mb-4">
         {title}
       </h1>
-      <h2 className="leading-tight text-white tracking-wide text-xl sm:text-2xl md:text-3xl">
+      <h2 className="leading-tight text-white tracking-wide text-stroke-black text-stroke-2rem text-xl sm:text-2xl md:text-3xl">
         {subtitle}
       </h2>
     </div>
     <div className="absolute left-3 top-3 sm:left-6 sm:top-6 md:left-12 md:top-12 flex items-center justify-center flex-wrap mt-1">
       <BlogMetadataChip
-        className="text-white sm:text-lg md:text-xl"
+        className="font-bold text-white text-stroke-black text-stroke-2rem sm:text-lg md:text-xl"
         iconClassName="text-white text-xl md:text-2xl"
         date={date}
         words={words}
@@ -53,9 +53,9 @@ export const BlogBanner: FC<BlogBannerProps> = ({
       />
     </div>
     {caption && (
-      <div className="absolute right-0 bottom-0 px-2">
+      <div className="absolute right-0 bottom-0 px-2 bg-black bg-opacity-50 rounded">
         <Link
-          className="bg-black bg-opacity-50 rounded text-white tracking-wide text-xs sm:text-sm md:text-base"
+          className="text-white tracking-wide text-xs sm:text-sm md:text-base"
           underline="none"
           {...caption}
         />
