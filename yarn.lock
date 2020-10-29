@@ -3152,13 +3152,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:16.9.54":
+"@types/react@npm:*":
   version: 16.9.54
   resolution: "@types/react@npm:16.9.54"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
   checksum: 51d96e3df91db1886fb34cf3e559046ac43b1696fd4d1e88d772dde3e68db9625b7dc9454226fd23883c0983364a868b373427ec78e7d6a125ffa34b90973218
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:16.9.55":
+  version: 16.9.55
+  resolution: "@types/react@npm:16.9.55"
+  dependencies:
+    "@types/prop-types": "*"
+    csstype: ^3.0.2
+  checksum: aadc5636d6b58e33422d0f3d275daf25b5456f715a0426ea08399f577ba0229dead47d41dc2c6e1f1659fb01e42c005045f97ed535b3695e05f209bd0b7076c5
   languageName: node
   linkType: hard
 
@@ -22521,7 +22531,7 @@ typescript@4.0.5:
     "@mdx-js/mdx": 1.6.19
     "@mdx-js/react": 1.6.19
     "@types/node": 12.19.3
-    "@types/react": 16.9.54
+    "@types/react": 16.9.55
     "@types/react-dom": 16.9.9
     "@types/react-helmet": 6.1.0
     "@typescript-eslint/eslint-plugin": 4.6.0
