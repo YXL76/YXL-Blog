@@ -349,7 +349,7 @@ const createCategoriesPage = async (
     }`);
 
     const banner = await graphql<GatsbyTypes.Query>(`{
-      file(relativePath: { regex: "/^images\\/categories\\/${category}.(jpg|png)/" }) {
+      file(relativePath: { regex: "/^images\\/categories\\/${category}.(jpg|png|webp)/" }) {
         childImageSharp {
           fluid(maxWidth: 2560) {
             ${GatsbyImageSharpFluid}

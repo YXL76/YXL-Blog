@@ -20,7 +20,7 @@ export type Author = {
 
 export const author: Author = {
   name: "YXL",
-  avatar: "/images/avatar.jpg",
+  avatar: "/images/avatar.webp",
   role: "Professor of Artificial Intelligence",
   bio:
     "My research interests include distributed robotics, mobile computing and programmable matter.",

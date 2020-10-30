@@ -5,7 +5,7 @@ date: 2019-03-17T16:48:50.000Z
 archive: 2019
 category: Algorithm
 tags: ["Pattern matching", "KMP"]
-banner: ../../../assets/images/Knuth–Morris–Pratt-Algorithm/banner.jpg
+banner: ../../../assets/images/Knuth–Morris–Pratt-Algorithm/banner.webp
 caption:
   children: KiTA
   href: https://www.pixiv.net/artworks/62341877
@@ -69,7 +69,7 @@ int KMP()
 
 我们通过模拟算法执行的过程来发现他们之间的关系吧。
 
-![BF](../../../assets/images/Knuth–Morris–Pratt-Algorithm/BF.jpg)
+![BF](../../../assets/images/Knuth–Morris–Pratt-Algorithm/BF.webp)
 
 **BF 算法**是朴素的匹配算法，其思想就是将文本串和模式串从头开始逐位匹配，若匹配失败（失配）则将模式串右移一位，再从头开始匹配。
 
@@ -77,7 +77,7 @@ int KMP()
 
 可以发现，若在失配过多的情况下，**BF 算法**的效率能够非常高。
 
-![MP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/MP.jpg)
+![MP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/MP.webp)
 
 **BF 算法**中的$2$、$4$步都是无用的匹配，因为$pattern[0] = text[0]$且$text[0]{\neq}text[1]$，所以$pattern[0]{\neq}text[1]$，第二步必然匹配失败，第四步同理。**MP(KMP)算法**就对此进行改进，不回溯文本串的下标，只改变模式串的下标，减去了这两步。
 
@@ -93,7 +93,7 @@ int KMP()
 
 我们再看三个例子：
 
-![example](../../../assets/images/Knuth–Morris–Pratt-Algorithm/example.jpg)
+![example](../../../assets/images/Knuth–Morris–Pratt-Algorithm/example.webp)
 
 记$P$为模式串所有前缀的集合，$S$为模式串所有后缀的集合，对于样例一的已匹配串$P=\{A,AB,ABC,ABCA,ABCAB\}$，$S=\{B,AB,CAB,BCAB,ABCAB\}$。
 
@@ -111,7 +111,7 @@ int KMP()
 
 我们将模式串与自身进行匹配，注意到匹配成功的串就是对应子串的最长前缀后缀。
 
-![self](../../../assets/images/Knuth–Morris–Pratt-Algorithm/self.jpg)
+![self](../../../assets/images/Knuth–Morris–Pratt-Algorithm/self.webp)
 
 因此，我们只需在**MP(KMP)算法**的程序中匹配成功后增加对$next$数组的赋值语句就完成了对$next$数组的求解。（其中$next[0]=-1, next[i]=0, i > 0$）
 
@@ -144,7 +144,7 @@ int GetNext()
 
 我们再来看一个例子：
 
-![KMP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/KMP.jpg)
+![KMP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/KMP.webp)
 
 在这个例子中，第二次匹配必然失败，因为$pattern[i]=pattern[next[i]]$，而$pattern[i]{\neq}text[i]$，所以$pattern[next[i]]{\neq}text[i]$。
 

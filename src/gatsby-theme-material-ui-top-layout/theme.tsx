@@ -9,7 +9,7 @@ const baseOptions: ThemeOptions = {
       "@global": {
         body: {
           backgroundAttachment: "fixed",
-          backgroundImage: "url(/images/background.jpg)",
+          backgroundImage: "url(/images/background.webp)",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",

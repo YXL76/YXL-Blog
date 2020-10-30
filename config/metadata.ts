@@ -14,7 +14,7 @@ export const siteMetadata: SiteMetadata = {
   title: "YXL的小屋",
   description: "请不要忘记，我在这里",
   siteUrl: "https://yxl76.net",
-  defaultImage: "/images/background.jpg",
+  defaultImage: "/images/background.webp",
   keywords: ["blog", "computer science"],
   author,
 };
