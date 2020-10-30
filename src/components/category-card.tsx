@@ -8,6 +8,7 @@ import { useLocateContext } from "../utils";
 
 type CategoryCardProps = {
   img: FluidObject | FluidObject[];
+  category: string;
   title: string;
   description: string;
   totalCount: number;
@@ -15,6 +16,7 @@ type CategoryCardProps = {
 
 export const CategoryCard: FC<CategoryCardProps> = ({
   img,
+  category,
   title,
   description,
   totalCount,
@@ -30,7 +32,7 @@ export const CategoryCard: FC<CategoryCardProps> = ({
           <Button
             startIcon={<AssignmentIndOutlined />}
             color="primary"
-            to={`/${locate}/categories/${title}`}
+            to={`/${locate}/categories/${category}`}
           >
             {totalCount} Blogs
           </Button>

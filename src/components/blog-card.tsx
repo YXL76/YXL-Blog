@@ -11,7 +11,7 @@ type BlogCardProps = {
   category: string;
   date?: string;
   subtitle?: string;
-  tags: readonly (string | undefined)[];
+  tags: { tag: string; name: string }[];
   title?: string;
   excerpt?: string;
   slug?: string;
@@ -66,7 +66,7 @@ export const BlogCard: FC<BlogCardProps> = ({
       <p className="text-lg mt-2 mx-10 text-center">{excerpt}</p>
       <div className="flex items-end flex-nowrap justify-between w-full mt-1">
         <div className="flex flex-wrap">
-          {tags.map((tag, idx) => (
+          {tags.map(({ tag, name }, idx) => (
             <Button
               key={idx}
               className="rounded-2xl mr-2 mt-2"
@@ -74,8 +74,9 @@ export const BlogCard: FC<BlogCardProps> = ({
               startIcon={<LocalOfferOutlined />}
               size="small"
               variant="outlined"
+              to={`/${locate}/tags/${tag}`}
             >
-              {tag}
+              {name}
             </Button>
           ))}
         </div>

@@ -2,6 +2,7 @@ import { BlogMetadataChip, Button, Link } from ".";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
+import { LocalOfferOutlined } from "@material-ui/icons";
 import React from "react";
 import { useLocateContext } from "../utils";
 
@@ -10,6 +11,7 @@ type BlogBannerProps = {
   category: string;
   title?: string;
   subtitle?: string;
+  tags: { tag: string; name: string }[];
   date?: string;
   words?: number;
   timeToRead?: number;
@@ -21,6 +23,7 @@ export const BlogBanner: FC<BlogBannerProps> = ({
   category,
   title,
   subtitle,
+  tags,
   date,
   words,
   timeToRead,
@@ -35,6 +38,7 @@ export const BlogBanner: FC<BlogBannerProps> = ({
           className="rounded-xl sm:mb-2 md:mb-4"
           variant="contained"
           color="primary"
+          size="large"
           to={`/${locate}/categories/${category}`}
         >
           {category}
@@ -45,6 +49,21 @@ export const BlogBanner: FC<BlogBannerProps> = ({
         <h2 className="tracking-wide text-xl sm:text-2xl md:text-3xl">
           {subtitle}
         </h2>
+        <div className="flex flex-wrap mt-2">
+          {tags.map(({ tag, name }, idx) => (
+            <Button
+              key={idx}
+              className="rounded-2xl mr-2 mt-2"
+              color="primary"
+              startIcon={<LocalOfferOutlined />}
+              size="small"
+              variant="contained"
+              to={`/${locate}/tags/${tag}`}
+            >
+              {name}
+            </Button>
+          ))}
+        </div>
       </div>
       <div className="absolute left-3 top-3 sm:left-6 sm:top-6 md:left-12 md:top-12 flex items-center justify-center flex-wrap mt-1">
         <BlogMetadataChip

@@ -3,6 +3,7 @@ import { languages, siteMetadata } from "../../config";
 import type { FC } from "react";
 import { Helmet } from "react-helmet";
 import type { Languages } from "../../config";
+import { message } from "../i18n";
 import { useLocateContext } from "../utils";
 
 type SEOProps = {
@@ -31,7 +32,7 @@ export const SEO: FC<SEOProps> = ({
   image,
   className,
 }) => {
-  const { locate, setLocate, message } = useLocateContext();
+  const { locate, setLocate } = useLocateContext();
 
   useEffect(() => {
     const match = reg.exec(pathname.endsWith("/") ? pathname : `${pathname}/`);
@@ -44,7 +45,7 @@ export const SEO: FC<SEOProps> = ({
     }
   }, [locate, pathname, setLocate]);
 
-  description = description || message["description"];
+  description = description || message[locate]["description"];
   image = image || defaultImage;
 
   return (
@@ -53,8 +54,8 @@ export const SEO: FC<SEOProps> = ({
         defer={false}
         htmlAttributes={{ lang: locate }}
         title={title}
-        defaultTitle={message["title"]}
-        titleTemplate={`%s | ${message["title"]}`}
+        defaultTitle={message[locate]["title"]}
+        titleTemplate={`%s | ${message[locate]["title"]}`}
         meta={[
           { charSet: "utf-8" },
           { name: "description", content: description },

@@ -3,36 +3,42 @@ import type { FluidObject } from "gatsby-image";
 import type { PageProps } from "gatsby";
 import React from "react";
 
-export default function App({
+const Categories = ({
   location: { href, pathname },
-  pageContext: { categories },
+  pageContext: { title, categories },
 }: PageProps<
   null,
   {
+    title: string;
     categories: {
       category: string;
+      name: string;
+      description: string;
       fluid: FluidObject;
       totalCount: number;
     }[];
   }
->) {
-  return (
-    <SEO
-      href={href}
-      pathname={pathname}
-      title="Categories"
-      className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12"
-    >
-      {categories.map(({ category, fluid, totalCount }, idx) => (
+>) => (
+  <SEO
+    href={href}
+    pathname={pathname}
+    title={title}
+    className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12"
+  >
+    {categories.map(
+      ({ category, name, description, fluid, totalCount }, idx) => (
         <div key={idx}>
           <CategoryCard
             img={fluid}
-            title={category}
-            description={""}
+            category={category}
+            title={name}
+            description={description}
             totalCount={totalCount}
           />
         </div>
-      ))}
-    </SEO>
-  );
-}
+      )
+    )}
+  </SEO>
+);
+
+export default Categories;

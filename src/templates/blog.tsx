@@ -25,10 +25,16 @@ import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
 import { useScrollContext } from "../utils";
 
-export default function App({
+const Blog = ({
   location: { href, pathname },
-  pageContext: { node, next, previous },
-}: PageProps<null, GatsbyTypes.MdxEdge>) {
+  pageContext: { author, contents, node, next, previous },
+}: PageProps<
+  null,
+  {
+    author: string;
+    contents: string;
+  } & GatsbyTypes.MdxEdge
+>) => {
   const {
     body,
     frontmatter,
@@ -41,7 +47,7 @@ export default function App({
   const { title, subtitle, category, date, banner, caption } =
     frontmatter || {};
   const { words } = wordCount || {};
-  const { lastModified } = fields || {};
+  const { lastModified, tags } = fields || {};
 
   const near = [previous, next] as (null | {
     fields: {
@@ -96,6 +102,7 @@ export default function App({
           category={category}
           title={title}
           subtitle={subtitle}
+          tags={tags}
           date={date}
           words={words}
           timeToRead={timeToRead}
@@ -105,7 +112,7 @@ export default function App({
       <Grid container className="mt-6">
         <Grid item xs zeroMinWidth>
           <Mdx
-            className="mb-4 px-6 py-2 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+            className="mb-4 p-6 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
             foot={
               <div className="my-4 text-base italic underline">
                 Last modified on {lastModified}
@@ -168,8 +175,8 @@ export default function App({
                 }}
                 variant="fullWidth"
               >
-                <Tab label="Contents" />
-                <Tab label="Author" />
+                <Tab label={contents} />
+                <Tab label={author} />
               </Tabs>
               <TabPanel value={value} index={0}>
                 <aside
@@ -188,4 +195,6 @@ export default function App({
       </Grid>
     </SEO>
   );
-}
+};
+
+export default Blog;

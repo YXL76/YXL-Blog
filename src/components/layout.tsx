@@ -32,6 +32,7 @@ import {
 import type { FC, ReactNode } from "react";
 import React, { useState } from "react";
 import { languages, siteMetadata } from "../../config";
+import { message } from "../i18n";
 import { useLocateContext } from "../utils";
 
 type ListItemLinkProps = {
@@ -65,7 +66,7 @@ export const Layout: FC<LayoutProps> = ({
   darkMode,
   toggleDarkMode,
 }) => {
-  const { locate, message } = useLocateContext();
+  const { locate } = useLocateContext();
   const [openDrawer, setOpenDrawer] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const openMenu = Boolean(anchorEl);
@@ -78,7 +79,7 @@ export const Layout: FC<LayoutProps> = ({
             <div className="h-full flex py-1">
               <div className="h-full flex flex-grow justify-start items-center">
                 <img
-                  className="h-full p-2"
+                  className="cursor-pointer h-full p-2"
                   alt="icon"
                   src="/icons/icon-512x512.png"
                   onClick={() => navigate(`/${locate}`)}
@@ -97,7 +98,7 @@ export const Layout: FC<LayoutProps> = ({
                     startIcon={<PagesOutlined />}
                     to={`/${locate}/blogs`}
                   >
-                    {message["blogs"]}
+                    {message[locate]["blogs"]}
                   </Button>
                   <Button
                     variant="text"
@@ -105,7 +106,7 @@ export const Layout: FC<LayoutProps> = ({
                     startIcon={<CategoryOutlined />}
                     to={`/${locate}/categories`}
                   >
-                    {message["categories"]}
+                    {message[locate]["categories"]}
                   </Button>
                   <Button
                     variant="text"
@@ -113,7 +114,7 @@ export const Layout: FC<LayoutProps> = ({
                     startIcon={<LocalOfferOutlined />}
                     to={`/${locate}/tags`}
                   >
-                    {message["tags"]}
+                    {message[locate]["tags"]}
                   </Button>
                   <Button
                     variant="text"
@@ -121,7 +122,7 @@ export const Layout: FC<LayoutProps> = ({
                     startIcon={<ArchiveOutlined />}
                     to={`/${locate}/archives`}
                   >
-                    {message["archives"]}
+                    {message[locate]["archives"]}
                   </Button>
                   <Button
                     variant="text"
@@ -129,7 +130,7 @@ export const Layout: FC<LayoutProps> = ({
                     startIcon={<FaceOutlined />}
                     to={`/${locate}/about`}
                   >
-                    {message["about"]}
+                    {message[locate]["about"]}
                   </Button>
                 </Hidden>
               </div>

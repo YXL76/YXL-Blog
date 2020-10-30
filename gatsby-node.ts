@@ -1,7 +1,8 @@
 import type { Actions, CreatePagesArgs, GatsbyNode } from "gatsby";
+import type { CategoriesValue, Languages } from "./config";
 import { basename, dirname, resolve } from "path";
 import { categories, languages } from "./config";
-import type { CategoriesValue } from "./config";
+import { message, messageCategories, messageTags } from "./src/i18n";
 import type { FluidObject } from "gatsby-image";
 import { createFilePath } from "gatsby-source-filesystem";
 import simpleGit from "simple-git";
@@ -15,6 +16,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
   if (node.internal.type === "Mdx") {
     const { fileAbsolutePath } = node;
     const slug = createFilePath({ node, getNode }).slice(0, -1);
+    const language = (/^\/((?:[^/]+))(\/.*)/.exec(slug) || [])[1] as Languages;
     createNodeField(
       {
         name: "slug",
@@ -35,7 +37,7 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
       {
         node,
         name: "language",
-        value: (/^\/((?:[^/]+))(\/.*)/.exec(slug) || [])[1],
+        value: language,
       },
       { name: "gatsby-plugin-mdx" }
     );
@@ -49,11 +51,39 @@ export const onCreateNode: GatsbyNode["onCreateNode"] = async ({
       },
       { name: "gatsby-plugin-mdx" }
     );
+    const tags = ((node as unknown) as GatsbyTypes.Mdx)?.frontmatter?.tags;
+    if (tags) {
+      createNodeField(
+        {
+          node,
+          name: "tags",
+          value: tags.map((tag) =>
+            tag ? { tag, name: messageTags[language][tag] } : {}
+          ),
+        },
+        { name: "gatsby-plugin-mdx" }
+      );
+    }
   }
 };
 
+const createIndexPage = (
+  language: Languages,
+  createPage: Actions["createPage"]
+) => {
+  createPage({
+    path: `/${language}`,
+    component: resolve("src/pages/index.tsx"),
+    context: {
+      home: message[language]["home"],
+      title: message[language]["title"],
+      description: message[language]["description"],
+    },
+  });
+};
+
 const createAboutPage = async (
-  language: string,
+  language: Languages,
   graphql: CreatePagesArgs["graphql"],
   createPage: Actions["createPage"]
 ) => {
@@ -65,12 +95,12 @@ const createAboutPage = async (
   createPage({
     path: `/${language}/about`,
     component: resolve("src/templates/about.tsx"),
-    context: { body: data?.mdx?.body },
+    context: { title: message[language]["about"], body: data?.mdx?.body },
   });
 };
 
 const createArchivesPage = async (
-  language: string,
+  language: Languages,
   graphql: CreatePagesArgs["graphql"],
   createPage: Actions["createPage"]
 ) => {
@@ -89,7 +119,7 @@ const createArchivesPage = async (
             slug
           }
           frontmatter {
-            date(formatString: "MM/DD")
+            date(formatString: "MM/DD", locale: "${language}")
             title
             subtitle
           }
@@ -100,7 +130,10 @@ const createArchivesPage = async (
   createPage({
     path: `/${language}/archives`,
     component: resolve("src/templates/archives.tsx"),
-    context: { group: data?.allMdx?.group },
+    context: {
+      title: message[language]["archives"],
+      group: data?.allMdx?.group,
+    },
   });
 };
 
@@ -112,9 +145,13 @@ srcSet
 sizes
 `;
 
-const MdxNodeQuery = (fluid: string) => `
+const MdxNodeQuery = (language: Languages, fluid: string) => `
 fields {
-  lastModified(formatString: "MMMM Do YYYY h:mm:ss a")
+  lastModified(formatString: "MMMM Do YYYY h:mm:ss a", locale: "${language}")
+  tags {
+    tag
+    name
+  }
   slug
 }
 frontmatter {
@@ -130,9 +167,8 @@ frontmatter {
     href
   }
   category
-  date(fromNow: true)
+  date(fromNow: true, locale: "${language}")
   subtitle
-  tags
   title
 }
 wordCount {
@@ -143,7 +179,7 @@ excerpt
 `;
 
 const createBlogsPage = async (
-  language: string,
+  language: Languages,
   graphql: CreatePagesArgs["graphql"],
   createPage: Actions["createPage"]
 ) => {
@@ -157,7 +193,7 @@ const createBlogsPage = async (
     ) {
       edges {
         node {
-          ${MdxNodeQuery("maxWidth: 2560")}
+          ${MdxNodeQuery(language, "maxWidth: 2560")}
           body
           tableOfContents(maxDepth: 3)
         }
@@ -198,6 +234,7 @@ const createBlogsPage = async (
     path: `/${language}/blogs`,
     component: resolve("src/templates/blogs.tsx"),
     context: {
+      title: message[language]["blogs"],
       nodes: data?.allMdx?.edges.map(({ node }) => ({
         ...node,
         body: "",
@@ -205,19 +242,23 @@ const createBlogsPage = async (
       })),
     },
   });
-  data?.allMdx?.edges.forEach((context) => {
-    if (context.node.fields?.slug) {
+  data?.allMdx?.edges.forEach((edge) => {
+    if (edge.node.fields?.slug) {
       createPage({
-        path: context.node.fields.slug,
+        path: edge.node.fields.slug,
         component: resolve("src/templates/blog.tsx"),
-        context,
+        context: {
+          contents: message[language]["contents"],
+          author: message[language]["author"],
+          ...edge,
+        },
       });
     }
   });
 };
 
 const createTagsPage = async (
-  language: string,
+  language: Languages,
   graphql: CreatePagesArgs["graphql"],
   createPage: Actions["createPage"]
 ) => {
@@ -236,21 +277,28 @@ const createTagsPage = async (
     }
   }`);
 
-  const tags: Record<string, number> = {};
+  const tags: Record<string, { name: string; count: number }> = {};
   data?.allMdx?.nodes?.forEach((node) => {
     for (const tag of node?.frontmatter?.tags || []) {
       if (tag) {
-        tags[tag] = tag in tags ? tags[tag] : 0 + 1;
+        if (tag in tags) {
+          ++tags[tag].count;
+        } else {
+          tags[tag] = {
+            name: messageTags[language][tag],
+            count: 1,
+          };
+        }
       }
     }
   });
   createPage({
     path: `/${language}/tags`,
     component: resolve("src/templates/tags.tsx"),
-    context: { tags },
+    context: { title: message[language]["tags"], tags },
   });
 
-  for (const tag of Object.keys(tags)) {
+  for (const [tag, { name }] of Object.entries(tags)) {
     const { data } = await graphql<GatsbyTypes.Query>(`{
       allMdx(
         filter: {
@@ -260,25 +308,27 @@ const createTagsPage = async (
         }
       ) {
         nodes {
-          ${MdxNodeQuery("maxWidth: 1280, maxHeight: 800")}
+          ${MdxNodeQuery(language, "maxWidth: 1280, maxHeight: 800")}
         }
       }
     }`);
     createPage({
       path: `/${language}/tags/${tag}`,
       component: resolve("src/templates/tag.tsx"),
-      context: { tag, nodes: data?.allMdx?.nodes },
+      context: { name, nodes: data?.allMdx?.nodes },
     });
   }
 };
 
 const createCategoriesPage = async (
-  language: string,
+  language: Languages,
   graphql: CreatePagesArgs["graphql"],
   createPage: Actions["createPage"]
 ) => {
   const cats: {
     category: string;
+    name: string;
+    description: string;
     caption: CategoriesValue;
     fluid?: FluidObject;
     nodes?: ReadonlyArray<GatsbyTypes.Mdx>;
@@ -293,7 +343,7 @@ const createCategoriesPage = async (
         }
       ) {
         nodes {
-          ${MdxNodeQuery("maxWidth: 2560")}
+          ${MdxNodeQuery(language, "maxWidth: 2560")}
         }
       }
     }`);
@@ -310,6 +360,8 @@ const createCategoriesPage = async (
 
     cats.push({
       category,
+      name: messageCategories[language][category].name,
+      description: messageCategories[language][category].description,
       caption,
       fluid: banner.data?.file?.childImageSharp?.fluid,
       nodes: data?.allMdx?.nodes,
@@ -320,24 +372,22 @@ const createCategoriesPage = async (
     path: `/${language}/categories`,
     component: resolve("src/templates/categories.tsx"),
     context: {
-      categories: cats.map(({ category, fluid, nodes }) => ({
+      title: message[language]["categories"],
+      categories: cats.map(({ category, name, description, fluid, nodes }) => ({
         category,
+        name,
+        description,
         fluid,
         totalCount: nodes?.length,
       })),
     },
   });
 
-  cats.forEach(({ category, caption, fluid, nodes }) => {
+  cats.forEach((context) => {
     createPage({
-      path: `/${language}/categories/${category}`,
+      path: `/${language}/categories/${context.category}`,
       component: resolve("src/templates/category.tsx"),
-      context: {
-        category,
-        caption,
-        fluid,
-        nodes,
-      },
+      context,
     });
   });
 };
@@ -347,15 +397,11 @@ export const createPages: GatsbyNode["createPages"] = async ({
   actions: { createPage },
 }) => {
   for (const language of Object.keys(languages)) {
-    createPage({
-      path: `/${language}`,
-      component: resolve("src/pages/index.tsx"),
-      context: {},
-    });
-    await createAboutPage(language, graphql, createPage);
-    await createArchivesPage(language, graphql, createPage);
-    await createBlogsPage(language, graphql, createPage);
-    await createTagsPage(language, graphql, createPage);
-    await createCategoriesPage(language, graphql, createPage);
+    createIndexPage(language as Languages, createPage);
+    await createAboutPage(language as Languages, graphql, createPage);
+    await createArchivesPage(language as Languages, graphql, createPage);
+    await createBlogsPage(language as Languages, graphql, createPage);
+    await createTagsPage(language as Languages, graphql, createPage);
+    await createCategoriesPage(language as Languages, graphql, createPage);
   }
 };

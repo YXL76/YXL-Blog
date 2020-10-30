@@ -6,7 +6,6 @@ import type { ReactNode } from "react";
 import type { Theme } from "@material-ui/core";
 import ThemeTopLayout from "gatsby-theme-material-ui-top-layout/src/components/top-layout";
 import createPersistedState from "use-persisted-state";
-import { message } from "../../i18n";
 
 const useDarkModeState = createPersistedState("gatsby-dark-mode");
 
@@ -47,9 +46,7 @@ export default function TopLayout({ children }: TopLayoutProps) {
   }, [darkMode]);
 
   return (
-    <LocateContext.Provider
-      value={{ locate, setLocate, message: message[locate] }}
-    >
+    <LocateContext.Provider value={{ locate, setLocate }}>
       <ScrollContext.Provider value={{ trigger }}>
         <ThemeTopLayout theme={darkMode ? darkTheme : theme}>
           <Layout

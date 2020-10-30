@@ -3,24 +3,27 @@ import type { PageProps } from "gatsby";
 import React from "react";
 import { useScrollContext } from "../utils";
 
-export default function App({
+const Blogs = ({
   location: { href, pathname },
-  pageContext: { nodes },
-}: PageProps<null, GatsbyTypes.MdxConnection>) {
+  pageContext: { title, nodes },
+}: PageProps<null, { title: string } & GatsbyTypes.MdxConnection>) => {
   const { trigger } = useScrollContext();
   return (
-    <SEO href={href} pathname={pathname} title="Blogs">
+    <SEO href={href} pathname={pathname} title={title}>
       <Grid container>
         <Grid item xs zeroMinWidth>
           {nodes.map(
-            ({ fields, frontmatter, excerpt, timeToRead, wordCount }, idx) => (
+            (
+              { fields, frontmatter, tags, excerpt, timeToRead, wordCount },
+              idx
+            ) => (
               <BlogCard
                 key={idx}
                 fluid={frontmatter?.banner?.childImageSharp?.fluid}
                 category={frontmatter?.category || ""}
                 date={frontmatter?.date}
                 subtitle={frontmatter?.subtitle}
-                tags={frontmatter?.tags || []}
+                tags={fields?.tags || []}
                 title={frontmatter?.title}
                 excerpt={excerpt}
                 slug={fields?.slug}
@@ -44,4 +47,6 @@ export default function App({
       </Grid>
     </SEO>
   );
-}
+};
+
+export default Blogs;

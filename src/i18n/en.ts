@@ -1,9 +1,27 @@
 export const en: Record<string, string> = {
-  title: "YXL's Blog",
-  description: "You Are (Not) Alone",
+  about: "About",
+  archives: "Archives",
+  author: "Author",
   blogs: "Blogs",
   categories: "Categories",
+  contents: "Contents",
+  description: "You Are (Not) Alone",
+  home: "Home",
   tags: "Tags",
-  archives: "Archives",
-  about: "About",
+  title: "YXL's Blog",
+};
+
+export const enCategories: Record<
+  string,
+  { name: string; description: string }
+> = {
+  Algorithm: {
+    name: "Algorithm",
+    description: "description",
+  },
+};
+
+export const enTags: Record<string, string> = {
+  KMP: "KMP",
+  "Pattern matching": "Pattern matching",
 };
