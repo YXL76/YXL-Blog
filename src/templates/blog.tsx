@@ -5,14 +5,13 @@ import {
   Card,
   Grid,
   Hidden,
-  Layout,
   Mdx,
+  SEO,
   TOC,
   Tab,
   TabPanel,
   Tabs,
   navigate,
-  useScrollTrigger,
 } from "../components";
 import {
   NavigateBeforeOutlined,
@@ -24,9 +23,10 @@ import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
 import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
+import { useScrollContext } from "../utils";
 
 export default function App({
-  location,
+  location: { href, pathname },
   pageContext: { node, next, previous },
 }: PageProps<null, GatsbyTypes.MdxEdge>) {
   const {
@@ -53,7 +53,7 @@ export default function App({
     };
   })[];
 
-  const trigger = useScrollTrigger();
+  const { trigger } = useScrollContext();
   const [value, setValue] = useState(0);
   const [active, setActive] = useState("");
 
@@ -82,11 +82,11 @@ export default function App({
   });
 
   return (
-    <Layout
-      {...location}
+    <SEO
+      href={href}
+      pathname={pathname}
       title={title || ""}
       description={excerpt}
-      trigger={trigger}
       image={caption?.href}
     >
       <style>{`#mdx-toc #toc-${active} {color: #63b3ed; border-color: #63b3ed;}`}</style>
@@ -186,6 +186,6 @@ export default function App({
           </Grid>
         </Hidden>
       </Grid>
-    </Layout>
+    </SEO>
   );
 }

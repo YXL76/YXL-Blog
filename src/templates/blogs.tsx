@@ -1,23 +1,15 @@
-import {
-  AuthorCard,
-  BlogCard,
-  Card,
-  Grid,
-  Hidden,
-  Layout,
-  useScrollTrigger,
-} from "../components";
+import { AuthorCard, BlogCard, Card, Grid, Hidden, SEO } from "../components";
 import type { PageProps } from "gatsby";
 import React from "react";
+import { useScrollContext } from "../utils";
 
 export default function App({
-  location,
+  location: { href, pathname },
   pageContext: { nodes },
 }: PageProps<null, GatsbyTypes.MdxConnection>) {
-  const trigger = useScrollTrigger();
-
+  const { trigger } = useScrollContext();
   return (
-    <Layout {...location} title="Blogs" trigger={trigger}>
+    <SEO href={href} pathname={pathname} title="Blogs">
       <Grid container>
         <Grid item xs zeroMinWidth>
           {nodes.map(
@@ -50,6 +42,6 @@ export default function App({
           </Grid>
         </Hidden>
       </Grid>
-    </Layout>
+    </SEO>
   );
 }

@@ -1,16 +1,11 @@
-import {
-  BlogCardSmall,
-  CategoryBanner,
-  Layout,
-  useScrollTrigger,
-} from "../components";
+import { BlogCardSmall, CategoryBanner, SEO } from "../components";
 import type { CategoriesValue } from "../../config";
 import type { FluidObject } from "gatsby-image";
 import type { PageProps } from "gatsby";
 import React from "react";
 
 export default function App({
-  location,
+  location: { href, pathname },
   pageContext: { category, caption, fluid, nodes },
 }: PageProps<
   null,
@@ -21,15 +16,8 @@ export default function App({
     nodes: ReadonlyArray<GatsbyTypes.Mdx>;
   }
 >) {
-  const trigger = useScrollTrigger();
-
   return (
-    <Layout
-      {...location}
-      title={category}
-      trigger={trigger}
-      image={caption?.href}
-    >
+    <SEO href={href} pathname={pathname} title={category} image={caption?.href}>
       <CategoryBanner
         img={fluid}
         category={category}
@@ -55,6 +43,6 @@ export default function App({
             )
         )}
       </div>
-    </Layout>
+    </SEO>
   );
 }

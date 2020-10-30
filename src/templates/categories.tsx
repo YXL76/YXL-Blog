@@ -1,10 +1,10 @@
-import { CategoryCard, Layout, useScrollTrigger } from "../components";
+import { CategoryCard, SEO } from "../components";
 import type { FluidObject } from "gatsby-image";
 import type { PageProps } from "gatsby";
 import React from "react";
 
 export default function App({
-  location,
+  location: { href, pathname },
   pageContext: { categories },
 }: PageProps<
   null,
@@ -16,13 +16,11 @@ export default function App({
     }[];
   }
 >) {
-  const trigger = useScrollTrigger();
-
   return (
-    <Layout
-      {...location}
+    <SEO
+      href={href}
+      pathname={pathname}
       title="Categories"
-      trigger={trigger}
       className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12"
     >
       {categories.map(({ category, fluid, totalCount }, idx) => (
@@ -35,6 +33,6 @@ export default function App({
           />
         </div>
       ))}
-    </Layout>
+    </SEO>
   );
 }

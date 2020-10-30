@@ -1,25 +1,24 @@
-import {
-  DarkModeContext,
-  LocateContext,
-  useDarkMode,
-  useLocate,
-} from "../../utils";
+import { Layout, useMediaQuery, useScrollTrigger } from "../../components";
+import { LocateContext, ScrollContext, useLocate } from "../../utils";
 import React, { useEffect } from "react";
+import theme, { darkTheme } from "../theme";
 import type { ReactNode } from "react";
 import type { Theme } from "@material-ui/core";
 import ThemeTopLayout from "gatsby-theme-material-ui-top-layout/src/components/top-layout";
-import { darkTheme } from "../theme";
+import createPersistedState from "use-persisted-state";
 import { message } from "../../i18n";
-import { useMediaQuery } from "../../components";
+
+const useDarkModeState = createPersistedState("gatsby-dark-mode");
 
 interface TopLayoutProps {
   children: ReactNode;
   theme: Theme;
 }
 
-export default function TopLayout({ children, theme }: TopLayoutProps) {
+export default function TopLayout({ children }: TopLayoutProps) {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const { darkMode, toggleDarkMode } = useDarkMode(prefersDarkMode);
+  const [darkMode, toggleDarkMode] = useDarkModeState(prefersDarkMode);
+  const trigger = useScrollTrigger();
   const { locate, setLocate } = useLocate();
 
   useEffect(() => {
@@ -45,17 +44,23 @@ export default function TopLayout({ children, theme }: TopLayoutProps) {
       "--bg",
       t.palette.background.default
     );
-  }, [darkMode, theme]);
+  }, [darkMode]);
 
   return (
     <LocateContext.Provider
       value={{ locate, setLocate, message: message[locate] }}
     >
-      <DarkModeContext.Provider value={{ darkMode, toggleDarkMode }}>
+      <ScrollContext.Provider value={{ trigger }}>
         <ThemeTopLayout theme={darkMode ? darkTheme : theme}>
-          {children}
+          <Layout
+            trigger={trigger}
+            darkMode={darkMode}
+            toggleDarkMode={() => toggleDarkMode((current) => !current)}
+          >
+            {children}
+          </Layout>
         </ThemeTopLayout>
-      </DarkModeContext.Provider>
+      </ScrollContext.Provider>
     </LocateContext.Provider>
   );
 }

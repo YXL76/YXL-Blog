@@ -1,10 +1,10 @@
 import {
-  Layout,
   List,
   ListItem,
   ListItemSecondaryAction,
   ListItemText,
   Paper,
+  SEO,
   Timeline,
   TimelineConnector,
   TimelineContent,
@@ -13,19 +13,16 @@ import {
   TimelineOppositeContent,
   TimelineSeparator,
   navigate,
-  useScrollTrigger,
 } from "../components";
 import type { PageProps } from "gatsby";
 import React from "react";
 
 export default function App({
-  location,
+  location: { href, pathname },
   pageContext: { group },
 }: PageProps<null, GatsbyTypes.MdxConnection>) {
-  const trigger = useScrollTrigger();
-
   return (
-    <Layout {...location} title="Archives" trigger={trigger}>
+    <SEO href={href} pathname={pathname} title="Archives">
       <Paper className="overflow-hidden sm:rounded-3xl">
         <Timeline align="left">
           {group.map(({ fieldValue, nodes }, idx) => (
@@ -62,6 +59,6 @@ export default function App({
           ))}
         </Timeline>
       </Paper>
-    </Layout>
+    </SEO>
   );
 }

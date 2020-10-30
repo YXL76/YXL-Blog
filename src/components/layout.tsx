@@ -13,7 +13,6 @@ import {
   Menu,
   MenuItem,
   Paper,
-  SEO,
   Slide,
   navigate,
 } from ".";
@@ -31,10 +30,9 @@ import {
   WbSunnyOutlined,
 } from "@material-ui/icons";
 import type { FC, ReactNode } from "react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { languages, siteMetadata } from "../../config";
-import { useDarkModeContext, useLocateContext } from "../utils";
-import type { Languages } from "../../config";
+import { useLocateContext } from "../utils";
 
 type ListItemLinkProps = {
   to: string;
@@ -57,48 +55,23 @@ const ListItemLink = ({ to, text, icon }: ListItemLinkProps) => (
 
 type LayoutProps = {
   trigger: boolean;
-  title: string;
-  description?: string;
-  href: string;
-  pathname: string;
-  image?: string;
-  className?: string;
+  darkMode: boolean;
+  toggleDarkMode: () => void;
 };
-
-const pathReg = new RegExp("^\\/((?:[^/]+))(\\/.*)");
 
 export const Layout: FC<LayoutProps> = ({
   children,
   trigger,
-  title,
-  description,
-  href,
-  pathname,
-  image,
-  className,
+  darkMode,
+  toggleDarkMode,
 }) => {
-  const { darkMode, toggleDarkMode } = useDarkModeContext();
-  const { locate, setLocate, message } = useLocateContext();
-
+  const { locate, message } = useLocateContext();
   const [openDrawer, setOpenDrawer] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const openMenu = Boolean(anchorEl);
 
-  const m = pathReg.exec(pathname.endsWith("/") ? pathname : `${pathname}/`);
-
-  useEffect(() => {
-    if (
-      m?.length === 3 &&
-      m[1] !== locate &&
-      Object.keys(languages).includes(m[1])
-    ) {
-      setLocate(m[1] as Languages);
-    }
-  }, [locate, m, pathname, setLocate]);
-
   return (
     <>
-      <SEO title={title} description={description} href={href} image={image} />
       <Slide appear={false} direction="down" timeout={300} in={!trigger}>
         <AppBar className="h-14" color="default" elevation={1}>
           <Container className="h-full" maxWidth="lg" component="nav">
@@ -208,10 +181,11 @@ export const Layout: FC<LayoutProps> = ({
                       key={idx}
                       onClick={() => {
                         setAnchorEl(null);
+                        const { pathname } = document.location;
                         void navigate(
-                          m?.length === 3
-                            ? `/${language}${m[2]}`
-                            : `/${language}${pathname}`
+                          pathname === "/"
+                            ? `/${language}`
+                            : pathname.replace(/^\/(?:[^/]+)/, `/${language}`)
                         );
                       }}
                     >
@@ -267,7 +241,7 @@ export const Layout: FC<LayoutProps> = ({
         component="main"
         className="pb-10 pt-20 px-4 min-h-screen"
       >
-        <div className={`w-full ${className || ""}`}>{children}</div>
+        <>{children}</>
       </Container>
       <Paper
         square
