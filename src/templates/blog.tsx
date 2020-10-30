@@ -11,6 +11,7 @@ import {
   Tab,
   TabPanel,
   Tabs,
+  navigate,
   useScrollTrigger,
 } from "../components";
 import {
@@ -18,7 +19,6 @@ import {
   NavigateNextOutlined,
 } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
-import { graphql, navigate } from "gatsby";
 import type { ChangeEvent } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
@@ -26,9 +26,9 @@ import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
 
 export default function App({
-  location: { href, origin },
-  data: { mdx, next, prev },
-}: PageProps<GatsbyTypes.BlogTemplateQuery>) {
+  location,
+  pageContext: { node, next, previous },
+}: PageProps<null, GatsbyTypes.MdxEdge>) {
   const {
     body,
     frontmatter,
@@ -37,13 +37,13 @@ export default function App({
     timeToRead,
     wordCount,
     tableOfContents,
-  } = mdx || {};
+  } = node || {};
   const { title, subtitle, category, date, banner, caption } =
     frontmatter || {};
   const { words } = wordCount || {};
   const { lastModified } = fields || {};
 
-  const near = [prev, next] as (null | {
+  const near = [previous, next] as (null | {
     fields: {
       slug: string;
     };
@@ -83,12 +83,11 @@ export default function App({
 
   return (
     <Layout
-      href={href}
-      origin={origin}
+      {...location}
       title={title || ""}
       description={excerpt}
       trigger={trigger}
-      image={banner?.childImageSharp?.original?.src}
+      image={caption?.href}
     >
       <style>{`#mdx-toc #toc-${active} {color: #63b3ed; border-color: #63b3ed;}`}</style>
       {banner?.childImageSharp?.fluid && category && (
@@ -190,59 +189,3 @@ export default function App({
     </Layout>
   );
 }
-
-export const query = graphql`
-  query BlogTemplate($id: String!, $next: String!, $previous: String!) {
-    mdx(id: { eq: $id }) {
-      body
-      tableOfContents(maxDepth: 3)
-      fields {
-        lastModified(formatString: "MMMM Do YYYY h:mm:ss a")
-      }
-      frontmatter {
-        banner {
-          childImageSharp {
-            original {
-              src
-            }
-            fluid(maxWidth: 2560) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-      }
-      ...BlogFrontmatter
-      excerpt
-    }
-    next: mdx(id: { eq: $next }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        banner {
-          childImageSharp {
-            fluid(maxWidth: 1280, maxHeight: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        title
-      }
-    }
-    prev: mdx(id: { eq: $previous }) {
-      fields {
-        slug
-      }
-      frontmatter {
-        banner {
-          childImageSharp {
-            fluid(maxWidth: 1280, maxHeight: 800) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-        }
-        title
-      }
-    }
-  }
-`;

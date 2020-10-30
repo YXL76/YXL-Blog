@@ -2,12 +2,11 @@ import { Layout, useScrollTrigger } from "../components";
 import type { PageProps } from "gatsby";
 import React from "react";
 
-export default function App({ location: { href, origin } }: PageProps) {
+export default function App({ location }: PageProps) {
   const trigger = useScrollTrigger();
   return (
     <Layout
-      href={href}
-      origin={origin}
+      {...location}
       title="404"
       trigger={trigger}
       className="m-auto flex flex-col items-center p-4 text-bg"

@@ -7,41 +7,17 @@ import {
   Layout,
   useScrollTrigger,
 } from "../components";
-import React, { useState } from "react";
-import { graphql, useStaticQuery } from "gatsby";
 import type { PageProps } from "gatsby";
+import React from "react";
 
-export default function App({ location: { href, origin } }: PageProps) {
-  const {
-    allMdx: { nodes },
-  } = useStaticQuery<GatsbyTypes.BlogsPageQuery>(graphql`
-    query BlogsPage {
-      allMdx(
-        filter: { fields: { contentType: { eq: "blogs" } } }
-        sort: { order: DESC, fields: frontmatter___date }
-      ) {
-        nodes {
-          frontmatter {
-            banner {
-              childImageSharp {
-                fluid(maxWidth: 2560) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-          ...BlogFrontmatter
-          excerpt
-        }
-      }
-    }
-  `);
-
+export default function App({
+  location,
+  pageContext: { nodes },
+}: PageProps<null, GatsbyTypes.MdxConnection>) {
   const trigger = useScrollTrigger();
-  const [value, setValue] = useState(0);
 
   return (
-    <Layout href={href} origin={origin} title="Blogs" trigger={trigger}>
+    <Layout {...location} title="Blogs" trigger={trigger}>
       <Grid container>
         <Grid item xs zeroMinWidth>
           {nodes.map(

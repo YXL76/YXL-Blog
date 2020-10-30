@@ -2997,17 +2997,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/lodash@npm:*":
+"@types/lodash@npm:*, @types/lodash@npm:^4.14.92":
   version: 4.14.163
   resolution: "@types/lodash@npm:4.14.163"
   checksum: f118aab4b74b165962015bfc857d1944048b0fc8837d5b129e54da17d5f76ec9d37dfd332915fda5ff92dd8db6c614705a02bcedf8043d06c091ac3e840a32c5
-  languageName: node
-  linkType: hard
-
-"@types/lodash@npm:^4.14.92":
-  version: 4.14.162
-  resolution: "@types/lodash@npm:4.14.162"
-  checksum: 16205a12995d659ac556f25405cfeec3b9fb427364ed8e24e4e4ab84f646b1a2f6f08f6aee155ebc6127ac6791fd7755fc15be10b6c8dd5a3ab3d3f4917f7173
   languageName: node
   linkType: hard
 
@@ -3053,14 +3046,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*":
-  version: 12.19.2
-  resolution: "@types/node@npm:12.19.2"
-  checksum: 6371da7492d0a695003d7e97c6ad5f2afff9d49175408a46e4d7314912154513561fc3a324c2e2cac824bc17fef7d9c0801caefc96624f56033c2912a3d49d89
-  languageName: node
-  linkType: hard
-
-"@types/node@npm:12.19.3":
+"@types/node@npm:*, @types/node@npm:12.19.3":
   version: 12.19.3
   resolution: "@types/node@npm:12.19.3"
   checksum: ef8ae4d86896d6cdcd4bda92fb43da62f6397e7a4041d492309771a51e85ec5918dbee6495d8b591fd87d7265468c87f4b5e986bc4f0362e1184b610c6b8abac
@@ -3068,9 +3054,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^8.5.7":
-  version: 8.10.65
-  resolution: "@types/node@npm:8.10.65"
-  checksum: c7d8bb4a1a31172d705f89f7831ec90be051295db6d885a45cb5e55f9a550395791bdca378676bcbc110b91aeae74cd6c41258b5071da39ac5790ad05169c5f2
+  version: 8.10.66
+  resolution: "@types/node@npm:8.10.66"
+  checksum: d4f105d5c90fb4ed7437e136b47c0972c937aa680fb0b6665ff8fc1307796a42355417146e045873e83af3f7c0ac70b009442bad3a33c9023001be38ff47c7af
   languageName: node
   linkType: hard
 
@@ -3146,13 +3132,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*, @types/react@npm:16.9.54":
-  version: 16.9.54
-  resolution: "@types/react@npm:16.9.54"
+"@types/react@npm:*, @types/react@npm:16.9.55":
+  version: 16.9.55
+  resolution: "@types/react@npm:16.9.55"
   dependencies:
     "@types/prop-types": "*"
     csstype: ^3.0.2
-  checksum: 51d96e3df91db1886fb34cf3e559046ac43b1696fd4d1e88d772dde3e68db9625b7dc9454226fd23883c0983364a868b373427ec78e7d6a125ffa34b90973218
+  checksum: aadc5636d6b58e33422d0f3d275daf25b5456f715a0426ea08399f577ba0229dead47d41dc2c6e1f1659fb01e42c005045f97ed535b3695e05f209bd0b7076c5
   languageName: node
   linkType: hard
 
@@ -5412,9 +5398,9 @@ __metadata:
   linkType: hard
 
 "caniuse-lite@npm:^1.0.0, caniuse-lite@npm:^1.0.30001109, caniuse-lite@npm:^1.0.30001135, caniuse-lite@npm:^1.0.30001137":
-  version: 1.0.30001151
-  resolution: "caniuse-lite@npm:1.0.30001151"
-  checksum: 3acb52ac17034d7abe4468e66293c9e5597cb5f123bd8f86ea3b87e758112ac4259fdbc35f8f4cbf5477e385dd975f11031bfbf26f4cec64d64a0c567a430b58
+  version: 1.0.30001153
+  resolution: "caniuse-lite@npm:1.0.30001153"
+  checksum: 070c4a2c7f04e1fd00cdb12393a5f09d414d681814e5860626a1769a40474e7251a3d3ad0b988df25d37d0036580b2578a151fe4cdff571714f55b0f0f1afe57
   languageName: node
   linkType: hard
 
@@ -5438,9 +5424,9 @@ __metadata:
   linkType: hard
 
 "ccount@npm:^1.0.0":
-  version: 1.0.5
-  resolution: "ccount@npm:1.0.5"
-  checksum: 7580ada7a3efa38d9dbdd581d3a9d5844529663d8faa5a9c209de3cce75cd96b721ebda7fa328ff4980a4392da6b30b27753a416823cae44a3e76dcf5c93b7a0
+  version: 1.1.0
+  resolution: "ccount@npm:1.1.0"
+  checksum: 3f665763cbb12fc8db2732937e748e838f9c33fb07abdde7a0f2a908db2a8b9a9eb4b91c879ca87b75be0407c4e34d707ad04f3410e943561ff2f6cf6f44047d
   languageName: node
   linkType: hard
 
@@ -8493,8 +8479,8 @@ __metadata:
   linkType: hard
 
 "execa@npm:^4.0.0, execa@npm:^4.0.2, execa@npm:^4.0.3":
-  version: 4.0.3
-  resolution: "execa@npm:4.0.3"
+  version: 4.1.0
+  resolution: "execa@npm:4.1.0"
   dependencies:
     cross-spawn: ^7.0.0
     get-stream: ^5.0.0
@@ -8505,7 +8491,7 @@ __metadata:
     onetime: ^5.1.0
     signal-exit: ^3.0.2
     strip-final-newline: ^2.0.0
-  checksum: 65b237d178b468045ee57af6aa4e4124807b28aec9573d9b3b16b02a7e41bd65996236e0c5575d053d3888585ffc795cbed38847c6c9669e9c8481fc44ac05e4
+  checksum: 79bd736acd63aa7c0afb32cc99af21cfd70db696580686c7cd56c177857b93b78bc0b9bb2b4410f377f46c71c566c8e723987e71ef0bc9b23791bfbced02f75c
   languageName: node
   linkType: hard
 
@@ -8773,11 +8759,11 @@ __metadata:
   linkType: hard
 
 "fastq@npm:^1.6.0":
-  version: 1.8.0
-  resolution: "fastq@npm:1.8.0"
+  version: 1.9.0
+  resolution: "fastq@npm:1.9.0"
   dependencies:
     reusify: ^1.0.4
-  checksum: 77d71545ba88a5c4cbe628716bcf7a0db1dbe81943c1abfbe9eab65db17c6c1db7836e99478b3b8baf21d260b896dff4723f7b7af6606b3d3db2b135bf414c16
+  checksum: e9b46ea8990fa626ea23c8a790335a4220a659e189b6ec6cf9f38b879c259327a1532ec89d1ff196ebec365145d644a833a8edab6f975a8c46bad4b98c0e2ef7
   languageName: node
   linkType: hard
 
@@ -18515,13 +18501,13 @@ fsevents@~2.1.2:
   linkType: hard
 
 "sass@npm:^1.26.5":
-  version: 1.27.0
-  resolution: "sass@npm:1.27.0"
+  version: 1.27.1
+  resolution: "sass@npm:1.27.1"
   dependencies:
     chokidar: ">=2.0.0 <4.0.0"
   bin:
     sass: sass.js
-  checksum: db4342b13bbcc5e0f13c1d9139f31c48f9c5a03bdb1c8d8ef7b47d063f5c333a2b69642bd489501cd756f4d0d1da43ee77127938cf9743cc39839952319a705e
+  checksum: b7ddb4b83e20534fde2064ec18af66aff9dac56e3dea45b21f7ec82f6c3bee673c08f955331d22c87cd1b311807116fe51d2bbc8cf8c770c7046b580e7902e95
   languageName: node
   linkType: hard
 
@@ -20543,9 +20529,9 @@ fsevents@~2.1.2:
   linkType: hard
 
 "trim-trailing-lines@npm:^1.0.0":
-  version: 1.1.3
-  resolution: "trim-trailing-lines@npm:1.1.3"
-  checksum: e09d4a1f5817726747a3ef0c99766934c56b308bb383cba27d689fa7bd1be7bf935743a4a08818f9069d4d762b68b1376dadece94d061f6e95b41ab649051f2f
+  version: 1.1.4
+  resolution: "trim-trailing-lines@npm:1.1.4"
+  checksum: d3fd2a2804baaffc9859b439524c0736fbecdc2114816fd7138c2289291c73f8b25d7e4497b4dccab8e74ddf357072c79b4041bd32c6583847e2453ed6f77df0
   languageName: node
   linkType: hard
 
@@ -21468,9 +21454,9 @@ typescript@4.0.5:
   linkType: hard
 
 "v8-compile-cache@npm:^2.0.3, v8-compile-cache@npm:^2.1.1":
-  version: 2.1.1
-  resolution: "v8-compile-cache@npm:2.1.1"
-  checksum: 1290922fe1501a732155206f2d516f91bdfd7acf318542ffe2813ff06465cf49051fae7e1a40f3e0a56cf78b41f799473f6e389fec0534e4ecc62eb4105cf22f
+  version: 2.2.0
+  resolution: "v8-compile-cache@npm:2.2.0"
+  checksum: 1efc9946401fcad7a67619b520d8d12e31c7138090ffd9f98af9b919461fa23d947ecef0eab89cca4037c01d29d25a389ab6c0fac70ee4ed030443b08cdf6cff
   languageName: node
   linkType: hard
 
@@ -22464,7 +22450,7 @@ typescript@4.0.5:
     "@mdx-js/react": 1.6.19
     "@types/lodash.merge": 4.6.6
     "@types/node": 12.19.3
-    "@types/react": 16.9.54
+    "@types/react": 16.9.55
     "@types/react-dom": 16.9.9
     "@types/react-helmet": 6.1.0
     "@types/use-persisted-state": 0.3.0

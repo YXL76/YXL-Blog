@@ -12,42 +12,20 @@ import {
   TimelineItem,
   TimelineOppositeContent,
   TimelineSeparator,
+  navigate,
   useScrollTrigger,
 } from "../components";
-import { graphql, navigate, useStaticQuery } from "gatsby";
 import type { PageProps } from "gatsby";
 import React from "react";
 
-export default function App({ location: { href, origin } }: PageProps) {
-  const {
-    allMdx: { group },
-  } = useStaticQuery<GatsbyTypes.ArchivesPageQuery>(graphql`
-    query ArchivesPage {
-      allMdx(
-        filter: { fields: { contentType: { eq: "blogs" } } }
-        sort: { order: DESC, fields: frontmatter___date }
-      ) {
-        group(field: frontmatter___archive) {
-          fieldValue
-          nodes {
-            fields {
-              slug
-            }
-            frontmatter {
-              date(formatString: "MM/DD")
-              title
-              subtitle
-            }
-          }
-        }
-      }
-    }
-  `);
-
+export default function App({
+  location,
+  pageContext: { group },
+}: PageProps<null, GatsbyTypes.MdxConnection>) {
   const trigger = useScrollTrigger();
 
   return (
-    <Layout href={href} origin={origin} title="Archives" trigger={trigger}>
+    <Layout {...location} title="Archives" trigger={trigger}>
       <Paper className="overflow-hidden sm:rounded-3xl">
         <Timeline align="left">
           {group.map(({ fieldValue, nodes }, idx) => (

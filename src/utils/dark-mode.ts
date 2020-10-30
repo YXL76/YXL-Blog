@@ -1,4 +1,4 @@
-import { createContext, useCallback } from "react";
+import { createContext, useCallback, useContext } from "react";
 import createPersistedState from "use-persisted-state";
 
 const useDarkModeState = createPersistedState("gatsby-dark-mode");
@@ -18,3 +18,5 @@ export const DarkModeContext = createContext({
   darkMode: false,
   toggleDarkMode: () => {},
 });
+
+export const useDarkModeContext = () => useContext(DarkModeContext);

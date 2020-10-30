@@ -14,6 +14,8 @@ export {
   ListItemIcon,
   ListItemSecondaryAction,
   ListItemText,
+  Menu,
+  MenuItem,
   Paper,
   Slide,
   Table,
@@ -46,3 +48,4 @@ export {
   TimelineOppositeContent,
   TimelineSeparator,
 } from "@material-ui/lab";
+export { navigate } from "gatsby";

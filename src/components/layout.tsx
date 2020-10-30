@@ -10,9 +10,12 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  Menu,
+  MenuItem,
   Paper,
   SEO,
   Slide,
+  navigate,
 } from ".";
 import {
   ArchiveOutlined,
@@ -20,7 +23,7 @@ import {
   FaceOutlined,
   LanguageSharp,
   LocalOfferOutlined,
-  Menu,
+  Menu as MenuOutlined,
   NightsStayOutlined,
   PagesOutlined,
   RssFeedOutlined,
@@ -28,9 +31,10 @@ import {
   WbSunnyOutlined,
 } from "@material-ui/icons";
 import type { FC, ReactNode } from "react";
-import React, { useContext, useState } from "react";
-import { graphql, navigate, useStaticQuery } from "gatsby";
-import { DarkModeContext } from "../utils";
+import React, { useEffect, useState } from "react";
+import { languages, siteMetadata } from "../../config";
+import { useDarkModeContext, useLocateContext } from "../utils";
+import type { Languages } from "../../config";
 
 type ListItemLinkProps = {
   to: string;
@@ -56,10 +60,12 @@ type LayoutProps = {
   title: string;
   description?: string;
   href: string;
-  origin: string;
+  pathname: string;
   image?: string;
   className?: string;
 };
+
+const pathReg = new RegExp("^\\/((?:[^/]+))(\\/.*)");
 
 export const Layout: FC<LayoutProps> = ({
   children,
@@ -67,44 +73,32 @@ export const Layout: FC<LayoutProps> = ({
   title,
   description,
   href,
-  origin,
+  pathname,
   image,
   className,
 }) => {
-  const { darkMode, toggleDarkMode } = useContext(DarkModeContext);
+  const { darkMode, toggleDarkMode } = useDarkModeContext();
+  const { locate, setLocate, message } = useLocateContext();
 
-  const { site } = useStaticQuery<GatsbyTypes.LayoutComponentQuery>(graphql`
-    query LayoutComponent {
-      site {
-        ...AuthorFrontmatter
-        siteMetadata {
-          title
-          defaultImage
-          description
-          keywords
-        }
-      }
+  const [openDrawer, setOpenDrawer] = useState(false);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const openMenu = Boolean(anchorEl);
+
+  const m = pathReg.exec(pathname.endsWith("/") ? pathname : `${pathname}/`);
+
+  useEffect(() => {
+    if (
+      m?.length === 3 &&
+      m[1] !== locate &&
+      Object.keys(languages).includes(m[1])
+    ) {
+      setLocate(m[1] as Languages);
     }
-  `);
-  const siteTitle = site?.siteMetadata?.title || "";
-  const siteDescription = site?.siteMetadata?.description || "";
-  const { keywords, defaultImage, author } = site?.siteMetadata || {};
-  const { name, twitter } = author || {};
-
-  const [open, setOpen] = useState(false);
+  }, [locate, m, pathname, setLocate]);
 
   return (
     <>
-      <SEO
-        title={title}
-        siteTitle={siteTitle}
-        description={description || siteDescription}
-        author={name || ""}
-        href={href}
-        keywords={keywords || []}
-        image={`${origin}${image || defaultImage || ""}`}
-        twitter={twitter || ""}
-      />
+      <SEO title={title} description={description} href={href} image={image} />
       <Slide appear={false} direction="down" timeout={300} in={!trigger}>
         <AppBar className="h-14" color="default" elevation={1}>
           <Container className="h-full" maxWidth="lg" component="nav">
@@ -114,12 +108,12 @@ export const Layout: FC<LayoutProps> = ({
                   className="h-full p-2"
                   alt="icon"
                   src="/icons/icon-512x512.png"
-                  onClick={() => navigate("/")}
+                  onClick={() => navigate(`/${locate}`)}
                 />
                 <Hidden xsDown>
                   <div className="mr-6 font-bold leading-none text-2xl uppercase">
-                    <Link to="/" underline="none" color="inherit">
-                      {siteTitle}
+                    <Link to={`/${locate}`} underline="none" color="inherit">
+                      {siteMetadata.title}
                     </Link>
                   </div>
                 </Hidden>
@@ -128,41 +122,41 @@ export const Layout: FC<LayoutProps> = ({
                     variant="text"
                     size="large"
                     startIcon={<PagesOutlined />}
-                    to="/blogs"
+                    to={`/${locate}/blogs`}
                   >
-                    Blogs
+                    {message["blogs"]}
                   </Button>
                   <Button
                     variant="text"
                     size="large"
                     startIcon={<CategoryOutlined />}
-                    to="/categories"
+                    to={`/${locate}/categories`}
                   >
-                    Categories
+                    {message["categories"]}
                   </Button>
                   <Button
                     variant="text"
                     size="large"
                     startIcon={<LocalOfferOutlined />}
-                    to="/tags"
+                    to={`/${locate}/tags`}
                   >
-                    Tags
+                    {message["tags"]}
                   </Button>
                   <Button
                     variant="text"
                     size="large"
                     startIcon={<ArchiveOutlined />}
-                    to="/archives"
+                    to={`/${locate}/archives`}
                   >
-                    Archives
+                    {message["archives"]}
                   </Button>
                   <Button
                     variant="text"
                     size="large"
                     startIcon={<FaceOutlined />}
-                    to="/about"
+                    to={`/${locate}/about`}
                   >
-                    About
+                    {message["about"]}
                   </Button>
                 </Hidden>
               </div>
@@ -177,50 +171,95 @@ export const Layout: FC<LayoutProps> = ({
                 >
                   {darkMode ? <NightsStayOutlined /> : <WbSunnyOutlined />}
                 </IconButton>
-                <IconButton color="inherit" aria-label="language">
+                <IconButton
+                  color="inherit"
+                  aria-label="language"
+                  onClick={(event) => setAnchorEl(event.currentTarget)}
+                >
                   <LanguageSharp />
                 </IconButton>
                 <IconButton
                   color="inherit"
                   aria-label="rss"
-                  onClick={() => navigate("/rss.xml")}
+                  onClick={() => navigate(`/${locate}/rss.xml`)}
                 >
                   <RssFeedOutlined />
                 </IconButton>
                 <Hidden mdUp>
                   <IconButton
                     color="inherit"
-                    onClick={() => setOpen(true)}
+                    onClick={() => setOpenDrawer(true)}
                     aria-label="menu"
                   >
-                    <Menu />
+                    <MenuOutlined />
                   </IconButton>
                 </Hidden>
+                <Menu
+                  id="menu-language"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{ vertical: "top", horizontal: "right" }}
+                  keepMounted
+                  transformOrigin={{ vertical: "top", horizontal: "right" }}
+                  open={openMenu}
+                  onClose={() => setAnchorEl(null)}
+                >
+                  {Object.entries(languages).map(([language, display], idx) => (
+                    <MenuItem
+                      key={idx}
+                      onClick={() => {
+                        setAnchorEl(null);
+                        void navigate(
+                          m?.length === 3
+                            ? `/${language}${m[2]}`
+                            : `/${language}${pathname}`
+                        );
+                      }}
+                    >
+                      {display}
+                    </MenuItem>
+                  ))}
+                </Menu>
               </div>
             </div>
           </Container>
         </AppBar>
       </Slide>
-      <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+      <Drawer
+        anchor="left"
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+      >
         <div className="pl-8 py-4 font-bold leading-none text-2xl uppercase">
-          <Link to="/" underline="none">
-            {siteTitle}
+          <Link to={`/${locate}`} underline="none">
+            {siteMetadata.title}
           </Link>
         </div>
         <List component="nav" className="w-screen-3/5">
-          <ListItemLink to="/blogs" text="Blogs" icon={<PagesOutlined />} />
           <ListItemLink
-            to="/categories"
+            to={`/${locate}/blogs`}
+            text="Blogs"
+            icon={<PagesOutlined />}
+          />
+          <ListItemLink
+            to={`/${locate}/categories`}
             text="Categories"
             icon={<CategoryOutlined />}
           />
-          <ListItemLink to="/tags" text="Tags" icon={<LocalOfferOutlined />} />
           <ListItemLink
-            to="/archives"
+            to={`/${locate}/tags`}
+            text="Tags"
+            icon={<LocalOfferOutlined />}
+          />
+          <ListItemLink
+            to={`/${locate}/archives`}
             text="Archives"
             icon={<ArchiveOutlined />}
           />
-          <ListItemLink to="/about" text="About" icon={<FaceOutlined />} />
+          <ListItemLink
+            to={`/${locate}/about`}
+            text="About"
+            icon={<FaceOutlined />}
+          />
         </List>
       </Drawer>
       <Container
@@ -235,7 +274,7 @@ export const Layout: FC<LayoutProps> = ({
         elevation={1}
         className="w-full h-14 flex flex-col items-center justify-around text-base"
       >
-        <div>© 2020 · {name}</div>
+        <div>© 2020 · {siteMetadata.author.name}</div>
         <div>
           Build with <Link href="https://www.gatsbyjs.com/">Gatsby</Link>
         </div>
