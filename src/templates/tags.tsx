@@ -1,6 +1,6 @@
 import { Badge, Link, Paper, SEO } from "../components";
+import React, { useMemo } from "react";
 import type { PageProps } from "gatsby";
-import React from "react";
 import { useLocateContext } from "../utils";
 
 const Tags = ({
@@ -14,19 +14,24 @@ const Tags = ({
 
   return (
     <SEO href={href} pathname={pathname} title={title}>
-      <Paper className="pt-6 pb-4 px-4 sm:rounded-3xl">
-        {Object.entries(tags).map(([tag, { name, count }], idx) => (
-          <Badge badgeContent={count} color="primary" key={idx}>
-            <Link
-              className="m-4"
-              to={`/${locate}/tags/${tag}`}
-              style={{ fontSize: 16 + count * 2 }}
-            >
-              {name}
-            </Link>
-          </Badge>
-        ))}
-      </Paper>
+      {useMemo(
+        () => (
+          <Paper className="pt-6 pb-4 px-4 sm:rounded-3xl">
+            {Object.entries(tags).map(([tag, { name, count }], idx) => (
+              <Badge badgeContent={count} color="primary" key={idx}>
+                <Link
+                  className="m-4"
+                  to={`/${locate}/tags/${tag}`}
+                  style={{ fontSize: 16 + count * 2 }}
+                >
+                  {name}
+                </Link>
+              </Badge>
+            ))}
+          </Paper>
+        ),
+        [locate, tags]
+      )}
     </SEO>
   );
 };

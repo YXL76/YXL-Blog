@@ -11,7 +11,7 @@ type BlogCardProps = {
   category: string;
   date?: string;
   subtitle?: string;
-  tags: { tag: string; name: string }[];
+  tags: readonly ({ tag?: string; name?: string } | undefined)[];
   title?: string;
   excerpt?: string;
   slug?: string;
@@ -66,19 +66,22 @@ export const BlogCard: FC<BlogCardProps> = ({
       <p className="text-lg mt-2 mx-10 text-center">{excerpt}</p>
       <div className="flex items-end flex-nowrap justify-between w-full mt-1">
         <div className="flex flex-wrap">
-          {tags.map(({ tag, name }, idx) => (
-            <Button
-              key={idx}
-              className="rounded-2xl mr-2 mt-2"
-              color="primary"
-              startIcon={<LocalOfferOutlined />}
-              size="small"
-              variant="outlined"
-              to={`/${locate}/tags/${tag}`}
-            >
-              {name}
-            </Button>
-          ))}
+          {tags.map(
+            (item, idx) =>
+              item?.tag && (
+                <Button
+                  key={idx}
+                  className="rounded-2xl mr-2 mt-2"
+                  color="primary"
+                  startIcon={<LocalOfferOutlined />}
+                  size="small"
+                  variant="outlined"
+                  to={`/${locate}/tags/${item.tag}`}
+                >
+                  {item.name}
+                </Button>
+              )
+          )}
         </div>
         <Button
           className="rounded-2xl"

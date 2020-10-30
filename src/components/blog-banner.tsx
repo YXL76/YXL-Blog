@@ -11,7 +11,7 @@ type BlogBannerProps = {
   category: string;
   title?: string;
   subtitle?: string;
-  tags: { tag: string; name: string }[];
+  tags: readonly ({ tag?: string; name?: string } | undefined)[];
   date?: string;
   words?: number;
   timeToRead?: number;
@@ -50,19 +50,22 @@ export const BlogBanner: FC<BlogBannerProps> = ({
           {subtitle}
         </h2>
         <div className="flex flex-wrap mt-2">
-          {tags.map(({ tag, name }, idx) => (
-            <Button
-              key={idx}
-              className="rounded-2xl mr-2 mt-2"
-              color="primary"
-              startIcon={<LocalOfferOutlined />}
-              size="small"
-              variant="contained"
-              to={`/${locate}/tags/${tag}`}
-            >
-              {name}
-            </Button>
-          ))}
+          {tags.map(
+            (item, idx) =>
+              item?.tag && (
+                <Button
+                  key={idx}
+                  className="rounded-2xl mr-2 mt-2"
+                  color="primary"
+                  startIcon={<LocalOfferOutlined />}
+                  size="small"
+                  variant="contained"
+                  to={`/${locate}/tags/${item.tag}`}
+                >
+                  {item.name}
+                </Button>
+              )
+          )}
         </div>
       </div>
       <div className="absolute left-3 top-3 sm:left-6 sm:top-6 md:left-12 md:top-12 flex items-center justify-center flex-wrap mt-1">

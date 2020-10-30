@@ -1,8 +1,8 @@
 import { BlogCardSmall, CategoryBanner, SEO } from "../components";
+import React, { useMemo } from "react";
 import type { CategoriesValue } from "../../config";
 import type { FluidObject } from "gatsby-image";
 import type { PageProps } from "gatsby";
-import React from "react";
 
 const Category = ({
   location: { href, pathname },
@@ -24,25 +24,30 @@ const Category = ({
       description={description}
       caption={caption}
     />
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8">
-      {nodes.map(
-        ({ fields, frontmatter, excerpt, wordCount, timeToRead }, idx) =>
-          frontmatter?.banner?.childImageSharp?.fluid && (
-            <div key={idx}>
-              <BlogCardSmall
-                img={frontmatter.banner.childImageSharp.fluid}
-                title={frontmatter?.title}
-                subtitle={frontmatter?.subtitle}
-                description={excerpt}
-                date={frontmatter?.date}
-                words={wordCount?.words}
-                timeToRead={timeToRead}
-                slug={fields?.slug}
-              />
-            </div>
-          )
-      )}
-    </div>
+    {useMemo(
+      () => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-12 mt-8">
+          {nodes.map(
+            ({ fields, frontmatter, excerpt, wordCount, timeToRead }, idx) =>
+              frontmatter?.banner?.childImageSharp?.fluid && (
+                <div key={idx}>
+                  <BlogCardSmall
+                    img={frontmatter.banner.childImageSharp.fluid}
+                    title={frontmatter?.title}
+                    subtitle={frontmatter?.subtitle}
+                    description={excerpt}
+                    date={frontmatter?.date}
+                    words={wordCount?.words}
+                    timeToRead={timeToRead}
+                    slug={fields?.slug}
+                  />
+                </div>
+              )
+          )}
+        </div>
+      ),
+      [nodes]
+    )}
   </SEO>
 );
 

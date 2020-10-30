@@ -1,6 +1,6 @@
 import { AuthorCard, BlogCard, Card, Grid, Hidden, SEO } from "../components";
+import React, { useMemo } from "react";
 import type { PageProps } from "gatsby";
-import React from "react";
 import { useScrollContext } from "../utils";
 
 const Blogs = ({
@@ -11,28 +11,33 @@ const Blogs = ({
   return (
     <SEO href={href} pathname={pathname} title={title}>
       <Grid container>
-        <Grid item xs zeroMinWidth>
-          {nodes.map(
-            (
-              { fields, frontmatter, tags, excerpt, timeToRead, wordCount },
-              idx
-            ) => (
-              <BlogCard
-                key={idx}
-                fluid={frontmatter?.banner?.childImageSharp?.fluid}
-                category={frontmatter?.category || ""}
-                date={frontmatter?.date}
-                subtitle={frontmatter?.subtitle}
-                tags={fields?.tags || []}
-                title={frontmatter?.title}
-                excerpt={excerpt}
-                slug={fields?.slug}
-                timeToRead={timeToRead}
-                words={wordCount?.words}
-              />
-            )
-          )}
-        </Grid>
+        {useMemo(
+          () => (
+            <Grid item xs zeroMinWidth>
+              {nodes.map(
+                (
+                  { fields, frontmatter, excerpt, timeToRead, wordCount },
+                  idx
+                ) => (
+                  <BlogCard
+                    key={idx}
+                    fluid={frontmatter?.banner?.childImageSharp?.fluid}
+                    category={frontmatter?.category || ""}
+                    date={frontmatter?.date}
+                    subtitle={frontmatter?.subtitle}
+                    tags={fields?.tags || []}
+                    title={frontmatter?.title}
+                    excerpt={excerpt}
+                    slug={fields?.slug}
+                    timeToRead={timeToRead}
+                    words={wordCount?.words}
+                  />
+                )
+              )}
+            </Grid>
+          ),
+          [nodes]
+        )}
         <Hidden smDown>
           <Grid item xs={4} className="pl-12">
             <Card

@@ -9,9 +9,9 @@ import {
   TableHead,
   TableRow,
 } from ".";
+import React, { useMemo } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
-import React from "react";
 
 const Td: FC<TdProps> = ({ align, children }) => (
   <TableCell align={align || "left"}>{children}</TableCell>
@@ -77,9 +77,14 @@ type MdxProps = {
 
 export const Mdx: FC<MdxProps> = ({ className, children, foot }) => (
   <Paper square elevation={0} id="mdx-content" className={className}>
-    <MDXProvider components={components}>
-      <MDXRenderer>{children || ""}</MDXRenderer>
-    </MDXProvider>
+    {useMemo(
+      () => (
+        <MDXProvider components={components}>
+          <MDXRenderer>{children || ""}</MDXRenderer>
+        </MDXProvider>
+      ),
+      [children]
+    )}
     {foot}
   </Paper>
 );
