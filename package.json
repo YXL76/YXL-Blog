@@ -48,7 +48,7 @@
     "rehype-slug": "3.0.0",
     "remark-emoji": "2.1.0",
     "remark-math": "3.0.1",
-    "tailwindcss": "2.0.0-alpha.3",
+    "tailwindcss": "2.0.0-alpha.4",
     "use-persisted-state": "0.3.0"
   },
   "devDependencies": {

@@ -20127,9 +20127,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:2.0.0-alpha.3":
-  version: 2.0.0-alpha.3
-  resolution: "tailwindcss@npm:2.0.0-alpha.3"
+"tailwindcss@npm:2.0.0-alpha.4":
+  version: 2.0.0-alpha.4
+  resolution: "tailwindcss@npm:2.0.0-alpha.4"
   dependencies:
     "@fullhuman/postcss-purgecss": ^3.0.0
     autoprefixer: ^9.8.6
@@ -20156,7 +20156,7 @@ fsevents@~2.1.2:
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 038d71763c71fde243b520303d066bf321a546347d7e673b5dbceb34de692bbd8af3cabf8c40282021c5215ff436cfae70733d195f82bf31e0acb19aa1a150f1
+  checksum: e5846e53903518d40f52480341de752e3adc4182e300c69ba5d8bb1eb99fbe841e59a2a91a40bb38a06b4d34439e5116c0c9c4ab461441d2c9c4857ce40725ee
   languageName: node
   linkType: hard
 
@@ -22508,7 +22508,7 @@ typescript@4.0.5:
     simple-git: 2.21.0
     stylelint: 13.7.2
     stylelint-config-standard: 20.0.0
-    tailwindcss: 2.0.0-alpha.3
+    tailwindcss: 2.0.0-alpha.4
     typescript: 4.0.5
     typescript-plugin-css-modules: 2.7.0
     use-persisted-state: 0.3.0
