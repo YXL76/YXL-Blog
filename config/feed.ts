@@ -1,3 +1,7 @@
+import { languages, siteMetadata } from ".";
+import { message, messageCategories } from "../src/i18n";
+import type { Languages } from "./i18n";
+
 interface ItemOptions {
   title: string;
   description: string;
@@ -19,6 +23,62 @@ interface EnclosureObject {
   type?: string;
 }
 
+type Feeds = {
+  serialize: (data: { query: GatsbyTypes.Query }) => ItemOptions[];
+  query: string;
+  output: string;
+  title: string;
+  match: string;
+}[];
+
+const feeds: Feeds = Object.keys(languages).map((language) => ({
+  serialize: ({
+    query: {
+      allMdx: { nodes },
+    },
+  }) =>
+    nodes.map(({ fields, frontmatter, excerpt }) => ({
+      title: frontmatter?.title || "",
+      description: excerpt,
+      url: `${siteMetadata.siteUrl}${fields?.slug || ""}`,
+      guid: `${siteMetadata.siteUrl}${fields?.slug || ""}-${
+        fields?.lastModified || ""
+      }`,
+      date: frontmatter?.date || "",
+      author: siteMetadata.author.name,
+      categories: [
+        messageCategories[language as Languages][frontmatter?.category || ""]
+          .name,
+      ].concat(fields?.tags?.map((tag) => tag?.name || "") || []),
+    })),
+  query: `{
+    allMdx(
+      filter: {
+        fields: { contentType: { eq: "blogs" },
+        language: { eq: "${language}" } }
+      }
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
+      nodes {
+        fields {
+          slug
+          tags
+          category
+          lastModified
+        }
+        frontmatter {
+          title
+          date
+        }
+        excerpt
+      }
+    }
+  }`,
+  output: `/${language}/rss.xml`,
+  title: message[language as Languages]["title"],
+  match: `^/${language}/blogs/`,
+}));
+
 export const feed = {
   resolve: "gatsby-plugin-feed",
   options: {
@@ -26,9 +86,6 @@ export const feed = {
           {
             site {
               siteMetadata {
-                author {
-                  name
-                }
                 title
                 description
                 siteUrl
@@ -37,83 +94,6 @@ export const feed = {
             }
           }
         `,
-    feeds: [
-      {
-        serialize: ({
-          query: {
-            site: { siteMetadata },
-            allMdx: { nodes },
-          },
-        }: {
-          query: {
-            site: {
-              siteMetadata: {
-                author: {
-                  name: string;
-                };
-                title: string;
-                siteUrl: string;
-              };
-            };
-            allMdx: {
-              nodes: {
-                fields: {
-                  slug: string;
-                  lastModified: string;
-                };
-                frontmatter: {
-                  title: string;
-                  date: string;
-                  category: string;
-                  tags: string[];
-                };
-                excerpt: string;
-              }[];
-            };
-          };
-        }): ItemOptions[] => {
-          return nodes.map(
-            ({
-              fields: { slug, lastModified },
-              frontmatter: { title, date, category, tags },
-              excerpt,
-            }) => ({
-              title,
-              description: excerpt,
-              url: `${siteMetadata.siteUrl}${slug}`,
-              guid: `${siteMetadata.siteUrl}${slug}-${lastModified}`,
-              date,
-              author: siteMetadata.author.name,
-              categories: [category].concat(tags),
-            })
-          );
-        },
-        query: `
-              {
-                allMdx(
-                  filter: { fields: { contentType: { eq: "blogs" } } }
-                  sort: { order: DESC, fields: [frontmatter___date] },
-                ) {
-                  nodes {
-                    fields {
-                      slug
-                      lastModified
-                    }
-                    frontmatter {
-                      title
-                      date
-                      category
-                      tags
-                    }
-                    excerpt
-                  }
-                }
-              }
-            `,
-        output: "/rss.xml",
-        title: "YXL的小屋 RSS Feed",
-        match: "^/blogs/",
-      },
-    ],
+    feeds,
   },
 };

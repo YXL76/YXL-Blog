@@ -1,4 +1,4 @@
-import { feed, languages, siteMetadata } from "./config";
+import { feed, siteMetadata } from "./config";
 
 const config = {
   polyfill: false,
@@ -52,7 +52,7 @@ const config = {
       },
     },
     "gatsby-plugin-remove-trailing-slashes",
-    // ...[feed],
+    ...[feed],
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-sitemap",
     {

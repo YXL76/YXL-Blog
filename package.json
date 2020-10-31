@@ -48,7 +48,7 @@
     "rehype-slug": "3.0.0",
     "remark-emoji": "2.1.0",
     "remark-math": "3.0.1",
-    "tailwindcss": "2.0.0-alpha.4",
+    "tailwindcss": "2.0.0-alpha.5",
     "use-persisted-state": "0.3.0"
   },
   "devDependencies": {
@@ -71,7 +71,7 @@
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "4.2.0",
-    "gatsby-plugin-ts-config": "1.1.0",
+    "gatsby-plugin-ts-config": "1.1.1",
     "prettier": "2.1.2",
     "simple-git": "2.21.0",
     "stylelint": "13.7.2",
