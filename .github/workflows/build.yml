@@ -6,6 +6,7 @@ on:
       - "src/**"
       - "static/**"
       - "assets/**"
+      - "config/**"
       - "content/**"
       - "gatsby-**.ts"
       - "gatsby-config.js"
