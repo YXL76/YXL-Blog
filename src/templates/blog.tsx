@@ -37,35 +37,64 @@ const Blog = ({
 >) => {
   const {
     body,
-    frontmatter,
-    fields,
     excerpt,
     timeToRead,
-    wordCount,
     tableOfContents,
-  } = node || {};
-  const { title, subtitle, category, date, banner, caption } =
-    frontmatter || {};
-  const { words } = wordCount || {};
-  const { lastModified, tags } = fields || {};
+    title,
+    subtitle,
+    category,
+    date,
+    fluid,
+    caption,
+    words,
+    lastModified,
+    tags,
+  } = useMemo(() => {
+    const {
+      body,
+      frontmatter,
+      fields,
+      excerpt,
+      timeToRead,
+      wordCount,
+      tableOfContents,
+    } = node || {};
+    const { title, subtitle, category, date, banner, caption } =
+      frontmatter || {};
+    const { words } = wordCount || {};
+    const { lastModified, tags } = fields || {};
+    return {
+      body,
+      excerpt,
+      timeToRead,
+      tableOfContents,
+      title,
+      subtitle,
+      category: category || "",
+      date,
+      fluid: banner?.childImageSharp?.fluid as FluidObject,
+      caption,
+      words,
+      lastModified,
+      tags,
+    };
+  }, [node]);
 
   const { trigger } = useScrollContext();
   const [value, setValue] = useState(0);
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries.length === 1 && entries[0].isIntersecting) {
-          setActive(entries[0].target.id);
-        }
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: 1.0,
+    const handler = (entries: IntersectionObserverEntry[]) => {
+      if (entries.length === 1 && entries[0].isIntersecting) {
+        setActive(entries[0].target.id);
       }
-    );
+    };
+    const observer = new IntersectionObserver(handler, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0,
+    });
     document
       .querySelectorAll("#mdx-content > h2, #mdx-content > h3")
       .forEach((node) => {
@@ -75,7 +104,7 @@ const Blog = ({
     return () => {
       observer.disconnect();
     };
-  });
+  }, []);
 
   return (
     <SEO
@@ -85,43 +114,56 @@ const Blog = ({
       description={excerpt}
       image={caption?.href}
     >
-      <style>{`#mdx-toc #toc-${active} {color: #63b3ed; border-color: #63b3ed;}`}</style>
-      {banner?.childImageSharp?.fluid && category && (
-        <BlogBanner
-          img={banner.childImageSharp.fluid}
-          category={category}
-          title={title}
-          subtitle={subtitle}
-          tags={tags || []}
-          date={date}
-          words={words}
-          timeToRead={timeToRead}
-          caption={caption}
-        />
+      <style>{`#mdx-toc #toc-${active} {color: var(----primary-main); border-color: var(----primary-main);}`}</style>
+      {useMemo(
+        () => (
+          <BlogBanner
+            img={fluid}
+            category={category}
+            title={title}
+            subtitle={subtitle}
+            tags={tags || []}
+            date={date}
+            words={words}
+            timeToRead={timeToRead}
+            caption={caption}
+          />
+        ),
+        [
+          caption,
+          category,
+          date,
+          fluid,
+          subtitle,
+          tags,
+          timeToRead,
+          title,
+          words,
+        ]
       )}
       <Grid container className="mt-6">
-        <Grid item xs zeroMinWidth>
-          <Mdx
-            className="mb-4 p-6 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
-            foot={
-              <div className="my-4 text-base italic underline">
-                Last modified on {lastModified}
-              </div>
-            }
-          >
-            {body}
-          </Mdx>
-          {useMemo(() => {
-            const near = [previous, next] as (null | {
-              fields: { slug: string };
-              frontmatter: {
-                title: string;
-                banner: {
-                  childImageSharp: { fluid: FluidObject | FluidObject[] };
-                };
+        {useMemo(() => {
+          const near = [previous, next] as (null | {
+            fields: { slug: string };
+            frontmatter: {
+              title: string;
+              banner: {
+                childImageSharp: { fluid: FluidObject | FluidObject[] };
               };
-            })[];
-            return (
+            };
+          })[];
+          return (
+            <Grid item xs zeroMinWidth>
+              <Mdx
+                className="mb-4 p-6 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                foot={
+                  <div className="my-4 text-base italic underline">
+                    Last modified on {lastModified}
+                  </div>
+                }
+              >
+                {body}
+              </Mdx>
               <div className="flex justify-between flex-col sm:flex-row">
                 {near.map((item, idx) =>
                   item ? (
@@ -162,9 +204,9 @@ const Blog = ({
                   )
                 )}
               </div>
-            );
-          }, [next, previous])}
-        </Grid>
+            </Grid>
+          );
+        }, [body, lastModified, next, previous])}
         <Hidden smDown>
           <Grid item xs={4} className="pl-12">
             <Card

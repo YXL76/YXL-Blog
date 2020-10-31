@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useMemo } from "react";
 import { languages, siteMetadata } from "../../config";
 import type { FC } from "react";
 import { Helmet } from "react-helmet";
@@ -45,8 +45,13 @@ export const SEO: FC<SEOProps> = ({
     }
   }, [locate, pathname, setLocate]);
 
-  description = description || message[locate]["description"];
-  image = image || defaultImage;
+  const { desc, img } = useMemo(
+    () => ({
+      desc: description || message[locate]["description"],
+      img: image || defaultImage,
+    }),
+    [description, image, locate]
+  );
 
   return (
     <>
@@ -58,19 +63,19 @@ export const SEO: FC<SEOProps> = ({
         titleTemplate={`%s | ${message[locate]["title"]}`}
         meta={[
           { charSet: "utf-8" },
-          { name: "description", content: description },
+          { name: "description", content: desc },
           { name: "author", content: name },
           { name: "keywords", content: keywords.join(",") },
           { name: "twitter:card", content: "summary_large_image" },
           { name: "twitter:site", content: `@${twitter}` },
           { name: "twitter:creator", content: `@${twitter}` },
           { name: "twitter:title", content: title },
-          { name: "twitter:description", content: description },
-          { name: "twitter:image", content: image },
+          { name: "twitter:description", content: desc },
+          { name: "twitter:image", content: img },
           { property: "og:url", content: href },
           { property: "og:title", content: title },
-          { property: "og:description", content: description },
-          { property: "og:image", content: image },
+          { property: "og:description", content: desc },
+          { property: "og:image", content: img },
           { property: "og:type", content: "website" },
         ]}
       />
