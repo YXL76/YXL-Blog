@@ -81,12 +81,14 @@ export const Layout: FC<LayoutProps> = ({
                 className="cursor-pointer h-full p-2"
                 alt="icon"
                 src="/icons/icon-512x512.png"
+                width={48}
+                height={48}
                 onClick={() => navigate(`/${locate}`)}
               />
               <Hidden xsDown>
                 <div className="mr-6 font-bold leading-none text-2xl uppercase">
                   <Link to={`/${locate}`} underline="none" color="inherit">
-                    {siteMetadata.title}
+                    {message[locate]["title"]}
                   </Link>
                 </div>
               </Hidden>
