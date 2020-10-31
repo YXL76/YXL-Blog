@@ -4,7 +4,7 @@ subtitle: String Matching ①
 date: 2019-03-17T16:48:50.000Z
 archive: 2019
 category: Algorithm
-tags: ["Pattern matching", "KMP"]
+tags: ["Pattern Matching", "KMP"]
 banner: ../../../assets/images/Knuth–Morris–Pratt-Algorithm/banner.webp
 caption:
   children: KiTA
@@ -25,12 +25,12 @@ int BF()
 
     while (pattern_index < pattern_size && text_index < text_size)
     {
-        if (pattern[pattern_index] == text[text_index])	//success
+        if (pattern[pattern_index] == text[text_index]) //success
         {
             ++text_index;
             ++pattern_index;
         }
-        else	//failure
+        else  //failure
         {
             text_index -= pattern_index - 1;
             pattern_index = 0;
@@ -51,12 +51,12 @@ int KMP()
 
     while (pattern_index < pattern_size && text_index < text_size)
     {
-        if (pattern_index == -1 || pattern[pattern_index] == text[text_index])	//success
+        if (pattern_index == -1 || pattern[pattern_index] == text[text_index])  //success
         {
             ++text_index;
             ++pattern_index;
         }
-        else    pattern_index = next[pattern_index];	//failure
+        else    pattern_index = next[pattern_index];  //failure
     }
     if (pattern_index == pattern_size)    return text_index - pattern_index;
     return -1;
@@ -127,10 +127,10 @@ int GetNext()
         {
             ++prefix;
             ++suffix;
-            next[suffix] = next[prefix];	//assignment
+            next[suffix] = next[prefix];  //assignment
         }
         else    prefix = next[prefix];
-	}
+  }
 }
 ```
 
@@ -166,7 +166,7 @@ int GetNext_KMP()
             else    next[suffix] = next[prefix];
         }
         else    prefix = next[prefix];
-	}
+  }
 }
 ```
 

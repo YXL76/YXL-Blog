@@ -330,7 +330,8 @@ const createCategoriesPage = async (
     name: string;
     description: string;
     caption: CategoriesValue;
-    fluid?: FluidObject;
+    small?: FluidObject;
+    big?: FluidObject;
     nodes?: ReadonlyArray<GatsbyTypes.Mdx>;
   }[] = [];
 
@@ -338,8 +339,13 @@ const createCategoriesPage = async (
     const { data } = await graphql<GatsbyTypes.Query>(`{
       allMdx(
         filter: {
-          fields: { contentType: { eq: "blogs" },
-          language: { eq: "${language}" } }
+          fields: { 
+            contentType: { eq: "blogs" },
+            language: { eq: "${language}" }
+          }
+          frontmatter: {
+            category: { eq: "${category}" }
+          }
         }
       ) {
         nodes {
@@ -348,7 +354,17 @@ const createCategoriesPage = async (
       }
     }`);
 
-    const banner = await graphql<GatsbyTypes.Query>(`{
+    const small = await graphql<GatsbyTypes.Query>(`{
+      file(relativePath: { regex: "/^images\\/categories\\/${category}.(jpg|png|webp)/" }) {
+        childImageSharp {
+          fluid(maxWidth: 1280, maxHeight: 800) {
+            ${GatsbyImageSharpFluid}
+          }
+        }
+      }
+    }`);
+
+    const big = await graphql<GatsbyTypes.Query>(`{
       file(relativePath: { regex: "/^images\\/categories\\/${category}.(jpg|png|webp)/" }) {
         childImageSharp {
           fluid(maxWidth: 2560) {
@@ -363,7 +379,8 @@ const createCategoriesPage = async (
       name: messageCategories[language][category].name,
       description: messageCategories[language][category].description,
       caption,
-      fluid: banner.data?.file?.childImageSharp?.fluid,
+      small: small.data?.file?.childImageSharp?.fluid,
+      big: big.data?.file?.childImageSharp?.fluid,
       nodes: data?.allMdx?.nodes,
     });
   }
@@ -373,21 +390,21 @@ const createCategoriesPage = async (
     component: resolve("src/templates/categories.tsx"),
     context: {
       title: message[language]["categories"],
-      categories: cats.map(({ category, name, description, fluid, nodes }) => ({
+      categories: cats.map(({ category, name, description, small, nodes }) => ({
         category,
         name,
         description,
-        fluid,
+        fluid: small,
         totalCount: nodes?.length,
       })),
     },
   });
 
-  cats.forEach((context) => {
+  cats.forEach(({ category, name, description, caption, big, nodes }) => {
     createPage({
-      path: `/${language}/categories/${context.category}`,
+      path: `/${language}/categories/${category}`,
       component: resolve("src/templates/category.tsx"),
-      context,
+      context: { name, description, caption, fluid: big, nodes },
     });
   });
 };

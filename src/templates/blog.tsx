@@ -155,7 +155,7 @@ const Blog = ({
           return (
             <Grid item xs zeroMinWidth>
               <Mdx
-                className="mb-4 p-6 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="mb-4 overflow-hidden p-6 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
                 foot={
                   <div className="my-4 text-base italic underline">
                     Last modified on {lastModified}

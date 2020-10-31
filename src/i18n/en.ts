@@ -19,9 +19,16 @@ export const enCategories: Record<
     name: "Algorithm",
     description: "description",
   },
+  "Operating System": {
+    name: "Operating System",
+    description: "description",
+  },
 };
 
 export const enTags: Record<string, string> = {
+  "Development Environment": "Development Environment",
   KMP: "KMP",
-  "Pattern matching": "Pattern matching",
+  "Pattern Matching": "Pattern Matching",
+  WSL: "WSL",
+  Windows: "Windows",
 };

@@ -19,9 +19,16 @@ export const zh_cnCategories: Record<
     name: "算法",
     description: "描述",
   },
+  "Operating System": {
+    name: "操作系统",
+    description: "描述",
+  },
 };
 
 export const zh_cnTags: Record<string, string> = {
+  "Development Environment": "开发环境",
   KMP: "KMP",
-  "Pattern matching": "模式识别",
+  "Pattern Matching": "模式识别",
+  WSL: "WSL",
+  Windows: "Windows",
 };
