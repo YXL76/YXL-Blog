@@ -52,7 +52,7 @@ const config = {
       },
     },
     "gatsby-plugin-remove-trailing-slashes",
-    ...[feed],
+    feed,
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-sitemap",
     {

@@ -1,6 +1,7 @@
-import { languages, siteMetadata } from ".";
 import { message, messageCategories } from "../src/i18n";
 import type { Languages } from "./i18n";
+import { languages } from "./i18n";
+import { siteMetadata } from "./metadata";
 
 interface ItemOptions {
   title: string;
@@ -61,14 +62,17 @@ const feeds: Feeds = Object.keys(languages).map((language) => ({
     ) {
       nodes {
         fields {
+          tags {
+            tag
+            name
+          }
           slug
-          tags
-          category
           lastModified
         }
         frontmatter {
           title
           date
+          category
         }
         excerpt
       }
@@ -76,24 +80,21 @@ const feeds: Feeds = Object.keys(languages).map((language) => ({
   }`,
   output: `/${language}/rss.xml`,
   title: message[language as Languages]["title"],
+  description: message[language as Languages]["description"],
   match: `^/${language}/blogs/`,
 }));
 
 export const feed = {
   resolve: "gatsby-plugin-feed",
   options: {
-    query: `
-          {
-            site {
-              siteMetadata {
-                title
-                description
-                siteUrl
-                site_url: siteUrl
-              }
-            }
-          }
-        `,
+    query: `{
+      site {
+        siteMetadata {
+          siteUrl
+          site_url: siteUrl
+        }
+      }
+    }`,
     feeds,
   },
 };
