@@ -19,6 +19,10 @@ export const zh_cnCategories: Record<
     name: "算法",
     description: "描述",
   },
+  Network: {
+    name: "网络",
+    description: "描述",
+  },
   "Operating System": {
     name: "操作系统",
     description: "描述",
@@ -26,9 +30,13 @@ export const zh_cnCategories: Record<
 };
 
 export const zh_cnTags: Record<string, string> = {
+  Crawler: "爬虫",
+  "Data Analysis": "数据分析",
   "Development Environment": "开发环境",
+  Douban: "豆瓣",
   KMP: "KMP",
   "Pattern Matching": "模式识别",
+  Python: "Python",
   WSL: "WSL",
   Windows: "Windows",
 };

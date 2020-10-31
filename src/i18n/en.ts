@@ -19,6 +19,10 @@ export const enCategories: Record<
     name: "Algorithm",
     description: "description",
   },
+  Network: {
+    name: "Network",
+    description: "description",
+  },
   "Operating System": {
     name: "Operating System",
     description: "description",
@@ -26,9 +30,13 @@ export const enCategories: Record<
 };
 
 export const enTags: Record<string, string> = {
+  Crawler: "Crawler",
+  "Data Analysis": "Data Analysis",
   "Development Environment": "Development Environment",
+  Douban: "Douban",
   KMP: "KMP",
   "Pattern Matching": "Pattern Matching",
+  Python: "Python",
   WSL: "WSL",
   Windows: "Windows",
 };
