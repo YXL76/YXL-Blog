@@ -35,7 +35,12 @@ jobs:
           restore-keys: |
             yarn-
 
+      - name: Install dependencies
+        run: yarn
+
       - name: Build
-        run: |
-          yarn
-          yarn build
+        run: yarn build
+        env:
+          GATSBY_ALGOLIA_APP_ID: ${{ secrets.GATSBY_ALGOLIA_APP_ID }}
+          GATSBY_ALGOLIA_SEARCH_KEY: ${{ secrets.GATSBY_ALGOLIA_SEARCH_KEY }}
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
