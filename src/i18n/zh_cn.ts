@@ -7,6 +7,7 @@ export const zh_cn: Record<string, string> = {
   contents: "目录",
   description: "请不要忘记，我在这里",
   home: "主页",
+  search: "搜索",
   tags: "标签",
   title: "YXL的小屋",
 };

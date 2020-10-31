@@ -13,6 +13,7 @@ import {
   Menu,
   MenuItem,
   Paper,
+  Search,
   Slide,
   navigate,
 } from ".";
@@ -27,11 +28,10 @@ import {
   NightsStayOutlined,
   PagesOutlined,
   RssFeedOutlined,
-  SearchOutlined,
 } from "@material-ui/icons";
 import type { FC, ReactNode } from "react";
 import React, { useMemo, useState } from "react";
-import { languages, siteMetadata } from "../../config";
+import { author, languages } from "../../config";
 import { message } from "../i18n";
 import { useLocateContext } from "../utils";
 
@@ -74,7 +74,7 @@ export const Layout: FC<LayoutProps> = ({
   const appBar = useMemo(
     () => (
       <AppBar className="h-14" color="default" elevation={1}>
-        <Container className="h-full" maxWidth="lg" component="nav">
+        <Container className="h-full px-0" maxWidth="lg" component="nav">
           <div className="h-full flex py-1">
             <div className="h-full flex flex-grow justify-start items-center">
               <img
@@ -136,9 +136,7 @@ export const Layout: FC<LayoutProps> = ({
               </Hidden>
             </div>
             <div className="flex justify-end items-center">
-              <IconButton color="inherit" aria-label="search">
-                <SearchOutlined />
-              </IconButton>
+              <Search indexName={locate} />
               <IconButton
                 color="inherit"
                 aria-label="theme"
@@ -217,7 +215,7 @@ export const Layout: FC<LayoutProps> = ({
           >
             <div className="pl-8 py-4 font-bold leading-none text-2xl uppercase">
               <Link to={`/${locate}`} underline="none">
-                {siteMetadata.title}
+                {message[locate]["title"]}
               </Link>
             </div>
             <List component="nav" className="w-screen-3/5">
@@ -263,7 +261,7 @@ export const Layout: FC<LayoutProps> = ({
         elevation={1}
         className="w-full h-14 flex flex-col items-center justify-around text-base"
       >
-        <div>© 2020 · {siteMetadata.author.name}</div>
+        <div>© 2020 · {author.name}</div>
         <div>
           Build with <Link href="https://www.gatsbyjs.com/">Gatsby</Link>
         </div>

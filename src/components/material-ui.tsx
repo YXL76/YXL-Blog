@@ -9,6 +9,7 @@ export {
   Container,
   Drawer,
   Grid,
+  InputBase,
   List,
   ListItem,
   ListItemIcon,

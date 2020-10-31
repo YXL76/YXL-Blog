@@ -1,4 +1,4 @@
-import { feed, siteMetadata } from "./config";
+import { algolia, feed, siteMetadata } from "./config";
 
 const config = {
   polyfill: false,
@@ -52,6 +52,7 @@ const config = {
       },
     },
     "gatsby-plugin-remove-trailing-slashes",
+    algolia,
     feed,
     "gatsby-plugin-robots-txt",
     "gatsby-plugin-sitemap",

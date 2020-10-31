@@ -33,15 +33,13 @@ module.exports = {
   },
   theme: {
     extend: {
-      backgroundOpacity: {
-        10: "0.1",
-      },
       inset: {
         3: "0.5rem",
         6: "1.5rem",
         12: "3rem",
         20: "5rem",
         "1/5": "20%",
+        1: "100%",
       },
       maxHeight: {
         "screen-3/4": "75vh",
@@ -56,6 +54,7 @@ module.exports = {
       },
       transitionProperty: {
         toc: "top, box-shadow",
+        width: "width",
       },
       transitionTimingFunction: {
         "slide-exit": "cubic-bezier(0.4, 0, 0.6, 1)",

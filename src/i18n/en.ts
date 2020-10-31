@@ -7,6 +7,7 @@ export const en: Record<string, string> = {
   contents: "Contents",
   description: "You Are (Not) Alone",
   home: "Home",
+  search: "Search",
   tags: "Tags",
   title: "YXL's Blog",
 };

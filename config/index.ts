@@ -1,3 +1,4 @@
+export * from "./algolia";
 export * from "./author";
 export * from "./categories";
 export * from "./feed";
