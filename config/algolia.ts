@@ -21,6 +21,7 @@ const queries: Queries = Object.keys(languages).map((language) => ({
     ) {
       nodes {
         fields {
+          lastModified
           slug
         }
         frontmatter {
