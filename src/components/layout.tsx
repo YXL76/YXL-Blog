@@ -18,6 +18,7 @@ import {
 } from ".";
 import {
   ArchiveOutlined,
+  Brightness7Outlined,
   CategoryOutlined,
   FaceOutlined,
   LanguageSharp,
@@ -27,7 +28,6 @@ import {
   PagesOutlined,
   RssFeedOutlined,
   SearchOutlined,
-  WbSunnyOutlined,
 } from "@material-ui/icons";
 import type { FC, ReactNode } from "react";
 import React, { useMemo, useState } from "react";
@@ -142,7 +142,7 @@ export const Layout: FC<LayoutProps> = ({
                 aria-label="theme"
                 onClick={toggleDarkMode}
               >
-                {darkMode ? <NightsStayOutlined /> : <WbSunnyOutlined />}
+                {darkMode ? <NightsStayOutlined /> : <Brightness7Outlined />}
               </IconButton>
               <IconButton
                 color="inherit"

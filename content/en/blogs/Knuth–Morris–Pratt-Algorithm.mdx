@@ -1,6 +1,6 @@
 ---
-title: Knuth–Morris–Pratt 算法
-subtitle: 字符串匹配 ①
+title: Knuth–Morris–Pratt the KMP Algorithm
+subtitle: String Matching ①
 date: 2019-03-17T16:48:50.000Z
 archive: 2019
 category: Algorithm
@@ -11,9 +11,9 @@ caption:
   href: https://www.pixiv.net/artworks/62341877
 ---
 
-## 初识 BF 和 KMP 算法
+## First acquaintance with BF and KMP algorithms
 
-我们先来看两段代码：
+Firstly, let’s look at these two codes:
 
 ```cpp
 int BF()
@@ -25,12 +25,12 @@ int BF()
 
     while (pattern_index < pattern_size && text_index < text_size)
     {
-        if (pattern[pattern_index] == text[text_index])	//匹配成功
+        if (pattern[pattern_index] == text[text_index])	//success
         {
             ++text_index;
             ++pattern_index;
         }
-        else	//匹配失败
+        else	//failure
         {
             text_index -= pattern_index - 1;
             pattern_index = 0;
@@ -51,69 +51,69 @@ int KMP()
 
     while (pattern_index < pattern_size && text_index < text_size)
     {
-        if (pattern_index == -1 || pattern[pattern_index] == text[text_index])	//匹配成功
+        if (pattern_index == -1 || pattern[pattern_index] == text[text_index])	//success
         {
             ++text_index;
             ++pattern_index;
         }
-        else    pattern_index = next[pattern_index];	//匹配失败
+        else    pattern_index = next[pattern_index];	//failure
     }
     if (pattern_index == pattern_size)    return text_index - pattern_index;
     return -1;
 }
 ```
 
-上面的两段代码分别是**BF 算法**和**MP(KMP)算法**。
+The two pieces of code above are **BF Algorithm** and **MP(KMP) Algorithm**.
 
-通过观察我们可以发现，这两段代码惊人的相似（假装是）。
+By observing we can see that the two pieces of code are strikingly similar.
 
-我们通过模拟算法执行的过程来发现他们之间的关系吧。
+Let’s discover the relationship between them by simulating the process performed by the algorithm.
 
 ![BF](../../../assets/images/Knuth–Morris–Pratt-Algorithm/BF.webp)
 
-**BF 算法**是朴素的匹配算法，其思想就是将文本串和模式串从头开始逐位匹配，若匹配失败（失配）则将模式串右移一位，再从头开始匹配。
+**BF Algorithm** is naive matching algorithm. It’s idea is to match the text string and the pattern string bit by bit from the beginning. If the match fails (mismatch), the pattern string is shifted to the right by one bit, and then matched from the beginning.
 
-上图共匹配了$13$次。
+The above picture shows $13$ times matching.
 
-可以发现，若在失配过多的情况下，**BF 算法**的效率能够非常高。
+It can be found that the **BF Algorithm** can be very efficient in the case of too many mismatches.
 
 ![MP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/MP.webp)
 
-**BF 算法**中的$2$、$4$步都是无用的匹配，因为$pattern[0] = text[0]$且$text[0]{\neq}text[1]$，所以$pattern[0]{\neq}text[1]$，第二步必然匹配失败，第四步同理。**MP(KMP)算法**就对此进行改进，不回溯文本串的下标，只改变模式串的下标，减去了这两步。
+The 2 and 4 steps in the **BF Algorithm** are useless matches. Because $pattern[0] = text[0]$ and $text[0]{\neq}text[1]$ , therefore, $pattern[0]{\neq}text[1]$. The second step must match the failure, the fourth step is the same. **MP(KMP) Algorithm** in order to improve this, do not backtrack the subscript of the text string, only change the subscript of the pattern string, minus the two steps.
 
-上图共匹配了$11$次。
+The above picture shows $11$ times matching.
 
-我们就得到了第一个结论：
+We get the first conclusion:
 
-> **MP(KMP)算法**与**BF 算法**的区别在于**BF 算法**每次失配后模式串仅右移一位，而**MP(KMP)算法**将右移$k(k{\geq}1, k{\in}N)$位。
+> The difference between the **MP (KMP) Algorithm** and the **BF Algorithm** is that the pattern string is shifted to the right by one bit each time the **BF Algorithm** is mismatched, and the **MP (KMP) Algorithm** is shifted to the right by $k(k{\geq}1, k{\in}N)$ bits.
 
-## 计算右移位数
+## Calculate the number of right shifts
 
-知道了**MP(KMP)算法**与**BF 算法**的区别后，现在的关键就是如何计算右移的$k$值。
+Knowing the difference between **MP(KMP) Algorithm** and **BF Algorithm**, the key now is how to calculate the right-shifted $k$ value.
 
-我们再看三个例子：
+Let‘s look at three more examples:
 
 ![example](../../../assets/images/Knuth–Morris–Pratt-Algorithm/example.webp)
 
-记$P$为模式串所有前缀的集合，$S$为模式串所有后缀的集合，对于样例一的已匹配串$P=\{A,AB,ABC,ABCA,ABCAB\}$，$S=\{B,AB,CAB,BCAB,ABCAB\}$。
+Marking that $P$ is the set of all prefixes of the pattern string, $S$ is the set of all suffixes of the pattern string, for the matched string of the example one $P=\{A,AB,ABC,ABCA,ABCAB\}$, $S=\{B,AB,CAB,BCAB,ABCAB\}$.
 
-可以发现，匹配串的 P 和 S 交集的最大元素为 AB​，而前后两次匹配就是将模式串从前缀 AB​ 移动到后缀 AB​。
+It can be found that the longest same element of the P and S of the matching string is AB, and the previous two matches are to move the pattern string from the prefix AB to the suffix AB.
 
-因为**MP(KMP)算法**是从左向右遍历，我们只需记录模式串所有前缀子串的最长前缀后缀的长度为$l[i]$，那么每一次失配后，模式串右移$Length-l[i-1]-1$位。记$next[i]=l[i]$，**MP(KMP)算法**的主程序便出来了。
+Since **MP(KMP) Algorithm** is traversed from left to right, we only need to record the length of the longest same element of the $P$ and $S$ of all prefix substrings of the pattern string as $l[i]$$. And then, after each mismatch, the pattern string is shifted to the right by $Length-l[i-1]-1$. Marking $next[i]=l[i]\$, and the **MP(KMP) Algorithm** will come out.
 
-于是我们就得到了第二个结论：
+So we get the second conclusion:
 
-> **MP 算法**将右移的$k$值大小等于已匹配模式串的最长前缀后缀。
+> **MP Algorithm**‘s right-shifted $k$ value equal to the longest same element of the $P$ and $S$ of the matched pattern string.
 
-## 计算 next 数组
+## Compute next array
 
-那么如何计算$next[i]$呢？答案仍从**MP(KMP)算法**中来。
+So how do you calculate $next[i]$? The answer is still coming from **MP(KMP) Algorithm**.
 
-我们将模式串与自身进行匹配，注意到匹配成功的串就是对应子串的最长前缀后缀。
+We match the pattern string with itself, noting that the string that matches successfully is the longest same element of the $P$ and $S$ of the corresponding substring.
 
 ![self](../../../assets/images/Knuth–Morris–Pratt-Algorithm/self.webp)
 
-因此，我们只需在**MP(KMP)算法**的程序中匹配成功后增加对$next$数组的赋值语句就完成了对$next$数组的求解。（其中$next[0]=-1, next[i]=0, i > 0$）
+Therefore, we only need to add the assignment statement to the $next$ array after matching in the **MP(KMP) Algorithm** program to complete the solution to the $next$ array. ($next[0]=-1, next[i]=0, i > 0$)
 
 ```cpp
 int GetNext()
@@ -127,28 +127,28 @@ int GetNext()
         {
             ++prefix;
             ++suffix;
-            next[suffix] = next[prefix];	//赋值
+            next[suffix] = next[prefix];	//assignment
         }
         else    prefix = next[prefix];
 	}
 }
 ```
 
-至此，我们完成了**MP 算法**的所有实现。
+At this point, we have completed all the code of **MP Algorithm**.
 
-第三个结论：
+The third conclusion:
 
-> 将模式串与自身匹配即可得到$next$数组。
+> Match the pattern string to itself to get the $next$ array.
 
-## 完成 KMP 算法
+## Complete KMP algorithm
 
-我们再来看一个例子：
+Let‘s look at an example:
 
 ![KMP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/KMP.webp)
 
-在这个例子中，第二次匹配必然失败，因为$pattern[i]=pattern[next[i]]$，而$pattern[i]{\neq}text[i]$，所以$pattern[next[i]]{\neq}text[i]$。
+In this example, the second match must fail. Because $pattern[i]=pattern[next[i]]$, and $pattern[i]{\neq}text[i]$, therefore, $pattern[next[i]]{\neq}text[i]$.
 
-所以我们在函数中增加一次判断来优化算法。
+So we add a judgment to the function to optimize the algorithm.
 
 ```cpp
 int GetNext_KMP()
@@ -170,17 +170,17 @@ int GetNext_KMP()
 }
 ```
 
-最终我们就得到了**KMP 算法**的所有代码。
+In the end, we get all the code for **KMP Algorithm**.
 
-## 时间复杂度
+## Time Complexity
 
-- BF 算法：$O(nm)$
-- MP 算法：$O(m)+O(n+m)$
-- KMP 算法：$O(m)+O(n+m)$
+- BF Algorithm: $O(nm)$
+- MP Algorithm: $O(m)+O(n+m)$
+- KMP Algorithm: $O(m)+O(n+m)$
 
 ---
 
-- _BF 算法：Brute Force 算法_
-- _MP 算法：Morris-Pratt 算法_
-- _KMP 算法：Knuth-Morris-Pratt 算法_
-- _[参考代码](https://github.com/YXL76/my-cpp-library/blob/master/my-cpp-library/include/Algorithm/StringAlgorithm.h)_
+- _BF Algorithm:Brute Force Algorithm_
+- _MP Algorithm:Morris-Pratt Algorithm_
+- _KMP Algorithm:Knuth-Morris-Pratt Algorithm_
+- _[Reference Code](https://github.com/YXL76/my-cpp-library/blob/master/my-cpp-library/include/Algorithm/StringAlgorithm.h)_
