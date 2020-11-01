@@ -206,49 +206,44 @@ export const Layout: FC<LayoutProps> = ({
       <Slide appear={false} direction="down" timeout={300} in={!trigger}>
         {appBar}
       </Slide>
-      {useMemo(
-        () => (
-          <Drawer
-            anchor="left"
-            open={openDrawer}
-            onClose={() => setOpenDrawer(false)}
-          >
-            <div className="pl-8 py-4 font-bold leading-none text-2xl uppercase">
-              <Link to={`/${locate}`} underline="none">
-                {message[locate]["title"]}
-              </Link>
-            </div>
-            <List component="nav" className="w-screen-3/5">
-              <ListItemLink
-                to={`/${locate}/blogs`}
-                text="Blogs"
-                icon={<PagesOutlined />}
-              />
-              <ListItemLink
-                to={`/${locate}/categories`}
-                text="Categories"
-                icon={<CategoryOutlined />}
-              />
-              <ListItemLink
-                to={`/${locate}/tags`}
-                text="Tags"
-                icon={<LocalOfferOutlined />}
-              />
-              <ListItemLink
-                to={`/${locate}/archives`}
-                text="Archives"
-                icon={<ArchiveOutlined />}
-              />
-              <ListItemLink
-                to={`/${locate}/about`}
-                text="About"
-                icon={<FaceOutlined />}
-              />
-            </List>
-          </Drawer>
-        ),
-        [locate, openDrawer]
-      )}
+      <Drawer
+        anchor="left"
+        open={openDrawer}
+        onClose={() => setOpenDrawer(false)}
+      >
+        <div className="pl-8 py-4 font-bold leading-none text-2xl uppercase">
+          <Link to={`/${locate}`} underline="none">
+            {message[locate]["title"]}
+          </Link>
+        </div>
+        <List component="nav" className="w-screen-3/5">
+          <ListItemLink
+            to={`/${locate}/blogs`}
+            text="Blogs"
+            icon={<PagesOutlined />}
+          />
+          <ListItemLink
+            to={`/${locate}/categories`}
+            text="Categories"
+            icon={<CategoryOutlined />}
+          />
+          <ListItemLink
+            to={`/${locate}/tags`}
+            text="Tags"
+            icon={<LocalOfferOutlined />}
+          />
+          <ListItemLink
+            to={`/${locate}/archives`}
+            text="Archives"
+            icon={<ArchiveOutlined />}
+          />
+          <ListItemLink
+            to={`/${locate}/about`}
+            text="About"
+            icon={<FaceOutlined />}
+          />
+        </List>
+      </Drawer>
       <Container
         maxWidth="lg"
         component="main"

@@ -16,11 +16,16 @@ const Tags = ({
     <SEO href={href} pathname={pathname} title={title}>
       {useMemo(
         () => (
-          <Paper className="pt-6 pb-4 px-4 sm:rounded-3xl">
+          <Paper className="pt-6 pb-4 px-4 rounded-3xl">
             {Object.entries(tags).map(([tag, { name, count }], idx) => (
-              <Badge badgeContent={count} color="primary" key={idx}>
+              <Badge
+                className="m-2"
+                badgeContent={count}
+                color="primary"
+                key={idx}
+              >
                 <Link
-                  className="m-4"
+                  className="m-1"
                   to={`/${locate}/tags/${tag}`}
                   style={{ fontSize: 16 + count * 2 }}
                 >

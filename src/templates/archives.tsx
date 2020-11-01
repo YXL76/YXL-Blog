@@ -22,7 +22,7 @@ const Archives = ({
   pageContext: { title, group },
 }: PageProps<null, { title: string } & GatsbyTypes.MdxConnection>) => (
   <SEO href={href} pathname={pathname} title={title}>
-    <Paper className="overflow-hidden sm:rounded-3xl">
+    <Paper className="overflow-hidden rounded-3xl">
       <Timeline align="left">
         {group.map(({ fieldValue, nodes }, idx) => (
           <TimelineItem key={idx}>

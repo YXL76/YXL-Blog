@@ -113,3 +113,45 @@ h6 {
 #mdx-content > pre > code {
   font-size: 1rem;
 }
+
+@media (max-width: 600px) {
+  #mdx-content {
+    font-size: 1rem;
+  }
+
+  #mdx-content > h1 {
+    font-size: 2.25rem;
+  }
+
+  #mdx-content > h2 {
+    font-size: 1.75rem;
+  }
+
+  #mdx-content > h3 {
+    font-size: 1.5rem;
+  }
+
+  #mdx-content > h4 {
+    font-size: 1.375rem;
+  }
+
+  #mdx-content > h5 {
+    font-size: 1.25rem;
+  }
+
+  #mdx-content > h6 {
+    font-size: 1.125rem;
+  }
+
+  #mdx-content > p {
+    line-height: 1.5rem;
+  }
+
+  #mdx-content > p > code {
+    font-size: 0.94rem;
+  }
+
+  #mdx-content > pre > code {
+    font-size: 0.875rem;
+  }
+}

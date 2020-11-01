@@ -1,9 +1,9 @@
-import { BlogMetadataChip, Button, Link } from ".";
+import { BlogMetadataChip, Button, Hidden, Link, Paper } from ".";
+import { CategoryOutlined, LocalOfferOutlined } from "@material-ui/icons";
+import React, { useMemo } from "react";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
-import { LocalOfferOutlined } from "@material-ui/icons";
-import React from "react";
 import { useLocateContext } from "../utils";
 
 type BlogBannerProps = {
@@ -30,62 +30,88 @@ export const BlogBanner: FC<BlogBannerProps> = ({
   caption,
 }) => {
   const { locate } = useLocateContext();
+
+  const Category = useMemo(
+    () => (
+      <Button
+        className="rounded-2xl mr-2 mt-2 sm:mb-2 md:mb-4"
+        variant="contained"
+        color="primary"
+        size="small"
+        startIcon={<CategoryOutlined />}
+        to={`/${locate}/categories/${category}`}
+      >
+        {category}
+      </Button>
+    ),
+    [category, locate]
+  );
+
+  const Tags = useMemo(
+    () =>
+      tags.map(
+        (item, idx) =>
+          item?.tag && (
+            <Button
+              key={idx}
+              className="rounded-2xl mr-2 mt-2"
+              color="primary"
+              startIcon={<LocalOfferOutlined />}
+              size="small"
+              variant="contained"
+              to={`/${locate}/tags/${item.tag}`}
+            >
+              {item.name}
+            </Button>
+          )
+      ),
+    [locate, tags]
+  );
+
   return (
-    <div className="relative overflow-hidden w-full sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
-      <Img fluid={img} />
-      <div className="absolute leading-tight text-bg text-shadow left-3 bottom-3 sm:left-6 sm:bottom-6 md:left-12 md:bottom-12">
-        <Button
-          className="rounded-xl sm:mb-2 md:mb-4"
-          variant="contained"
-          color="primary"
-          size="large"
-          to={`/${locate}/categories/${category}`}
-        >
-          {category}
-        </Button>
-        <h1 className="tracking-wider text-3xl sm:text-4xl md:text-5xl sm:mb-2 md:mb-4">
-          {title}
-        </h1>
-        <h2 className="tracking-wide text-xl sm:text-2xl md:text-3xl">
-          {subtitle}
-        </h2>
-        <div className="flex flex-wrap mt-2">
-          {tags.map(
-            (item, idx) =>
-              item?.tag && (
-                <Button
-                  key={idx}
-                  className="rounded-2xl mr-2 mt-2"
-                  color="primary"
-                  startIcon={<LocalOfferOutlined />}
-                  size="small"
-                  variant="contained"
-                  to={`/${locate}/tags/${item.tag}`}
-                >
-                  {item.name}
-                </Button>
-              )
-          )}
+    <>
+      <div className="relative overflow-hidden w-full rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
+        <Img fluid={img} />
+        <div className="absolute leading-tight text-bg text-shadow left-3 bottom-3 sm:left-6 sm:bottom-6 md:left-12 md:bottom-12">
+          <Hidden smDown>{Category}</Hidden>
+          <h1 className="tracking-wider text-2xl sm:text-3xl md:text-4xl sm:mb-2 md:mb-4">
+            {title}
+          </h1>
+          <h2 className="tracking-wide text-base sm:text-xl md:text-2xl">
+            {subtitle}
+          </h2>
+          <Hidden smDown>
+            <div className="flex flex-wrap mt-2">{Tags}</div>
+          </Hidden>
         </div>
-      </div>
-      <div className="absolute left-3 top-3 sm:left-6 sm:top-6 md:left-12 md:top-12 flex items-center justify-center flex-wrap mt-1">
-        <BlogMetadataChip
-          className="font-bold text-bg text-shadow sm:text-lg md:text-xl"
-          iconClassName="text-bg text-shadow text-xl md:text-2xl"
-          date={date}
-          words={words}
-          timeToRead={timeToRead}
-        />
-      </div>
-      {caption && (
-        <div className="absolute right-0 bottom-0 px-2 bg-black bg-opacity-50 rounded">
-          <Link
-            className="text-white tracking-wide text-xs sm:text-sm md:text-base"
-            underline="none"
-            {...caption}
+        <div className="absolute left-3 top-3 sm:left-6 sm:top-6 md:left-12 md:top-12 flex items-center justify-center flex-wrap mt-1">
+          <BlogMetadataChip
+            className="font-bold text-bg text-shadow sm:text-lg md:text-xl"
+            iconClassName="text-bg text-shadow text-xl md:text-2xl"
+            date={date}
+            words={words}
+            timeToRead={timeToRead}
           />
         </div>
-      )}
-    </div>
+        {caption && (
+          <div className="absolute right-0 bottom-0 px-2 bg-black bg-opacity-50 rounded">
+            <Link
+              className="text-white tracking-wide text-xs sm:text-sm md:text-base"
+              underline="none"
+              {...caption}
+            />
+          </div>
+        )}
+      </div>
+      <Hidden smUp>
+        <Paper
+          elevation={0}
+          className="px-2 pb-2 mt-4 flex flex-wrap justify-center rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+        >
+          {Category}
+          {Tags}
+        </Paper>
+      </Hidden>
+    </>
   );
 };

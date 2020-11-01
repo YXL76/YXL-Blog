@@ -3,8 +3,6 @@ import {
   BlogBanner,
   ButtonBase,
   Card,
-  Grid,
-  Hidden,
   Mdx,
   Paper,
   SEO,
@@ -26,7 +24,6 @@ import GitalkComponent from "gitalk/dist/gitalk-component";
 import Img from "gatsby-image";
 import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
-import { gitalkOptions } from "../../config";
 
 const Blog = ({
   location: { href, pathname },
@@ -145,14 +142,53 @@ const Blog = ({
           words,
         ]
       )}
-      <Grid container className="mt-6">
-        <Grid item xs zeroMinWidth>
+      <div className="grid grid-cols-3 md:grid-flow-col mt-4">
+        <div className="col-span-3 md:col-span-1 md:col-end-4 md:pl-8 mb-4">
+          <Card
+            className={`group sticky overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-toc duration-300 ease-out ${
+              trigger ? "top-6 ease-slide-exit" : "top-20"
+            }`}
+          >
+            {useMemo(
+              () => (
+                <>
+                  <Tabs
+                    indicatorColor="primary"
+                    value={value}
+                    onChange={(_event: ChangeEvent<{}>, newValue: number) => {
+                      setValue(newValue);
+                    }}
+                    variant="fullWidth"
+                  >
+                    <Tab label={contents} />
+                    <Tab label={author} />
+                  </Tabs>
+                  <TabPanel value={value} index={0}>
+                    <aside
+                      id="mdx-toc"
+                      className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto"
+                    >
+                      {TOC(
+                        ((tableOfContents as unknown) as TocItem)?.items || []
+                      )}
+                    </aside>
+                  </TabPanel>
+                  <TabPanel value={value} index={1}>
+                    <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
+                  </TabPanel>
+                </>
+              ),
+              [author, contents, tableOfContents, value]
+            )}
+          </Card>
+        </div>
+        <div className="col-span-3 md:col-span-2 md:col-start-1">
           {useMemo(
             () => (
               <Mdx
-                className="mb-4 overflow-hidden p-6 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                className="mb-4 overflow-hidden p-2 sm:p-4 md:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
                 foot={
-                  <div className="my-4 text-base italic underline">
+                  <div className="mx-4 text-base italic underline">
                     Last modified on {lastModified}
                   </div>
                 }
@@ -178,12 +214,12 @@ const Blog = ({
                   item ? (
                     <div
                       key={idx}
-                      className="w-full sm:w-15/32 relative my-4 overflow-hidden sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                      className="w-full sm:w-15/32 relative my-4 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
                     >
                       <Img
                         fluid={item.frontmatter.banner.childImageSharp.fluid}
                       />
-                      <div className="absolute left-0 right-0 top-1/5 font-bold text-white text-center text-3xl sm:text-2xl lg:text-3xl tracking-wide">
+                      <div className="absolute left-0 right-0 top-1/5 p-2 font-bold text-shadow text-bg text-center text-2xl tracking-wide">
                         {item.frontmatter.title}
                       </div>
                       {idx === 0 ? (
@@ -216,7 +252,10 @@ const Blog = ({
             );
           }, [next, previous])}
           {typeof window !== "undefined" && (
-            <Paper>
+            <Paper
+              elevation={0}
+              className="rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
               <GitalkComponent
                 options={{
                   clientID: process.env.GITALK_CLIENT_ID as string,
@@ -231,49 +270,8 @@ const Blog = ({
               />
             </Paper>
           )}
-        </Grid>
-        <Hidden smDown>
-          <Grid item xs={4} className="pl-12">
-            <Card
-              className={`group sticky overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-toc duration-300 ease-out ${
-                trigger ? "top-6 ease-slide-exit" : "top-20"
-              }`}
-            >
-              {useMemo(
-                () => (
-                  <>
-                    <Tabs
-                      indicatorColor="primary"
-                      value={value}
-                      onChange={(_event: ChangeEvent<{}>, newValue: number) => {
-                        setValue(newValue);
-                      }}
-                      variant="fullWidth"
-                    >
-                      <Tab label={contents} />
-                      <Tab label={author} />
-                    </Tabs>
-                    <TabPanel value={value} index={0}>
-                      <aside
-                        id="mdx-toc"
-                        className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto"
-                      >
-                        {TOC(
-                          ((tableOfContents as unknown) as TocItem)?.items || []
-                        )}
-                      </aside>
-                    </TabPanel>
-                    <TabPanel value={value} index={1}>
-                      <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
-                    </TabPanel>
-                  </>
-                ),
-                [author, contents, tableOfContents, value]
-              )}
-            </Card>
-          </Grid>
-        </Hidden>
-      </Grid>
+        </div>
+      </div>
     </SEO>
   );
 };

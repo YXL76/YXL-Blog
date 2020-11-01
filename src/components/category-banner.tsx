@@ -24,9 +24,9 @@ export const CategoryBanner: FC<CategoryBannerProps> = ({
       <div className="flex flex-col items-center text-shadow tracking-wider pt-2 md:pt-4 w-full sm:w-4/5 md:w-3/5 text-center text-bg">
         <CategoryOutlined className="bg-blue-400 p-2 sm:p-3 mb-2 rounded-full text-5xl sm:text-6xl" />
         <h2 className="text-axl sm:text-5xl md:text-6xl">{category}</h2>
-        <p className="font-medium leading-snug text-xl sm:text-2xl md:text-3xl">
+        <div className="font-medium leading-snug text-xl sm:text-2xl md:text-3xl sm:mt-2 md:mt-4">
           {description}
-        </p>
+        </div>
       </div>
     </div>
     {caption && (
