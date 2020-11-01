@@ -258,8 +258,8 @@ const Blog = ({
             >
               <GitalkComponent
                 options={{
-                  clientID: process.env.GITALK_CLIENT_ID as string,
-                  clientSecret: process.env.GITALK_CLIENT_SECRET as string,
+                  clientID: "74dc125879a0be6e815a",
+                  clientSecret: "eb476c63b9f6143385bd664f0ea85d6dfc255077",
                   repo: "YXL-Blog",
                   owner: "YXL76",
                   admin: ["YXL76"],
