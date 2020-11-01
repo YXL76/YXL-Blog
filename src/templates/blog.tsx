@@ -254,7 +254,7 @@ const Blog = ({
           {typeof window !== "undefined" && (
             <Paper
               elevation={0}
-              className="rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="rounded-3xl px-4 overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <GitalkComponent
                 options={{
@@ -264,7 +264,7 @@ const Blog = ({
                   owner: "YXL76",
                   admin: ["YXL76"],
                   id: pathname.replace(/^\/(?:[^/]+)/, ""),
-                  body: `![${title || ""}](${href})`,
+                  body: `[${title || ""}](${href})`,
                   language: locate,
                 }}
               />
