@@ -219,27 +219,27 @@ export const Layout: FC<LayoutProps> = ({
         <List component="nav" className="w-screen-3/5">
           <ListItemLink
             to={`/${locate}/blogs`}
-            text="Blogs"
+            text={message[locate]["Blogs"]}
             icon={<PagesOutlined />}
           />
           <ListItemLink
             to={`/${locate}/categories`}
-            text="Categories"
+            text={message[locate]["Categories"]}
             icon={<CategoryOutlined />}
           />
           <ListItemLink
             to={`/${locate}/tags`}
-            text="Tags"
+            text={message[locate]["Tags"]}
             icon={<LocalOfferOutlined />}
           />
           <ListItemLink
             to={`/${locate}/archives`}
-            text="Archives"
+            text={message[locate]["Archives"]}
             icon={<ArchiveOutlined />}
           />
           <ListItemLink
             to={`/${locate}/about`}
-            text="About"
+            text={message[locate]["About"]}
             icon={<FaceOutlined />}
           />
         </List>
