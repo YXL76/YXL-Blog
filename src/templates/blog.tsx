@@ -220,7 +220,7 @@ const Blog = ({
               <GitalkComponent
                 options={{
                   ...gitalkOptions,
-                  id: pathname,
+                  id: pathname.replace(/^\/(?:[^/]+)/, ""),
                   body: `![${title || ""}](${href})`,
                   language: locate,
                 }}
