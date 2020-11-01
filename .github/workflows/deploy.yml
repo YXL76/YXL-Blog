@@ -28,13 +28,24 @@ jobs:
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-      - uses: actions/cache@v2
+      - name: Get yarn cache
+        uses: actions/cache@v2
         id: yarn-cache
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
           key: yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             yarn-
+
+      - name: Get gatsby cache
+        uses: actions/cache@v2
+        with:
+          path: |
+            .cache
+            public
+          key: gatsby-${{ hashFiles('**/gatsby-node.ts') }}-${{ hashFiles('**/gatsby-config.ts') }}-${{ hashFiles('**/gatsby-browser.ts') }}
+          restore-keys: |
+            gatsby-${{ hashFiles('**/gatsby-node.ts') }}-${{ hashFiles('**/gatsby-config.ts') }}-
 
       - name: Install dependencies
         run: yarn
