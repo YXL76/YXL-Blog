@@ -14,6 +14,7 @@
     "@mdx-js/react": "1.6.19",
     "algoliasearch": "4.5.1",
     "autoprefixer": "10.0.1",
+    "blueimp-md5": "2.18.0",
     "fontsource-noto-sans-sc": "3.0.3",
     "fontsource-source-code-pro": "3.0.10",
     "gatsby": "2.24.91",
@@ -56,6 +57,7 @@
     "use-persisted-state": "0.3.0"
   },
   "devDependencies": {
+    "@types/blueimp-md5": "2.7.0",
     "@types/lodash.merge": "4.6.6",
     "@types/node": "12.19.3",
     "@types/react": "16.9.55",

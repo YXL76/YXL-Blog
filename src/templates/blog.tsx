@@ -24,6 +24,7 @@ import GitalkComponent from "gitalk/dist/gitalk-component";
 import Img from "gatsby-image";
 import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
+import md5 from "blueimp-md5";
 
 const Blog = ({
   location: { href, pathname },
@@ -263,7 +264,7 @@ const Blog = ({
                   repo: "YXL-Blog",
                   owner: "YXL76",
                   admin: ["YXL76"],
-                  id: pathname.replace(/^\/(?:[^/]+)/, ""),
+                  id: md5(pathname.replace(/^\/(?:[^/]+)\//, "")),
                   body: `[${title || ""}](${href})`,
                   language: locate,
                 }}

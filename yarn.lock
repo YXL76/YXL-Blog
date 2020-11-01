@@ -2973,6 +2973,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/blueimp-md5@npm:2.7.0":
+  version: 2.7.0
+  resolution: "@types/blueimp-md5@npm:2.7.0"
+  checksum: fa5c678bbe2d495b6fbc76055227d5dbab4b41cc6c2f1705fcdd1152945ac08c12b6a95a36376ca3221d8e62c38bf2b099da5847aa5702eebf1134e8eaf206e0
+  languageName: node
+  linkType: hard
+
 "@types/cacheable-request@npm:^6.0.1":
   version: 6.0.1
   resolution: "@types/cacheable-request@npm:6.0.1"
@@ -5053,6 +5060,13 @@ __metadata:
   version: 3.7.2
   resolution: "bluebird@npm:3.7.2"
   checksum: 4f2288662f3d4eadbb82d4daa4a7d7976a28fa3c7eb4102c9b4033b03e5be4574ba123ac52a7c103cde4cb7b2d2afc1dbe41817ca15a29ff21ecd258d0286047
+  languageName: node
+  linkType: hard
+
+"blueimp-md5@npm:2.18.0":
+  version: 2.18.0
+  resolution: "blueimp-md5@npm:2.18.0"
+  checksum: cc115b7e0f5573a26a3a6af699f98f7d29477bd529ffaee06ba8dcb2b470f88b0e762d09df771bc356fcdcfdb0d1d02cd8529889f32b03c7d3baf42817c46d67
   languageName: node
   linkType: hard
 
@@ -23498,6 +23512,7 @@ typescript@4.0.5:
     "@material-ui/lab": 4.0.0-alpha.56
     "@mdx-js/mdx": 1.6.19
     "@mdx-js/react": 1.6.19
+    "@types/blueimp-md5": 2.7.0
     "@types/lodash.merge": 4.6.6
     "@types/node": 12.19.3
     "@types/react": 16.9.55
@@ -23510,6 +23525,7 @@ typescript@4.0.5:
     algoliasearch: 4.5.1
     autoprefixer: 10.0.1
     babel-eslint: 10.1.0
+    blueimp-md5: 2.18.0
     eslint: 7.12.1
     eslint-config-prettier: 6.15.0
     eslint-config-react-app: 6.0.0
