@@ -219,7 +219,11 @@ const Blog = ({
             <Paper>
               <GitalkComponent
                 options={{
-                  ...gitalkOptions,
+                  clientID: process.env.GITALK_CLIENT_ID as string,
+                  clientSecret: process.env.GITALK_CLIENT_SECRET as string,
+                  repo: "YXL-Blog",
+                  owner: "YXL76",
+                  admin: ["YXL76"],
                   id: pathname.replace(/^\/(?:[^/]+)/, ""),
                   body: `![${title || ""}](${href})`,
                   language: locate,
