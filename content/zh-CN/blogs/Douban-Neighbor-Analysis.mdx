@@ -31,7 +31,7 @@ caption:
 
 ![Tutorial-1](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-1.webp)
 
-``` python {linenos=table}
+```python
 import requests
 from bs4 import BeautifulSoup
 
@@ -66,7 +66,7 @@ print('获取成功')
 
 ![Tutorial-2](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-2.webp)
 
-``` python {linenos=table}
+```python
 # 从爬取的页面中获取用户的友邻总数
 
 # css 选择器
@@ -83,7 +83,7 @@ print(num)
 
 有了友邻数量后，就可以遍历所有页面。对于每一个页面，每个友邻都有一个指向他们自己主页的链接。主页的 `url` 对应的 `css selector` 都为 `#content > div > div.article > dl > dt > a`。每个url的形式如[https://www.douban.com/people/zeqingg/](https://www.douban.com/people/zeqingg/)，可以非常方便地提取出uid。
 
-``` python {linenos=table}
+```python
 # 爬取所有友邻列表页面，获取所有友邻的 uid ，保存至本地
 
 from settings import uid_file
@@ -127,7 +127,7 @@ with open(uid_file, 'w') as file:
 
 需要注意的是，豆瓣具有反爬虫机制，对单位时间内的访问次数有限制。如果在短时间内进行了大量访问就会被拦截。所以，使用 `python` 中 `time` 模块的 `sleep()` 函数，在每次请求后加入 `2` 秒钟的延迟，避开被拦截的可能。
 
-``` python {linenos=table}
+```python
 from json import loads
 
 
@@ -259,7 +259,7 @@ with open(uid_file) as infile:
 
 ### 绘制友邻分布地图
 
-``` python {linenos=table}
+```python
 from settings import loc_lat
 from settings import loc_lon
 from settings import mapbox_access_token
@@ -342,7 +342,7 @@ py.iplot(fig, filename='neighbor_distribution_map')
 
 ### 绘制友邻男女广播图
 
-``` python {linenos=table}
+```python
 from math import ceil
 from bisect import bisect_left
 
@@ -425,7 +425,7 @@ py.iplot(dict(data=data, layout=layout), filename='status_pyramid_chart')
 
 ### 绘制注册时间图
 
-``` python {linenos=table}
+```python
 from settings import reg_year_range
 
 reg_year_num = np.array(list(0 for _ in reg_year_range))
@@ -455,7 +455,7 @@ py.iplot([trace], filename='reg_year_pie_chart')
 
 ### 绘制观影数据图
 
-``` python {linenos=table}
+```python
 import cufflinks as cf
 import pandas as pd
 
@@ -475,7 +475,7 @@ df.iplot(kind='bubble', x=csv_title[5], y=csv_title[6], size=csv_title[4], text=
 
 ### 绘制友邻常看电影类型分布图
 
-``` python {linenos=table}
+```python
 from settings import genre_range
 
 genre_num = np.array(list(0 for _ in genre_range))
@@ -529,7 +529,7 @@ py.iplot(data, filename='genre_horizontal_bar_chart')
 
 ### 绘制友邻常看电影地区分布图
 
-``` python {linenos=table}
+```python
 from settings import country_range
 
 total = 0

@@ -6,6 +6,7 @@ import {
   Grid,
   Hidden,
   Mdx,
+  Paper,
   SEO,
   TOC,
   Tab,
@@ -18,12 +19,14 @@ import {
   NavigateNextOutlined,
 } from "@material-ui/icons";
 import React, { useEffect, useMemo, useState } from "react";
+import { useLocateContext, useScrollContext } from "../utils";
 import type { ChangeEvent } from "react";
 import type { FluidObject } from "gatsby-image";
+import GitalkComponent from "gitalk/dist/gitalk-component";
 import Img from "gatsby-image";
 import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
-import { useScrollContext } from "../utils";
+import { gitalkOptions } from "../../config";
 
 const Blog = ({
   location: { href, pathname },
@@ -80,6 +83,7 @@ const Blog = ({
     };
   }, [node]);
 
+  const { locate } = useLocateContext();
   const { trigger } = useScrollContext();
   const [value, setValue] = useState(0);
   const [active, setActive] = useState("");
@@ -142,18 +146,9 @@ const Blog = ({
         ]
       )}
       <Grid container className="mt-6">
-        {useMemo(() => {
-          const near = [previous, next] as (null | {
-            fields: { slug: string };
-            frontmatter: {
-              title: string;
-              banner: {
-                childImageSharp: { fluid: FluidObject | FluidObject[] };
-              };
-            };
-          })[];
-          return (
-            <Grid item xs zeroMinWidth>
+        <Grid item xs zeroMinWidth>
+          {useMemo(
+            () => (
               <Mdx
                 className="mb-4 overflow-hidden p-6 sm:rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
                 foot={
@@ -164,6 +159,20 @@ const Blog = ({
               >
                 {body}
               </Mdx>
+            ),
+            [body, lastModified]
+          )}
+          {useMemo(() => {
+            const near = [previous, next] as (null | {
+              fields: { slug: string };
+              frontmatter: {
+                title: string;
+                banner: {
+                  childImageSharp: { fluid: FluidObject | FluidObject[] };
+                };
+              };
+            })[];
+            return (
               <div className="flex justify-between flex-col sm:flex-row">
                 {near.map((item, idx) =>
                   item ? (
@@ -204,9 +213,19 @@ const Blog = ({
                   )
                 )}
               </div>
-            </Grid>
-          );
-        }, [body, lastModified, next, previous])}
+            );
+          }, [next, previous])}
+          <Paper>
+            <GitalkComponent
+              options={{
+                ...gitalkOptions,
+                id: pathname,
+                body: `![${title || ""}](${href})`,
+                language: locate,
+              }}
+            />
+          </Paper>
+        </Grid>
         <Hidden smDown>
           <Grid item xs={4} className="pl-12">
             <Card

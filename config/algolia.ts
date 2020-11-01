@@ -5,7 +5,7 @@ type Queries = {
   query: string;
   transformer: (_: {
     data: GatsbyTypes.Query;
-  }) => ({ objectID: string } & Record<string, any>)[];
+  }) => ({ objectID?: string } & Record<string, any>)[];
   settings: Record<string, any>;
 }[];
 
@@ -28,14 +28,13 @@ const queries: Queries = Object.keys(languages).map((language) => ({
           title
           subtitle
         }
-        id
         excerpt(pruneLength: 5000)
       }
     }
   }`,
   transformer: ({ data }) =>
-    data.allMdx.nodes.map(({ fields, frontmatter, id, excerpt }) => ({
-      objectID: id,
+    data.allMdx.nodes.map(({ fields, frontmatter, excerpt }) => ({
+      objectID: fields?.slug,
       ...fields,
       ...frontmatter,
       excerpt,

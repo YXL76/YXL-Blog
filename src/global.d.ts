@@ -71,3 +71,11 @@ declare module "gatsby-theme-material-ui-top-layout/src/components/top-layout" {
     props: ThemeTopLayoutProps
   ): JSX.Element;
 }
+
+declare module "gitalk/dist/gitalk-component" {
+  import type Gitalk from "gitalk";
+
+  export default function GitalkComponent(props: {
+    options: Gitalk.GitalkOptions;
+  }): JSX.Element;
+}
