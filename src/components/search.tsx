@@ -7,7 +7,7 @@ import {
   connectHits,
   connectSearchBox,
 } from "react-instantsearch-dom";
-import React, { createRef, useMemo, useState } from "react";
+import React, { createRef, useState } from "react";
 import type { FC } from "react";
 import type { Languages } from "../../config";
 import { SearchOutlined } from "@material-ui/icons";
@@ -53,29 +53,25 @@ export const Search: FC<{ indexName: string }> = ({ indexName }) => {
 
   useClickOutside(rootRef, () => setFocus(false));
 
-  const SearchBox = useMemo(
-    () =>
-      connectSearchBox(({ refine, currentRefinement }) => (
-        <div className="flex items-center">
-          <SearchOutlined />
-          <InputBase
-            className="transition-width duration-200"
-            classes={{
-              root: "w-16",
-              focused: "w-24",
-            }}
-            placeholder={message[indexName as Languages]["search"]}
-            inputProps={{ "aria-label": "search" }}
-            onChange={(event) => {
-              refine(event.target.value);
-            }}
-            onFocus={() => setFocus(true)}
-            value={currentRefinement}
-          />
-        </div>
-      )),
-    [indexName]
-  );
+  const SearchBox = connectSearchBox(({ refine, currentRefinement }) => (
+    <div className="flex items-center">
+      <SearchOutlined />
+      <InputBase
+        className="transition-width duration-200"
+        classes={{
+          root: "w-16",
+          focused: "w-24",
+        }}
+        placeholder={message[indexName as Languages]["search"]}
+        inputProps={{ "aria-label": "search" }}
+        onChange={(event) => {
+          refine(event.target.value);
+        }}
+        onFocus={() => setFocus(true)}
+        value={currentRefinement}
+      />
+    </div>
+  ));
 
   return (
     <div ref={rootRef}>

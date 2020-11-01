@@ -3,6 +3,7 @@ import {
   BlogBanner,
   ButtonBase,
   Card,
+  Grid,
   Mdx,
   Paper,
   SEO,
@@ -11,6 +12,7 @@ import {
   TabPanel,
   Tabs,
   navigate,
+  useMediaQuery,
 } from "../components";
 import {
   NavigateBeforeOutlined,
@@ -81,32 +83,133 @@ const Blog = ({
     };
   }, [node]);
 
+  const sm = useMediaQuery("(min-width:600px)");
   const { locate } = useLocateContext();
   const { trigger } = useScrollContext();
   const [value, setValue] = useState(0);
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    const handler = (entries: IntersectionObserverEntry[]) => {
-      if (entries.length === 1 && entries[0].isIntersecting) {
-        setActive(entries[0].target.id);
-      }
-    };
-    const observer = new IntersectionObserver(handler, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 1.0,
-    });
-    document
-      .querySelectorAll("#mdx-content > h2, #mdx-content > h3")
-      .forEach((node) => {
-        observer.observe(node);
+    if (sm) {
+      const handler = (entries: IntersectionObserverEntry[]) => {
+        if (entries.length === 1 && entries[0].isIntersecting) {
+          setActive(entries[0].target.id);
+        }
+      };
+      const observer = new IntersectionObserver(handler, {
+        root: null,
+        rootMargin: "0px",
+        threshold: 1.0,
       });
+      document
+        .querySelectorAll("#mdx-content > h2, #mdx-content > h3")
+        .forEach((node) => {
+          observer.observe(node);
+        });
 
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
+      return () => {
+        observer.disconnect();
+      };
+    }
+  }, [sm]);
+
+  const Content = useMemo(
+    () => (
+      <Mdx
+        className="mb-4 overflow-hidden p-2 sm:p-4 md:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+        foot={
+          <div className="mx-4 text-base italic underline">
+            Last modified on {lastModified}
+          </div>
+        }
+      >
+        {body}
+      </Mdx>
+    ),
+    [body, lastModified]
+  );
+
+  const Nav = useMemo(() => {
+    const near = [previous, next] as (null | {
+      fields: { slug: string };
+      frontmatter: {
+        title: string;
+        banner: {
+          childImageSharp: { fluid: FluidObject | FluidObject[] };
+        };
+      };
+    })[];
+    return (
+      <div className="flex justify-between flex-col sm:flex-row">
+        {near.map((item, idx) =>
+          item ? (
+            <div
+              key={idx}
+              className="w-full sm:w-15/32 relative my-4 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+            >
+              <Img fluid={item.frontmatter.banner.childImageSharp.fluid} />
+              <div className="absolute left-0 right-0 top-1/5 p-2 font-bold text-shadow text-bg text-center text-2xl tracking-wide">
+                {item.frontmatter.title}
+              </div>
+              {idx === 0 ? (
+                <ButtonBase
+                  className="absolute left-6 bottom-6 bg-blue-400 h-12 w-12 rounded-3xl"
+                  aria-label="previous"
+                >
+                  <NavigateBeforeOutlined
+                    className="text-white text-5xl"
+                    onClick={() => navigate(item.fields?.slug || "")}
+                  />
+                </ButtonBase>
+              ) : (
+                <ButtonBase
+                  className="absolute right-6 bottom-6 bg-blue-400 h-12 w-12 rounded-3xl"
+                  aria-label="next"
+                >
+                  <NavigateNextOutlined
+                    className="text-white text-5xl"
+                    onClick={() => navigate(item.fields?.slug || "")}
+                  />
+                </ButtonBase>
+              )}
+            </div>
+          ) : (
+            <div key={idx} className="w-full sm:w-15/32" />
+          )
+        )}
+      </div>
+    );
+  }, [next, previous]);
+
+  const SideContent = useMemo(
+    () => (
+      <>
+        <Tabs
+          indicatorColor="primary"
+          value={value}
+          onChange={(_event: ChangeEvent<{}>, newValue: number) => {
+            setValue(newValue);
+          }}
+          variant="fullWidth"
+        >
+          <Tab label={contents} />
+          <Tab label={author} />
+        </Tabs>
+        <TabPanel value={value} index={0}>
+          <aside
+            id="mdx-toc"
+            className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto"
+          >
+            {TOC(((tableOfContents as unknown) as TocItem)?.items || [])}
+          </aside>
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
+        </TabPanel>
+      </>
+    ),
+    [author, contents, tableOfContents, value]
+  );
 
   return (
     <SEO
@@ -117,141 +220,21 @@ const Blog = ({
       image={caption?.href}
     >
       <style>{`#mdx-toc #toc-${active} {color: var(--primary-main); border-color: var(--primary-main);}`}</style>
-      {useMemo(
-        () => (
-          <BlogBanner
-            img={fluid}
-            category={category}
-            title={title}
-            subtitle={subtitle}
-            tags={tags || []}
-            date={date}
-            words={words}
-            timeToRead={timeToRead}
-            caption={caption}
-          />
-        ),
-        [
-          caption,
-          category,
-          date,
-          fluid,
-          subtitle,
-          tags,
-          timeToRead,
-          title,
-          words,
-        ]
-      )}
-      <div className="grid grid-cols-3 md:grid-flow-col mt-4">
-        <div className="col-span-3 md:col-span-1 md:col-end-4 md:pl-8 mb-4">
-          <Card
-            className={`group sticky overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-toc duration-300 ease-out ${
-              trigger ? "top-6 ease-slide-exit" : "top-20"
-            }`}
-          >
-            {useMemo(
-              () => (
-                <>
-                  <Tabs
-                    indicatorColor="primary"
-                    value={value}
-                    onChange={(_event: ChangeEvent<{}>, newValue: number) => {
-                      setValue(newValue);
-                    }}
-                    variant="fullWidth"
-                  >
-                    <Tab label={contents} />
-                    <Tab label={author} />
-                  </Tabs>
-                  <TabPanel value={value} index={0}>
-                    <aside
-                      id="mdx-toc"
-                      className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto"
-                    >
-                      {TOC(
-                        ((tableOfContents as unknown) as TocItem)?.items || []
-                      )}
-                    </aside>
-                  </TabPanel>
-                  <TabPanel value={value} index={1}>
-                    <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
-                  </TabPanel>
-                </>
-              ),
-              [author, contents, tableOfContents, value]
-            )}
-          </Card>
-        </div>
-        <div className="col-span-3 md:col-span-2 md:col-start-1">
-          {useMemo(
-            () => (
-              <Mdx
-                className="mb-4 overflow-hidden p-2 sm:p-4 md:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
-                foot={
-                  <div className="mx-4 text-base italic underline">
-                    Last modified on {lastModified}
-                  </div>
-                }
-              >
-                {body}
-              </Mdx>
-            ),
-            [body, lastModified]
-          )}
-          {useMemo(() => {
-            const near = [previous, next] as (null | {
-              fields: { slug: string };
-              frontmatter: {
-                title: string;
-                banner: {
-                  childImageSharp: { fluid: FluidObject | FluidObject[] };
-                };
-              };
-            })[];
-            return (
-              <div className="flex justify-between flex-col sm:flex-row">
-                {near.map((item, idx) =>
-                  item ? (
-                    <div
-                      key={idx}
-                      className="w-full sm:w-15/32 relative my-4 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
-                    >
-                      <Img
-                        fluid={item.frontmatter.banner.childImageSharp.fluid}
-                      />
-                      <div className="absolute left-0 right-0 top-1/5 p-2 font-bold text-shadow text-bg text-center text-2xl tracking-wide">
-                        {item.frontmatter.title}
-                      </div>
-                      {idx === 0 ? (
-                        <ButtonBase
-                          className="absolute left-6 bottom-6 bg-blue-400 h-12 w-12 rounded-3xl"
-                          aria-label="previous"
-                        >
-                          <NavigateBeforeOutlined
-                            className="text-white text-5xl"
-                            onClick={() => navigate(item.fields?.slug || "")}
-                          />
-                        </ButtonBase>
-                      ) : (
-                        <ButtonBase
-                          className="absolute right-6 bottom-6 bg-blue-400 h-12 w-12 rounded-3xl"
-                          aria-label="next"
-                        >
-                          <NavigateNextOutlined
-                            className="text-white text-5xl"
-                            onClick={() => navigate(item.fields?.slug || "")}
-                          />
-                        </ButtonBase>
-                      )}
-                    </div>
-                  ) : (
-                    <div key={idx} className="w-full sm:w-15/32" />
-                  )
-                )}
-              </div>
-            );
-          }, [next, previous])}
+      <BlogBanner
+        img={fluid}
+        category={category}
+        title={title}
+        subtitle={subtitle}
+        tags={tags || []}
+        date={date}
+        words={words}
+        timeToRead={timeToRead}
+        caption={caption}
+      />
+      <Grid container className="mt-4">
+        <Grid item xs zeroMinWidth>
+          {Content}
+          {Nav}
           {typeof window !== "undefined" && (
             <Paper
               elevation={0}
@@ -271,8 +254,19 @@ const Blog = ({
               />
             </Paper>
           )}
-        </div>
-      </div>
+        </Grid>
+        {sm && (
+          <Grid item xs={4} className="pl-8">
+            <Card
+              className={`group sticky overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-toc duration-300 ease-out ${
+                trigger ? "top-6 ease-slide-exit" : "top-20"
+              }`}
+            >
+              {SideContent}
+            </Card>
+          </Grid>
+        )}
+      </Grid>
     </SEO>
   );
 };
