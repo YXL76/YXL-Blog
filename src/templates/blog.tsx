@@ -235,25 +235,6 @@ const Blog = ({
         <Grid item xs zeroMinWidth>
           {Content}
           {Nav}
-          {typeof window !== "undefined" && (
-            <Paper
-              elevation={0}
-              className="rounded-3xl px-4 overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300"
-            >
-              <GitalkComponent
-                options={{
-                  clientID: "74dc125879a0be6e815a",
-                  clientSecret: "eb476c63b9f6143385bd664f0ea85d6dfc255077",
-                  repo: "YXL-Blog",
-                  owner: "YXL76",
-                  admin: ["YXL76"],
-                  id: md5(pathname.replace(/^\/(?:[^/]+)\//, "")),
-                  body: `[${title || ""}](${href})`,
-                  language: locate,
-                }}
-              />
-            </Paper>
-          )}
         </Grid>
         {sm && (
           <Grid item xs={4} className="pl-8">
