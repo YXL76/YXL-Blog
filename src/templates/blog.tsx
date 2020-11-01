@@ -118,7 +118,7 @@ const Blog = ({
       description={excerpt}
       image={caption?.href}
     >
-      <style>{`#mdx-toc #toc-${active} {color: var(----primary-main); border-color: var(----primary-main);}`}</style>
+      <style>{`#mdx-toc #toc-${active} {color: var(--primary-main); border-color: var(--primary-main);}`}</style>
       {useMemo(
         () => (
           <BlogBanner
