@@ -215,16 +215,18 @@ const Blog = ({
               </div>
             );
           }, [next, previous])}
-          <Paper>
-            <GitalkComponent
-              options={{
-                ...gitalkOptions,
-                id: pathname,
-                body: `![${title || ""}](${href})`,
-                language: locate,
-              }}
-            />
-          </Paper>
+          {typeof window !== "undefined" && (
+            <Paper>
+              <GitalkComponent
+                options={{
+                  ...gitalkOptions,
+                  id: pathname,
+                  body: `![${title || ""}](${href})`,
+                  language: locate,
+                }}
+              />
+            </Paper>
+          )}
         </Grid>
         <Hidden smDown>
           <Grid item xs={4} className="pl-12">
