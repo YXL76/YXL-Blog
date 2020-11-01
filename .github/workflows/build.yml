@@ -43,9 +43,9 @@ jobs:
           path: |
             .cache
             public
-          key: gatsby-${{ hashFiles('**/gatsby-node.ts') }}-${{ hashFiles('**/gatsby-config.ts') }}-${{ hashFiles('**/gatsby-browser.ts') }}
-          restore-keys: |
-            gatsby-${{ hashFiles('**/gatsby-node.ts') }}-${{ hashFiles('**/gatsby-config.ts') }}-
+            node_modules/.cache/babel-loader
+            node_modules/.cache/terser-webpack-plugin
+          key: gatsby
 
       - name: Install dependencies
         run: yarn
