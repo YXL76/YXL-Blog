@@ -6,6 +6,10 @@
   scrollbar-width: thin;
 }
 
+.gatsby-image-wrapper [data-main-image] {
+  opacity: 1 !important;
+}
+
 body {
   background-attachment: fixed;
   background-image: url(/images/background.webp);

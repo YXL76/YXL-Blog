@@ -1,5 +1,6 @@
 import { BlogCardSmall, SEO } from "../components";
 import React, { useMemo } from "react";
+import type { ISharpGatsbyImageData } from "gatsby-plugin-image";
 import type { PageProps } from "gatsby";
 
 const Tag = ({
@@ -15,21 +16,23 @@ const Tag = ({
     {useMemo(
       () =>
         nodes.map(
-          ({ fields, frontmatter, excerpt, wordCount, timeToRead }, idx) =>
-            frontmatter?.banner?.childImageSharp?.fluid && (
-              <div key={idx}>
-                <BlogCardSmall
-                  img={frontmatter.banner.childImageSharp.fluid}
-                  title={frontmatter?.title}
-                  subtitle={frontmatter?.subtitle}
-                  description={excerpt}
-                  date={frontmatter?.date}
-                  words={wordCount?.words}
-                  timeToRead={timeToRead}
-                  slug={fields?.slug}
-                />
-              </div>
-            )
+          ({ fields, frontmatter, excerpt, wordCount, timeToRead }, idx) => (
+            <div key={idx}>
+              <BlogCardSmall
+                image={
+                  (frontmatter?.banner?.childImageSharp?.gatsbyImage
+                    ?.imageData as unknown) as ISharpGatsbyImageData
+                }
+                title={frontmatter?.title}
+                subtitle={frontmatter?.subtitle}
+                description={excerpt}
+                date={frontmatter?.date}
+                words={wordCount?.words}
+                timeToRead={timeToRead}
+                slug={fields?.slug}
+              />
+            </div>
+          )
         ),
       [nodes]
     )}

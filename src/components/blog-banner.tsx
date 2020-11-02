@@ -2,12 +2,12 @@ import { BlogMetadataChip, Button, Hidden, Link, Paper, navigate } from ".";
 import { CategoryOutlined, LocalOfferOutlined } from "@material-ui/icons";
 import React, { useMemo } from "react";
 import type { FC } from "react";
-import type { FluidObject } from "gatsby-image";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
+import type { ISharpGatsbyImageData } from "gatsby-plugin-image";
 import { useLocateContext } from "../utils";
 
 type BlogBannerProps = {
-  img: FluidObject | FluidObject[];
+  image: ISharpGatsbyImageData;
   category: string;
   title?: string;
   subtitle?: string;
@@ -19,7 +19,7 @@ type BlogBannerProps = {
 };
 
 export const BlogBanner: FC<BlogBannerProps> = ({
-  img,
+  image,
   category,
   title,
   subtitle,
@@ -71,7 +71,7 @@ export const BlogBanner: FC<BlogBannerProps> = ({
   return (
     <>
       <div className="relative overflow-hidden w-full rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
-        <Img fluid={img} />
+        <GatsbyImage image={image} alt="banner" />
         <div className="absolute leading-tight text-bg text-shadow left-3 bottom-3 sm:left-6 sm:bottom-6 md:left-12 md:bottom-12">
           <Hidden smDown>{Category}</Hidden>
           <h1 className="tracking-wider text-2xl sm:text-3xl md:text-4xl sm:mb-2 md:mb-4">

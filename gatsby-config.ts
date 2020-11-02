@@ -18,8 +18,6 @@ const config = {
       resolve: "gatsby-source-filesystem",
       options: { name: "content", path: "content/" },
     },
-    { resolve: "gatsby-transformer-sharp", options: { useMozJpeg: true } },
-    "gatsby-plugin-sharp",
     "gatsby-remark-images",
     {
       resolve: "gatsby-plugin-mdx",

@@ -1,13 +1,13 @@
 import { BlogMetadataChip, Button, ButtonBase, Card, navigate } from ".";
 import { ChevronRight, LocalOfferOutlined } from "@material-ui/icons";
 import type { FC } from "react";
-import type { FluidObject } from "gatsby-image";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
+import type { ISharpGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 import { useLocateContext } from "../utils";
 
 type BlogCardProps = {
-  fluid?: FluidObject | FluidObject[];
+  image: ISharpGatsbyImageData;
   category: string;
   date?: string;
   subtitle?: string;
@@ -20,7 +20,7 @@ type BlogCardProps = {
 };
 
 export const BlogCard: FC<BlogCardProps> = ({
-  fluid,
+  image,
   category,
   date,
   subtitle,
@@ -35,16 +35,14 @@ export const BlogCard: FC<BlogCardProps> = ({
   return (
     <Card className="flex flex-col items-center mb-10 p-2 sm:p-4 md:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300 ease-in">
       <div className="w-full relative">
-        {fluid && (
-          <ButtonBase
-            focusRipple
-            className="w-full overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in"
-            onClick={() => navigate(slug || "")}
-            aria-label="banner"
-          >
-            <Img className="w-full" fluid={fluid} />
-          </ButtonBase>
-        )}
+        <ButtonBase
+          focusRipple
+          className="w-full overflow-hidden rounded-3xl shadow-lg hover:shadow-xl transition-shadow duration-300 ease-in"
+          onClick={() => navigate(slug || "")}
+          aria-label="banner"
+        >
+          <GatsbyImage className="w-full" image={image} alt="banner" />
+        </ButtonBase>
         <Button
           className="absolute rounded-xl left-3 top-3 sm:left-6 sm:top-6"
           variant="contained"

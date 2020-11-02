@@ -21,9 +21,9 @@ import {
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocateContext, useScrollContext } from "../utils";
 import type { ChangeEvent } from "react";
-import type { FluidObject } from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 import GitalkComponent from "gitalk/dist/gitalk-component";
-import Img from "gatsby-image";
+import type { ISharpGatsbyImageData } from "gatsby-plugin-image";
 import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
 import md5 from "blueimp-md5";
@@ -47,7 +47,7 @@ const Blog = ({
     subtitle,
     category,
     date,
-    fluid,
+    image,
     caption,
     words,
     lastModified,
@@ -75,7 +75,8 @@ const Blog = ({
       subtitle,
       category: category || "",
       date,
-      fluid: banner?.childImageSharp?.fluid as FluidObject,
+      image: (banner?.childImageSharp?.gatsbyImage
+        ?.imageData as unknown) as ISharpGatsbyImageData,
       caption,
       words,
       lastModified,
@@ -135,7 +136,9 @@ const Blog = ({
       frontmatter: {
         title: string;
         banner: {
-          childImageSharp: { fluid: FluidObject | FluidObject[] };
+          childImageSharp: {
+            gatsbyImage: { imageData: ISharpGatsbyImageData };
+          };
         };
       };
     })[];
@@ -147,7 +150,12 @@ const Blog = ({
               key={idx}
               className="w-full md:w-15/32 relative my-4 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
             >
-              <Img fluid={item.frontmatter.banner.childImageSharp.fluid} />
+              <GatsbyImage
+                image={
+                  item.frontmatter.banner.childImageSharp.gatsbyImage.imageData
+                }
+                alt="nav"
+              />
               <div className="absolute left-0 right-0 top-1/5 p-2 font-bold text-shadow text-bg text-center text-2xl tracking-wide">
                 {item.frontmatter.title}
               </div>
@@ -221,7 +229,7 @@ const Blog = ({
     >
       <style>{`#mdx-toc #toc-${active} {color: var(--primary); border-color: var(--primary);}`}</style>
       <BlogBanner
-        img={fluid}
+        image={image}
         category={category}
         title={title}
         subtitle={subtitle}

@@ -3,7 +3,7 @@ import type { CategoriesValue, Languages } from "./config";
 import { basename, dirname, resolve } from "path";
 import { categories, languages } from "./config";
 import { message, messageCategories, messageTags } from "./src/i18n";
-import type { FluidObject } from "gatsby-image";
+import type { ISharpGatsbyImageData } from "gatsby-plugin-image";
 import { createFilePath } from "gatsby-source-filesystem";
 import simpleGit from "simple-git";
 const git = simpleGit({ baseDir: __dirname });
@@ -137,15 +137,14 @@ const createArchivesPage = async (
   });
 };
 
-const GatsbyImageSharpFluid = `
-base64
-aspectRatio
-src
-srcSet
-sizes
-`;
+const childImageSharp = (size: string) => `
+childImageSharp {
+  gatsbyImage(${size}, layout: FLUID, placeholder: BASE64) {
+    imageData
+  }
+}`;
 
-const MdxNodeQuery = (language: Languages, fluid: string) => `
+const MdxNodeQuery = (language: Languages, size: string) => `
 fields {
   lastModified(formatString: "MMMM Do YYYY h:mm:ss a", locale: "${language}")
   tags {
@@ -156,11 +155,7 @@ fields {
 }
 frontmatter {
   banner {
-    childImageSharp {
-      fluid(${fluid}) {
-        ${GatsbyImageSharpFluid}
-      }
-    }
+    ${childImageSharp(size)}
   }
   caption {
     children
@@ -203,11 +198,7 @@ const createBlogsPage = async (
           }
           frontmatter {
             banner {
-              childImageSharp {
-                fluid(maxWidth: 1280, maxHeight: 800) {
-                  ${GatsbyImageSharpFluid}
-                }
-              }
+              ${childImageSharp("maxWidth: 1280, maxHeight: 800")}
             }
             title
           }
@@ -218,11 +209,7 @@ const createBlogsPage = async (
           }
           frontmatter {
             banner {
-              childImageSharp {
-                fluid(maxWidth: 1280, maxHeight: 800) {
-                  ${GatsbyImageSharpFluid}
-                }
-              }
+              ${childImageSharp("maxWidth: 1280, maxHeight: 800")}
             }
             title
           }
@@ -330,8 +317,8 @@ const createCategoriesPage = async (
     name: string;
     description: string;
     caption: CategoriesValue;
-    small?: FluidObject;
-    big?: FluidObject;
+    small?: ISharpGatsbyImageData;
+    big?: ISharpGatsbyImageData;
     nodes?: ReadonlyArray<GatsbyTypes.Mdx>;
   }[] = [];
 
@@ -356,21 +343,13 @@ const createCategoriesPage = async (
 
     const small = await graphql<GatsbyTypes.Query>(`{
       file(relativePath: { regex: "/^images\\/categories\\/${category}.(jpg|png|webp)/" }) {
-        childImageSharp {
-          fluid(maxWidth: 1280, maxHeight: 800) {
-            ${GatsbyImageSharpFluid}
-          }
-        }
+        ${childImageSharp("maxWidth: 1280, maxHeight: 800")}
       }
     }`);
 
     const big = await graphql<GatsbyTypes.Query>(`{
       file(relativePath: { regex: "/^images\\/categories\\/${category}.(jpg|png|webp)/" }) {
-        childImageSharp {
-          fluid(maxWidth: 2560) {
-            ${GatsbyImageSharpFluid}
-          }
-        }
+        ${childImageSharp("maxWidth: 2560")}
       }
     }`);
 
@@ -379,8 +358,8 @@ const createCategoriesPage = async (
       name: messageCategories[language][category].name,
       description: messageCategories[language][category].description,
       caption,
-      small: small.data?.file?.childImageSharp?.fluid,
-      big: big.data?.file?.childImageSharp?.fluid,
+      small: small.data?.file?.childImageSharp?.gatsbyImage?.imageData,
+      big: big.data?.file?.childImageSharp?.gatsbyImage?.imageData,
       nodes: data?.allMdx?.nodes,
     });
   }
@@ -394,7 +373,7 @@ const createCategoriesPage = async (
         category,
         name,
         description,
-        fluid: small,
+        image: small,
         totalCount: nodes?.length,
       })),
     },
@@ -404,7 +383,7 @@ const createCategoriesPage = async (
     createPage({
       path: `/${language}/categories/${category}`,
       component: resolve("src/templates/category.tsx"),
-      context: { name, description, caption, fluid: big, nodes },
+      context: { name, description, caption, image: big, nodes },
     });
   });
 };

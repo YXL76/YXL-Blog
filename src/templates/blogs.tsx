@@ -1,5 +1,6 @@
 import { AuthorCard, BlogCard, Card, Grid, Hidden, SEO } from "../components";
 import React, { useMemo } from "react";
+import type { ISharpGatsbyImageData } from "gatsby-plugin-image";
 import type { PageProps } from "gatsby";
 import { useScrollContext } from "../utils";
 
@@ -21,7 +22,10 @@ const Blogs = ({
                 ) => (
                   <BlogCard
                     key={idx}
-                    fluid={frontmatter?.banner?.childImageSharp?.fluid}
+                    image={
+                      (frontmatter?.banner?.childImageSharp?.gatsbyImage
+                        ?.imageData as unknown) as ISharpGatsbyImageData
+                    }
                     category={frontmatter?.category || ""}
                     date={frontmatter?.date}
                     subtitle={frontmatter?.subtitle}

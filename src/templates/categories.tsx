@@ -1,6 +1,6 @@
 import { CategoryCard, SEO } from "../components";
 import React, { useMemo } from "react";
-import type { FluidObject } from "gatsby-image";
+import type { ISharpGatsbyImageData } from "gatsby-plugin-image";
 import type { PageProps } from "gatsby";
 
 const Categories = ({
@@ -14,7 +14,7 @@ const Categories = ({
       category: string;
       name: string;
       description: string;
-      fluid: FluidObject;
+      image: ISharpGatsbyImageData;
       totalCount: number;
     }[];
   }
@@ -28,10 +28,10 @@ const Categories = ({
     {useMemo(
       () =>
         categories.map(
-          ({ category, name, description, fluid, totalCount }, idx) => (
+          ({ category, name, description, image, totalCount }, idx) => (
             <div key={idx}>
               <CategoryCard
-                img={fluid}
+                image={image}
                 category={category}
                 title={name}
                 description={description}

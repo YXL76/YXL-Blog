@@ -1,11 +1,11 @@
 import { BlogMetadataChip, Card, navigate } from ".";
 import type { FC } from "react";
-import type { FluidObject } from "gatsby-image";
-import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
+import type { ISharpGatsbyImageData } from "gatsby-plugin-image";
 import React from "react";
 
 type BlogCardSmallProps = {
-  img: FluidObject | FluidObject[];
+  image: ISharpGatsbyImageData;
   title?: string;
   subtitle?: string;
   description: string;
@@ -16,7 +16,7 @@ type BlogCardSmallProps = {
 };
 
 export const BlogCardSmall: FC<BlogCardSmallProps> = ({
-  img,
+  image,
   title,
   subtitle,
   description,
@@ -26,7 +26,7 @@ export const BlogCardSmall: FC<BlogCardSmallProps> = ({
   slug,
 }) => (
   <Card className="overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
-    <Img fluid={img} />
+    <GatsbyImage image={image} alt="banner" />
     <div className="flex flex-col items-center px-2 pt-2 pb-2 text-center">
       <h2
         className="cursor-pointer text-primary tracking-wider text-2xl"

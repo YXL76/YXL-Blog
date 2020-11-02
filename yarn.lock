@@ -519,7 +519,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/parser@npm:^7.0.0, @babel/parser@npm:^7.10.4, @babel/parser@npm:^7.10.5, @babel/parser@npm:^7.11.5, @babel/parser@npm:^7.12.1, @babel/parser@npm:^7.12.3, @babel/parser@npm:^7.7.0":
+"@babel/parser@npm:^7.0.0, @babel/parser@npm:^7.10.4, @babel/parser@npm:^7.10.5, @babel/parser@npm:^7.11.5, @babel/parser@npm:^7.12.1, @babel/parser@npm:^7.12.3, @babel/parser@npm:^7.7.0, @babel/parser@npm:^7.8.7":
   version: 7.12.3
   resolution: "@babel/parser@npm:7.12.3"
   bin:
@@ -1549,7 +1549,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/traverse@npm:7.12.1, @babel/traverse@npm:^7.0.0, @babel/traverse@npm:^7.10.4, @babel/traverse@npm:^7.10.5, @babel/traverse@npm:^7.11.5, @babel/traverse@npm:^7.12.1, @babel/traverse@npm:^7.7.0":
+"@babel/traverse@npm:7.12.1, @babel/traverse@npm:^7.0.0, @babel/traverse@npm:^7.10.4, @babel/traverse@npm:^7.10.5, @babel/traverse@npm:^7.11.5, @babel/traverse@npm:^7.12.1, @babel/traverse@npm:^7.7.0, @babel/traverse@npm:^7.8.6":
   version: 7.12.1
   resolution: "@babel/traverse@npm:7.12.1"
   dependencies:
@@ -4781,6 +4781,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-jsx-utils@npm:^1.0.1":
+  version: 1.0.1
+  resolution: "babel-jsx-utils@npm:1.0.1"
+  checksum: 51fc89009f9d5c6d0fa8ffa5278c58817d7906fe27240012eb097f34b9ff951bace5bbfe808276a51d8fc08678b85fbd540863af47bdae1b4751dd9b3522dd67
+  languageName: node
+  linkType: hard
+
 "babel-loader@npm:^8.1.0":
   version: 8.1.0
   resolution: "babel-loader@npm:8.1.0"
@@ -4890,7 +4897,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-remove-graphql-queries@npm:^2.9.20":
+"babel-plugin-remove-graphql-queries@npm:^2.9.19, babel-plugin-remove-graphql-queries@npm:^2.9.20":
   version: 2.9.20
   resolution: "babel-plugin-remove-graphql-queries@npm:2.9.20"
   peerDependencies:
@@ -10093,7 +10100,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-core-utils@npm:^1.3.23":
+"gatsby-core-utils@npm:^1.3.20, gatsby-core-utils@npm:^1.3.23":
   version: 1.3.23
   resolution: "gatsby-core-utils@npm:1.3.23"
   dependencies:
@@ -10114,17 +10121,6 @@ fsevents@~2.1.2:
   dependencies:
     "@babel/runtime": ^7.11.2
   checksum: 96c16433087ae0f0bd05aa3ad59bce2b180128b087399fbf20833c40371946825a3cfedbb3c0a21cc9d9ec4ff2cc2912d221c3f46b7f9534bf5b2089f843b325
-  languageName: node
-  linkType: hard
-
-"gatsby-image@npm:2.4.21":
-  version: 2.4.21
-  resolution: "gatsby-image@npm:2.4.21"
-  dependencies:
-    "@babel/runtime": ^7.11.2
-    object-fit-images: ^3.2.4
-    prop-types: ^15.7.2
-  checksum: 21307e93e40545980e630bc9d4ac79ee3b5655a30e0c229c4fc696a7380a6cc87dce86b7127a48b8667abf60bf5fd26fec7bb8d5bedc1d45a23e37c874b5224a
   languageName: node
   linkType: hard
 
@@ -10228,6 +10224,28 @@ fsevents@~2.1.2:
   peerDependencies:
     gatsby: ^2.0.0
   checksum: e482e4d3618936cace45cf1d231e0669f60e173b4b093e60694c1770cf8914e43640c7292f8203f17f22b34c275a42963b49a67452c73ab1036e50e2eccc30fa
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-image@npm:0.0.6":
+  version: 0.0.6
+  resolution: "gatsby-plugin-image@npm:0.0.6"
+  dependencies:
+    "@babel/parser": ^7.8.7
+    "@babel/traverse": ^7.8.6
+    babel-jsx-utils: ^1.0.1
+    babel-plugin-remove-graphql-queries: ^2.9.19
+    chokidar: ^3.4.3
+    fs-extra: ^8.1.0
+    gatsby-core-utils: ^1.3.20
+    prop-types: ^15.7.2
+  peerDependencies:
+    gatsby: ">=2"
+    gatsby-image: "*"
+    gatsby-plugin-sharp: "*"
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: 2aa5eca105edb7e9a1c3ce2bbc42d3b0cd850d4b1f7774d2975ee6b55f401a0cacd3b99d062402add07373e1662de919ca9d88446a7e8472aefa056413f6b03d
   languageName: node
   linkType: hard
 
@@ -15961,13 +15979,6 @@ fsevents@~2.1.2:
     define-property: ^0.2.5
     kind-of: ^3.0.3
   checksum: d91d46e54297cad0544f04e4dff4694f92aca9661f59ad7e803a1ba94a2bb24b38ca4fd59ea827d24c9bdc6f7148d5c838287ee4b2b9c5df9b445b1c0d7a066c
-  languageName: node
-  linkType: hard
-
-"object-fit-images@npm:^3.2.4":
-  version: 3.2.4
-  resolution: "object-fit-images@npm:3.2.4"
-  checksum: 0647ea1746d99098e4c0b1fc7ce5188a777f7968786f324079cf27fed96cb4789b8c9c7ddbaf7db55e123c42c30da648f71cd9071f969260215bfd93cbca8492
   languageName: node
   linkType: hard
 
@@ -23807,10 +23818,10 @@ typescript@4.0.5:
     fontsource-noto-sans-sc: 3.0.3
     fontsource-source-code-pro: 3.0.10
     gatsby: 2.24.92
-    gatsby-image: 2.4.21
     gatsby-plugin-algolia: 0.14.1
     gatsby-plugin-feed: 2.5.20
     gatsby-plugin-google-gtag: 2.1.13
+    gatsby-plugin-image: 0.0.6
     gatsby-plugin-manifest: 2.4.37
     gatsby-plugin-mdx: 1.2.53
     gatsby-plugin-netlify: 2.3.25
