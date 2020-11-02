@@ -29,7 +29,7 @@ However, it should be noted that the access to the page must be registered to th
 
 Now log in to your own Douban account in the browser (as in Google Chrome) and go to this page. Use the `network` tool in `Developer tools` to get the `Cookie` and `User-Agent` sent to the server (see below) Figure). In the `python` program, use `requests` to add a `Cookie` when sending a request, simulate login, join U`ser-Agent` to simulate browser access, prevent being intercepted, and get the static file of the target page.
 
-![Tutorial-1](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-1.webp)
+![Tutorial-1](/images/Douban-Neighbor-Analysis/Tutorial-1.webp)
 
 ```python
 import requests
@@ -64,7 +64,7 @@ It can be found that each page can only display at most `70` friends, and the st
 
 Through the analysis of multiple web pages, it is found that the number of friends per user is displayed in a fixed place (as shown below), and the corresponding `css selector` is `#db-usr-profile > div.info > h1`. Use `BeautifulSoup` to parse the previously obtained web page, use the `select` function to extract the part and get the number of friends.
 
-![Tutorial-2](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-2.webp)
+![Tutorial-2](/images/Douban-Neighbor-Analysis/Tutorial-2.webp)
 
 ```python
 # Get the total number of friends of the user from the crawled page
@@ -113,7 +113,7 @@ Take [https://m.douban.com/people/zeqingg/subject_profile](https://m.douban.com/
 
 After analysis, it is found that the webpage is a dynamic webpage, and all the data is requested after the webpage is opened. Using the `network` tool in `Developer tools` again, look at the items in the `XHR` category and get the request for the real `url` for [https://m.douban.com/rexxar/api/v2/user/ Zeqingg/archives_summary?for_mobile=1&ck=ykqX](https://m.douban.com/rexxar/api/v2/user/zeqingg/archives_summary?for_mobile=1&ck=ykqX) (as shown below). Requesting this link does not require a mock login. At the same time, the returned data is in the `json` format, parsed using the `loads()` function of the `json` module in `python`.
 
-![Tutorial-3](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-3.webp)
+![Tutorial-3](/images/Douban-Neighbor-Analysis/Tutorial-3.webp)
 
 What is needed is the account information. The `json` data corresponds to the `user` item, which has many useful data items, such as birthday `birthday`, gender `gender`, resident `loc`, registration time `reg_time`. , broadcast number `statuses_count` and so on. We all save it to a `csv` file.
 
@@ -121,7 +121,7 @@ What can't be ignored is that some users do not fill in or are unwilling to disc
 
 The acquisition of the viewing information is the same as the acquisition of the account information, using the mobile phone's web page [https://m.douban.com/people/zeqingg/movie_charts](https://m.douban.com/people/zeqingg/movie_charts) For example. This page is also a dynamic page, using the same method as the previous step. After analyzing, the url of the real request is [https://m.douban.com/rexxar/api/v2/user/zeqingg/collection_stats?type= Movie&for_mobile=1&ck=ykqX](https://m.douban.com/rexxar/api/v2/user/zeqingg/collection_stats?type=movie&for_mobile=1&ck=ykqX) (as shown below).
 
-![Tutorial-4](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-4.webp)
+![Tutorial-4](/images/Douban-Neighbor-Analysis/Tutorial-4.webp)
 
 Useful data in the returned `json` data such as the viewing number `total_collections`, the time to watch the movie `total_spent`, the consumption in the cinema `total_cost`, the average weekly viewing time `weekly_avg`, most often watched The area `countries`, the most commonly watched type `genres` and so on. Again, write them to the `csv` file.
 
@@ -334,7 +334,7 @@ py.iplot(fig, filename='neighbor_distribution_map')
 
 ```
 
-![picture-1](../../../assets/images/Douban-Neighbor-Analysis/picture-1.webp)
+![picture-1](/images/Douban-Neighbor-Analysis/picture-1.webp)
 
 ### Draw a picture of your neighbors
 
@@ -417,7 +417,7 @@ py.iplot(dict(data=data, layout=layout), filename='status_pyramid_chart')
 
 ```
 
-![picture-2](../../../assets/images/Douban-Neighbor-Analysis/picture-2.webp)
+![picture-2](/images/Douban-Neighbor-Analysis/picture-2.webp)
 
 ### Draw registration time chart
 
@@ -447,7 +447,7 @@ py.iplot([trace], filename='reg_year_pie_chart')
 
 ```
 
-![picture-3](../../../assets/images/Douban-Neighbor-Analysis/picture-3.webp)
+![picture-3](/images/Douban-Neighbor-Analysis/picture-3.webp)
 
 ### Drawing a viewing data graph
 
@@ -467,7 +467,7 @@ df.iplot(kind='bubble', x=csv_title[5], y=csv_title[6], size=csv_title[4], text=
 
 ```
 
-![picture-4](../../../assets/images/Douban-Neighbor-Analysis/picture-4.webp)
+![picture-4](/images/Douban-Neighbor-Analysis/picture-4.webp)
 
 ### Draw a neighboring movie type distribution-map
 
@@ -521,7 +521,7 @@ py.iplot(data, filename='genre_horizontal_bar_chart')
 
 ```
 
-![picture-5](../../../assets/images/Douban-Neighbor-Analysis/picture-5.webp)
+![picture-5](/images/Douban-Neighbor-Analysis/picture-5.webp)
 
 ### Draw a map of the neighborhood of the movie
 
@@ -598,7 +598,7 @@ py.iplot(fig, filename='country_pie_chart')
 
 ```
 
-![picture-6](../../../assets/images/Douban-Neighbor-Analysis/picture-6.webp)
+![picture-6](/images/Douban-Neighbor-Analysis/picture-6.webp)
 
 ## Summary
 

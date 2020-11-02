@@ -69,7 +69,7 @@ By observing we can see that the two pieces of code are strikingly similar.
 
 Let’s discover the relationship between them by simulating the process performed by the algorithm.
 
-![BF](../../../assets/images/Knuth–Morris–Pratt-Algorithm/BF.webp)
+![BF](/images/Knuth–Morris–Pratt-Algorithm/BF.webp)
 
 **BF Algorithm** is naive matching algorithm. It’s idea is to match the text string and the pattern string bit by bit from the beginning. If the match fails (mismatch), the pattern string is shifted to the right by one bit, and then matched from the beginning.
 
@@ -77,7 +77,7 @@ The above picture shows $13$ times matching.
 
 It can be found that the **BF Algorithm** can be very efficient in the case of too many mismatches.
 
-![MP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/MP.webp)
+![MP](/images/Knuth–Morris–Pratt-Algorithm/MP.webp)
 
 The 2 and 4 steps in the **BF Algorithm** are useless matches. Because $pattern[0] = text[0]$ and $text[0] \neq text[1]$ , therefore, $pattern[0] \neq text[1]$. The second step must match the failure, the fourth step is the same. **MP(KMP) Algorithm** in order to improve this, do not backtrack the subscript of the text string, only change the subscript of the pattern string, minus the two steps.
 
@@ -93,7 +93,7 @@ Knowing the difference between **MP(KMP) Algorithm** and **BF Algorithm**, the k
 
 Let‘s look at three more examples:
 
-![example](../../../assets/images/Knuth–Morris–Pratt-Algorithm/example.webp)
+![example](/images/Knuth–Morris–Pratt-Algorithm/example.webp)
 
 Marking that $P$ is the set of all prefixes of the pattern string, $S$ is the set of all suffixes of the pattern string, for the matched string of the example one $P=\{A,AB,ABC,ABCA,ABCAB\}$, $S=\{B,AB,CAB,BCAB,ABCAB\}$.
 
@@ -111,7 +111,7 @@ So how do you calculate $next[i]$? The answer is still coming from **MP(KMP) Alg
 
 We match the pattern string with itself, noting that the string that matches successfully is the longest same element of the $P$ and $S$ of the corresponding substring.
 
-![self](../../../assets/images/Knuth–Morris–Pratt-Algorithm/self.webp)
+![self](/images/Knuth–Morris–Pratt-Algorithm/self.webp)
 
 Therefore, we only need to add the assignment statement to the $next$ array after matching in the **MP(KMP) Algorithm** program to complete the solution to the $next$ array. ($next[0]=-1, next[i]=0, i > 0$)
 
@@ -144,7 +144,7 @@ The third conclusion:
 
 Let‘s look at an example:
 
-![KMP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/KMP.webp)
+![KMP](/images/Knuth–Morris–Pratt-Algorithm/KMP.webp)
 
 In this example, the second match must fail. Because $pattern[i]=pattern[next[i]]$, and $pattern[i] \neq text[i]$, therefore, $pattern[next[i]] \neq text[i]$.
 

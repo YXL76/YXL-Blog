@@ -5,135 +5,135 @@ __metadata:
   version: 4
   cacheKey: 7
 
-"@algolia/cache-browser-local-storage@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/cache-browser-local-storage@npm:4.5.1"
+"@algolia/cache-browser-local-storage@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/cache-browser-local-storage@npm:4.6.0"
   dependencies:
-    "@algolia/cache-common": 4.5.1
-  checksum: 5162c247fb25456e4a5caa666d726f840ee8f0faab8b815f5e07ed8afc9f4cd502695754857bbafa94fc648bb463dede3681355afcc9cb83f4f43a1ab07e5ab7
+    "@algolia/cache-common": 4.6.0
+  checksum: 67ccf02617544f46100849ffcf3913f066a61868a0ee26ce492808708632f0e87f17d721620563702ea66edd14ead315c24da5b188323676e430d3c6e467ff59
   languageName: node
   linkType: hard
 
-"@algolia/cache-common@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/cache-common@npm:4.5.1"
-  checksum: bcd6be952b8b8209b227fc7b33a38c50cec9b7e8de455a4b7fcaca6b101567b32d8e6f18d1d21b3a274e8c18cbd6740b8489fb80afbda6e225edb61c6a9654ea
+"@algolia/cache-common@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/cache-common@npm:4.6.0"
+  checksum: 3f12c0d5142bd9ec24fb34866bf4f2d18934f0c61e0fe130d5aef1685a800abd323d7b3986eceb0753af50d64d9b4cf6c663513e09002c865b32f8ca1152ce54
   languageName: node
   linkType: hard
 
-"@algolia/cache-in-memory@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/cache-in-memory@npm:4.5.1"
+"@algolia/cache-in-memory@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/cache-in-memory@npm:4.6.0"
   dependencies:
-    "@algolia/cache-common": 4.5.1
-  checksum: 0aec344b115a552a3bcd4deb3bc58f789e6e31163524596526d95a4db8cdb292e74554ba65d4d65526a7b1e7613e815380003698e13a600b659b9c4e2c6825d5
+    "@algolia/cache-common": 4.6.0
+  checksum: ee6ae0e808ca3b8c6f2ca90156f80ff36d36a48ea09ca4af4e7ce5907e9ac5ce5f2095b6633471e5f99f4613e166fdbaa86e4d34e156c312803ea17ea4115dec
   languageName: node
   linkType: hard
 
-"@algolia/client-account@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/client-account@npm:4.5.1"
+"@algolia/client-account@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/client-account@npm:4.6.0"
   dependencies:
-    "@algolia/client-common": 4.5.1
-    "@algolia/client-search": 4.5.1
-    "@algolia/transporter": 4.5.1
-  checksum: c6e15319db28c4bd1d1e08d3c33d9598fa006191c4967f8c33589b0b0758affadaa850ca638d505e3264462b0b27e7873f7467ebd9356552b6fc0f8abefecec5
+    "@algolia/client-common": 4.6.0
+    "@algolia/client-search": 4.6.0
+    "@algolia/transporter": 4.6.0
+  checksum: 68e812cd82f5e1b97273d6d2ae4a2b08e01b96c64e9ce5f111b6d6995a3b6bbdd3c63e51140dcca084ed07c6e2b275e3db517fa516dcc712b73480338c044bcf
   languageName: node
   linkType: hard
 
-"@algolia/client-analytics@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/client-analytics@npm:4.5.1"
+"@algolia/client-analytics@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/client-analytics@npm:4.6.0"
   dependencies:
-    "@algolia/client-common": 4.5.1
-    "@algolia/client-search": 4.5.1
-    "@algolia/requester-common": 4.5.1
-    "@algolia/transporter": 4.5.1
-  checksum: 0674e8879e584060cc18f5caff716cf5bda694db643707b92551106fef02e7634fe9504af274f83359044b85e131b33a3e8eb8560f2e41699897a0b08f7765d2
+    "@algolia/client-common": 4.6.0
+    "@algolia/client-search": 4.6.0
+    "@algolia/requester-common": 4.6.0
+    "@algolia/transporter": 4.6.0
+  checksum: 904ae66e442963187535f7058ecbc71cef77b776b1ac2e38bf0420cbe58e12c4b432c2036e1c4bcfe1cdc6683865070afefd4141196ca2dbeae271896fd35a68
   languageName: node
   linkType: hard
 
-"@algolia/client-common@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/client-common@npm:4.5.1"
+"@algolia/client-common@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/client-common@npm:4.6.0"
   dependencies:
-    "@algolia/requester-common": 4.5.1
-    "@algolia/transporter": 4.5.1
-  checksum: 14759ec22dd236e36cff308f6a29caf78396419de9012ffdd39bdce3a8712ef9dc8400407e39d66a874fb8a938a26fbe5c01c6e73cd1c629c1946b57b4029795
+    "@algolia/requester-common": 4.6.0
+    "@algolia/transporter": 4.6.0
+  checksum: 62d4795d7b9fac9f40b600c7a985bb56c45eca2a120d97949ccf98c6d9bf390ce27b481d260d9d7a3717ef8b08268755fa6c880ca2d3b131d7661e380c536380
   languageName: node
   linkType: hard
 
-"@algolia/client-recommendation@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/client-recommendation@npm:4.5.1"
+"@algolia/client-recommendation@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/client-recommendation@npm:4.6.0"
   dependencies:
-    "@algolia/client-common": 4.5.1
-    "@algolia/requester-common": 4.5.1
-    "@algolia/transporter": 4.5.1
-  checksum: 616b9069eb56cb41907e6fdd54d263f9e693a80a22ceacbccc568c3d0d27c6ccfee44e43645db0185ac3542619b3787b94a2db0afe330646c5bd848e93baf265
+    "@algolia/client-common": 4.6.0
+    "@algolia/requester-common": 4.6.0
+    "@algolia/transporter": 4.6.0
+  checksum: 3e984b75fb2fe074a03994032d076be145045cf009fccbb9da28eea795aeb7376f20751842f73bf8d37eead3cd26058da61e5a5231e4cd154ef4d870541d8cf5
   languageName: node
   linkType: hard
 
-"@algolia/client-search@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/client-search@npm:4.5.1"
+"@algolia/client-search@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/client-search@npm:4.6.0"
   dependencies:
-    "@algolia/client-common": 4.5.1
-    "@algolia/requester-common": 4.5.1
-    "@algolia/transporter": 4.5.1
-  checksum: f582bd49fb363dec27943b600d86a441f56a9d8ebb6e6d15839696e3f1211ccead840936ed1c5c8dec645927a287d4559ac7f77a90183c9ebcd2a658e8c6e755
+    "@algolia/client-common": 4.6.0
+    "@algolia/requester-common": 4.6.0
+    "@algolia/transporter": 4.6.0
+  checksum: df67f0f5290e3a0169ae1e1b3fa40d1373f3693cb7475f9e1fa8e254673f6bbf502bf5448b322c9902805331c2a69baab12bb5eba4496deb3879833252981c13
   languageName: node
   linkType: hard
 
-"@algolia/logger-common@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/logger-common@npm:4.5.1"
-  checksum: 66a6f426ad5d15672bc7e47015655b820fb44081812dc31303c41b8fcc6bea03d4809d04bdd52e5b685cbaa9dc3e5576a4838b7ff97993b7bc49fd43d41e4dc5
+"@algolia/logger-common@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/logger-common@npm:4.6.0"
+  checksum: 2941a9cddab13bede80eea9bc1ad4786d5d41228029ebf998eb923e6e9ea7345050ca382a6ef78c3d484d0a71d05a08f2eb9e9a4303f9764690894c51b7a550b
   languageName: node
   linkType: hard
 
-"@algolia/logger-console@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/logger-console@npm:4.5.1"
+"@algolia/logger-console@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/logger-console@npm:4.6.0"
   dependencies:
-    "@algolia/logger-common": 4.5.1
-  checksum: 4f60de2fc276f81c456c4b3c3e04d657c4c0eddbb89465116dea20724251fc7a6c8781a53c7301ab4950d5b753b021ed8faa6df78ac6abdf598048263ef54d0f
+    "@algolia/logger-common": 4.6.0
+  checksum: 08aef1ea92b94345e51640c2f9742fa831f29ff1995be80f3f9efa2593af0ca33d83a06f56e1c2cb59bdf5c20b6622f6a975d6802bd924f635973337d63e05a8
   languageName: node
   linkType: hard
 
-"@algolia/requester-browser-xhr@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/requester-browser-xhr@npm:4.5.1"
+"@algolia/requester-browser-xhr@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/requester-browser-xhr@npm:4.6.0"
   dependencies:
-    "@algolia/requester-common": 4.5.1
-  checksum: a8f2b24130910fadca50b7e41749b74b2598f0574dc78980a70cb12caf77de67d2fdc3b098095767c0d2acc4f947cb7ded6a15a52d1ab9ea5b58d78c07a7253c
+    "@algolia/requester-common": 4.6.0
+  checksum: 2450ac588e7826e147654f8ffb37803c2ded3937a7c79e6c08a6cb50ed445b83ea2e5460f8babd2a3c193889c32ab2f3ff776aba0b1e561df7dc0a6f06ab34f0
   languageName: node
   linkType: hard
 
-"@algolia/requester-common@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/requester-common@npm:4.5.1"
-  checksum: 0ff4ec1e2fd2923269a5340e4393408099550735129daae3206214c3bb9ddc0e0fb27488365b3ade67984fa9c716359a2cb5e53986d45d0f48dd1c657d92735b
+"@algolia/requester-common@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/requester-common@npm:4.6.0"
+  checksum: 7927badaac9bd98ba30e689b6dd44aab047864ad24954d956fc9a6ae2146985d15817bbcefe16ef54d5823326d8e8a2d551803865c8c66a858fbebee0cb5fe40
   languageName: node
   linkType: hard
 
-"@algolia/requester-node-http@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/requester-node-http@npm:4.5.1"
+"@algolia/requester-node-http@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/requester-node-http@npm:4.6.0"
   dependencies:
-    "@algolia/requester-common": 4.5.1
-  checksum: 67aba4355235670b2b32ee87d35796997d7c896d692e9ca9e4ce76782a5e603a78e3a603c5c5eba43f90bb566c037943ff69996dbbadb896c6cea039d84e1b43
+    "@algolia/requester-common": 4.6.0
+  checksum: 8d68c26ade09df21eefaee6d457b5c9d56d621527ba42001f881a3de7ccfd542dc390b40059fd42215e99794b6b4bbc9ce51d2ff1f21cc9a640acab6e4463bce
   languageName: node
   linkType: hard
 
-"@algolia/transporter@npm:4.5.1":
-  version: 4.5.1
-  resolution: "@algolia/transporter@npm:4.5.1"
+"@algolia/transporter@npm:4.6.0":
+  version: 4.6.0
+  resolution: "@algolia/transporter@npm:4.6.0"
   dependencies:
-    "@algolia/cache-common": 4.5.1
-    "@algolia/logger-common": 4.5.1
-    "@algolia/requester-common": 4.5.1
-  checksum: 8880d750b2e5d84f16218adfdc407836264c8c99d85b8804b2b81df6be87c5e1f864eb2dab44fb43fdb847146bb682c0e86e633e779fb12c92fe60513c91de61
+    "@algolia/cache-common": 4.6.0
+    "@algolia/logger-common": 4.6.0
+    "@algolia/requester-common": 4.6.0
+  checksum: 580b2b9cb6320c405c2b8daa10d88fd02a9d4be5f844bf26474cf69ca3aec34cec20705d08b72f45b13046256c800c871eb0b1f0a8648d2dd9e7f365725a85fe
   languageName: node
   linkType: hard
 
@@ -4091,25 +4091,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"algoliasearch@npm:4.5.1":
-  version: 4.5.1
-  resolution: "algoliasearch@npm:4.5.1"
+"algoliasearch@npm:4.6.0":
+  version: 4.6.0
+  resolution: "algoliasearch@npm:4.6.0"
   dependencies:
-    "@algolia/cache-browser-local-storage": 4.5.1
-    "@algolia/cache-common": 4.5.1
-    "@algolia/cache-in-memory": 4.5.1
-    "@algolia/client-account": 4.5.1
-    "@algolia/client-analytics": 4.5.1
-    "@algolia/client-common": 4.5.1
-    "@algolia/client-recommendation": 4.5.1
-    "@algolia/client-search": 4.5.1
-    "@algolia/logger-common": 4.5.1
-    "@algolia/logger-console": 4.5.1
-    "@algolia/requester-browser-xhr": 4.5.1
-    "@algolia/requester-common": 4.5.1
-    "@algolia/requester-node-http": 4.5.1
-    "@algolia/transporter": 4.5.1
-  checksum: e57951763fadfe8cff157b178d67cc676be911fdc45aae1d7645b6dae045f4dbe00f577c97a5980e3bdf56f68447467bcfb9f02f8e4828a176a086a6bfd5b638
+    "@algolia/cache-browser-local-storage": 4.6.0
+    "@algolia/cache-common": 4.6.0
+    "@algolia/cache-in-memory": 4.6.0
+    "@algolia/client-account": 4.6.0
+    "@algolia/client-analytics": 4.6.0
+    "@algolia/client-common": 4.6.0
+    "@algolia/client-recommendation": 4.6.0
+    "@algolia/client-search": 4.6.0
+    "@algolia/logger-common": 4.6.0
+    "@algolia/logger-console": 4.6.0
+    "@algolia/requester-browser-xhr": 4.6.0
+    "@algolia/requester-common": 4.6.0
+    "@algolia/requester-node-http": 4.6.0
+    "@algolia/transporter": 4.6.0
+  checksum: ac5ed03482e589ed317f2679dac8d8de1c7a4d10d7b0351b09a9e5f883012b4d9babade8843f1b482f6a7fbf80bbf7d5dbef170f87c565ba83b907ed4e4f7bba
   languageName: node
   linkType: hard
 
@@ -7092,13 +7092,6 @@ __metadata:
     domutils: ^1.7.0
     nth-check: ^1.0.2
   checksum: b534aad04abbd433849d55b93e234b81c1ade4422c638a916fd7163db5a3b07186e92ce43c292d954417c8ce020eb31b8990ed2fb30c9c145c7f2549621e8095
-  languageName: node
-  linkType: hard
-
-"css-selector-parser@npm:^1.1.0":
-  version: 1.4.1
-  resolution: "css-selector-parser@npm:1.4.1"
-  checksum: 1f5332e601c9bb402d804b7561dfe067cf50888c62c5c66aa9754b13e29d50d29b1b1e0798cdda7235eac2e83b1320e42f597b0976c893fe182c0f9c7a2dac59
   languageName: node
   linkType: hard
 
@@ -10202,9 +10195,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-feed@npm:2.5.20":
-  version: 2.5.20
-  resolution: "gatsby-plugin-feed@npm:2.5.20"
+"gatsby-plugin-feed@npm:2.6.0":
+  version: 2.6.0
+  resolution: "gatsby-plugin-feed@npm:2.6.0"
   dependencies:
     "@babel/runtime": ^7.11.2
     "@hapi/joi": ^15.1.1
@@ -10215,7 +10208,7 @@ fsevents@~2.1.2:
     rss: ^1.2.2
   peerDependencies:
     gatsby: ^2.4.0
-  checksum: 29fff2f4d93e7ec9ac8bd07b383018bfabfc9abc0f16407973393db28b9040dd4cc9aa56ef425b410b94ab5b2841269f181b2da364ee07248cb4fda8975d1546
+  checksum: d54b03cb9849f61b09da8af7cdf40d4437943f0500dc793636de0061132b9c0aae38c148900d2ab8468a8202dd037fb658c272fd3eaef2761ea8cb58ae1bbf4b
   languageName: node
   linkType: hard
 
@@ -10231,9 +10224,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-manifest@npm:2.4.37":
-  version: 2.4.37
-  resolution: "gatsby-plugin-manifest@npm:2.4.37"
+"gatsby-plugin-manifest@npm:2.5.0":
+  version: 2.5.0
+  resolution: "gatsby-plugin-manifest@npm:2.5.0"
   dependencies:
     "@babel/runtime": ^7.11.2
     gatsby-core-utils: ^1.3.23
@@ -10242,7 +10235,7 @@ fsevents@~2.1.2:
     sharp: ^0.25.4
   peerDependencies:
     gatsby: ^2.4.0
-  checksum: e269f9117f20706f091969fe778784f947b51d8bd23428e84f0998beab5759ec00cd8e3b2e11235cdf701411f09cf37282c7a1b5ca1212c9e4809ba6f84d9070
+  checksum: 536f0dd61461903df5b6bf69c799b6df17b904748e30d92af977ef95026810fd6cfaa7b60540ed4fd2b468363990c9065e8ff4ff72d8fc7aa7444edf800a0c68
   languageName: node
   linkType: hard
 
@@ -10260,9 +10253,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-mdx@npm:1.2.53":
-  version: 1.2.53
-  resolution: "gatsby-plugin-mdx@npm:1.2.53"
+"gatsby-plugin-mdx@npm:1.3.0":
+  version: 1.3.0
+  resolution: "gatsby-plugin-mdx@npm:1.3.0"
   dependencies:
     "@babel/core": ^7.11.6
     "@babel/generator": ^7.11.6
@@ -10303,13 +10296,13 @@ fsevents@~2.1.2:
   peerDependencies:
     "@mdx-js/mdx": ^1.0.0
     "@mdx-js/react": ^1.0.0
-  checksum: 5991f270d664af905bdee249929f4fbbe0c3b5d6421c481e61b620d683df295b26d2e7edc949d53e8ff71a560e6783e0d91ecc1b1147952a443f641ba224c3ed
+  checksum: 5e55c5c828ebfc35d86c9a9a84425da018be0ca675174cb328b2d6851afbffe209188ae4ec4462d1fe0659eaabd8e53aa898edf499145bba3c1b41e3612a0cc8
   languageName: node
   linkType: hard
 
-"gatsby-plugin-netlify@npm:2.3.25":
-  version: 2.3.25
-  resolution: "gatsby-plugin-netlify@npm:2.3.25"
+"gatsby-plugin-netlify@npm:2.4.0":
+  version: 2.4.0
+  resolution: "gatsby-plugin-netlify@npm:2.4.0"
   dependencies:
     "@babel/runtime": ^7.11.2
     fs-extra: ^8.1.0
@@ -10318,7 +10311,7 @@ fsevents@~2.1.2:
     webpack-assets-manifest: ^3.1.1
   peerDependencies:
     gatsby: ^2.0.0
-  checksum: 53bca681133b65be4eacb7a2b1e59d6e10309081ce1313913a8c28be32391866acab0cfc03940dfa8273e3a19d2d210cf86b278adb051442b03bc9efc55df33b
+  checksum: 1db54f514d69c3b1b73e2c91c2403e46ae8df65851bfc59d748d8595b7ceeaeae846cd20ecb1f9bfcab9b86a7fd24c4d550d94fe59dff722c4d671212a5c7454
   languageName: node
   linkType: hard
 
@@ -10343,9 +10336,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-offline@npm:3.2.38":
-  version: 3.2.38
-  resolution: "gatsby-plugin-offline@npm:3.2.38"
+"gatsby-plugin-offline@npm:3.3.0":
+  version: 3.3.0
+  resolution: "gatsby-plugin-offline@npm:3.3.0"
   dependencies:
     "@babel/runtime": ^7.11.2
     cheerio: ^1.0.0-rc.3
@@ -10356,7 +10349,7 @@ fsevents@~2.1.2:
     workbox-build: ^4.3.1
   peerDependencies:
     gatsby: ^2.4.0
-  checksum: 0c7bf1e62ffaf82990e21fc717fc1223f4caa028524985df0ca27ed7c965896f3bb906fd93648529aeccce768c28c95bebcf343d08a621c9e424aee546bdc1a1
+  checksum: ab128521cff3b61c53f31919113053fb0bfaffec99a4340553603f8458e2bece27f2ec1db18cf4d2ce675bdf8444b297aa33ce3995530a2ca6eb58596f6a8153
   languageName: node
   linkType: hard
 
@@ -10440,9 +10433,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sharp@npm:2.6.44":
-  version: 2.6.44
-  resolution: "gatsby-plugin-sharp@npm:2.6.44"
+"gatsby-plugin-sharp@npm:2.7.0":
+  version: 2.7.0
+  resolution: "gatsby-plugin-sharp@npm:2.7.0"
   dependencies:
     "@babel/runtime": ^7.11.2
     async: ^3.2.0
@@ -10464,13 +10457,13 @@ fsevents@~2.1.2:
     uuid: 3.4.0
   peerDependencies:
     gatsby: ">2.0.15"
-  checksum: 91af8b5c26b87b8e813a1a28b038b010c65a6b07523c4582d4b6167992ab1b3008d6a68290a2eea61e064fc55a485524de6de60c21e741ddd12dc0b0126f2c83
+  checksum: aaed09fefce502f6e57685cfcb57c7c39ff9e432fe0ccb644b6f9195195848c6bb6e47b534b3e6c4232bdfdf5a94b5619ea1f38596eb689ee228f5388246e496
   languageName: node
   linkType: hard
 
-"gatsby-plugin-sitemap@npm:2.4.17":
-  version: 2.4.17
-  resolution: "gatsby-plugin-sitemap@npm:2.4.17"
+"gatsby-plugin-sitemap@npm:2.5.0":
+  version: 2.5.0
+  resolution: "gatsby-plugin-sitemap@npm:2.5.0"
   dependencies:
     "@babel/runtime": ^7.11.2
     common-tags: ^1.8.0
@@ -10479,7 +10472,7 @@ fsevents@~2.1.2:
     sitemap: ^1.13.0
   peerDependencies:
     gatsby: ^2.0.0
-  checksum: 1ed69d80f9f38df2786a05cab7df98adcc1b336147fffe4c1b4e52961827917e8f1ea87b86ed594ec29298d8308b0ecbac74a525a9d727990ddf5b13ad492b6e
+  checksum: 247cec36ecfe245565fc1685a15996c26aa0accc9e84a0ba0f0237892d33e9d0c7efd6dc7a73ad17f00e92e5fd0bab093a2a00700734e482544d2303eac0e6b2
   languageName: node
   linkType: hard
 
@@ -10545,9 +10538,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-typescript@npm:^2.4.25":
-  version: 2.4.25
-  resolution: "gatsby-plugin-typescript@npm:2.4.25"
+"gatsby-plugin-typescript@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "gatsby-plugin-typescript@npm:2.5.0"
   dependencies:
     "@babel/core": ^7.11.6
     "@babel/plugin-proposal-nullish-coalescing-operator": ^7.10.4
@@ -10556,7 +10549,7 @@ fsevents@~2.1.2:
     "@babel/preset-typescript": ^7.10.4
     "@babel/runtime": ^7.11.2
     babel-plugin-remove-graphql-queries: ^2.9.20
-  checksum: 2e3a7a2e5060c13077e88a89703c249e426407af309acea897126428950a332ea0d550f8da4f6bb718bfd420b851f9a7ba4885a15cd73ff77172ab56ca3ecbfe
+  checksum: b4e2a732e89b2ec778ac093d9bf783b9c2949453e185bccf299f99a8ba3551163cfcba33b7facde25285d0eb8847ff2d05aee603edb15c3c6fadbb4a9fef3515
   languageName: node
   linkType: hard
 
@@ -10665,31 +10658,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-remark-images@npm:3.3.40":
-  version: 3.3.40
-  resolution: "gatsby-remark-images@npm:3.3.40"
-  dependencies:
-    "@babel/runtime": ^7.11.2
-    chalk: ^2.4.2
-    cheerio: ^1.0.0-rc.3
-    gatsby-core-utils: ^1.3.23
-    is-relative-url: ^3.0.0
-    lodash: ^4.17.20
-    mdast-util-definitions: ^1.2.5
-    potrace: ^2.1.8
-    query-string: ^6.13.3
-    unist-util-select: ^1.5.0
-    unist-util-visit-parents: ^2.1.2
-  peerDependencies:
-    gatsby: ^2.0.0
-    gatsby-plugin-sharp: ^2.0.0-beta.5
-  checksum: ab38a88c31bd610c7031b32c4041ad466a794c57638f7af541d67e422c927c8a255f58aaee074a5273dd1b6e1b45d1f83d7c0e3a3016c3fadc8f60ca2b625211
-  languageName: node
-  linkType: hard
-
-"gatsby-source-filesystem@npm:2.3.37":
-  version: 2.3.37
-  resolution: "gatsby-source-filesystem@npm:2.3.37"
+"gatsby-source-filesystem@npm:2.4.0":
+  version: 2.4.0
+  resolution: "gatsby-source-filesystem@npm:2.4.0"
   dependencies:
     "@babel/runtime": ^7.11.2
     better-queue: ^3.8.10
@@ -10707,7 +10678,7 @@ fsevents@~2.1.2:
     xstate: ^4.13.0
   peerDependencies:
     gatsby: ^2.2.0
-  checksum: 08cf6996758b540968121820e0dafac39d14cefdc10007a973656f1db8340fee709cea2e9db16a51fbd5c76ffbc7168c1733dba3886c49d11edff09b9598e428
+  checksum: 56a976a0a22a86e54fcea12d390d4681b832be12865460ea3f66efd98e59d76953211fba32abfd78642a78cc3e586af37cbf787a0574247c8f6973c8f400ae15
   languageName: node
   linkType: hard
 
@@ -10782,9 +10753,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby@npm:2.24.92":
-  version: 2.24.92
-  resolution: "gatsby@npm:2.24.92"
+"gatsby@npm:2.25.0":
+  version: 2.25.0
+  resolution: "gatsby@npm:2.25.0"
   dependencies:
     "@babel/code-frame": ^7.10.4
     "@babel/core": ^7.11.6
@@ -10858,7 +10829,7 @@ fsevents@~2.1.2:
     gatsby-legacy-polyfills: ^0.0.6
     gatsby-link: ^2.4.16
     gatsby-plugin-page-creator: ^2.3.34
-    gatsby-plugin-typescript: ^2.4.25
+    gatsby-plugin-typescript: ^2.5.0
     gatsby-plugin-utils: ^0.2.40
     gatsby-react-router-scroll: ^3.0.15
     gatsby-telemetry: ^1.3.38
@@ -10939,7 +10910,7 @@ fsevents@~2.1.2:
     react-dom: ^16.4.2
   bin:
     gatsby: ./cli.js
-  checksum: be513688025fb78db6d7d34aa84d85b0ebc1de9f4b3b82aa837925629390e68aab9751341f3f2e53f1b117409275f3e1d56907cf2fe5be18a6edcad70acb2b3f
+  checksum: e2e0c1455374cc949370dc50b9b998a95a820531449143bf1b7ac2d729e4cdd1db82ccb8e111259fc582d8f6abc655cadbef5748adba6d9dae3429b797d7a478
   languageName: node
   linkType: hard
 
@@ -14800,15 +14771,6 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"mdast-util-definitions@npm:^1.2.5":
-  version: 1.2.5
-  resolution: "mdast-util-definitions@npm:1.2.5"
-  dependencies:
-    unist-util-visit: ^1.0.0
-  checksum: 6f17efb7198d4af0c0007103a4a3cf6725aa008eda397db969b6dd60251c4c455551507259d0cd93e50c7b7a3963f05307853245dda8a58fa186e34186e54d9d
-  languageName: node
-  linkType: hard
-
 "mdast-util-definitions@npm:^3.0.0":
   version: 3.0.1
   resolution: "mdast-util-definitions@npm:3.0.1"
@@ -15890,7 +15852,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"nth-check@npm:^1.0.1, nth-check@npm:^1.0.2, nth-check@npm:~1.0.1":
+"nth-check@npm:^1.0.2, nth-check@npm:~1.0.1":
   version: 1.0.2
   resolution: "nth-check@npm:1.0.2"
   dependencies:
@@ -18254,7 +18216,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"query-string@npm:^6.13.1, query-string@npm:^6.13.3":
+"query-string@npm:^6.13.1":
   version: 6.13.6
   resolution: "query-string@npm:6.13.6"
   dependencies:
@@ -22285,17 +22247,6 @@ typescript@4.0.5:
   languageName: node
   linkType: hard
 
-"unist-util-select@npm:^1.5.0":
-  version: 1.5.0
-  resolution: "unist-util-select@npm:1.5.0"
-  dependencies:
-    css-selector-parser: ^1.1.0
-    debug: ^2.2.0
-    nth-check: ^1.0.1
-  checksum: 0f0cc407d4a534ea9facb4bf7339cf3aaf25d59c30b30a9c92f2ef7b393dd67d415748f2c6103db07f5a09ac79e3df23a87339e347f9e1d476067a1c224aaa13
-  languageName: node
-  linkType: hard
-
 "unist-util-stringify-position@npm:^1.0.0, unist-util-stringify-position@npm:^1.1.1":
   version: 1.1.2
   resolution: "unist-util-stringify-position@npm:1.1.2"
@@ -22319,7 +22270,7 @@ typescript@4.0.5:
   languageName: node
   linkType: hard
 
-"unist-util-visit-parents@npm:^2.0.0, unist-util-visit-parents@npm:^2.1.2":
+"unist-util-visit-parents@npm:^2.0.0":
   version: 2.1.2
   resolution: "unist-util-visit-parents@npm:2.1.2"
   dependencies:
@@ -22349,7 +22300,7 @@ typescript@4.0.5:
   languageName: node
   linkType: hard
 
-"unist-util-visit@npm:^1.0.0, unist-util-visit@npm:^1.1.0, unist-util-visit@npm:^1.4.1":
+"unist-util-visit@npm:^1.1.0, unist-util-visit@npm:^1.4.1":
   version: 1.4.1
   resolution: "unist-util-visit@npm:1.4.1"
   dependencies:
@@ -23790,7 +23741,7 @@ typescript@4.0.5:
     "@types/use-persisted-state": 0.3.0
     "@typescript-eslint/eslint-plugin": 4.6.0
     "@typescript-eslint/parser": 4.6.0
-    algoliasearch: 4.5.1
+    algoliasearch: 4.6.0
     autoprefixer: 10.0.1
     babel-eslint: 10.1.0
     blueimp-md5: 2.18.0
@@ -23806,28 +23757,27 @@ typescript@4.0.5:
     eslint-plugin-react-hooks: 4.2.0
     fontsource-noto-sans-sc: 3.0.3
     fontsource-source-code-pro: 3.0.10
-    gatsby: 2.24.92
+    gatsby: 2.25.0
     gatsby-image: 2.4.21
     gatsby-plugin-algolia: 0.14.1
-    gatsby-plugin-feed: 2.5.20
+    gatsby-plugin-feed: 2.6.0
     gatsby-plugin-google-gtag: 2.1.13
-    gatsby-plugin-manifest: 2.4.37
-    gatsby-plugin-mdx: 1.2.53
-    gatsby-plugin-netlify: 2.3.25
+    gatsby-plugin-manifest: 2.5.0
+    gatsby-plugin-mdx: 1.3.0
+    gatsby-plugin-netlify: 2.4.0
     gatsby-plugin-no-sourcemaps: 2.2.1
     gatsby-plugin-nprogress: 2.3.13
-    gatsby-plugin-offline: 3.2.38
+    gatsby-plugin-offline: 3.3.0
     gatsby-plugin-postcss: 3.0.4
     gatsby-plugin-preact: 4.0.16
     gatsby-plugin-react-helmet: 3.3.14
     gatsby-plugin-remove-trailing-slashes: 2.3.13
     gatsby-plugin-robots-txt: 1.5.3
-    gatsby-plugin-sharp: 2.6.44
-    gatsby-plugin-sitemap: 2.4.17
+    gatsby-plugin-sharp: 2.7.0
+    gatsby-plugin-sitemap: 2.5.0
     gatsby-plugin-ts-config: 1.1.1
     gatsby-plugin-typegen: 2.2.1
-    gatsby-remark-images: 3.3.40
-    gatsby-source-filesystem: 2.3.37
+    gatsby-source-filesystem: 2.4.0
     gatsby-theme-material-ui: 1.0.13
     gatsby-transformer-sharp: 2.5.21
     gitalk: 1.7.0

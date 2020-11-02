@@ -112,13 +112,13 @@ You may find that the font does not display properly. For the normal display of 
 
 1. Enter `Control Panel` in the Explorer.
 2. `Region` - `Administrative` - `Change system locale`
-   ![Region](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/Region.webp)
+   ![Region](/images/Use-WSL-to-Build-a-Development-Environment/Region.webp)
 3. `win + r` ， Enter `regedit`.
 4. Go to `Computer\HKEY_CURRENT_USER\Console`.
 5. Find your terminal and add a `REG_DWORD` with the name `CodePage` and a value of `fde9`.
 6. Install [Powerline Fonts](https://github.com/powerline/fonts) or [Programmer Font](https://github.com/adobe-fonts/source-code-pro) or [Awesome-Powerline Fonts](https://github.com/gabrielelana/awesome-terminal-fonts) or [Nerd-Fonts](https://github.com/ryanoasis/nerd-fonts).
 7. Right click on the terminal - `Properties` to view the current encoding and modify the font.
-   ![Properties](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/Properties.webp)
+   ![Properties](/images/Use-WSL-to-Build-a-Development-Environment/Properties.webp)
 
 ### ssh
 
@@ -252,7 +252,7 @@ Once the download is complete, open `settings.json`.
 
 Add a value `WSLGIT_USE_INTERACTIVE_SHELL` to the environment variable and set it to `0` or `false`. This will not call `Shell` when used, improving efficiency.
 
-![WSLGit](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/WSLGit.webp)
+![WSLGit](/images/Use-WSL-to-Build-a-Development-Environment/WSLGit.webp)
 
 - C/C++
 
@@ -284,23 +284,23 @@ A viable solution comes from [here](http://blog.plusls.cn/windows/vscode-using-p
 
 `Clion 2018` will be able to support `WSL`. If you are using a third-party distribution, please open `%\HOMEPATH%\.CLion2019.1\config\options\wsl.distributions.xml` and at the same time open the registry and go to `Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\` and make sure that both `ID` and `path` are the same.
 
-![wslConfig](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/wslConfig.webp)
+![wslConfig](/images/Use-WSL-to-Build-a-Development-Environment/wslConfig.webp)
 
 And make sure the following plugins are turned on.
 
-![plugin](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/plugin.webp)
+![plugin](/images/Use-WSL-to-Build-a-Development-Environment/plugin.webp)
 
 Select `WSL` in `Environment` in `Toolchains` to enable the `ssh` connection.
 
-![cWSL](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/cWSL.webp)
+![cWSL](/images/Use-WSL-to-Build-a-Development-Environment/cWSL.webp)
 
 But unfortunately, if you are using `Artix`, this doesn't work.
 
-![cError](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/cError.webp)
+![cError](/images/Use-WSL-to-Build-a-Development-Environment/cError.webp)
 
 We can only use WSL as a remote host.
 
-![cRemoteHost](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/cRemoteHost.webp)
+![cRemoteHost](/images/Use-WSL-to-Build-a-Development-Environment/cRemoteHost.webp)
 
 There is no significant difference in efficiency between the two methods, but using `Remote Host` will generate temporary files.
 
@@ -310,17 +310,17 @@ The setting of `PyCharm` is the same as `Clion`, modify `%\HOMEPATH%\.PyCharm201
 
 There are also two options in `Project Interpreter`.
 
-![pythonWSL](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/pythonWSL.webp)
+![pythonWSL](/images/Use-WSL-to-Build-a-Development-Environment/pythonWSL.webp)
 
 If you use `Remote Host`, you need to set the path mappings.
 
-![sshMapping](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/sshMapping.webp)
+![sshMapping](/images/Use-WSL-to-Build-a-Development-Environment/sshMapping.webp)
 
 But if your path contains Chinese, this may result in an error, because it uses the `ASCII` character.
 
 The solution is to set `Mappings` in `Development`.
 
-![developmentMapping](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/developmentMapping.webp)
+![developmentMapping](/images/Use-WSL-to-Build-a-Development-Environment/developmentMapping.webp)
 
 ## Develop under WSL
 
@@ -447,7 +447,7 @@ sudo jupyter notebook --allow-root  # Run as an root
 
 I mentioned Windows and WSL shared network ports before, so open `http://localhost:8888` directly under Windows.
 
-![jupyterNotebook](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/jupyterNotebook.webp)
+![jupyterNotebook](/images/Use-WSL-to-Build-a-Development-Environment/jupyterNotebook.webp)
 
 - C/C++ (optional)
 
@@ -529,7 +529,7 @@ But now someone has successfully run `Native Docker` on WSL, although it is limi
 
 I only tried and succeeded on `Ubuntu`.
 
-![docker](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/docker.webp)
+![docker](/images/Use-WSL-to-Build-a-Development-Environment/docker.webp)
 
 Run `Ubuntu.exe` as an administrator.
 
@@ -615,7 +615,7 @@ The third solution is for applications like `VSCode`, `Atom` developed by `elect
 
 The fourth solution is based on the desktop environment you have installed and the DPI size set in `Appearance` - `custom DPI setting`.
 
-![DPI](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/DPI.webp)
+![DPI](/images/Use-WSL-to-Build-a-Development-Environment/DPI.webp)
 
 **Q ：How do I change the display language of WSL?**
 

@@ -29,7 +29,7 @@ caption:
 
 现在浏览器（以 `Google Chrome` 为例）中登录自己的豆瓣账号后进入此页面，使用 `Developer tools` 中的 `network` 工具获取发送给服务器的 `Cookie` 和 `User-Agent` （如下图）。在 `python` 程序中使用 `requests` 发送请求时加入 `Cookie` ，模拟登录，加入 U`ser-Agent` 模拟浏览器访问，防止被拦截，从而得到目标页面的静态文件。
 
-![Tutorial-1](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-1.webp)
+![Tutorial-1](/images/Douban-Neighbor-Analysis/Tutorial-1.webp)
 
 ```python
 import requests
@@ -64,7 +64,7 @@ print('获取成功')
 
 通过对多个网页的分析，发现每位用户的友邻数都会显示在固定的地方（如下图），其对应的 `css selector` 为 `#db-usr-profile > div.info > h1` 。使用 `BeautifulSoup` 解析之前获取的网页，使用 `select` 函数提取出该部分，得到友邻数量。
 
-![Tutorial-2](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-2.webp)
+![Tutorial-2](/images/Douban-Neighbor-Analysis/Tutorial-2.webp)
 
 ```python
 # 从爬取的页面中获取用户的友邻总数
@@ -113,7 +113,7 @@ with open(uid_file, 'w') as file:
 
 经过分析后发现，该网页是动态网页，所有的数据都是网页打开后再请求的。再次使用 `Developer tools` 中的 `network` 工具，查看 `XHR` 类别中的项，得到了请求真正的 `url` 为[https://m.douban.com/rexxar/api/v2/user/zeqingg/archives_summary?for_mobile=1&ck=ykqX](https://m.douban.com/rexxar/api/v2/user/zeqingg/archives_summary?for_mobile=1&ck=ykqX)（如下图）。请求该链接并不需要模拟登录。同时，返回的数据为 `json` 格式，使用 `python` 中 `json` 模块的 `loads()` 函数进行解析。
 
-![Tutorial-3](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-3.webp)
+![Tutorial-3](/images/Douban-Neighbor-Analysis/Tutorial-3.webp)
 
 需要的是账户信息，在 `json` 数据中对应的为 `user` 项，其中有许多有用的数据项，比如生日 `birthday` ，性别 `gender` ，常住地 `loc` ，注册时间 `reg_time` ，广播数 `statuses_count` 等等。我们都将其保存到一个 `csv` 文件中。
 
@@ -121,7 +121,7 @@ with open(uid_file, 'w') as file:
 
 观影信息的获取同账户信息的获取一样，以手机端的网页[https://m.douban.com/people/zeqingg/movie_charts](https://m.douban.com/people/zeqingg/movie_charts)为例。此网页也为动态页面，采用和前一步相同的方法，经过分析得到了真实的请求的url为[https://m.douban.com/rexxar/api/v2/user/zeqingg/collection_stats?type=movie&for_mobile=1&ck=ykqX](https://m.douban.com/rexxar/api/v2/user/zeqingg/collection_stats?type=movie&for_mobile=1&ck=ykqX)（如下图）。
 
-![Tutorial-4](../../../assets/images/Douban-Neighbor-Analysis/Tutorial-4.webp)
+![Tutorial-4](/images/Douban-Neighbor-Analysis/Tutorial-4.webp)
 
 返回的 `json` 数据中有用的数据比如有观影数 `total_collections` ，观看电影电视剧的时间 `total_spent` ，在院线中的消费 `total_cost` ，平均每周观看时间 `weekly_avg` ，最常观看地区 `countries` ，最常观看类型 `genres` 等等。同样，把它们写入 `csv` 文件当中。
 
@@ -338,7 +338,7 @@ py.iplot(fig, filename='neighbor_distribution_map')
 
 ```
 
-![picture-1](../../../assets/images/Douban-Neighbor-Analysis/picture-1.webp)
+![picture-1](/images/Douban-Neighbor-Analysis/picture-1.webp)
 
 ### 绘制友邻男女广播图
 
@@ -421,7 +421,7 @@ py.iplot(dict(data=data, layout=layout), filename='status_pyramid_chart')
 
 ```
 
-![picture-2](../../../assets/images/Douban-Neighbor-Analysis/picture-2.webp)
+![picture-2](/images/Douban-Neighbor-Analysis/picture-2.webp)
 
 ### 绘制注册时间图
 
@@ -451,7 +451,7 @@ py.iplot([trace], filename='reg_year_pie_chart')
 
 ```
 
-![picture-3](../../../assets/images/Douban-Neighbor-Analysis/picture-3.webp)
+![picture-3](/images/Douban-Neighbor-Analysis/picture-3.webp)
 
 ### 绘制观影数据图
 
@@ -471,7 +471,7 @@ df.iplot(kind='bubble', x=csv_title[5], y=csv_title[6], size=csv_title[4], text=
 
 ```
 
-![picture-4](../../../assets/images/Douban-Neighbor-Analysis/picture-4.webp)
+![picture-4](/images/Douban-Neighbor-Analysis/picture-4.webp)
 
 ### 绘制友邻常看电影类型分布图
 
@@ -525,7 +525,7 @@ py.iplot(data, filename='genre_horizontal_bar_chart')
 
 ```
 
-![picture-5](../../../assets/images/Douban-Neighbor-Analysis/picture-5.webp)
+![picture-5](/images/Douban-Neighbor-Analysis/picture-5.webp)
 
 ### 绘制友邻常看电影地区分布图
 
@@ -602,7 +602,7 @@ py.iplot(fig, filename='country_pie_chart')
 
 ```
 
-![picture-6](../../../assets/images/Douban-Neighbor-Analysis/picture-6.webp)
+![picture-6](/images/Douban-Neighbor-Analysis/picture-6.webp)
 
 ## 总结
 

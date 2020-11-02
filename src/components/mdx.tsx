@@ -67,6 +67,10 @@ const components: Components = {
   table: Ta,
   tr: Tr,
   td: Td,
+  img: (props) => (
+    // eslint-disable-next-line jsx-a11y/alt-text
+    <img {...props} className="w-full object-scale-down" loading="lazy" />
+  ),
 };
 
 type MdxProps = {

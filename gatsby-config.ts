@@ -20,7 +20,6 @@ const config = {
     },
     { resolve: "gatsby-transformer-sharp", options: { useMozJpeg: true } },
     "gatsby-plugin-sharp",
-    "gatsby-remark-images",
     {
       resolve: "gatsby-plugin-mdx",
       options: {
@@ -29,9 +28,6 @@ const config = {
           require("rehype-katex"),
           require("rehype-slug"),
           require("@mapbox/rehype-prism"),
-        ],
-        gatsbyRemarkPlugins: [
-          { resolve: "gatsby-remark-images", options: { maxWidth: 2560 } },
         ],
       },
     },

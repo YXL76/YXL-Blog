@@ -111,13 +111,13 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 1. 在资源管理器中输入`控制面板`。
 2. `区域` - `管理` - `更改系统区域设置`
-![Region](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/Region.webp)
+![Region](/images/Use-WSL-to-Build-a-Development-Environment/Region.webp)
 3. `win + r` ， 输入 `regedit` 。
 4. 进入 `Computer\HKEY_CURRENT_USER\Console` 。
 5. 找到你的终端，添加一个 `REG_DWORD` ，名字为 `CodePage` ，值为 `fde9` 。
 6. 安装 [Powerline Fonts](https://github.com/powerline/fonts) 或 [Programmer Font](https://github.com/adobe-fonts/source-code-pro) 或 [Awesome-Powerline Fonts](https://github.com/gabrielelana/awesome-terminal-fonts) 或 [Nerd-Fonts](https://github.com/ryanoasis/nerd-fonts)。
 7. 在终端中右键 - `属性` ，查看当前编码和修改字体。
-![Properties](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/Properties.webp)
+![Properties](/images/Use-WSL-to-Build-a-Development-Environment/Properties.webp)
 
 ### ssh
 
@@ -251,7 +251,7 @@ sudo pacman -S npm yarn nodejs  # Artix
 
 在环境变量中添加一个值 `WSLGIT_USE_INTERACTIVE_SHELL` ，设其为 `0` 或 `false` 。这样在使用是将不会调用 `Shell` ，提升效率。
 
-![WSLGit](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/WSLGit.webp)
+![WSLGit](/images/Use-WSL-to-Build-a-Development-Environment/WSLGit.webp)
 
 - C/C++
 
@@ -283,23 +283,23 @@ sudo pacman -S npm yarn nodejs  # Artix
 
 `Clion 2018` 以后就能够支持 `WSL` ，若你是用的是第三方的发行版，请打开 `%\HOMEPATH%\.CLion2019.1\config\options\wsl.distributions.xml`，同时再打开注册表，进入 `Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\` ，确保二者的 `ID` 和 `path` 相同。
 
-![wslConfig](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/wslConfig.webp)
+![wslConfig](/images/Use-WSL-to-Build-a-Development-Environment/wslConfig.webp)
 
 并确保开启以下插件。
 
-![plugin](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/plugin.webp)
+![plugin](/images/Use-WSL-to-Build-a-Development-Environment/plugin.webp)
 
 在 `Toolchains` 中 `Environment` 中选择 `WSL` ，开启 `ssh` 连接。
 
-![cWSL](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/cWSL.webp)
+![cWSL](/images/Use-WSL-to-Build-a-Development-Environment/cWSL.webp)
 
 但不幸的是，如果你使用的是 `Artix` ，这种做法无效。
 
-![cError](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/cError.webp)
+![cError](/images/Use-WSL-to-Build-a-Development-Environment/cError.webp)
 
 我们只能把 WSL 当作远程主机来使用。
 
-![cRemoteHost](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/cRemoteHost.webp)
+![cRemoteHost](/images/Use-WSL-to-Build-a-Development-Environment/cRemoteHost.webp)
 
 两种方式的效率并无明显差别，但使用 `Remote Host` 会产生临时文件。
 
@@ -309,17 +309,17 @@ sudo pacman -S npm yarn nodejs  # Artix
 
 在 `Project Interpreter` 中同样有两种选择。
 
-![pythonWSL](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/pythonWSL.webp)
+![pythonWSL](/images/Use-WSL-to-Build-a-Development-Environment/pythonWSL.webp)
 
 若使用 `Remote Host` ，需要设置路径映射。
 
-![sshMapping](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/sshMapping.webp)
+![sshMapping](/images/Use-WSL-to-Build-a-Development-Environment/sshMapping.webp)
 
 但如果你的路径中包含中文，这么做可能会报错，原因应该是它采用 `ASCII` 字符。
 
 解决方法是在 `Development` 中设置 `Mappings` 。
 
-![developmentMapping](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/developmentMapping.webp)
+![developmentMapping](/images/Use-WSL-to-Build-a-Development-Environment/developmentMapping.webp)
 
 ## 在 WSL 下进行开发
 
@@ -444,7 +444,7 @@ sudo jupyter notebook --allow-root  # 管理员身份启动
 
 之前提到过 Windows 和 WSL 共享网络端口，所以直接在 Windows 下打开 `http://localhost:8888` 。
 
-![jupyterNotebook](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/jupyterNotebook.webp)
+![jupyterNotebook](/images/Use-WSL-to-Build-a-Development-Environment/jupyterNotebook.webp)
 
 - C/C++（可选）
 
@@ -484,7 +484,7 @@ jupyter-kernelspec install [--user] cling-cpp11
 
 终端以 `PuTTY` 为例。在连接的时候开启 `X11` 并设置输入端口。
 
-![putty](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/putty.webp)
+![putty](/images/Use-WSL-to-Build-a-Development-Environment/putty.webp)
 
 ### 桌面环境
 
@@ -534,7 +534,7 @@ docker 目前只有客户端能运行在 WSL 上，并不能运行守护程序�
 
 我只在 `Ubuntu` 上尝试并成功了：
 
-![docker](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/docker.webp)
+![docker](/images/Use-WSL-to-Build-a-Development-Environment/docker.webp)
 
 以管理员身份打开 `Ubuntu.exe` 。
 
@@ -622,7 +622,7 @@ export GDK_SCALE=2  # 针对 GDK 3 (GTK+ 3) 应用，缩放 200%
 
 第四种方法建立在你已安装了桌面环境，在 `Appearance` - `custom DPI setting` 中设置 DPI 大小。
 
-![DPI](../../../assets/images/Use-WSL-to-Build-a-Development-Environment/DPI.webp)
+![DPI](/images/Use-WSL-to-Build-a-Development-Environment/DPI.webp)
 
 **Q ：如何改变 WSL 的显示语言？**
 
