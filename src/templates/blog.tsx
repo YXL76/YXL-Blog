@@ -3,9 +3,9 @@ import {
   BlogBanner,
   ButtonBase,
   Card,
+  Gitalk,
   Grid,
   Mdx,
-  Paper,
   SEO,
   TOC,
   Tab,
@@ -22,11 +22,9 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useLocateContext, useScrollContext } from "../utils";
 import type { ChangeEvent } from "react";
 import type { FluidObject } from "gatsby-image";
-import GitalkComponent from "gitalk/dist/gitalk-component";
 import Img from "gatsby-image";
 import type { PageProps } from "gatsby";
 import type { TocItem } from "../components";
-import md5 from "blueimp-md5";
 
 const Blog = ({
   location: { href, pathname },
@@ -235,6 +233,11 @@ const Blog = ({
         <Grid item xs zeroMinWidth>
           {Content}
           {Nav}
+          <Gitalk
+            pathname={pathname}
+            body={`[${title || ""}](${href})`}
+            language={locate}
+          />
         </Grid>
         {md && (
           <Grid item xs={4} className="pl-8">

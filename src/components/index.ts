@@ -4,6 +4,7 @@ export * from "./blog-card";
 export * from "./blog-card-small";
 export * from "./category-banner";
 export * from "./category-card";
+export * from "./gitalk";
 export * from "./layout";
 export * from "./material-ui";
 export * from "./metadata-chip";
