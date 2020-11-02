@@ -1,4 +1,4 @@
-import { BlogMetadataChip, Button, Hidden, Link, Paper } from ".";
+import { BlogMetadataChip, Button, Hidden, Link, Paper, navigate } from ".";
 import { CategoryOutlined, LocalOfferOutlined } from "@material-ui/icons";
 import React, { useMemo } from "react";
 import type { FC } from "react";
@@ -39,7 +39,7 @@ export const BlogBanner: FC<BlogBannerProps> = ({
         color="primary"
         size="small"
         startIcon={<CategoryOutlined />}
-        to={`/${locate}/categories/${category}`}
+        onClick={() => navigate(`/${locate}/categories/${category}`)}
       >
         {category}
       </Button>
@@ -51,7 +51,7 @@ export const BlogBanner: FC<BlogBannerProps> = ({
     () =>
       tags.map(
         (item, idx) =>
-          item?.tag && (
+          item && (
             <Button
               key={idx}
               className="rounded-2xl mr-2 mt-2"
@@ -59,7 +59,7 @@ export const BlogBanner: FC<BlogBannerProps> = ({
               startIcon={<LocalOfferOutlined />}
               size="small"
               variant="contained"
-              to={`/${locate}/tags/${item.tag}`}
+              onClick={() => navigate(`/${locate}/tags/${item.tag as string}`)}
             >
               {item.name}
             </Button>

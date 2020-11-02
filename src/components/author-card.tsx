@@ -1,4 +1,4 @@
-import { Avatar, IconButton, Link } from ".";
+import { Avatar, IconButton, Link, navigate } from ".";
 import {
   Douban,
   Github,
@@ -49,15 +49,17 @@ export const AuthorCard: FC<BlogCardProps> = ({ className }) => {
   const { locate } = useLocateContext();
   return (
     <div className={`flex flex-col items-center px-4 py-6 ${className || ""}`}>
-      <Link to={`/${locate}/about`}>
-        <Avatar
-          className="h-24 w-24 shadow-md mb-4 group-hover:shadow-lg transition-shadow duration-300 ease-in"
-          src={avatar}
-          alt="avatar"
-        />
-      </Link>
-      <h2 className="font-medium text-center text-2xl mb-2">
-        <Link to={`/${locate}/about`}>{name}</Link>
+      <Avatar
+        className="cursor-pointer h-24 w-24 shadow-md mb-4 group-hover:shadow-lg transition-shadow duration-300 ease-in"
+        src={avatar}
+        alt="avatar"
+        onClick={() => navigate(`/${locate}/about`)}
+      />
+      <h2
+        className="cursor-pointer text-primary font-medium text-center text-2xl mb-2"
+        onClick={() => navigate(`/${locate}/about`)}
+      >
+        name
       </h2>
       <h3 className="font-medium text-center text-lg">{role}</h3>
       <div className="flex flex-wrap justify-center">

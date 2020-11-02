@@ -1,4 +1,4 @@
-import { Badge, Link, Paper, SEO } from "../components";
+import { Badge, Paper, SEO, navigate } from "../components";
 import React, { useMemo } from "react";
 import type { PageProps } from "gatsby";
 import { useLocateContext } from "../utils";
@@ -24,13 +24,13 @@ const Tags = ({
                 color="primary"
                 key={idx}
               >
-                <Link
-                  className="m-1"
-                  to={`/${locate}/tags/${tag}`}
+                <div
+                  className="cursor-pointer text-primary m-1"
+                  onClick={() => navigate(`/${locate}/tags/${tag}`)}
                   style={{ fontSize: 16 + count * 2 }}
                 >
                   {name}
-                </Link>
+                </div>
               </Badge>
             ))}
           </Paper>

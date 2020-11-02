@@ -1,4 +1,4 @@
-import { Button, Card } from ".";
+import { Button, Card, navigate } from ".";
 import { AssignmentIndOutlined } from "@material-ui/icons";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
@@ -32,7 +32,7 @@ export const CategoryCard: FC<CategoryCardProps> = ({
           <Button
             startIcon={<AssignmentIndOutlined />}
             color="primary"
-            to={`/${locate}/categories/${category}`}
+            onClick={() => navigate(`/${locate}/categories/${category}`)}
           >
             {totalCount} Blogs
           </Button>

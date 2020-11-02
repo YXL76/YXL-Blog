@@ -38,7 +38,7 @@ const Blogs = ({
           ),
           [nodes]
         )}
-        <Hidden smDown>
+        <Hidden mdDown>
           <Grid item xs={4} className="pl-12">
             <Card
               className={`group sticky top-20 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-all duration-300 transform ease-out ${

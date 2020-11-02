@@ -1,4 +1,4 @@
-import { BlogMetadataChip, Card, Link } from ".";
+import { BlogMetadataChip, Card, navigate } from ".";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
@@ -28,8 +28,11 @@ export const BlogCardSmall: FC<BlogCardSmallProps> = ({
   <Card className="overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300">
     <Img fluid={img} />
     <div className="flex flex-col items-center px-2 pt-2 pb-2 text-center">
-      <h2 className="tracking-wider text-2xl">
-        <Link to={slug}>{title}</Link>
+      <h2
+        className="cursor-pointer text-primary tracking-wider text-2xl"
+        onClick={() => navigate(slug as string)}
+      >
+        {title}
       </h2>
       <h3 className="tracking-wider text-xl">{subtitle}</h3>
       <div className="leading-snug tracking-wider text-base mt-1 mb-2">

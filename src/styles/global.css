@@ -6,6 +6,15 @@
   scrollbar-width: thin;
 }
 
+body {
+  background-attachment: fixed;
+  background-image: url(/images/background.webp);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
 h1,
 h2,
 h3,
@@ -20,7 +29,7 @@ h6 {
 }
 
 #mdx-content a {
-  color: var(--primary-main);
+  color: var(--primary);
   text-decoration: none;
 }
 
@@ -76,7 +85,7 @@ h6 {
 #mdx-content > h4:hover::after,
 #mdx-content > h5:hover::after,
 #mdx-content > h6:hover::after {
-  color: var(--primary-main);
+  color: var(--primary);
   content: "#";
   margin-left: 0.4rem;
 }
@@ -93,7 +102,7 @@ h6 {
 
 #mdx-content > blockquote {
   background-color: var(--divider);
-  border-left: var(--primary-main) solid 6px;
+  border-left: var(--primary) solid 6px;
   margin-left: 4px;
   padding-left: 16px;
 }
@@ -105,7 +114,7 @@ h6 {
 #mdx-content > p > code {
   background-color: var(--divider);
   border-radius: 0.4rem;
-  color: var(--primary-main);
+  color: var(--primary);
   font-size: 1.04rem;
   padding: 0 0.4rem;
 }

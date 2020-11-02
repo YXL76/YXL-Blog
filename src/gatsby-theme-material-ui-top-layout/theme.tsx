@@ -4,20 +4,8 @@ import { createMuiTheme } from "@material-ui/core";
 import merge from "lodash.merge";
 
 const baseOptions: ThemeOptions = {
-  overrides: {
-    MuiCssBaseline: {
-      "@global": {
-        body: {
-          backgroundAttachment: "fixed",
-          backgroundImage: "url(/images/background.webp)",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          overflowX: "hidden",
-        },
-      },
-    },
-    MuiTimelineOppositeContent: { root: { flex: "unset" } },
+  components: {
+    MuiTimelineOppositeContent: { styleOverrides: { root: { flex: "unset" } } },
   },
   palette: {
     primary: {
@@ -32,12 +20,14 @@ const baseOptions: ThemeOptions = {
 };
 
 const theme = createMuiTheme(
-  merge({}, baseOptions, {
-    overrides: {
-      MuiAppBar: { colorDefault: { backgroundColor: "#fff" } },
+  merge<ThemeOptions, ThemeOptions, ThemeOptions>({}, baseOptions, {
+    components: {
+      MuiAppBar: {
+        styleOverrides: { colorDefault: { backgroundColor: "#fff" } },
+      },
     },
     palette: {
-      type: "light",
+      mode: "light",
     },
   })
 );
@@ -45,12 +35,14 @@ const theme = createMuiTheme(
 export default theme;
 
 export const darkTheme = createMuiTheme(
-  merge({}, baseOptions, {
-    overrides: {
-      MuiAppBar: { colorDefault: { backgroundColor: "#212121" } },
+  merge<ThemeOptions, ThemeOptions, ThemeOptions>({}, baseOptions, {
+    components: {
+      MuiAppBar: {
+        styleOverrides: { colorDefault: { backgroundColor: "#212121" } },
+      },
     },
     palette: {
-      type: "dark",
+      mode: "dark",
       background: { paper: "#212121", default: "#212121" },
     },
   })

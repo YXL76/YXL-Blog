@@ -1,4 +1,4 @@
-import { BlogMetadataChip, Button, ButtonBase, Card, Link, navigate } from ".";
+import { BlogMetadataChip, Button, ButtonBase, Card, navigate } from ".";
 import { ChevronRight, LocalOfferOutlined } from "@material-ui/icons";
 import type { FC } from "react";
 import type { FluidObject } from "gatsby-image";
@@ -49,13 +49,16 @@ export const BlogCard: FC<BlogCardProps> = ({
           className="absolute rounded-xl left-3 top-3 sm:left-6 sm:top-6"
           variant="contained"
           color="primary"
-          to={`/${locate}/categories/${category}`}
+          onClick={() => navigate(`/${locate}/categories/${category}`)}
         >
           {category}
         </Button>
       </div>
-      <h2 className="font-bold mt-3 text-2xl sm:text-3xl md:text-4xl text-center tracking-wider">
-        <Link to={slug}>{title}</Link>
+      <h2
+        className="cursor-pointer text-primary font-bold mt-3 text-2xl sm:text-3xl md:text-4xl text-center tracking-wider"
+        onClick={() => navigate(slug as string)}
+      >
+        {title}
       </h2>
       {subtitle && (
         <h3 className="font-medium mt-2 text-lg sm:text-xl md:text-2xl text-center">
@@ -72,7 +75,7 @@ export const BlogCard: FC<BlogCardProps> = ({
         <div className="flex flex-wrap">
           {tags.map(
             (item, idx) =>
-              item?.tag && (
+              item && (
                 <Button
                   key={idx}
                   className="rounded-2xl mr-2 mt-2"
@@ -80,7 +83,9 @@ export const BlogCard: FC<BlogCardProps> = ({
                   startIcon={<LocalOfferOutlined />}
                   size="small"
                   variant="outlined"
-                  to={`/${locate}/tags/${item.tag}`}
+                  onClick={() =>
+                    navigate(`/${locate}/tags/${item.tag as string}`)
+                  }
                 >
                   {item.name}
                 </Button>
@@ -93,7 +98,7 @@ export const BlogCard: FC<BlogCardProps> = ({
           color="primary"
           size="small"
           endIcon={<ChevronRight />}
-          to={slug}
+          onClick={() => navigate(slug as string)}
         >
           Continue reading
         </Button>

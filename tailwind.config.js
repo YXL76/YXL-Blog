@@ -50,6 +50,7 @@ module.exports = {
       },
       textColor: {
         bg: "var(--bg)",
+        primary: "var(--primary)",
         text: "var(--text)",
       },
       transitionProperty: {

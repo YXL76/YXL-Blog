@@ -2,14 +2,16 @@ export {
   AppBar,
   Avatar,
   Badge,
+  Button,
   ButtonBase,
   Card,
-  CardMedia,
   Chip,
   Container,
   Drawer,
   Grid,
+  IconButton,
   InputBase,
+  Link,
   List,
   ListItem,
   ListItemIcon,
@@ -32,14 +34,6 @@ export {
   useScrollTrigger,
   Hidden,
 } from "@material-ui/core";
-export {
-  BottomNavigationAction,
-  Button,
-  CardActionArea,
-  Fab,
-  IconButton,
-  Link,
-} from "gatsby-theme-material-ui";
 export {
   Timeline,
   TimelineConnector,

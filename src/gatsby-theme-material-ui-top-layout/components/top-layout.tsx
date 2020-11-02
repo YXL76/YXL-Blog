@@ -1,6 +1,6 @@
 import { Layout, useMediaQuery, useScrollTrigger } from "../../components";
 import { LocateContext, ScrollContext, useLocate } from "../../utils";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import theme, { darkTheme } from "../theme";
 import type { ReactNode } from "react";
 import type { Theme } from "@material-ui/core";
@@ -16,23 +16,15 @@ interface TopLayoutProps {
 
 export default function TopLayout({ children }: TopLayoutProps) {
   const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
-  const [darkMode, toggleDarkMode] = useDarkModeState(prefersDarkMode);
+  const [darkMode, setDarkMode] = useDarkModeState(prefersDarkMode);
   const trigger = useScrollTrigger();
   const { locate, setLocate } = useLocate();
 
   useEffect(() => {
     const t = darkMode ? darkTheme : theme;
     document.documentElement.style.setProperty(
-      "--primary-light",
-      t.palette.primary.light
-    );
-    document.documentElement.style.setProperty(
-      "--primary-main",
+      "--primary",
       t.palette.primary.main
-    );
-    document.documentElement.style.setProperty(
-      "--primary-dark",
-      t.palette.primary.dark
     );
     document.documentElement.style.setProperty("--divider", t.palette.divider);
     document.documentElement.style.setProperty(
@@ -52,7 +44,10 @@ export default function TopLayout({ children }: TopLayoutProps) {
           <Layout
             trigger={trigger}
             darkMode={darkMode}
-            toggleDarkMode={() => toggleDarkMode((current) => !current)}
+            toggleDarkMode={useCallback(
+              () => setDarkMode((current) => !current),
+              [setDarkMode]
+            )}
           >
             {children}
           </Layout>

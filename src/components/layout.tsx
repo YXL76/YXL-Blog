@@ -85,51 +85,57 @@ export const Layout: FC<LayoutProps> = ({
                 height={48}
                 onClick={() => navigate(`/${locate}`)}
               />
-              <Hidden xsDown>
-                <div className="mr-6 font-bold leading-none text-2xl uppercase">
-                  <Link to={`/${locate}`} underline="none" color="inherit">
-                    {message[locate]["title"]}
-                  </Link>
+              <Hidden smDown>
+                <div
+                  className="cursor-pointer mr-6 font-bold leading-none text-2xl uppercase"
+                  onClick={() => navigate(`/${locate}`)}
+                >
+                  {message[locate]["title"]}
                 </div>
               </Hidden>
-              <Hidden smDown>
+              <Hidden mdDown>
                 <Button
                   variant="text"
+                  color="inherit"
                   size="large"
                   startIcon={<PagesOutlined />}
-                  to={`/${locate}/blogs`}
+                  onClick={() => navigate(`/${locate}/blogs`)}
                 >
                   {message[locate]["blogs"]}
                 </Button>
                 <Button
                   variant="text"
+                  color="inherit"
                   size="large"
                   startIcon={<CategoryOutlined />}
-                  to={`/${locate}/categories`}
+                  onClick={() => navigate(`/${locate}/categories`)}
                 >
                   {message[locate]["categories"]}
                 </Button>
                 <Button
                   variant="text"
+                  color="inherit"
                   size="large"
                   startIcon={<LocalOfferOutlined />}
-                  to={`/${locate}/tags`}
+                  onClick={() => navigate(`/${locate}/tags`)}
                 >
                   {message[locate]["tags"]}
                 </Button>
                 <Button
                   variant="text"
+                  color="inherit"
                   size="large"
                   startIcon={<ArchiveOutlined />}
-                  to={`/${locate}/archives`}
+                  onClick={() => navigate(`/${locate}/archives`)}
                 >
                   {message[locate]["archives"]}
                 </Button>
                 <Button
                   variant="text"
+                  color="inherit"
                   size="large"
                   startIcon={<FaceOutlined />}
-                  to={`/${locate}/about`}
+                  onClick={() => navigate(`/${locate}/about`)}
                 >
                   {message[locate]["about"]}
                 </Button>
@@ -211,10 +217,11 @@ export const Layout: FC<LayoutProps> = ({
         open={openDrawer}
         onClose={() => setOpenDrawer(false)}
       >
-        <div className="pl-8 py-4 font-bold leading-none text-2xl uppercase">
-          <Link to={`/${locate}`} underline="none">
-            {message[locate]["title"]}
-          </Link>
+        <div
+          className="cursor-pointer text-primary pl-8 py-4 font-bold leading-none text-2xl uppercase"
+          onClick={() => navigate(`/${locate}`)}
+        >
+          {message[locate]["title"]}
         </div>
         <List component="nav" className="w-screen-3/5">
           <ListItemLink

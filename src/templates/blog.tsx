@@ -83,14 +83,14 @@ const Blog = ({
     };
   }, [node]);
 
-  const sm = useMediaQuery("(min-width:600px)");
+  const md = useMediaQuery("(min-width:960px)");
   const { locate } = useLocateContext();
   const { trigger } = useScrollContext();
   const [value, setValue] = useState(0);
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    if (sm) {
+    if (md) {
       const handler = (entries: IntersectionObserverEntry[]) => {
         if (entries.length === 1 && entries[0].isIntersecting) {
           setActive(entries[0].target.id);
@@ -111,12 +111,12 @@ const Blog = ({
         observer.disconnect();
       };
     }
-  }, [sm]);
+  }, [md]);
 
   const Content = useMemo(
     () => (
       <Mdx
-        className="mb-4 overflow-hidden p-2 sm:p-4 md:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+        className="mb-4 overflow-hidden p-2 md:p-4 md:p-6 rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
         foot={
           <div className="mx-4 text-base italic underline">
             Last modified on {lastModified}
@@ -140,12 +140,12 @@ const Blog = ({
       };
     })[];
     return (
-      <div className="flex justify-between flex-col sm:flex-row">
+      <div className="flex justify-between flex-col md:flex-row">
         {near.map((item, idx) =>
           item ? (
             <div
               key={idx}
-              className="w-full sm:w-15/32 relative my-4 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="w-full md:w-15/32 relative my-4 overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-shadow duration-300"
             >
               <Img fluid={item.frontmatter.banner.childImageSharp.fluid} />
               <div className="absolute left-0 right-0 top-1/5 p-2 font-bold text-shadow text-bg text-center text-2xl tracking-wide">
@@ -174,7 +174,7 @@ const Blog = ({
               )}
             </div>
           ) : (
-            <div key={idx} className="w-full sm:w-15/32" />
+            <div key={idx} className="w-full md:w-15/32" />
           )
         )}
       </div>
@@ -219,7 +219,7 @@ const Blog = ({
       description={excerpt}
       image={caption?.href}
     >
-      <style>{`#mdx-toc #toc-${active} {color: var(--primary-main); border-color: var(--primary-main);}`}</style>
+      <style>{`#mdx-toc #toc-${active} {color: var(--primary); border-color: var(--primary);}`}</style>
       <BlogBanner
         img={fluid}
         category={category}
@@ -236,7 +236,7 @@ const Blog = ({
           {Content}
           {Nav}
         </Grid>
-        {sm && (
+        {md && (
           <Grid item xs={4} className="pl-8">
             <Card
               className={`group sticky overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-toc duration-300 ease-out ${
