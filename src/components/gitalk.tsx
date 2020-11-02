@@ -11,7 +11,7 @@ type GitalkProps = {
 };
 
 export const Gitalk: FC<GitalkProps> = ({ pathname, body, language }) =>
-  typeof window !== "undefined" ? (
+  typeof window == "undefined" ? (
     <></>
   ) : (
     <Paper
