@@ -5,6 +5,7 @@ const config = {
   siteMetadata,
   plugins: [
     "gatsby-plugin-no-sourcemaps",
+    "gatsby-plugin-preact",
     {
       resolve: "gatsby-theme-material-ui",
       options: { webFontsConfig: { fonts: {} } },

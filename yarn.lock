@@ -2775,6 +2775,42 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prefresh/babel-plugin@npm:^0.2.2":
+  version: 0.2.2
+  resolution: "@prefresh/babel-plugin@npm:0.2.2"
+  checksum: eab1e0a50f6af07a873e56ac57d881d6aad01c46be707a6593479cc4fd21214997fe22f4b99abeaa780a60cfd9d78c9a80bd691608ffd1a9dac78a1041da873d
+  languageName: node
+  linkType: hard
+
+"@prefresh/core@npm:^0.8.1":
+  version: 0.8.1
+  resolution: "@prefresh/core@npm:0.8.1"
+  peerDependencies:
+    preact: ^10.0.0
+  checksum: 32e142ba1d3ff38e50e822d63c4c6e4caaa6f399727b5eaf3239f83861f1883a562392c55bdae52bd8130f5d2a3dcf0b3f431d595a6514fd9227384a588dd6bf
+  languageName: node
+  linkType: hard
+
+"@prefresh/utils@npm:^0.3.1":
+  version: 0.3.1
+  resolution: "@prefresh/utils@npm:0.3.1"
+  checksum: d85dd866a821aaaee54e1d4ad4edbb4ec0939ee30e9147de0e92e8b6485db6580eb0ffad770b3e8b9cb3c61a1381867c684bec0556363baec6db58b833fdfd8b
+  languageName: node
+  linkType: hard
+
+"@prefresh/webpack@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@prefresh/webpack@npm:1.1.0"
+  dependencies:
+    "@prefresh/core": ^0.8.1
+    "@prefresh/utils": ^0.3.1
+  peerDependencies:
+    preact: ^10.4.0
+    webpack: ^4.0.0 || ^5.0.0
+  checksum: 13f794999426cd7c82a49eb85dd6625204e9b1a3c2e056753c8160f5bed3b12101cfa94e260e1f072b3585751115c2f4377ec9e706e27186b7d67f40311de41c
+  languageName: node
+  linkType: hard
+
 "@reach/router@npm:^1.3.4":
   version: 1.3.4
   resolution: "@reach/router@npm:1.3.4"
@@ -10147,6 +10183,20 @@ fsevents@~2.1.2:
     gatsby: ^2.0.0
     postcss: ^8.0.5
   checksum: d81ae62935c960b78e03860dc706c89843ce8de3063419e0fb000033b770de7e7567c083e860c61a681b51d7835b53bb6df58a6655ce6a55a49726eb4c6f4c8e
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-preact@npm:^4.0.16":
+  version: 4.0.16
+  resolution: "gatsby-plugin-preact@npm:4.0.16"
+  dependencies:
+    "@prefresh/babel-plugin": ^0.2.2
+    "@prefresh/webpack": ^1.1.0
+  peerDependencies:
+    gatsby: ^2.0.0
+    preact: ^10.3.4
+    preact-render-to-string: ^5.1.8
+  checksum: 16a46c088c0c3494664d2859da2bf76503fd1b16b1c7df57db27a25272e97654249f164ad6e8ac80859c3e73f08388a3bfaf86a06245a1051cd69c496988b5e2
   languageName: node
   linkType: hard
 
@@ -17565,6 +17615,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"preact-render-to-string@npm:^5.1.11":
+  version: 5.1.11
+  resolution: "preact-render-to-string@npm:5.1.11"
+  dependencies:
+    pretty-format: ^3.8.0
+  peerDependencies:
+    preact: ">=10"
+  checksum: 3103e7c4d630012e45cb10d2bb229f3e4081edfa071bf09c86206e7352a1817974fc6ab44d006f1cae3b0a4e6e81b1cacbc8d0f70a98f9c4fe208d16ee3d9738
+  languageName: node
+  linkType: hard
+
 "preact-transition-group@npm:^1.1.0":
   version: 1.1.1
   resolution: "preact-transition-group@npm:1.1.1"
@@ -17578,6 +17639,13 @@ fsevents@~2.1.2:
   version: 8.1.0
   resolution: "preact@npm:8.1.0"
   checksum: c7fb0ae9febb0ba31461cb67720cfd6e41a604d9f5254ec8cec5dfcc7dd31b8d8885e0eda85ed0372a52b8babe2dfbed82490aa3a836f03024950eb8e6803b30
+  languageName: node
+  linkType: hard
+
+"preact@npm:^10.5.5":
+  version: 10.5.5
+  resolution: "preact@npm:10.5.5"
+  checksum: f44c12f61e1ae0dd3691d291559b7bc41a664193650d3156fd02f1541722bf6cb07bf885e8dd31b7023e5683cdc1a42fe5fba4934433f5811b338e24698d1dc1
   languageName: node
   linkType: hard
 
@@ -17681,7 +17749,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"pretty-format@npm:^3.5.1":
+"pretty-format@npm:^3.5.1, pretty-format@npm:^3.8.0":
   version: 3.8.0
   resolution: "pretty-format@npm:3.8.0"
   checksum: 75603b8fa8a7520fbb24bea18869d4c5cf6ae7308637eb95e083eab07e521946bc49a22fa1ac4e567305b406e756badc7febfc1c5acc811fef236db189c511bf
@@ -23549,6 +23617,7 @@ typescript@4.0.5:
     gatsby-plugin-nprogress: 2.3.13
     gatsby-plugin-offline: 3.2.38
     gatsby-plugin-postcss: 3.0.4
+    gatsby-plugin-preact: ^4.0.16
     gatsby-plugin-react-helmet: 3.3.14
     gatsby-plugin-remove-trailing-slashes: 2.3.13
     gatsby-plugin-robots-txt: 1.5.3
@@ -23565,6 +23634,8 @@ typescript@4.0.5:
     lodash.merge: 4.6.2
     mdi-material-ui: 6.20.0
     postcss: 8.1.4
+    preact: ^10.5.5
+    preact-render-to-string: ^5.1.11
     prettier: 2.1.2
     prism-themes: 1.5.0
     react: 16.14.0
