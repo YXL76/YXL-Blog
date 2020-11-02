@@ -59,47 +59,31 @@ export const AuthorCard: FC<BlogCardProps> = ({ className }) => {
         className="cursor-pointer text-primary font-medium text-center text-2xl mb-2"
         onClick={() => navigate(`/${locate}/about`)}
       >
-        name
+        {name}
       </h2>
       <h3 className="font-medium text-center text-lg">{role}</h3>
       <div className="flex flex-wrap justify-center">
-        {email && <Social href={`mailto:${email}`} icon={<EmailOutlined />} />}
-        {github && (
-          <Social href={`https://github.com/${github}`} icon={<Github />} />
-        )}
-        {twitter && (
-          <Social href={`https://twitter.com/${twitter}`} icon={<Twitter />} />
-        )}
-        {facebook && (
-          <Social
-            href={`https://www.facebook.com/${facebook}`}
-            icon={<Facebook />}
-          />
-        )}
-        {instagram && (
-          <Social
-            href={`https://www.instagram.com/${instagram}`}
-            icon={<Instagram />}
-          />
-        )}
-        {reddit && (
-          <Social
-            href={`https://www.reddit.com/user/${reddit}`}
-            icon={<Reddit />}
-          />
-        )}
-        {douban && (
-          <Social
-            href={`https://www.douban.com/people/${douban}`}
-            icon={<Douban />}
-          />
-        )}
-        {telegram && (
-          <Social href={`https://t.me/${telegram}`} icon={<Telegram />} />
-        )}
-        {weibo && (
-          <Social href={`https://weibo.com/u/${weibo}`} icon={<SinaWeibo />} />
-        )}
+        <Social href={`mailto:${email}`} icon={<EmailOutlined />} />
+        <Social href={`https://github.com/${github}`} icon={<Github />} />
+        <Social href={`https://twitter.com/${twitter}`} icon={<Twitter />} />
+        <Social
+          href={`https://www.facebook.com/${facebook}`}
+          icon={<Facebook />}
+        />
+        <Social
+          href={`https://www.instagram.com/${instagram}`}
+          icon={<Instagram />}
+        />
+        <Social
+          href={`https://www.reddit.com/user/${reddit}`}
+          icon={<Reddit />}
+        />
+        <Social
+          href={`https://www.douban.com/people/${douban}`}
+          icon={<Douban />}
+        />
+        <Social href={`https://t.me/${telegram}`} icon={<Telegram />} />
+        <Social href={`https://weibo.com/u/${weibo}`} icon={<SinaWeibo />} />
       </div>
       <div className="text-center">{bio}</div>
     </div>
