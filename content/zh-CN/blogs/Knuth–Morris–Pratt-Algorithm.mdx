@@ -79,13 +79,13 @@ int KMP()
 
 ![MP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/MP.webp)
 
-**BF 算法**中的$2$、$4$步都是无用的匹配，因为$pattern[0] = text[0]$且$text[0]{\neq}text[1]$，所以$pattern[0]{\neq}text[1]$，第二步必然匹配失败，第四步同理。**MP(KMP)算法**就对此进行改进，不回溯文本串的下标，只改变模式串的下标，减去了这两步。
+**BF 算法**中的$2$、$4$步都是无用的匹配，因为$pattern[0] = text[0]$且$text[0] \neq text[1]$，所以$pattern[0] \neq text[1]$，第二步必然匹配失败，第四步同理。**MP(KMP)算法**就对此进行改进，不回溯文本串的下标，只改变模式串的下标，减去了这两步。
 
 上图共匹配了$11$次。
 
 我们就得到了第一个结论：
 
-> **MP(KMP)算法**与**BF 算法**的区别在于**BF 算法**每次失配后模式串仅右移一位，而**MP(KMP)算法**将右移$k(k{\geq}1, k{\in}N)$位。
+> **MP(KMP)算法**与**BF 算法**的区别在于**BF 算法**每次失配后模式串仅右移一位，而**MP(KMP)算法**将右移$k(k \geq 1, k \in N)$位。
 
 ## 计算右移位数
 
@@ -146,7 +146,7 @@ int GetNext()
 
 ![KMP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/KMP.webp)
 
-在这个例子中，第二次匹配必然失败，因为$pattern[i]=pattern[next[i]]$，而$pattern[i]{\neq}text[i]$，所以$pattern[next[i]]{\neq}text[i]$。
+在这个例子中，第二次匹配必然失败，因为$pattern[i]=pattern[next[i]]$，而$pattern[i] \neq text[i]$，所以$pattern[next[i]] \neq text[i]$。
 
 所以我们在函数中增加一次判断来优化算法。
 

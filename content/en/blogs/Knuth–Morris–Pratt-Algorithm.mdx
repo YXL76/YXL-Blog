@@ -79,13 +79,13 @@ It can be found that the **BF Algorithm** can be very efficient in the case of t
 
 ![MP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/MP.webp)
 
-The 2 and 4 steps in the **BF Algorithm** are useless matches. Because $pattern[0] = text[0]$ and $text[0]{\neq}text[1]$ , therefore, $pattern[0]{\neq}text[1]$. The second step must match the failure, the fourth step is the same. **MP(KMP) Algorithm** in order to improve this, do not backtrack the subscript of the text string, only change the subscript of the pattern string, minus the two steps.
+The 2 and 4 steps in the **BF Algorithm** are useless matches. Because $pattern[0] = text[0]$ and $text[0] \neq text[1]$ , therefore, $pattern[0] \neq text[1]$. The second step must match the failure, the fourth step is the same. **MP(KMP) Algorithm** in order to improve this, do not backtrack the subscript of the text string, only change the subscript of the pattern string, minus the two steps.
 
 The above picture shows $11$ times matching.
 
 We get the first conclusion:
 
-> The difference between the **MP (KMP) Algorithm** and the **BF Algorithm** is that the pattern string is shifted to the right by one bit each time the **BF Algorithm** is mismatched, and the **MP (KMP) Algorithm** is shifted to the right by $k(k{\geq}1, k{\in}N)$ bits.
+> The difference between the **MP (KMP) Algorithm** and the **BF Algorithm** is that the pattern string is shifted to the right by one bit each time the **BF Algorithm** is mismatched, and the **MP (KMP) Algorithm** is shifted to the right by $k(k \geq 1, k \in N)$ bits.
 
 ## Calculate the number of right shifts
 
@@ -146,7 +146,7 @@ Let‘s look at an example:
 
 ![KMP](../../../assets/images/Knuth–Morris–Pratt-Algorithm/KMP.webp)
 
-In this example, the second match must fail. Because $pattern[i]=pattern[next[i]]$, and $pattern[i]{\neq}text[i]$, therefore, $pattern[next[i]]{\neq}text[i]$.
+In this example, the second match must fail. Because $pattern[i]=pattern[next[i]]$, and $pattern[i] \neq text[i]$, therefore, $pattern[next[i]] \neq text[i]$.
 
 So we add a judgment to the function to optimize the algorithm.
 
