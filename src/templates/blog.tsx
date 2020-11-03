@@ -92,28 +92,26 @@ const Blog = ({
   const [active, setActive] = useState("");
 
   useEffect(() => {
-    if (md) {
-      const handler = (entries: IntersectionObserverEntry[]) => {
-        if (entries.length === 1 && entries[0].isIntersecting) {
-          setActive(entries[0].target.id);
-        }
-      };
-      const observer = new IntersectionObserver(handler, {
-        root: null,
-        rootMargin: "0px",
-        threshold: 1.0,
+    const handler = (entries: IntersectionObserverEntry[]) => {
+      if (entries.length === 1 && entries[0].isIntersecting) {
+        setActive(entries[0].target.id);
+      }
+    };
+    const observer = new IntersectionObserver(handler, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0,
+    });
+    document
+      .querySelectorAll("#mdx-content > h2, #mdx-content > h3")
+      .forEach((node) => {
+        observer.observe(node);
       });
-      document
-        .querySelectorAll("#mdx-content > h2, #mdx-content > h3")
-        .forEach((node) => {
-          observer.observe(node);
-        });
 
-      return () => {
-        observer.disconnect();
-      };
-    }
-  }, [md]);
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   const Content = useMemo(
     () => (

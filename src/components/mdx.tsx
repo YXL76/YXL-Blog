@@ -69,7 +69,11 @@ const components: Components = {
   td: Td,
   img: (props) => (
     // eslint-disable-next-line jsx-a11y/alt-text
-    <img {...props} className="w-full object-scale-down" loading="lazy" />
+    <img
+      {...props}
+      className="w-full block object-scale-down object-center"
+      loading="lazy"
+    />
   ),
 };
 

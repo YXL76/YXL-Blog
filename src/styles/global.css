@@ -95,11 +95,6 @@ h6 {
   line-height: 1.75rem;
 }
 
-#mdx-content > p > img {
-  display: block;
-  margin: 0 auto;
-}
-
 #mdx-content > blockquote {
   background-color: var(--divider);
   border-left: var(--primary) solid 6px;
