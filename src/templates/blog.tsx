@@ -233,11 +233,12 @@ const Blog = ({
         <Grid item xs zeroMinWidth>
           {Content}
           {Nav}
-          <Gitalk
-            pathname={pathname}
-            body={`[${title || ""}](${href})`}
-            language={locate}
-          />
+          {useMemo(
+            () => (
+              <Gitalk pathname={pathname} language={locate} />
+            ),
+            [locate, pathname]
+          )}
         </Grid>
         {md && (
           <Grid item xs={4} className="pl-8">

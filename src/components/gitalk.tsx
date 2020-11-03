@@ -6,11 +6,10 @@ import md5 from "blueimp-md5";
 
 type GitalkProps = {
   pathname: string;
-  body: string;
   language: string;
 };
 
-export const Gitalk: FC<GitalkProps> = ({ pathname, body, language }) =>
+export const Gitalk: FC<GitalkProps> = ({ pathname, language }) =>
   typeof window == "undefined" ? (
     <></>
   ) : (
@@ -26,7 +25,7 @@ export const Gitalk: FC<GitalkProps> = ({ pathname, body, language }) =>
           owner: "YXL76",
           admin: ["YXL76"],
           id: md5(pathname.replace(/^\/(?:[^/]+)\//, "")),
-          body,
+          body: "",
           language,
         }}
       />

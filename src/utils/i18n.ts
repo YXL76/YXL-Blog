@@ -1,4 +1,4 @@
-import { createContext, useCallback, useContext } from "react";
+import { createContext, useContext } from "react";
 import type { Languages } from "../../config";
 import createPersistedState from "use-persisted-state";
 import { defaultLanguage } from "../../config";
@@ -10,7 +10,7 @@ export const useLocate = () => {
 
   return {
     locate,
-    setLocate: useCallback((l) => setLocate(l), [setLocate]),
+    setLocate,
   };
 };
 
