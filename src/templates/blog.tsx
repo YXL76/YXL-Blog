@@ -198,13 +198,13 @@ const Blog = ({
         <TabPanel value={value} index={0}>
           <aside
             id="mdx-toc"
-            className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto"
+            className="-ml-8 pr-4 max-h-screen-3/4 overflow-y-auto overflow-x-hidden"
           >
             {TOC(((tableOfContents as unknown) as TocItem)?.items || [])}
           </aside>
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
+          <AuthorCard className="max-h-screen-3/4 overflow-y-auto overflow-x-hidden" />
         </TabPanel>
       </>
     ),

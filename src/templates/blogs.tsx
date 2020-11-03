@@ -45,7 +45,7 @@ const Blogs = ({
                 trigger ? "ease-slide-exit -translate-y-14" : ""
               }`}
             >
-              <AuthorCard className="max-h-screen-3/4 overflow-y-auto" />
+              <AuthorCard className="max-h-screen-3/4 overflow-y-auto overflow-x-hidden" />
             </Card>
           </Grid>
         </Hidden>

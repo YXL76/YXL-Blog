@@ -35,7 +35,7 @@ const About = ({
             <Mdx
               className="w-full p-2"
               head={
-                <div className="flex flex-wrap justify-center">
+                <div className="flex flex-wrap justify-between px-4 md:px-0">
                   {education.length > 0 && (
                     <div>
                       <h3 className="flex items-center">
