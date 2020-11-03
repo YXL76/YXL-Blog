@@ -85,7 +85,7 @@ export const Search: FC<{ indexName: string }> = ({ indexName }) => {
   );
 
   return (
-    <div ref={rootRef}>
+    <div className="sm:relative" ref={rootRef}>
       <InstantSearch
         searchClient={searchClient}
         indexName={indexName}
@@ -93,7 +93,7 @@ export const Search: FC<{ indexName: string }> = ({ indexName }) => {
       >
         <SearchBox indexName={indexName as Languages} setFocus={setFocus} />
         {focus && query && query.length > 0 && (
-          <Card className="absolute top-1 right-0 max-w-lg">
+          <Card className="absolute top-1 right-0 w-screen sm:w-120">
             <Hits />
             <PoweredBy className="flex justify-end text-lg font-medium" />
           </Card>
