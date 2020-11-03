@@ -104,50 +104,52 @@ export const AuthorCard: FC<BlogCardProps> = ({ className }) => {
         <Social href={`https://weibo.com/u/${weibo}`} icon={<SinaWeibo />} />
       </div>
       <div className="text-center">{bio}</div>
-      <div className="flex justify-center">
-        <List
-          dense
-          disablePadding
-          className="w-1/2"
-          subheader={
-            <ListSubheader>{message[locate]["organizations"]}</ListSubheader>
-          }
-        >
-          {organizations.map(({ name, url }, idx) => (
-            <Link
-              key={idx}
-              href={url}
-              underline="none"
-              color="inherit"
-              target="_blank"
-            >
-              <ListItem button>
+      {organizations.length > 0 && (
+        <div className="flex justify-center">
+          <List
+            dense
+            disablePadding
+            className="w-1/2"
+            subheader={
+              <ListSubheader>{message[locate]["organizations"]}</ListSubheader>
+            }
+          >
+            {organizations.map(({ name, url }, idx) => (
+              <Link
+                key={idx}
+                href={url}
+                underline="none"
+                color="inherit"
+                target="_blank"
+              >
+                <ListItem button>
+                  <ListItemIcon classes={{ root: "min-w-0 pr-2" }}>
+                    <ApartmentOutlined />
+                  </ListItemIcon>
+                  <ListItemText primary={name} />
+                </ListItem>
+              </Link>
+            ))}
+          </List>
+          <List
+            dense
+            disablePadding
+            className="w-1/2"
+            subheader={
+              <ListSubheader>{message[locate]["interests"]}</ListSubheader>
+            }
+          >
+            {interests.map((interest, idx) => (
+              <ListItem key={idx}>
                 <ListItemIcon classes={{ root: "min-w-0 pr-2" }}>
-                  <ApartmentOutlined />
+                  <FavoriteOutlined />
                 </ListItemIcon>
-                <ListItemText primary={name} />
+                <ListItemText primary={interest} />
               </ListItem>
-            </Link>
-          ))}
-        </List>
-        <List
-          dense
-          disablePadding
-          className="w-1/2"
-          subheader={
-            <ListSubheader>{message[locate]["interests"]}</ListSubheader>
-          }
-        >
-          {interests.map((interest, idx) => (
-            <ListItem key={idx}>
-              <ListItemIcon classes={{ root: "min-w-0 pr-2" }}>
-                <FavoriteOutlined />
-              </ListItemIcon>
-              <ListItemText primary={interest} />
-            </ListItem>
-          ))}
-        </List>
-      </div>
+            ))}
+          </List>
+        </div>
+      )}
     </div>
   );
 };
