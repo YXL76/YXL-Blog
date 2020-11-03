@@ -6,10 +6,14 @@ export const en: Record<string, string> = {
   categories: "Categories",
   contents: "Contents",
   description: "You Are (Not) Alone",
+  education: "Education",
   home: "Home",
+  interests: "Interests",
+  organizations: "Organizations",
   search: "Search",
   tags: "Tags",
   title: "YXL's Blog",
+  work: "Work experiencerk",
 };
 
 export const enCategories: Record<

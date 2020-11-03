@@ -80,11 +80,13 @@ const components: Components = {
 type MdxProps = {
   children?: string;
   className?: string;
+  head?: ReactNode;
   foot?: ReactNode;
 };
 
-export const Mdx: FC<MdxProps> = ({ className, children, foot }) => (
+export const Mdx: FC<MdxProps> = ({ className, children, head, foot }) => (
   <Paper square elevation={0} id="mdx-content" className={className}>
+    {head}
     <MDXProvider components={components}>
       <MDXRenderer>{children || ""}</MDXRenderer>
     </MDXProvider>

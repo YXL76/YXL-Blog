@@ -19,6 +19,7 @@ export {
   ListItemIcon,
   ListItemSecondaryAction,
   ListItemText,
+  ListSubheader,
   Menu,
   MenuItem,
   Paper,

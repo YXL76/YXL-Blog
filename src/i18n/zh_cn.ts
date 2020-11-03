@@ -6,10 +6,14 @@ export const zh_cn: Record<string, string> = {
   categories: "分类",
   contents: "目录",
   description: "请不要忘记，我在这里",
+  education: "教育",
   home: "主页",
+  interests: "兴趣",
+  organizations: "组织",
   search: "搜索",
   tags: "标签",
   title: "YXL的小屋",
+  work: "工作经历",
 };
 
 export const zh_cnCategories: Record<
