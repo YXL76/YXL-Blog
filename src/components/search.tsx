@@ -1,4 +1,5 @@
 import { Card, InputBase, List, ListItem, ListItemText, navigate } from ".";
+import type { Dispatch, FC, SetStateAction } from "react";
 import {
   Highlight,
   InstantSearch,
@@ -7,9 +8,9 @@ import {
   connectHits,
   connectSearchBox,
 } from "react-instantsearch-dom";
-import React, { createRef, useState } from "react";
-import type { FC } from "react";
+import React, { createRef, useCallback, useState } from "react";
 import type { Languages } from "../../config";
+import type { SearchBoxProvided } from "react-instantsearch-core";
 import { SearchOutlined } from "@material-ui/icons";
 import algoliasearch from "algoliasearch/lite";
 import { message } from "../i18n";
@@ -46,14 +47,13 @@ const searchClient = algoliasearch(
   process.env.GATSBY_ALGOLIA_SEARCH_KEY as string
 );
 
-export const Search: FC<{ indexName: string }> = ({ indexName }) => {
-  const rootRef = createRef<HTMLDivElement>();
-  const [focus, setFocus] = useState(false);
-  const [query, setQuery] = useState([] as any[] | undefined);
+interface TProps extends SearchBoxProvided {
+  indexName: Languages;
+  setFocus: Dispatch<SetStateAction<boolean>>;
+}
 
-  useClickOutside(rootRef, () => setFocus(false));
-
-  const SearchBox = connectSearchBox(({ refine, currentRefinement }) => (
+const SearchBox = connectSearchBox<TProps>(
+  ({ refine, currentRefinement, indexName, setFocus }) => (
     <div className="flex items-center">
       <SearchOutlined />
       <InputBase
@@ -62,7 +62,7 @@ export const Search: FC<{ indexName: string }> = ({ indexName }) => {
           root: "w-16",
           focused: "w-24",
         }}
-        placeholder={message[indexName as Languages]["search"]}
+        placeholder={message[indexName]["search"]}
         inputProps={{ "aria-label": "search" }}
         onChange={(event) => {
           refine(event.target.value);
@@ -71,7 +71,18 @@ export const Search: FC<{ indexName: string }> = ({ indexName }) => {
         value={currentRefinement}
       />
     </div>
-  ));
+  )
+);
+
+export const Search: FC<{ indexName: string }> = ({ indexName }) => {
+  const rootRef = createRef<HTMLDivElement>();
+  const [focus, setFocus] = useState(false);
+  const [query, setQuery] = useState([] as any[] | undefined);
+
+  useClickOutside(
+    rootRef,
+    useCallback(() => setFocus(false), [])
+  );
 
   return (
     <div ref={rootRef}>
@@ -80,7 +91,7 @@ export const Search: FC<{ indexName: string }> = ({ indexName }) => {
         indexName={indexName}
         onSearchStateChange={({ query }) => setQuery(query)}
       >
-        <SearchBox />
+        <SearchBox indexName={indexName as Languages} setFocus={setFocus} />
         {focus && query && query.length > 0 && (
           <Card className="absolute top-1 right-0 max-w-lg">
             <Hits />
