@@ -9,11 +9,9 @@ import {
   connectSearchBox,
 } from "react-instantsearch-dom";
 import React, { createRef, useCallback, useState } from "react";
-import type { Languages } from "../../config";
 import type { SearchBoxProvided } from "react-instantsearch-core";
 import { SearchOutlined } from "@material-ui/icons";
 import algoliasearch from "algoliasearch/lite";
-import { message } from "../i18n";
 import { useClickOutside } from "../utils";
 
 type HitsProps = {
@@ -48,12 +46,11 @@ const searchClient = algoliasearch(
 );
 
 interface TProps extends SearchBoxProvided {
-  indexName: Languages;
   setFocus: Dispatch<SetStateAction<boolean>>;
 }
 
 const SearchBox = connectSearchBox<TProps>(
-  ({ refine, currentRefinement, indexName, setFocus }) => (
+  ({ refine, currentRefinement, setFocus }) => (
     <div className="flex items-center">
       <SearchOutlined />
       <InputBase
@@ -62,7 +59,7 @@ const SearchBox = connectSearchBox<TProps>(
           root: "w-16",
           focused: "w-24",
         }}
-        placeholder={message[indexName]["search"]}
+        placeholder="Search"
         inputProps={{ "aria-label": "search" }}
         onChange={(event) => {
           refine(event.target.value);
@@ -91,7 +88,7 @@ export const Search: FC<{ indexName: string }> = ({ indexName }) => {
         indexName={indexName}
         onSearchStateChange={({ query }) => setQuery(query)}
       >
-        <SearchBox indexName={indexName as Languages} setFocus={setFocus} />
+        <SearchBox setFocus={setFocus} />
         {focus && query && query.length > 0 && (
           <Card className="absolute top-1 right-0 w-screen sm:w-120">
             <Hits />

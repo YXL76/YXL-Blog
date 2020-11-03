@@ -10,7 +10,6 @@ export const en: Record<string, string> = {
   home: "Home",
   interests: "Interests",
   organizations: "Organizations",
-  search: "Search",
   tags: "Tags",
   title: "YXL's Blog",
   work: "Work experiencerk",

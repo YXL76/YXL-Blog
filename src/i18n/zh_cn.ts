@@ -10,7 +10,6 @@ export const zh_cn: Record<string, string> = {
   home: "主页",
   interests: "兴趣",
   organizations: "组织",
-  search: "搜索",
   tags: "标签",
   title: "YXL的小屋",
   work: "工作经历",
