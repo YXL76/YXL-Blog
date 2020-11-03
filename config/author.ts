@@ -21,42 +21,21 @@ export type Author = {
 export const author: Author = {
   name: "YXL",
   avatar: "/images/avatar.webp",
-  role: "Professor of Artificial Intelligence",
-  bio:
-    "My research interests include distributed robotics, mobile computing and programmable matter.",
+  role: "School student",
+  bio: "An amateur software developer who likes animation, movies, reading.",
   organizations: [
     {
-      name: "Stanford University",
-      url: "",
+      name: "Beijing University of Posts and Telecommunications",
+      url: "https://www.bupt.edu.cn/",
     },
   ],
-  interests: [
-    "Artificial Intelligence",
-    "Computational Linguistics",
-    "Information Retrieval",
-  ],
-  career: [
-    {
-      position: "planner",
-      company: "Baidu",
-      date: 2012,
-    },
-  ],
+  interests: ["Front-end development", "Anime"],
+  career: [],
   education: [
     {
-      course: "PhD in Artificial Intelligence",
-      institution: "Stanford University",
-      date: 2012,
-    },
-    {
-      course: "MEng in Artificial Intelligence",
-      institution: "Massachusetts Institute of Technology",
-      date: 2009,
-    },
-    {
-      course: "BSc in Artificial Intelligence",
-      institution: "Massachusetts Institute of Technology",
-      date: 2008,
+      course: "Communication Engineering",
+      institution: "Beijing University of Posts and Telecommunications",
+      date: 2018,
     },
   ],
   email: "chenxin.lan.76@gmail.com",
