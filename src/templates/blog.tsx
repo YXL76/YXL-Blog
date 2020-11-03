@@ -1,8 +1,15 @@
 import {
+  AppsOutlined,
+  NavigateBeforeOutlined,
+  NavigateNextOutlined,
+} from "@material-ui/icons";
+import {
   AuthorCard,
   BlogBanner,
   ButtonBase,
   Card,
+  Dialog,
+  Fab,
   Gitalk,
   Grid,
   Mdx,
@@ -14,10 +21,6 @@ import {
   navigate,
   useMediaQuery,
 } from "../components";
-import {
-  NavigateBeforeOutlined,
-  NavigateNextOutlined,
-} from "@material-ui/icons";
 import React, { useEffect, useMemo, useState } from "react";
 import { useLocateContext, useScrollContext } from "../utils";
 import type { ChangeEvent } from "react";
@@ -84,6 +87,7 @@ const Blog = ({
   const md = useMediaQuery("(min-width:960px)");
   const { locate } = useLocateContext();
   const { trigger } = useScrollContext();
+  const [openDialog, setDialogOpen] = useState(false);
   const [value, setValue] = useState(0);
   const [active, setActive] = useState("");
 
@@ -240,7 +244,7 @@ const Blog = ({
             [locate, pathname]
           )}
         </Grid>
-        {md && (
+        {md ? (
           <Grid item xs={4} className="pl-8">
             <Card
               className={`group sticky overflow-hidden rounded-3xl shadow-md hover:shadow-lg transition-toc duration-300 ease-out ${
@@ -250,6 +254,26 @@ const Blog = ({
               {SideContent}
             </Card>
           </Grid>
+        ) : (
+          <>
+            <Fab
+              className="fixed"
+              style={{ right: "4vw", bottom: "4vh" }}
+              color="primary"
+              aria-label="apps"
+              onClick={() => setDialogOpen(true)}
+            >
+              <AppsOutlined />
+            </Fab>
+            <Dialog
+              fullWidth
+              onClose={() => setDialogOpen(false)}
+              aria-labelledby="apps-dialog"
+              open={openDialog}
+            >
+              {SideContent}
+            </Dialog>
+          </>
         )}
       </Grid>
     </SEO>
