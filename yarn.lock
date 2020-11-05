@@ -4733,7 +4733,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.0.1, autoprefixer@npm:^10.0.1":
+"autoprefixer@npm:10.0.1":
   version: 10.0.1
   resolution: "autoprefixer@npm:10.0.1"
   dependencies:
@@ -10257,14 +10257,14 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-algolia@npm:0.14.1":
-  version: 0.14.1
-  resolution: "gatsby-plugin-algolia@npm:0.14.1"
+"gatsby-plugin-algolia@npm:0.15.0":
+  version: 0.15.0
+  resolution: "gatsby-plugin-algolia@npm:0.15.0"
   dependencies:
     algoliasearch: ^3.24.5
     gatsby-cli: ^1.1.58
     lodash.chunk: ^4.2.0
-  checksum: 5c591363c6e98824d932e019cf75284cf678228b2f590da6e4c399b63b831c56cb3491a99456008149b54c54dfc8403cdfee3ccec5dc5b3639cee444a106a46b
+  checksum: dfc849ca33d140aab45dc483c47dca02fc086cb915f41c07a5d52851d2c554f084758dd37bcd7fea2ab627048c8a17e637c350dd96d53dcee8eb71439e97e2a2
   languageName: node
   linkType: hard
 
@@ -17345,23 +17345,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"postcss-js@npm:^2.0.1":
+"postcss-js@npm:^2.0.1, postcss-js@npm:^2.0.3":
   version: 2.0.3
   resolution: "postcss-js@npm:2.0.3"
   dependencies:
     camelcase-css: ^2.0.1
     postcss: ^7.0.18
   checksum: 1adfa411c9aac86f18314a06051c57553ae9df78c3c473c0a76877d78337a7d286ce7e560445218cf119402b0641e06009e7fd862421413d941924bd0f0eb5fe
-  languageName: node
-  linkType: hard
-
-"postcss-js@npm:^3.0.1":
-  version: 3.0.1
-  resolution: "postcss-js@npm:3.0.1"
-  dependencies:
-    camelcase-css: ^2.0.1
-    postcss: ^8.1.0
-  checksum: ada6b073e6db19f8afe215b99c3dde95d1971b208729c77c90c51434e9a8cd4c60d6acc036ff45e80f76e13b4b64aac36241423d3832b0f062da6ab4efa890c3
   languageName: node
   linkType: hard
 
@@ -17532,14 +17522,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"postcss-nested@npm:^5.0.1":
-  version: 5.0.1
-  resolution: "postcss-nested@npm:5.0.1"
+"postcss-nested@npm:^4.2.3":
+  version: 4.2.3
+  resolution: "postcss-nested@npm:4.2.3"
   dependencies:
-    postcss-selector-parser: ^6.0.4
-  peerDependencies:
-    postcss: ^8.1.0
-  checksum: 56b109a14d2c4646d56813796c3a78e52ad033b6a8eed9f0efcdc46edf9071a95776187235dd53c8fa06ade1c50bf578ec92e636f9b9aef7102a8258917b8ef6
+    postcss: ^7.0.32
+    postcss-selector-parser: ^6.0.2
+  checksum: 73b9e0115cfd19cbc2a9bb61bc3f795008dc6d59ebdc460f035499d3ade5e1cc5bd05ddaca525c818f570747fa96aab984eb0c81209c6294d38b2a9a52e62b2e
   languageName: node
   linkType: hard
 
@@ -17792,7 +17781,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.1.4, postcss@npm:^8.1.0":
+"postcss@npm:8.1.4":
   version: 8.1.4
   resolution: "postcss@npm:8.1.4"
   dependencies:
@@ -17815,7 +17804,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"postcss@npm:^7.0.0, postcss@npm:^7.0.1, postcss@npm:^7.0.14, postcss@npm:^7.0.17, postcss@npm:^7.0.18, postcss@npm:^7.0.2, postcss@npm:^7.0.21, postcss@npm:^7.0.26, postcss@npm:^7.0.27, postcss@npm:^7.0.32, postcss@npm:^7.0.6":
+"postcss@npm:^7, postcss@npm:^7.0.0, postcss@npm:^7.0.1, postcss@npm:^7.0.14, postcss@npm:^7.0.17, postcss@npm:^7.0.18, postcss@npm:^7.0.2, postcss@npm:^7.0.21, postcss@npm:^7.0.26, postcss@npm:^7.0.27, postcss@npm:^7.0.32, postcss@npm:^7.0.6":
   version: 7.0.35
   resolution: "postcss@npm:7.0.35"
   dependencies:
@@ -21338,12 +21327,12 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:2.0.0-alpha.6":
-  version: 2.0.0-alpha.6
-  resolution: "tailwindcss@npm:2.0.0-alpha.6"
+"tailwindcss@npm:2.0.0-alpha.7":
+  version: 2.0.0-alpha.7
+  resolution: "tailwindcss@npm:2.0.0-alpha.7"
   dependencies:
     "@fullhuman/postcss-purgecss": ^3.0.0
-    autoprefixer: ^10.0.1
+    autoprefixer: ^9.8.6
     bytes: ^3.0.0
     chalk: ^4.1.0
     color: ^3.1.3
@@ -21355,20 +21344,19 @@ fsevents@~2.1.2:
     modern-normalize: ^1.0.0
     node-emoji: ^1.8.1
     object-hash: ^2.0.3
+    postcss: ^7
     postcss-functions: ^3.0.0
-    postcss-js: ^3.0.1
-    postcss-nested: ^5.0.1
+    postcss-js: ^2.0.3
+    postcss-nested: ^4.2.3
     postcss-selector-parser: ^6.0.4
     postcss-value-parser: ^4.1.0
     pretty-hrtime: ^1.0.3
     reduce-css-calc: ^2.1.6
     resolve: ^1.18.1
-  peerDependencies:
-    postcss: ^8.1.4
   bin:
     tailwind: lib/cli.js
     tailwindcss: lib/cli.js
-  checksum: 481aee7d45e6e49348fc8d58854da485829badc8c50fd55074ee026c77d30041b6d0b242eb760a733125e27bca4c5594006ac87435f0de14e6405181ea1d686b
+  checksum: 344d525cfe786708ada444f5e1f9f65287c60697286b8a700323f74bf404e5df720228a990e3d0aaa43f8bfcda2094bbfb39131fca9871a9f0795b13e5a0eb30
   languageName: node
   linkType: hard
 
@@ -23850,7 +23838,7 @@ typescript@4.0.5:
     fontsource-source-code-pro: 3.0.10
     gatsby: 2.25.2
     gatsby-image: 2.4.21
-    gatsby-plugin-algolia: 0.14.1
+    gatsby-plugin-algolia: 0.15.0
     gatsby-plugin-feed: 2.6.0
     gatsby-plugin-google-gtag: 2.1.13
     gatsby-plugin-manifest: 2.5.2
@@ -23891,7 +23879,7 @@ typescript@4.0.5:
     simple-git: 2.21.0
     stylelint: 13.7.2
     stylelint-config-standard: 20.0.0
-    tailwindcss: 2.0.0-alpha.6
+    tailwindcss: 2.0.0-alpha.7
     typescript: 4.0.5
     typescript-plugin-css-modules: 2.8.0
     use-persisted-state: 0.3.0
