@@ -3365,10 +3365,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:*, @types/node@npm:12.19.3":
+"@types/node@npm:*":
   version: 12.19.3
   resolution: "@types/node@npm:12.19.3"
   checksum: ef8ae4d86896d6cdcd4bda92fb43da62f6397e7a4041d492309771a51e85ec5918dbee6495d8b591fd87d7265468c87f4b5e986bc4f0362e1184b610c6b8abac
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:12.19.4":
+  version: 12.19.4
+  resolution: "@types/node@npm:12.19.4"
+  checksum: 9942e57f34ed8fa7de5a1b53268db4ecc12a646f6416392e1eeb03531d390e10f88ec2c237acaf90b623486154ebffdf1cec06a65de67eea3d411f85dddae1c7
   languageName: node
   linkType: hard
 
@@ -23823,7 +23830,7 @@ typescript@4.0.5:
     "@mdx-js/react": 2.0.0-next.8
     "@types/blueimp-md5": 2.7.0
     "@types/lodash.merge": 4.6.6
-    "@types/node": 12.19.3
+    "@types/node": 12.19.4
     "@types/react": 16.9.56
     "@types/react-dom": 16.9.9
     "@types/react-helmet": 6.1.0
