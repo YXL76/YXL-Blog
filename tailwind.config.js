@@ -76,7 +76,4 @@ module.exports = {
       xl: "1920px",
     },
   },
-  variants: {
-    boxShadow: ["responsive", "hover", "focus", "group-hover"],
-  },
 };
