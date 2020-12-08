@@ -10627,9 +10627,9 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"gatsby-plugin-ts-config@npm:1.1.1":
-  version: 1.1.1
-  resolution: "gatsby-plugin-ts-config@npm:1.1.1"
+"gatsby-plugin-ts-config@npm:1.1.5":
+  version: 1.1.5
+  resolution: "gatsby-plugin-ts-config@npm:1.1.5"
   dependencies:
     "@babel/plugin-proposal-nullish-coalescing-operator": ^7.10.1
     "@babel/plugin-proposal-optional-chaining": ^7.10.3
@@ -10661,7 +10661,7 @@ fsevents@~2.1.2:
       optional: true
     typescript:
       optional: true
-  checksum: 7f5417b6191bc9c951895791b0af02167f323b2dfdb546cbe310675d103011b9b1676b3730ae2716bfe033a9c47b3f0793e9dd8414dd6d4e4a383a55e3259f0d
+  checksum: de78fc93542caa2167d01238857d5ff8267629bb589833d6beb60548507c11321a2c42027a85e99d7e7aa2f6103cc1ab3de8d4df6556d3080327b9c9e5fd93aa
   languageName: node
   linkType: hard
 
@@ -23934,7 +23934,7 @@ typescript@4.0.5:
     gatsby-plugin-robots-txt: 1.5.3
     gatsby-plugin-sharp: 2.7.1
     gatsby-plugin-sitemap: 2.5.1
-    gatsby-plugin-ts-config: 1.1.1
+    gatsby-plugin-ts-config: 1.1.5
     gatsby-plugin-typegen: 2.2.1
     gatsby-source-filesystem: 2.4.2
     gatsby-theme-material-ui: 1.0.13
