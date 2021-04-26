@@ -17950,10 +17950,10 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"preact@npm:10.5.5":
-  version: 10.5.5
-  resolution: "preact@npm:10.5.5"
-  checksum: f44c12f61e1ae0dd3691d291559b7bc41a664193650d3156fd02f1541722bf6cb07bf885e8dd31b7023e5683cdc1a42fe5fba4934433f5811b338e24698d1dc1
+"preact@npm:10.5.13":
+  version: 10.5.13
+  resolution: "preact@npm:10.5.13"
+  checksum: 9433cd19eb7497b60920301fea52e17a815fbf501f2c52f46b2a51609d456a95978ee4457b717c2e3dc19b9fc177c1bf73ef29be7cedc2b6632a08165c5d1af3
   languageName: node
   linkType: hard
 
@@ -23944,7 +23944,7 @@ typescript@4.0.5:
     lodash.merge: 4.6.2
     mdi-material-ui: 6.20.0
     postcss: 8.1.7
-    preact: 10.5.5
+    preact: 10.5.13
     preact-render-to-string: 5.1.11
     prettier: 2.1.2
     prism-themes: 1.5.0
