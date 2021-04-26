@@ -7542,6 +7542,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:^4.0.0":
+  version: 4.3.2
+  resolution: "debug@npm:4.3.2"
+  dependencies:
+    ms: 2.1.2
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 5543570879e2274f6725d4285a034d6e0822d35faefc6f55965933fb440e8c21eb3a0bef934e66f4b6b491f898ee2de37cab980e9d4fd61372136c19d3ce4527
+  languageName: node
+  linkType: hard
+
 "debug@npm:^4.0.1, debug@npm:^4.1.0, debug@npm:^4.1.1":
   version: 4.3.0
   resolution: "debug@npm:4.3.0"
@@ -14003,6 +14015,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"katex@npm:^0.13.0":
+  version: 0.13.3
+  resolution: "katex@npm:0.13.3"
+  dependencies:
+    commander: ^6.0.0
+  bin:
+    katex: cli.js
+  checksum: f91a3badda5d48f74342def34e5286339be0993864bad0dc3acf2f4f892d0c4b6acb1d2344dd6e6bc2838d15586fd8a3dc5cc0722cac83dc61a12f011f94ce6e
+  languageName: node
+  linkType: hard
+
 "kebab-hash@npm:^0.1.2":
   version: 0.1.2
   resolution: "kebab-hash@npm:0.1.2"
@@ -14635,7 +14658,7 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"longest-streak@npm:^2.0.1":
+"longest-streak@npm:^2.0.0, longest-streak@npm:^2.0.1":
   version: 2.0.4
   resolution: "longest-streak@npm:2.0.4"
   checksum: ba5ebac14700c0a5f88a312be789b651c35bfed84bd5e2b4f04ac0898add697c36ede401d0b17dfaac0956171027b61ad49ad866ac949ae1d36f9e4ced60cbe1
@@ -14938,6 +14961,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"mdast-util-math@npm:^0.1.0":
+  version: 0.1.2
+  resolution: "mdast-util-math@npm:0.1.2"
+  dependencies:
+    longest-streak: ^2.0.0
+    mdast-util-to-markdown: ^0.6.0
+    repeat-string: ^1.0.0
+  checksum: 3d43c061022ce9b6b52d47726199c87252f0d340993aeb9a05ffdeb76517f10c88ad7c772dd8538468acbcee404c2ff90a8cbf62198206db4a6183f5934724b3
+  languageName: node
+  linkType: hard
+
 "mdast-util-to-hast@npm:9.1.0":
   version: 9.1.0
   resolution: "mdast-util-to-hast@npm:9.1.0"
@@ -14957,6 +14991,20 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
+"mdast-util-to-markdown@npm:^0.6.0":
+  version: 0.6.5
+  resolution: "mdast-util-to-markdown@npm:0.6.5"
+  dependencies:
+    "@types/unist": ^2.0.0
+    longest-streak: ^2.0.0
+    mdast-util-to-string: ^2.0.0
+    parse-entities: ^2.0.0
+    repeat-string: ^1.0.0
+    zwitch: ^1.0.0
+  checksum: c5db77398cdab7bf8a3dcf81f47eaefc7ee267006f9de89c9db9e56d24194bcf1165610dbc8ae61d3f8ba2f92b351b2fc9516b4eb870b78108cc135a43f028b0
+  languageName: node
+  linkType: hard
+
 "mdast-util-to-nlcst@npm:^3.2.0":
   version: 3.2.3
   resolution: "mdast-util-to-nlcst@npm:3.2.3"
@@ -14973,6 +15021,13 @@ fsevents@~2.1.2:
   version: 1.1.0
   resolution: "mdast-util-to-string@npm:1.1.0"
   checksum: 0d5ebe2cb573ac817436a0cb0310f7a46c69a742de2de728451fd6293e4825a7894c2112b2651c4c6dcaccb6f545eade1ea58c0e08dcf4a1ddadb636f2fcd52c
+  languageName: node
+  linkType: hard
+
+"mdast-util-to-string@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "mdast-util-to-string@npm:2.0.0"
+  checksum: cd5d5e3a8421adcbdc90620c74b35c5c037211252807e855f9ca7b953dd94ecdab27a1094c8ac9033b7558f0aec2ab190a43bfa8c25a8cd5e11be89162092e1a
   languageName: node
   linkType: hard
 
@@ -15126,6 +15181,26 @@ fsevents@~2.1.2:
   version: 1.1.2
   resolution: "methods@npm:1.1.2"
   checksum: 450e4ea0fd4a0f3de8c0593d753c7d6c8f2ee49766f5ef35c68cc2ac41699d5e295b7d6330fc2b7271b8569a07857e3eb0b5df0599a353c5808265b4b5066168
+  languageName: node
+  linkType: hard
+
+"micromark-extension-math@npm:^0.1.0":
+  version: 0.1.2
+  resolution: "micromark-extension-math@npm:0.1.2"
+  dependencies:
+    katex: ^0.12.0
+    micromark: ~2.11.0
+  checksum: fd7855e371e6e82da04b40f021458d5b5c0ef3d08511c18318b60b99670dc01d3ee9c55c689614f4dd49caf24daf019bfcc2dde2c512fa5b5266bbcc226d767a
+  languageName: node
+  linkType: hard
+
+"micromark@npm:~2.11.0":
+  version: 2.11.4
+  resolution: "micromark@npm:2.11.4"
+  dependencies:
+    debug: ^4.0.0
+    parse-entities: ^2.0.0
+  checksum: 343bfde8acc99c6b78ad8573984f484f24ac34b5d9fda9b3c1649687db94e86d4ae9e39f00cf236fecc2cde32c7aaa6a544c3805ad29d8c9b45cd2e6cecbfa4a
   languageName: node
   linkType: hard
 
@@ -19049,17 +19124,17 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"rehype-katex@npm:4.0.0":
-  version: 4.0.0
-  resolution: "rehype-katex@npm:4.0.0"
+"rehype-katex@npm:5.0.0":
+  version: 5.0.0
+  resolution: "rehype-katex@npm:5.0.0"
   dependencies:
     "@types/katex": ^0.11.0
     hast-util-to-text: ^2.0.0
-    katex: ^0.12.0
+    katex: ^0.13.0
     rehype-parse: ^7.0.0
     unified: ^9.0.0
     unist-util-visit: ^2.0.0
-  checksum: d49aa44b7b1d2d6c9698764a05214e24b5f2d1d78ede041249568a01404a248d92a777ddb2cf1204d866056d66ca9004d287b435b23398e65e8cf26d96f492ee
+  checksum: 3b9c47a2c16f09b287cfed6a2d59e09ab790b87bf05f14db148a68c048a90d7a9641a7490dd0ac9bad31edfe8d23322e11236fc374660704095631c72ad02f61
   languageName: node
   linkType: hard
 
@@ -19142,10 +19217,13 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"remark-math@npm:3.0.1":
-  version: 3.0.1
-  resolution: "remark-math@npm:3.0.1"
-  checksum: b6825590f08257ebf9201044808be823521d493e1fb63345b0ef0d6b4e2d1645316bdfbda4220d3a87234693f4aa417eb09a4b03870984b3ee62f28c6cea099a
+"remark-math@npm:4.0.0":
+  version: 4.0.0
+  resolution: "remark-math@npm:4.0.0"
+  dependencies:
+    mdast-util-math: ^0.1.0
+    micromark-extension-math: ^0.1.0
+  checksum: ff482673f2751915531d6489ab18c573f5634266f511caf00566b44f94561f42917d85cc77f5e9e339b3f1f585e35922b7d6acff41fc44a132cee5520f3155f9
   languageName: node
   linkType: hard
 
@@ -23952,10 +24030,10 @@ typescript@4.0.5:
     react-dom: 17.0.1
     react-helmet: 6.1.0
     react-instantsearch-dom: 6.8.2
-    rehype-katex: 4.0.0
+    rehype-katex: 5.0.0
     rehype-slug: 4.0.0
     remark-emoji: 2.1.0
-    remark-math: 3.0.1
+    remark-math: 4.0.0
     simple-git: 2.21.0
     stylelint: 13.7.2
     stylelint-config-standard: 20.0.0
