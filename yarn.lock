@@ -17919,14 +17919,14 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"preact-render-to-string@npm:5.1.11":
-  version: 5.1.11
-  resolution: "preact-render-to-string@npm:5.1.11"
+"preact-render-to-string@npm:5.1.19":
+  version: 5.1.19
+  resolution: "preact-render-to-string@npm:5.1.19"
   dependencies:
     pretty-format: ^3.8.0
   peerDependencies:
     preact: ">=10"
-  checksum: 3103e7c4d630012e45cb10d2bb229f3e4081edfa071bf09c86206e7352a1817974fc6ab44d006f1cae3b0a4e6e81b1cacbc8d0f70a98f9c4fe208d16ee3d9738
+  checksum: d90427f67ec6319f31b6dc7caf63bb9b57d8dc74d49093dfe2687e94a705a6c79f52e2be5cb66078cc0f0135862aecd181090c8e926129bd8d56df399cd77124
   languageName: node
   linkType: hard
 
@@ -23945,7 +23945,7 @@ typescript@4.0.5:
     mdi-material-ui: 6.20.0
     postcss: 8.1.7
     preact: 10.5.5
-    preact-render-to-string: 5.1.11
+    preact-render-to-string: 5.1.19
     prettier: 2.1.2
     prism-themes: 1.5.0
     react: 17.0.1
