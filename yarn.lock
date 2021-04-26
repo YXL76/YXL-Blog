@@ -7554,6 +7554,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"debug@npm:^4.3.1":
+  version: 4.3.2
+  resolution: "debug@npm:4.3.2"
+  dependencies:
+    ms: 2.1.2
+  peerDependenciesMeta:
+    supports-color:
+      optional: true
+  checksum: 5543570879e2274f6725d4285a034d6e0822d35faefc6f55965933fb440e8c21eb3a0bef934e66f4b6b491f898ee2de37cab980e9d4fd61372136c19d3ce4527
+  languageName: node
+  linkType: hard
+
 "debug@npm:~4.1.0":
   version: 4.1.1
   resolution: "debug@npm:4.1.1"
@@ -20195,14 +20207,14 @@ fsevents@~2.1.2:
   languageName: node
   linkType: hard
 
-"simple-git@npm:2.21.0":
-  version: 2.21.0
-  resolution: "simple-git@npm:2.21.0"
+"simple-git@npm:2.38.0":
+  version: 2.38.0
+  resolution: "simple-git@npm:2.38.0"
   dependencies:
     "@kwsites/file-exists": ^1.1.1
     "@kwsites/promise-deferred": ^1.1.1
-    debug: ^4.1.1
-  checksum: cde3ebdf9e716649af1afea8686060942ff725d53d0093cbf87ad32555090728026e45a72881a9428c850f1bdb5bed197fabc74b28c6d74c50b616a2c395a39f
+    debug: ^4.3.1
+  checksum: 829b5ddba4c3b40dc443a69b186cd54bc1b40f18696f360cd8177922a43022aaa04927b50e922026dc4a1d9318836a8c8f6d476f8b7d39c81357af1a6154e0b3
   languageName: node
   linkType: hard
 
@@ -23956,7 +23968,7 @@ typescript@4.0.5:
     rehype-slug: 4.0.0
     remark-emoji: 2.1.0
     remark-math: 3.0.1
-    simple-git: 2.21.0
+    simple-git: 2.38.0
     stylelint: 13.7.2
     stylelint-config-standard: 20.0.0
     tailwindcss: 2.0.0-alpha.15
