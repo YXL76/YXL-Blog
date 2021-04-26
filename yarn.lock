@@ -3468,12 +3468,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-dom@npm:16.9.9":
-  version: 16.9.9
-  resolution: "@types/react-dom@npm:16.9.9"
+"@types/react-dom@npm:16.9.12":
+  version: 16.9.12
+  resolution: "@types/react-dom@npm:16.9.12"
   dependencies:
-    "@types/react": "*"
-  checksum: d92c166f5bcd483f175311eec9c472893216d486106a5b5402eb293840c0b0d1aafb484a3fe3f0f4622ae1f6dff46c9fe970873d4dac7fdf70a50931d3cab4a0
+    "@types/react": ^16
+  checksum: 49745de25f49e3fff8e8dbc5751b3845ab3e5f732d03d89d5818148aa2dda1b002d8ddc7dc8976684c5dd9671cdbff8c270ea9f5c05c1349f65d233aaf135f25
   languageName: node
   linkType: hard
 
@@ -3534,7 +3534,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:16.9.56":
+"@types/react@npm:16.9.56, @types/react@npm:^16":
   version: 16.9.56
   resolution: "@types/react@npm:16.9.56"
   dependencies:
@@ -23894,7 +23894,7 @@ typescript@4.0.5:
     "@types/lodash.merge": 4.6.6
     "@types/node": 12.19.4
     "@types/react": 16.9.56
-    "@types/react-dom": 16.9.9
+    "@types/react-dom": 16.9.12
     "@types/react-helmet": 6.1.0
     "@types/react-instantsearch-dom": 6.3.0
     "@types/use-persisted-state": 0.3.0
