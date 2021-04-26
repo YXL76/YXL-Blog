@@ -14,7 +14,7 @@
     "@material-ui/lab": "5.0.0-alpha.15",
     "@mdx-js/mdx": "2.0.0-next.8",
     "@mdx-js/react": "2.0.0-next.8",
-    "algoliasearch": "4.6.0",
+    "algoliasearch": "4.9.1",
     "autoprefixer": "10.0.2",
     "blueimp-md5": "2.18.0",
     "fontsource-noto-sans-sc": "3.0.3",
