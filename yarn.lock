@@ -3534,13 +3534,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:16.9.56":
-  version: 16.9.56
-  resolution: "@types/react@npm:16.9.56"
+"@types/react@npm:16.14.6":
+  version: 16.14.6
+  resolution: "@types/react@npm:16.14.6"
   dependencies:
     "@types/prop-types": "*"
+    "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: 139867e2b3d577723b9361234f105d0cf1b143202f51fef207355332f972dd74030cfb3918037cb311eefd203ee06e0a370c37755204eefdd35734f0fde070a1
+  checksum: 3ea394da0ab1aef2949ffd3412165875c30ac8cbfefc75be8e677f66f26ab825b738717371e83449f5550669523f3f3a6ae6510f54b64a631982b3cadf28f51c
   languageName: node
   linkType: hard
 
@@ -3560,6 +3561,13 @@ __metadata:
     "@types/glob": "*"
     "@types/node": "*"
   checksum: b50fd076c454890f9efd8e876972908d3d9503611a2e5207ef6d4e3dece4ff2367eab4c6889db726098db148a29bd29eeed6a1fc3154bf1d09d3da2f691470af
+  languageName: node
+  linkType: hard
+
+"@types/scheduler@npm:*":
+  version: 0.16.1
+  resolution: "@types/scheduler@npm:0.16.1"
+  checksum: 0124c2e4dee5e9b8c8524fcd6b1b8ea0b807b132e593925db04cdcc92ca2779a0d27c79414e60454b4458361a4d8319fa2b59d20585054f21617d1e9acf46a6f
   languageName: node
   linkType: hard
 
@@ -23893,7 +23901,7 @@ typescript@4.0.5:
     "@types/blueimp-md5": 2.7.0
     "@types/lodash.merge": 4.6.6
     "@types/node": 12.19.4
-    "@types/react": 16.9.56
+    "@types/react": 16.14.6
     "@types/react-dom": 16.9.9
     "@types/react-helmet": 6.1.0
     "@types/react-instantsearch-dom": 6.3.0
